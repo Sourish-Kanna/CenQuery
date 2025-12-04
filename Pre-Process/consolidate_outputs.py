@@ -9,38 +9,31 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(BASE_DIR, "unified_outputs")
 
 # Mapping of source folders to the files we want to grab
-# We deliberately pick 'regions.csv' from healthcare because it was the most complete (had Ladakh & Telangana)
 SOURCES = {
-    "output normalized healthcare": [
-        "regions.csv",          # MASTER COPY: Contains 39 states (incl. Telangana/Ladakh)
+    "output_normalized_healthcare": [
+        "regions.csv",          # MASTER COPY: Contains 39 states
         "healthcare_stats.csv",
         "tru.csv"               # MASTER COPY
     ],
-    "output normalized population": [
-        # "population.csv",
+    "output_normalized_population": [
         "population_stats.csv",
-        # Skipping regions.csv here (it was older/less clean)
     ],
-    "output normalized education": [
+    "output_normalized_education": [
         "pca_stats.csv"
-        # Skipping tru.csv (duplicate)
     ],
-    "output normalized religion": [
+    "output_normalized_religion": [
         "religion_stats.csv",
         "religions.csv"
-        # Skipping tru.csv (duplicate)
     ],
-    "output normalized occupation": [
+    "output_normalized_occupation": [
         "occupation_stats.csv",
         "age_groups.csv"
-        # Skipping regions.csv & tru.csv (duplicates)
     ],
-    "output normalized language": [
+    "output_normalized_language": [
         "language_stats.csv",
         "languages.csv"
-        # Skipping regions.csv & tru.csv (duplicates)
     ],
-    "output crop": [
+    "output_normalized_crop": [  # FIX: Updated to use underscore name
         "crops.csv"
     ]
 }
@@ -80,17 +73,9 @@ def consolidate():
     with open(readme_path, "w") as f:
         f.write("UNIFIED CENSUS DATA STAGING AREA\n")
         f.write("================================\n\n")
-        f.write("Master Tables:\n")
-        f.write("- regions.csv  (Source: Healthcare, includes 39 states/UTs)\n")
-        f.write("- tru.csv      (Source: Healthcare, Total/Rural/Urban mapping)\n\n")
-        f.write("Data Tables:\n")
-        f.write("- population_stats.csv\n")
-        f.write("- healthcare_stats.csv\n")
-        f.write("- pca_stats.csv (Education)\n")
-        f.write("- religion_stats.csv\n")
-        f.write("- occupation_stats.csv\n")
-        f.write("- crops.csv\n")
-        f.write("- language_stats.csv\n")
+        f.write("Standardized Keys:\n")
+        f.write("- State ID: From regions.csv (0-38)\n")
+        f.write("- TRU ID: 1=Total, 2=Rural, 3=Urban\n")
     
     print("-" * 40)
     print(f"🎉 Success! {copied_count} files consolidated into 'unified_outputs/'.")
