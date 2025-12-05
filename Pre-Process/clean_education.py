@@ -8,7 +8,8 @@ import os
 INPUT_FILE = "input/education.xls"
 OUTPUT_DIR = "output_normalized_education"
 TRU_FILE = os.path.join(OUTPUT_DIR, "tru.csv")
-PCA_STATS_FILE = os.path.join(OUTPUT_DIR, "pca_stats.csv")
+# FIX: Renamed output file
+PCA_STATS_FILE = os.path.join(OUTPUT_DIR, "education_stats.csv")
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -33,47 +34,34 @@ def process_pca_data():
             print(f"❌ Error: {e}")
             return
 
-    # 1. Clean Column Names
     df.columns = [clean_column_name(c) for c in df.columns]
     
-    # --- FIX: Standardize State Column Name ---
     if 'state_code' in df.columns:
         df.rename(columns={'state_code': 'state'}, inplace=True)
     
-    # 2. Standardize TRU Lookup (Hardcoded)
-    print("✂️  Extracting TRU Lookup...")
-    tru_map = {
-        "Total": 1,
-        "Rural": 2,
-        "Urban": 3
-    }
-    
-    # Create standardized lookup file
-    tru_df = pd.DataFrame(list(tru_map.items()), columns=['name', 'id'])
-    tru_df = tru_df[['id', 'name']] # Reorder
-    tru_df.to_csv(TRU_FILE, index=False)
-    print(f"   ✅ Created '{TRU_FILE}' (Standardized)")
+    print("   Standardizing TRU...")
+    tru_map = {"Total": 1, "Rural": 2, "Urban": 3}
+    pd.DataFrame(list(tru_map.items()), columns=['name', 'id'])[['id', 'name']].to_csv(TRU_FILE, index=False)
 
-    # 3. Map TRU to ID using the standard map
-    # We title-case the input just in case (e.g. "rural" -> "Rural")
-    df['tru_clean'] = df['tru'].astype(str).str.title() 
+    df['tru_clean'] = df['tru'].astype(str).str.title()
     df['tru_id'] = df['tru_clean'].map(tru_map)
 
-    # 4. Drop Redundant Columns
-    cols_to_drop = [
-        'district_code', 'subdistt_code', 'townvillage_code',
-        'state_code1', 'district_code1', 'subdistt_code1', 'townvillage_code1',
-        'ward_code', 'eb_code', 'level', 'name', 'tru', 'tru_clean' 
-    ]
+    print("🔢 Converting metrics to Numeric (Int)...")
+    keys = ['state', 'tru_id']
+    for col in df.columns:
+        if col not in keys and col not in ['tru', 'tru_clean', 'name', 'level']:
+            if col in ['district_code', 'subdistt_code', 'townvillage_code', 'state_code1', 'ward_code', 'eb_code']: 
+                continue
+            df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0).astype(int)
+
+    cols_to_drop = ['district_code', 'subdistt_code', 'townvillage_code', 'state_code1', 'ward_code', 'eb_code', 'level', 'name', 'tru', 'tru_clean']
     df.drop(columns=[c for c in cols_to_drop if c in df.columns], inplace=True, errors='ignore')
 
-    # 5. Clean State Code
     if 'state' in df.columns:
         df['state'] = df['state'].fillna(0).astype(int)
 
-    # Save Stats
     df.to_csv(PCA_STATS_FILE, index=False)
-    print(f"   ✅ Created '{PCA_STATS_FILE}'")
+    print(f"✅ Created '{PCA_STATS_FILE}'")
 
 if __name__ == "__main__":
     if os.path.exists(INPUT_FILE):

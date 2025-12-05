@@ -36,6 +36,12 @@ def process_population_data():
     if 'age' in df.columns:
         df['age'] = df['age'].astype(str).str.replace('.0', '', regex=False)
 
+    # --- FIX: Force Numeric on Raw Data ---
+    print("🔢 Converting raw metrics to Numeric...")
+    pop_cols = [c for c in df.columns if 'persons' in c or 'males' in c or 'females' in c]
+    for col in pop_cols:
+        df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0).astype(int)
+
     print("🔄 Unpivoting Data (Wide -> Long)...")
     
     # Total (1)

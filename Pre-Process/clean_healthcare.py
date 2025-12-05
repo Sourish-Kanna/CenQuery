@@ -61,6 +61,14 @@ def get_state_id(name):
         if "telangana" in name: return 38
     return None
 
+def deduplicate_columns(df):
+    """Renames duplicate columns by appending .1, .2, etc."""
+    cols = pd.Series(df.columns)
+    for dup in cols[cols.duplicated()].unique(): 
+        cols[cols[cols == dup].index.values.tolist()] = [dup + '.' + str(i) if i != 0 else dup for i in range(sum(cols == dup))]
+    df.columns = cols
+    return df
+
 def process_healthcare_data():
     print(f"📖 Reading: {INPUT_FILE}")
     try:
@@ -69,20 +77,20 @@ def process_healthcare_data():
         print(f"❌ Error: {e}")
         return
 
-    # 1. Clean Columns
+    # 1. Clean Columns & Deduplicate (CRITICAL FIX)
     df.columns = [clean_column_name(c) for c in df.columns]
+    df = deduplicate_columns(df)
     
-    # 2. Generate Master Regions File
+    # 2. Generate Master Regions Lookup
     print("🗺️  Generating Master Regions Lookup...")
     regions_df = pd.DataFrame(list(MASTER_STATES.items()), columns=['state', 'area_name'])
     regions_df.to_csv(REGIONS_FILE, index=False)
-    print(f"   ✅ Created '{REGIONS_FILE}' with {len(regions_df)} regions.")
 
     # 3. Map State IDs
     print("🔄 Mapping Data...")
     state_col = next((c for c in df.columns if 'state' in c or 'india' in c), df.columns[0])
     df['state'] = df[state_col].apply(get_state_id)
-    df = df.dropna(subset=['state']) # Drop unknown states
+    df = df.dropna(subset=['state'])
     df['state'] = df['state'].astype(int)
 
     # 4. Map TRU IDs
@@ -95,12 +103,12 @@ def process_healthcare_data():
     else:
         df['tru_id'] = 1
 
-    # 5. FORCE NUMERIC CONVERSION (The Fix)
+    # 5. FORCE NUMERIC CONVERSION
     print("🔢 Converting metrics to Numeric...")
     for col in df.columns:
-        if col not in ['state', 'tru_id']:
-            # This forces non-numeric text (like 'NA', '-') to become NaN (empty)
-            df[col] = pd.to_numeric(df[col], errors='coerce')
+        if col not in ['state', 'tru_id', state_col, area_col]:
+            # Use loc to avoid SettingWithCopyWarning
+            df.loc[:, col] = pd.to_numeric(df[col], errors='coerce')
 
     # 6. Cleanup & Save
     cols_to_drop = [state_col, area_col] if area_col else [state_col]
@@ -111,6 +119,8 @@ def process_healthcare_data():
     for col in ['tru_id', 'state']:
         if col in cols: cols.insert(0, cols.pop(cols.index(col)))
     
+    df = df[cols]
+
     df.to_csv(STATS_FILE, index=False)
     print(f"✅ Created '{STATS_FILE}' (Numeric)")
 

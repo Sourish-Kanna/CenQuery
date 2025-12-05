@@ -10,6 +10,7 @@ OUTPUT_DIR = "output_normalized_language"
 LANGUAGES_FILE = os.path.join(OUTPUT_DIR, "languages.csv")
 TRU_FILE = os.path.join(OUTPUT_DIR, "tru.csv")
 LANGUAGE_STATS_FILE = os.path.join(OUTPUT_DIR, "language_stats.csv")
+REGIONS_FILE = os.path.join(OUTPUT_DIR, "regions.csv")
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -45,6 +46,9 @@ def process_language_data():
     languages_df = df[['language_code', 'language_name_clean']].drop_duplicates()
     languages_df.rename(columns={'language_name_clean': 'name', 'language_code': 'id'}, inplace=True)
     languages_df.to_csv(LANGUAGES_FILE, index=False)
+    
+    regions_df = df[['state_code', 'area_name']].drop_duplicates()
+    regions_df.to_csv(REGIONS_FILE, index=False)
 
     print("   Standardizing TRU...")
     tru_data = [{'id': 1, 'name': 'Total'}, {'id': 2, 'name': 'Rural'}, {'id': 3, 'name': 'Urban'}]
@@ -53,16 +57,26 @@ def process_language_data():
     print("🔄 Unpivoting Data...")
     normalized_rows = []
     for _, row in df.iterrows():
-        # FIX: Use 'state' instead of 'state_code'
         base_info = {'state': row['state_code'], 'language_id': row['language_code']}
         
-        normalized_rows.append({**base_info, 'tru_id': 1, 'person': row['tot_p'], 'male': row['tot_m'], 'female': row['tot_f']})
-        normalized_rows.append({**base_info, 'tru_id': 2, 'person': row['rur_p'], 'male': row['rur_m'], 'female': row['rur_f']})
-        normalized_rows.append({**base_info, 'tru_id': 3, 'person': row['urb_p'], 'male': row['urb_m'], 'female': row['urb_f']})
+        # Get raw values (might be string or int)
+        t_p, t_m, t_f = row['tot_p'], row['tot_m'], row['tot_f']
+        r_p, r_m, r_f = row['rur_p'], row['rur_m'], row['rur_f']
+        u_p, u_m, u_f = row['urb_p'], row['urb_m'], row['urb_f']
+
+        normalized_rows.append({**base_info, 'tru_id': 1, 'person': t_p, 'male': t_m, 'female': t_f})
+        normalized_rows.append({**base_info, 'tru_id': 2, 'person': r_p, 'male': r_m, 'female': r_f})
+        normalized_rows.append({**base_info, 'tru_id': 3, 'person': u_p, 'male': u_m, 'female': u_f})
 
     df_norm = pd.DataFrame(normalized_rows)
+    
+    # --- FIX: Force Numeric Conversion ---
+    print("🔢 Converting metrics to Numeric (Int)...")
     for c in ['person', 'male', 'female']:
         df_norm[c] = pd.to_numeric(df_norm[c], errors='coerce').fillna(0).astype(int)
+        
+    # Ensure keys are int
+    df_norm['state'] = pd.to_numeric(df_norm['state'], errors='coerce').fillna(0).astype(int)
 
     df_norm.to_csv(LANGUAGE_STATS_FILE, index=False)
     print(f"✅ Created '{LANGUAGE_STATS_FILE}'")

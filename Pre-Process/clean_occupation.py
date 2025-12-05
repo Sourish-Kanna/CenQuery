@@ -59,11 +59,17 @@ def process_occupation_data():
     cols_to_drop = ['area_name', 'tru', 'age_group', 'district_code', 'table_code']
     df.drop(columns=[c for c in cols_to_drop if c in df.columns], inplace=True)
 
-    # FIX: Rename state_code to state
     df.rename(columns={'state_code': 'state'}, inplace=True)
 
+    # --- FIX: Force Numeric Conversion ---
+    print("🔢 Converting metrics to Numeric (Int)...")
     for col in df.columns:
-        df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0).astype(int)
+        # Explicitly ignore keys
+        if col not in ['state', 'tru_id', 'age_group_id']:
+            df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0).astype(int)
+        else:
+             # Ensure keys are integers too
+             df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0).astype(int)
 
     keys = ['state', 'tru_id', 'age_group_id']
     metrics = [c for c in df.columns if c not in keys]

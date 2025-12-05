@@ -33,7 +33,6 @@ def process_religion_data():
 
     df.columns = [clean_column_name(c) for c in df.columns]
     
-    # FIX: Standard TRU
     print("   Standardizing TRU...")
     tru_map = {"Total": 1, "Rural": 2, "Urban": 3}
     pd.DataFrame(list(tru_map.items()), columns=['name', 'id'])[['id', 'name']].to_csv(TRU_FILE, index=False)
@@ -45,6 +44,13 @@ def process_religion_data():
     rel_df.to_csv(RELIGIONS_FILE, index=False)
     
     df['religion_id'] = df['religion'].map(dict(zip(rel_df['religion_name'], rel_df['id'])))
+
+    # --- FIX: Force Numeric Conversion ---
+    print("🔢 Converting metrics to Numeric (Int)...")
+    keys = ['state', 'tru_id', 'religion_id']
+    for col in df.columns:
+        if col not in keys and col not in ['religion', 'tru', 'district', 'subdistt', 'townvillage', 'name']:
+             df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0).astype(int)
 
     cols_to_drop = ['religion', 'tru', 'district', 'subdistt', 'townvillage', 'name']
     df.drop(columns=[c for c in cols_to_drop if c in df.columns], inplace=True)
