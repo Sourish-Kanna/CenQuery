@@ -18,16 +18,16 @@ def verify_join():
     try:
         engine = create_engine(DB_CONNECTION_STRING)
         
-        # CORRECTED QUERY
-        # 1. Uses 'infant_mortality_rate_per_1000_live_births' (Real column name)
-        # 2. Casts TEXT to NUMERIC safely using NULLIF to handle empty strings
-        # 3. Uses 'education_stats' as per your latest schema
+        # FINAL CLEAN QUERY
+        # No casting needed because your ETL pipeline now enforces numeric types!
         query = """
         SELECT 
             r.area_name AS state,
             t.name AS area_type,
-            (SUM(p.literates_person) * 100.0 / SUM(p.total_person))::NUMERIC(10,2) AS literacy_rate,
-            AVG(NULLIF(h.infant_mortality_rate_per_1000_live_births, '')::NUMERIC)::NUMERIC(10,2) AS infant_mortality_rate
+            -- Education Data (Literacy Rate)
+            (SUM(p.literates_person) * 100.0 / SUM(p.total_person)) AS literacy_rate,
+            -- Healthcare Data (Infant Mortality)
+            AVG(h.infant_mortality_rate_per_1000_live_births) AS infant_mortality_rate
         FROM regions r
         JOIN education_stats p ON p.state = r.state
         JOIN healthcare_stats h ON h.state = r.state
@@ -38,13 +38,13 @@ def verify_join():
         
         with engine.connect() as conn:
             result = conn.execute(text(query))
-            # Explicitly convert keys to list for Pandas compatibility
+            # Use list(result.keys()) to keep Pandas happy
             df = pd.DataFrame(result.fetchall(), columns=list(result.keys()))
             
         if not df.empty:
             print("\n✅ JOIN SUCCESSFUL! Here is the data:")
             print(df.to_string(index=False))
-            print("\nYour Foreign Keys and Data Types are working correctly.")
+            print("\n🎉 Success! Your Education and Healthcare data are perfectly linked.")
         else:
             print("\n❌ Query returned no data. Check your State/TRU IDs.")
 
