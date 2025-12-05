@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine, text
 from sqlalchemy.pool import NullPool
 
-# Load environment variables
 load_dotenv()
 
 # ==========================================
@@ -12,14 +11,12 @@ load_dotenv()
 # ==========================================
 INPUT_DIR = "unified_outputs"
 
-# Database Credentials
 USER = os.getenv("user")
 PASSWORD = os.getenv("password")
 HOST = os.getenv("host")
 PORT = os.getenv("port")
 DBNAME = os.getenv("dbname")
 
-# Connection String
 DB_CONNECTION_STRING = f"postgresql+psycopg2://{USER}:{PASSWORD}@{HOST}:{PORT}/{DBNAME}?sslmode=require"
 
 # ==========================================
@@ -36,8 +33,7 @@ UPLOAD_SEQUENCE = [
     # --- 2. Data Tables (Facts) ---
     ("population_stats.csv", "population_stats", None),
     ("healthcare_stats.csv", "healthcare_stats", None),
-    ("pca_stats.csv", "education_stats", None),
-    ("religion_stats", "religion_stats", None), # Note: Filename check handles .csv extension
+    ("education_stats.csv", "education_stats", None), # FIX: New filename & table name
     ("religion_stats.csv", "religion_stats", None),
     ("occupation_stats.csv", "occupation_stats", None),
     ("language_stats.csv", "language_stats", None),
@@ -47,27 +43,23 @@ UPLOAD_SEQUENCE = [
 FOREIGN_KEYS = {
     "population_stats": [("state", "regions(state)"), ("tru_id", "tru(id)")],
     "healthcare_stats": [("state", "regions(state)"), ("tru_id", "tru(id)")],
-    "education_stats":        [("state", "regions(state)"), ("tru_id", "tru(id)")],
+    "education_stats":  [("state", "regions(state)"), ("tru_id", "tru(id)")], # FIX: Renamed key
     "religion_stats":   [("state", "regions(state)"), ("tru_id", "tru(id)"), ("religion_id", "religions(id)")],
     "occupation_stats": [("state", "regions(state)"), ("tru_id", "tru(id)"), ("age_group_id", "age_groups(id)")],
     "language_stats":   [("state", "regions(state)"), ("tru_id", "tru(id)"), ("language_id", "languages(id)")],
 }
 
 def clean_database(engine):
-    """
-    Drops all tables with CASCADE. 
-    This clears old data and foreign keys to prevent 'DependentObjectsStillExist' errors.
-    """
     print("\n🧹 Cleaning Database (dropping old tables)...")
+    # Added education_stats to drop list
     tables_to_drop = [
-        "population_stats", "healthcare_stats", "education_stats", 
+        "population_stats", "healthcare_stats", "education_stats", "pca_stats", 
         "religion_stats", "occupation_stats", "language_stats", "crop_stats",
         "regions", "tru", "religions", "languages", "age_groups"
     ]
     
     with engine.begin() as conn:
         for table in tables_to_drop:
-            # CASCADE is key: it drops the table AND any constraints linking to it
             conn.execute(text(f"DROP TABLE IF EXISTS {table} CASCADE;"))
             print(f"   🗑️  Dropped {table}")
     print("✨ Database is clean.\n")
@@ -115,8 +107,8 @@ def add_foreign_keys(table_name, engine):
 def upload_file(filename, table_name, pk_columns, engine):
     file_path = os.path.join(INPUT_DIR, filename)
     
-    # Duplicate check for robustness
     if not os.path.exists(file_path):
+        print(f"⏭️  Skipping {filename} (File not found)")
         return
 
     print(f"📤 Uploading: {filename} -> Table: {table_name}")
@@ -125,18 +117,16 @@ def upload_file(filename, table_name, pk_columns, engine):
         df = pd.read_csv(file_path)
         df.columns = df.columns.str.lower()
         
-        # Upload
         df.to_sql(table_name, engine, if_exists='replace', index=False, chunksize=10000)
         print(f"   ✅ Uploaded {len(df)} rows.")
         
-        # Constraints
         if pk_columns:
             for pk in pk_columns:
                 add_primary_key(table_name, pk, engine)
 
         add_foreign_keys(table_name, engine)
         enable_rls(table_name, engine)
-        print("") # Newline for readability
+        print("") 
 
     except Exception as e:
         print(f"   ❌ FAILED: {e}")
@@ -154,10 +144,8 @@ if __name__ == "__main__":
             conn.execute(text("SELECT 1"))
         print("✅ Database Connection Successful.")
         
-        # 1. Clean Old Data
         clean_database(engine)
         
-        # 2. Upload New Data
         processed_files = set()
         for filename, table_name, pk_cols in UPLOAD_SEQUENCE:
             if filename not in processed_files:
