@@ -33,38 +33,26 @@ def process_religion_data():
 
     df.columns = [clean_column_name(c) for c in df.columns]
     
-    # --- FIX: Standardize TRU ---
-    print("   🆕 Creating Standardized TRU lookup...")
-    tru_map = {
-        "Total": 1,
-        "Rural": 2,
-        "Urban": 3
-    }
-    tru_df = pd.DataFrame(list(tru_map.items()), columns=['name', 'id'])
-    tru_df = tru_df[['id', 'name']]
-    tru_df.to_csv(TRU_FILE, index=False)
-    
+    # FIX: Standard TRU
+    print("   Standardizing TRU...")
+    tru_map = {"Total": 1, "Rural": 2, "Urban": 3}
+    pd.DataFrame(list(tru_map.items()), columns=['name', 'id'])[['id', 'name']].to_csv(TRU_FILE, index=False)
     df['tru_id'] = df['tru'].map(tru_map)
 
-    # Handle Religion Lookup
-    print("   ✂️  Extracting Religion Lookup...")
+    print("   Extracting Religions...")
     unique_rel = df['religion'].unique()
     rel_df = pd.DataFrame({'id': range(1, len(unique_rel) + 1), 'religion_name': unique_rel})
     rel_df.to_csv(RELIGIONS_FILE, index=False)
     
-    rel_map = dict(zip(rel_df['religion_name'], rel_df['id']))
-    df['religion_id'] = df['religion'].map(rel_map)
+    df['religion_id'] = df['religion'].map(dict(zip(rel_df['religion_name'], rel_df['id'])))
 
-    # Cleanup
     cols_to_drop = ['religion', 'tru', 'district', 'subdistt', 'townvillage', 'name']
     df.drop(columns=[c for c in cols_to_drop if c in df.columns], inplace=True)
     
     if 'state' in df.columns:
         df['state'] = df['state'].fillna(0).astype(int)
 
-    # Reorder
     cols = list(df.columns)
-    # Ensure state, tru_id, religion_id are first
     priority = ['state', 'tru_id', 'religion_id']
     for col in reversed(priority):
         if col in cols:
