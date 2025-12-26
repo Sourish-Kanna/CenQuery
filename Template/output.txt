@@ -60,776 +60,1117 @@ area_name    tot_p
      90728690
 --------------------------------------------------
 🔹 Running Query #11...
-✅ Success! Returned 2 rows.
-  person
-77461172
-77357905
+✅ Success! Returned 36 rows.
+   state_name total_population
+        India       2421709954
+Uttar Pradesh        399624682
+  Maharashtra        224748666
+        Bihar        208198904
+  West Bengal        182552230
 --------------------------------------------------
 🔹 Running Query #12...
-✅ Success! Returned 1 rows.
- tot_p
-167216
+✅ Success! Returned 5 rows.
+   state_name rural_population
+        India       1667497704
+Uttar Pradesh        310634556
+        Bihar        184682872
+  West Bengal        124366226
+  Maharashtra        123112148
 --------------------------------------------------
 🔹 Running Query #13...
-✅ Success! Returned 4 rows.
-     area_name   person
-Madhya Pradesh 64324963
-     Rajasthan 61274274
-Madhya Pradesh 49353587
-     Rajasthan 18742450
+✅ Success! Returned 5 rows.
+   state_name urban_population
+        India        754212250
+  Maharashtra        101636518
+Uttar Pradesh         88990126
+   Tamil Nadu         69834880
+  West Bengal         58186004
 --------------------------------------------------
 🔹 Running Query #14...
-✅ Success! Returned 1 rows.
- tot_p
-535536
+✅ Success! Returned 36 rows.
+    state_name             sex_ratio
+        Kerala 1084.3078720382305016
+    Puducherry 1037.4376949964980221
+    Tamil Nadu  996.4325615920648570
+Andhra Pradesh  992.8487357825874309
+  Chhattisgarh  990.6028998133312865
 --------------------------------------------------
 🔹 Running Query #15...
-✅ Success! Returned 1 rows.
-      literacy_rate
-87.9012627520468489
+✅ Success! Returned 36 rows.
+          state_name sex_ratio_difference
+         Daman & Diu 313.5416393648002108
+Dadra & Nagar Haveli 180.2971870773915175
+    Himachal Pradesh 132.3501617584523808
+          Chandigarh 131.0982989628282457
+         Uttarakhand 115.8958524262762665
 --------------------------------------------------
 🔹 Running Query #16...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT ls.male, ls.female FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Telangana' AND l.name = 'Urdu' AND t.name = 'Total';
+✅ Success! Returned 3 rows.
+     age total_population
+All ages       4843419908
+      10        122208428
+      30        121596116
 --------------------------------------------------
 🔹 Running Query #17...
-✅ Success! Returned 1 rows.
- tot_work_p
-    5721400
+✅ Success! Returned 11124 rows.
+               state_name area_type  age population
+Andaman & Nicobar Islands     Rural    0       3575
+Andaman & Nicobar Islands     Rural    1       3837
+Andaman & Nicobar Islands     Rural   10       4436
+Andaman & Nicobar Islands     Rural 100+         75
+Andaman & Nicobar Islands     Rural   11       4374
 --------------------------------------------------
 🔹 Running Query #18...
-✅ Success! Returned 3 rows.
-  area_name  person
-      India  259678
-      India  259678
-Maharashtra  106656
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name AS state_name, SUM(p.persons) AS rural_children FROM population_stats p JOIN regions r ON p.state = r.state JOIN tru t ON p.tru_id = t.id WHERE t.name = 'Rural' AND p.age = '0-6' GROUP BY r.area_name ORDER BY rural_children DESC LIMIT 1;
 --------------------------------------------------
 🔹 Running Query #19...
-✅ Success! Returned 1 rows.
-  tot_p
-3412078
+✅ Success! Returned 36 rows.
+ state_name   female_percentage
+  Jharkhand 48.6775608465759233
+  Rajasthan 48.1374068383207629
+Uttarakhand 49.0618256937237193
+Maharashtra 48.1704990409153307
+Lakshadweep 48.6250058163882555
 --------------------------------------------------
 🔹 Running Query #20...
-✅ Success! Returned 1 rows.
- name   person
-Tamil 63743847
+✅ Success! Returned 36 rows.
+      state_name      age
+           India All ages
+ Jammu & Kashmir All ages
+Himachal Pradesh All ages
+          Punjab All ages
+      Chandigarh All ages
 --------------------------------------------------
 🔹 Running Query #21...
-✅ Success! Returned 1 rows.
-   tot_m    tot_f
-19867314 18616653
+✅ Success! Returned 7 rows.
+   area_name
+ Lakshadweep
+  Puducherry
+     Mizoram
+NCT of Delhi
+  Chandigarh
 --------------------------------------------------
 🔹 Running Query #22...
-✅ Success! Returned 2 rows.
- person
-3569400
-3565618
+✅ Success! Returned 29 rows.
+  area_name
+  Jharkhand
+  Rajasthan
+Uttarakhand
+Maharashtra
+      Bihar
 --------------------------------------------------
 🔹 Running Query #23...
 ✅ Success! Returned 1 rows.
-   tot_p
-19180759
+area_name total_males
+    India  1246540516
 --------------------------------------------------
 🔹 Running Query #24...
 ✅ Success! Returned 1 rows.
- lit_gap
-  457850
+area_name total_females
+    India    1175169438
 --------------------------------------------------
 🔹 Running Query #25...
-✅ Success! Returned 2 rows.
-  person
-19498567
-19480141
+✅ Success! Returned 36 rows.
+     area_name gender_gap
+         India   71371078
+ Uttar Pradesh   18297358
+         Bihar    8913724
+   Maharashtra    8223558
+Madhya Pradesh    5195606
 --------------------------------------------------
 🔹 Running Query #26...
-✅ Success! Returned 1 rows.
- tot_p
-  1473
+✅ Success! Returned 36 rows.
+  area_name young_pop
+  Jharkhand         0
+  Rajasthan         0
+Uttarakhand         0
+Maharashtra         0
+Lakshadweep         0
 --------------------------------------------------
 🔹 Running Query #27...
-✅ Success! Returned 1 rows.
- non_work_p
-   12201625
+✅ Success! Returned 36 rows.
+  area_name elderly_pop
+  Jharkhand           0
+  Rajasthan           0
+Uttarakhand           0
+Maharashtra           0
+Lakshadweep           0
 --------------------------------------------------
 🔹 Running Query #28...
-✅ Success! Returned 2 rows.
- person
-  88662
-  87718
+✅ Success! Returned 36 rows.
+    area_name urban_pop
+        India 754212250
+  Maharashtra 101636518
+Uttar Pradesh  88990126
+   Tamil Nadu  69834880
+  West Bengal  58186004
 --------------------------------------------------
 🔹 Running Query #29...
-✅ Success! Returned 4 rows.
-   name   person
-Kannada 40651090
-Kannada 40622836
- Telugu  3569400
- Telugu  3565618
+✅ Success! Returned 36 rows.
+    area_name  rural_pop
+        India 1667497704
+Uttar Pradesh  310634556
+        Bihar  184682872
+  West Bengal  124366226
+  Maharashtra  123112148
 --------------------------------------------------
 🔹 Running Query #30...
-✅ Success! Returned 1 rows.
-area_name    tot_p
-    India 27819588
+✅ Success! Returned 12 rows.
+       area_name
+     Uttarakhand
+      Puducherry
+Himachal Pradesh
+       Karnataka
+         Mizoram
 --------------------------------------------------
 🔹 Running Query #31...
-✅ Success! Returned 1 rows.
-area_name   person
-    India 50772631
+✅ Success! Returned 36 rows.
+                area_name total_population
+              Lakshadweep           128946
+              Daman & Diu           486494
+     Dadra & Nagar Haveli           687418
+Andaman & Nicobar Islands           761162
+                   Sikkim          1221154
 --------------------------------------------------
 🔹 Running Query #32...
-✅ Success! Returned 1 rows.
- tot_p
-166322
+✅ Success! Returned 29 rows.
+  area_name
+  Jharkhand
+  Rajasthan
+Uttarakhand
+Maharashtra
+      Bihar
 --------------------------------------------------
 🔹 Running Query #33...
-✅ Success! Returned 1 rows.
-female_literacy_rate
- 41.9595079738554508
+✅ Success! Returned 7 rows.
+   area_name
+ Lakshadweep
+  Puducherry
+     Mizoram
+NCT of Delhi
+  Chandigarh
 --------------------------------------------------
 🔹 Running Query #34...
-✅ Success! Returned 2 rows.
- person
-2414774
-2330452
+✅ Success! Returned 4 rows.
+   area_name
+  Puducherry
+      Kerala
+Chhattisgarh
+         Goa
 --------------------------------------------------
 🔹 Running Query #35...
-✅ Success! Returned 2 rows.
-area_name   tot_p
- Nagaland 1739651
-  Mizoram  956331
+✅ Success! Returned 4 rows.
+ area_name
+Puducherry
+    Kerala
+ Meghalaya
+   Manipur
 --------------------------------------------------
 🔹 Running Query #36...
-✅ Success! Returned 2 rows.
- male
-51200
-51200
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS children_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age='0-6' GROUP BY r.area_name ORDER BY children_population DESC;
 --------------------------------------------------
 🔹 Running Query #37...
-✅ Success! Returned 1 rows.
- tot_p
-570581
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS elderly_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age IN ('60+','65+') GROUP BY r.area_name ORDER BY elderly_population ASC;
 --------------------------------------------------
 🔹 Running Query #38...
-✅ Success! Returned 1 rows.
-   p_ill
-41710498
+✅ Success! Returned 19 rows.
+       area_name
+       Jharkhand
+       Rajasthan
+     Uttarakhand
+           Bihar
+Himachal Pradesh
 --------------------------------------------------
 🔹 Running Query #39...
-✅ Success! Returned 2 rows.
-  person
-11610128
-11603571
+✅ Success! Returned 5 rows.
+   area_name
+ Lakshadweep
+  Puducherry
+NCT of Delhi
+  Chandigarh
+ Daman & Diu
 --------------------------------------------------
 🔹 Running Query #40...
-✅ Success! Returned 3 rows.
-  area_name   tot_p
-      India 8442972
-Maharashtra 6531200
-West Bengal  282898
+✅ Success! Returned 5 rows.
+     area_name
+Andhra Pradesh
+    Tamil Nadu
+  Chhattisgarh
+     Meghalaya
+       Manipur
 --------------------------------------------------
 🔹 Running Query #41...
-✅ Success! Returned 2 rows.
-  female
-16921247
-16910907
+✅ Success! Returned 36 rows.
+                area_name rural_population
+              Lakshadweep            28282
+               Chandigarh            57982
+              Daman & Diu           120792
+     Dadra & Nagar Haveli           366228
+Andaman & Nicobar Islands           474186
 --------------------------------------------------
 🔹 Running Query #42...
-✅ Success! Returned 1 rows.
-work_participation_rate
-    34.1548578979874201
+✅ Success! Returned 36 rows.
+                area_name urban_population
+              Lakshadweep           100664
+Andaman & Nicobar Islands           286976
+                   Sikkim           307156
+     Dadra & Nagar Haveli           321190
+              Daman & Diu           365702
 --------------------------------------------------
 🔹 Running Query #43...
-✅ Success! Returned 2 rows.
- person
-2400883
-1865482
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS elderly_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age IN ('60+','65+') GROUP BY r.area_name ORDER BY elderly_population DESC;
 --------------------------------------------------
 🔹 Running Query #44...
-✅ Success! Returned 1 rows.
-   tot_p
-19146627
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' GROUP BY r.area_name HAVING SUM(CASE WHEN p.age IN ('60+','65+') THEN p.persons ELSE 0 END) > SUM(CASE WHEN p.age='0-6' THEN p.persons ELSE 0 END);
 --------------------------------------------------
 🔹 Running Query #45...
-✅ Success! Returned 4 rows.
-  name   person
-Telugu 70667780
-Telugu 70662838
-  Urdu  7505623
-  Urdu  7504151
+✅ Success! Returned 32 rows.
+  area_name
+  Jharkhand
+  Rajasthan
+Uttarakhand
+Maharashtra
+Lakshadweep
 --------------------------------------------------
 🔹 Running Query #46...
-✅ Success! Returned 1 rows.
-  tot_m
-2171413
+✅ Success! Returned 4 rows.
+   area_name
+  Puducherry
+      Kerala
+Chhattisgarh
+         Goa
 --------------------------------------------------
 🔹 Running Query #47...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT rs.tot_p FROM religion_stats rs JOIN regions r ON rs.state = r.state JOIN religions rel ON rs.religion_id = rel.id JOIN tru t ON rs.tru_id = t.id WHERE r.area_name = 'Maharashtra' AND rel.religion_name = 'Zoroastrian' AND t.name = 'Total';
+✅ Success! Returned 4 rows.
+   area_name
+ Lakshadweep
+NCT of Delhi
+  Chandigarh
+ Daman & Diu
 --------------------------------------------------
 🔹 Running Query #48...
-✅ Success! Returned 2 rows.
-  person
-46244040
-33235355
+✅ Success! Returned 10 rows.
+       area_name
+       Jharkhand
+       Rajasthan
+           Bihar
+Himachal Pradesh
+           Assam
 --------------------------------------------------
 🔹 Running Query #49...
-✅ Success! Returned 1 rows.
-area_name       literacy_rate
-  Mizoram 38.4044705655650833
+✅ Success! Returned 36 rows.
+    area_name working_age_population
+        India             2421709954
+Uttar Pradesh              399624682
+  Maharashtra              224748666
+        Bihar              208198904
+  West Bengal              182552230
 --------------------------------------------------
 🔹 Running Query #50...
-✅ Success! Returned 2 rows.
- person
- 531077
- 529531
+✅ Success! Returned 5 rows.
+           area_name
+         Maharashtra
+              Kerala
+             Mizoram
+          Tamil Nadu
+Dadra & Nagar Haveli
 --------------------------------------------------
 🔹 Running Query #51...
-✅ Success! Returned 1 rows.
-           sex_ratio
-906.2816787971409980
+✅ Success! Returned 36 rows.
+    area_name rural_population
+        India       1667497704
+Uttar Pradesh        310634556
+        Bihar        184682872
+  West Bengal        124366226
+  Maharashtra        123112148
 --------------------------------------------------
 🔹 Running Query #52...
-✅ Success! Returned 1 rows.
- tot_work_p
-     196127
+✅ Success! Returned 36 rows.
+    area_name urban_population
+        India        754212250
+  Maharashtra        101636518
+Uttar Pradesh         88990126
+   Tamil Nadu         69834880
+  West Bengal         58186004
 --------------------------------------------------
 🔹 Running Query #53...
-✅ Success! Returned 4 rows.
-    area_name   female
-Uttar Pradesh 89646220
-Uttar Pradesh 75974328
-        Bihar 38586200
-        Bihar 12583592
+✅ Success! Returned 36 rows.
+  area_name gender_diff
+Lakshadweep        3546
+    Mizoram       26944
+  Meghalaya       33550
+        Goa       39470
+    Manipur       42756
 --------------------------------------------------
 🔹 Running Query #54...
-✅ Success! Returned 2 rows.
- person
- 964305
- 963980
+✅ Success! Returned 36 rows.
+    area_name total_females
+        India    1175169438
+Uttar Pradesh     190663662
+  Maharashtra     108262554
+        Bihar      99642590
+  West Bengal      88934176
 --------------------------------------------------
 🔹 Running Query #55...
-✅ Success! Returned 1 rows.
-  tot_p
-8567485
+✅ Success! Returned 36 rows.
+    area_name total_males
+        India  1246540516
+Uttar Pradesh   208961020
+  Maharashtra   116486112
+        Bihar   108556314
+  West Bengal    93618054
 --------------------------------------------------
 🔹 Running Query #56...
-✅ Success! Returned 1 rows.
- f_lit
-677597
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) * 1.0 / (SELECT SUM(persons) FROM population_stats ps WHERE ps.state=p.state AND ps.tru_id=p.tru_id) AS child_share FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age='0-6' GROUP BY r.area_name, p.state, p.tru_id ORDER BY child_share DESC;
 --------------------------------------------------
 🔹 Running Query #57...
-✅ Success! Returned 5 rows.
-  area_name   person
-      India 83026680
-      India 82801140
-Maharashtra 77461172
-Maharashtra 77357905
-  Karnataka  2064906
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) * 1.0 / (SELECT SUM(persons) FROM population_stats ps WHERE ps.state=p.state AND ps.tru_id=p.tru_id) AS elderly_share FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age IN ('60+','65+') GROUP BY r.area_name, p.state, p.tru_id ORDER BY elderly_share DESC;
 --------------------------------------------------
 🔹 Running Query #58...
-✅ Success! Returned 2 rows.
- person
-  82613
-  82559
+✅ Success! Returned 29 rows.
+  area_name
+  Jharkhand
+  Rajasthan
+Uttarakhand
+Maharashtra
+      Bihar
 --------------------------------------------------
 🔹 Running Query #59...
-✅ Success! Returned 1 rows.
-  tot_m
-3314906
+✅ Success! Returned 7 rows.
+   area_name
+ Lakshadweep
+  Puducherry
+     Mizoram
+NCT of Delhi
+  Chandigarh
 --------------------------------------------------
 🔹 Running Query #60...
-✅ Success! Returned 1 rows.
-           lit_gap
-4.2948128497337484
+✅ Success! Returned 6 rows.
+  area_name
+Maharashtra
+    Gujarat
+     Kerala
+    Mizoram
+ Tamil Nadu
 --------------------------------------------------
 🔹 Running Query #61...
-✅ Success! Returned 2 rows.
-  person
-15095797
-14609227
+✅ Success! Returned 36 rows.
+    area_name total_population
+        India       2421709954
+Uttar Pradesh        399624682
+  Maharashtra        224748666
+        Bihar        208198904
+  West Bengal        182552230
 --------------------------------------------------
 🔹 Running Query #62...
-✅ Success! Returned 1 rows.
-religion_name       non_work_rate
-       Muslim 75.4699513335929837
+✅ Success! Returned 36 rows.
+                area_name rural_population
+              Lakshadweep            28282
+               Chandigarh            57982
+              Daman & Diu           120792
+     Dadra & Nagar Haveli           366228
+Andaman & Nicobar Islands           474186
 --------------------------------------------------
 🔹 Running Query #63...
-✅ Success! Returned 2 rows.
- person
-6618324
-6617850
+✅ Success! Returned 36 rows.
+                area_name urban_population
+              Lakshadweep           100664
+Andaman & Nicobar Islands           286976
+                   Sikkim           307156
+     Dadra & Nagar Haveli           321190
+              Daman & Diu           365702
 --------------------------------------------------
 🔹 Running Query #64...
-✅ Success! Returned 1 rows.
-   tot_p
-23053946
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' GROUP BY r.area_name HAVING SUM(p.females) > 1.2 * SUM(p.males);
 --------------------------------------------------
 🔹 Running Query #65...
-✅ Success! Returned 2 rows.
- person
- 123648
- 123176
+✅ Success! Returned 3 rows.
+           area_name
+          Chandigarh
+Dadra & Nagar Haveli
+         Daman & Diu
 --------------------------------------------------
 🔹 Running Query #66...
-✅ Success! Returned 2 rows.
-       area_name  tot_p
-       Rajasthan 872930
-Himachal Pradesh  79896
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS teen_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age IN ('10-14','15-19') GROUP BY r.area_name ORDER BY teen_population DESC;
 --------------------------------------------------
 🔹 Running Query #67...
 ⚠️  Query ran successfully but returned NO data.
-Query: SELECT ls.female FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Telangana' AND l.name = 'Telugu' AND t.name = 'Total';
+Query: SELECT r.area_name, SUM(p.persons) AS child_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age='0-6' GROUP BY r.area_name ORDER BY child_population ASC;
 --------------------------------------------------
 🔹 Running Query #68...
-✅ Success! Returned 1 rows.
-      literacy_rate
-77.3031682291201470
+✅ Success! Returned 36 rows.
+    area_name working_age_population
+        India             2421709954
+Uttar Pradesh              399624682
+  Maharashtra              224748666
+        Bihar              208198904
+  West Bengal              182552230
 --------------------------------------------------
 🔹 Running Query #69...
-✅ Success! Returned 2 rows.
- person
-1184024
- 321031
+✅ Success! Returned 36 rows.
+                area_name working_age_population
+              Lakshadweep                 128946
+              Daman & Diu                 486494
+     Dadra & Nagar Haveli                 687418
+Andaman & Nicobar Islands                 761162
+                   Sikkim                1221154
 --------------------------------------------------
 🔹 Running Query #70...
-✅ Success! Returned 1 rows.
-area_name  person
-    India   24821
+✅ Success! Returned 5 rows.
+           area_name
+         Maharashtra
+              Kerala
+             Mizoram
+          Tamil Nadu
+Dadra & Nagar Haveli
 --------------------------------------------------
 🔹 Running Query #71...
-✅ Success! Returned 2 rows.
- person
- 382200
- 382171
+✅ Success! Returned 36 rows.
+    area_name rural_population
+        India       1667497704
+Uttar Pradesh        310634556
+        Bihar        184682872
+  West Bengal        124366226
+  Maharashtra        123112148
 --------------------------------------------------
 🔹 Running Query #72...
-✅ Success! Returned 1 rows.
-  tot_p
-2213027
+✅ Success! Returned 36 rows.
+    area_name urban_population
+        India        754212250
+  Maharashtra        101636518
+Uttar Pradesh         88990126
+   Tamil Nadu         69834880
+  West Bengal         58186004
 --------------------------------------------------
 🔹 Running Query #73...
-✅ Success! Returned 1 rows.
- tot_m  tot_f
- 80988  81827
+✅ Success! Returned 19 rows.
+       area_name
+       Jharkhand
+       Rajasthan
+     Uttarakhand
+           Bihar
+Himachal Pradesh
 --------------------------------------------------
 🔹 Running Query #74...
-✅ Success! Returned 2 rows.
- person
-2513712
-2513712
+✅ Success! Returned 5 rows.
+   area_name
+ Lakshadweep
+  Puducherry
+NCT of Delhi
+  Chandigarh
+ Daman & Diu
 --------------------------------------------------
 🔹 Running Query #75...
-✅ Success! Returned 1 rows.
-      literacy_rate
-87.5457649357703676
+✅ Success! Returned 36 rows.
+                area_name total_population
+              Lakshadweep           128946
+              Daman & Diu           486494
+     Dadra & Nagar Haveli           687418
+Andaman & Nicobar Islands           761162
+                   Sikkim          1221154
 --------------------------------------------------
 🔹 Running Query #76...
-✅ Success! Returned 2 rows.
- person
-4999581
-4998899
+✅ Success! Returned 36 rows.
+                area_name total_females
+              Lakshadweep         62700
+              Daman & Diu        185892
+     Dadra & Nagar Haveli        299898
+Andaman & Nicobar Islands        355420
+                   Sikkim        575014
 --------------------------------------------------
 🔹 Running Query #77...
-✅ Success! Returned 1 rows.
-area_name   person
-    India 13583464
+✅ Success! Returned 36 rows.
+                area_name total_males
+              Lakshadweep       66246
+              Daman & Diu      300602
+     Dadra & Nagar Haveli      387520
+Andaman & Nicobar Islands      405742
+                   Sikkim      646140
 --------------------------------------------------
 🔹 Running Query #78...
-✅ Success! Returned 1 rows.
- tot_p
-912937
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS child_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age='0-6' GROUP BY r.area_name ORDER BY child_population DESC;
 --------------------------------------------------
 🔹 Running Query #79...
-✅ Success! Returned 1 rows.
-            sex_ratio
-1124.7438195225147890
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS teen_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age IN ('10-14','15-19') GROUP BY r.area_name ORDER BY teen_population ASC;
 --------------------------------------------------
 🔹 Running Query #80...
-✅ Success! Returned 2 rows.
- person
- 788294
- 764196
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS elderly_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age IN ('60+','65+') GROUP BY r.area_name ORDER BY elderly_population DESC;
 --------------------------------------------------
 🔹 Running Query #81...
-✅ Success! Returned 1 rows.
- tot_f
-687192
+✅ Success! Returned 28 rows.
+                crop  total_area
+         Grand Total     1110.80
+                Rice      438.51
+Total Coarse Cereals      192.91
+      Total Oilseeds      188.81
+             Soybean      120.43
 --------------------------------------------------
 🔹 Running Query #82...
-✅ Success! Returned 4 rows.
- area_name  person
-Tamil Nadu   24495
-Tamil Nadu   24495
- Karnataka   23227
- Karnataka   23227
+✅ Success! Returned 28 rows.
+                crop  difference_area
+         Grand Total            14.92
+Total Coarse Cereals            12.17
+               Maize            10.54
+                Rice             8.45
+           Sugarcane             1.64
 --------------------------------------------------
 🔹 Running Query #83...
-✅ Success! Returned 2 rows.
- person
-1522132
-1522132
+✅ Success! Returned 1 rows.
+       crop
+Grand Total
 --------------------------------------------------
 🔹 Running Query #84...
-✅ Success! Returned 1 rows.
-            lit_gap
-22.9054289383694396
+❌ Query #84 Failed: (psycopg2.errors.UndefinedColumn) column c.state does not exist
+LINE 1: ...M population_stats p JOIN crop_stats c ON p.state=c.state JO...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "p.state".
+
+[SQL: SELECT r.area_name FROM population_stats p JOIN crop_stats c ON p.state=c.state JOIN regions r ON p.state=r.state GROUP BY r.area_name ORDER BY SUM(p.persons)*1.0/SUM(c.production) DESC;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #85...
-✅ Success! Returned 1 rows.
- tot_p
- 78659
+❌ Query #85 Failed: (psycopg2.errors.UndefinedColumn) column c.state does not exist
+LINE 1: ...M population_stats p JOIN crop_stats c ON p.state=c.state JO...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "p.state".
+
+[SQL: SELECT r.area_name FROM population_stats p JOIN crop_stats c ON p.state=c.state JOIN regions r ON p.state=r.state GROUP BY r.area_name ORDER BY SUM(p.persons)*1.0/SUM(c.production) ASC;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #86...
-✅ Success! Returned 1 rows.
- person
-1416125
+❌ Query #86 Failed: (psycopg2.errors.UndefinedColumn) column c.state does not exist
+LINE 1: ...M population_stats p JOIN crop_stats c ON p.state=c.state JO...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "p.state".
+
+[SQL: SELECT r.area_name FROM population_stats p JOIN crop_stats c ON p.state=c.state JOIN regions r ON p.state=r.state GROUP BY r.area_name HAVING SUM(p.persons) > 2 * SUM(c.production);]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #87...
-✅ Success! Returned 2 rows.
-area_name   tot_m
-   Punjab 8395797
-  Haryana  653468
+❌ Query #87 Failed: (psycopg2.errors.UndefinedColumn) column c.state does not exist
+LINE 1: ...M population_stats p JOIN crop_stats c ON p.state=c.state JO...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "p.state".
+
+[SQL: SELECT r.area_name FROM population_stats p JOIN crop_stats c ON p.state=c.state JOIN regions r ON p.state=r.state GROUP BY r.area_name HAVING SUM(c.production) > 2 * SUM(p.persons);]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #88...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Jharkhand' AND l.name = 'Santhali' AND t.name = 'Total';
+❌ Query #88 Failed: (psycopg2.errors.UndefinedColumn) column c.state does not exist
+LINE 1: ...M population_stats p JOIN crop_stats c ON p.state=c.state JO...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "p.state".
+
+[SQL: SELECT r.area_name FROM population_stats p JOIN crop_stats c ON p.state=c.state JOIN regions r ON p.state=r.state GROUP BY r.area_name ORDER BY SUM(p.persons)*1.0/SUM(c.production) DESC;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #89...
-✅ Success! Returned 1 rows.
- tot_p
- 62268
+❌ Query #89 Failed: (psycopg2.errors.UndefinedColumn) column c.state does not exist
+LINE 1: ...M population_stats p JOIN crop_stats c ON p.state=c.state JO...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "p.state".
+
+[SQL: SELECT r.area_name FROM population_stats p JOIN crop_stats c ON p.state=c.state JOIN regions r ON p.state=r.state GROUP BY r.area_name ORDER BY SUM(p.persons)*1.0/SUM(c.production) ASC;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #90...
-✅ Success! Returned 2 rows.
- female
-1172997
-1147671
+❌ Query #90 Failed: (psycopg2.errors.UndefinedColumn) column c.state does not exist
+LINE 1: ...M population_stats p JOIN crop_stats c ON p.state=c.state JO...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "p.state".
+
+[SQL: SELECT r.area_name FROM population_stats p JOIN crop_stats c ON p.state=c.state JOIN regions r ON p.state=r.state GROUP BY r.area_name HAVING SUM(c.production) >= SUM(p.persons);]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #91...
-✅ Success! Returned 1 rows.
- area_name       literacy_rate
-Chandigarh 90.9693877551020408
+❌ Query #91 Failed: (psycopg2.errors.UndefinedColumn) column c.state does not exist
+LINE 1: ...M population_stats p JOIN crop_stats c ON p.state=c.state JO...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "p.state".
+
+[SQL: SELECT r.area_name FROM population_stats p JOIN crop_stats c ON p.state=c.state JOIN regions r ON p.state=r.state GROUP BY r.area_name HAVING SUM(c.production) < SUM(p.persons);]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #92...
-✅ Success! Returned 2 rows.
- person
-6680837
-6486219
+❌ Query #92 Failed: (psycopg2.errors.UndefinedColumn) column c.state does not exist
+LINE 1: ...M population_stats p JOIN crop_stats c ON p.state=c.state JO...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "p.state".
+
+[SQL: SELECT r.area_name FROM population_stats p JOIN crop_stats c ON p.state=c.state JOIN regions r ON p.state=r.state GROUP BY r.area_name ORDER BY ABS(SUM(c.production)-SUM(p.persons)) ASC;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #93...
-✅ Success! Returned 1 rows.
-work_participation_rate
-    34.7810886843470898
+❌ Query #93 Failed: (psycopg2.errors.UndefinedColumn) column c.state does not exist
+LINE 1: ...M population_stats p JOIN crop_stats c ON p.state=c.state JO...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "p.state".
+
+[SQL: SELECT r.area_name FROM population_stats p JOIN crop_stats c ON p.state=c.state JOIN regions r ON p.state=r.state GROUP BY r.area_name ORDER BY ABS(SUM(c.production)-SUM(p.persons)) DESC;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
 --------------------------------------------------
 🔹 Running Query #94...
-✅ Success! Returned 2 rows.
- person
- 723748
- 558054
+✅ Success! Returned 36 rows.
+    area_name total_population
+        India       2421709954
+Uttar Pradesh        399624682
+  Maharashtra        224748666
+        Bihar        208198904
+  West Bengal        182552230
 --------------------------------------------------
 🔹 Running Query #95...
-✅ Success! Returned 4 rows.
- name    person
-Rural 149936334
-Rural 123866244
-Urban  38042721
-Urban  36293733
+✅ Success! Returned 36 rows.
+                area_name total_population
+              Lakshadweep           128946
+              Daman & Diu           486494
+     Dadra & Nagar Haveli           687418
+Andaman & Nicobar Islands           761162
+                   Sikkim          1221154
 --------------------------------------------------
 🔹 Running Query #96...
-✅ Success! Returned 2 rows.
- person
-1595038
-1592915
+✅ Success! Returned 29 rows.
+  area_name
+  Jharkhand
+  Rajasthan
+Uttarakhand
+Maharashtra
+      Bihar
 --------------------------------------------------
 🔹 Running Query #97...
-✅ Success! Returned 1 rows.
- tot_p
-282898
+✅ Success! Returned 7 rows.
+   area_name
+ Lakshadweep
+  Puducherry
+     Mizoram
+NCT of Delhi
+  Chandigarh
 --------------------------------------------------
 🔹 Running Query #98...
-✅ Success! Returned 1 rows.
-  f_ill
-5239098
+✅ Success! Returned 36 rows.
+    area_name total_females
+        India    1175169438
+Uttar Pradesh     190663662
+  Maharashtra     108262554
+        Bihar      99642590
+  West Bengal      88934176
 --------------------------------------------------
 🔹 Running Query #99...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT r.area_name, rs.tot_p FROM religion_stats rs JOIN regions r ON rs.state = r.state JOIN religions rel ON rs.religion_id = rel.id JOIN tru t ON rs.tru_id = t.id WHERE rel.religion_name = 'Zoroastrian' AND t.name = 'Total' ORDER BY rs.tot_p DESC LIMIT 1;
+✅ Success! Returned 36 rows.
+    area_name total_males
+        India  1246540516
+Uttar Pradesh   208961020
+  Maharashtra   116486112
+        Bihar   108556314
+  West Bengal    93618054
 --------------------------------------------------
 🔹 Running Query #100...
-✅ Success! Returned 2 rows.
- person
-1382278
- 996733
+✅ Success! Returned 36 rows.
+     area_name gender_gap
+         India   71371078
+ Uttar Pradesh   18297358
+         Bihar    8913724
+   Maharashtra    8223558
+Madhya Pradesh    5195606
 --------------------------------------------------
 🔹 Running Query #101...
-✅ Success! Returned 1 rows.
-           sex_ratio
-965.5218014926537159
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS child_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age='0-6' GROUP BY r.area_name ORDER BY child_population DESC;
 --------------------------------------------------
 🔹 Running Query #102...
-✅ Success! Returned 2 rows.
- person
- 936496
- 930619
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS elderly_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age IN ('60+','65+') GROUP BY r.area_name ORDER BY elderly_population DESC;
 --------------------------------------------------
 🔹 Running Query #103...
-✅ Success! Returned 2 rows.
- area_name   tot_p
-    Kerala 6141269
-Tamil Nadu 4418331
+✅ Success! Returned 36 rows.
+  area_name gender_gap
+Lakshadweep       3546
+    Mizoram      26944
+  Meghalaya      33550
+        Goa      39470
+    Manipur      42756
 --------------------------------------------------
 🔹 Running Query #104...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Mizoram' AND l.name = 'Mizo' AND t.name = 'Total';
+✅ Success! Returned 36 rows.
+    area_name rural_population
+        India       1667497704
+Uttar Pradesh        310634556
+        Bihar        184682872
+  West Bengal        124366226
+  Maharashtra        123112148
 --------------------------------------------------
 🔹 Running Query #105...
-✅ Success! Returned 1 rows.
-      literacy_rate
-85.6744265932444298
+✅ Success! Returned 36 rows.
+    area_name urban_population
+        India        754212250
+  Maharashtra        101636518
+Uttar Pradesh         88990126
+   Tamil Nadu         69834880
+  West Bengal         58186004
 --------------------------------------------------
 🔹 Running Query #106...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Tripura' AND l.name = 'Kokborok' AND t.name = 'Total';
+✅ Success! Returned 36 rows.
+                area_name rural_population
+              Lakshadweep            28282
+               Chandigarh            57982
+              Daman & Diu           120792
+     Dadra & Nagar Haveli           366228
+Andaman & Nicobar Islands           474186
 --------------------------------------------------
 🔹 Running Query #107...
-✅ Success! Returned 3 rows.
-    area_name   person
-        India 50772631
-        India 50725762
-Uttar Pradesh 10820232
+✅ Success! Returned 36 rows.
+                area_name urban_population
+              Lakshadweep           100664
+Andaman & Nicobar Islands           286976
+                   Sikkim           307156
+     Dadra & Nagar Haveli           321190
+              Daman & Diu           365702
 --------------------------------------------------
 🔹 Running Query #108...
-✅ Success! Returned 1 rows.
- tot_work_m
-    9217857
+✅ Success! Returned 36 rows.
+     area_name   female_percentage
+        Kerala 52.0224428734653870
+    Puducherry 50.9187445360522391
+    Tamil Nadu 49.9106546728257560
+Andhra Pradesh 49.8205768433647754
+  Chhattisgarh 49.7639634658537389
 --------------------------------------------------
 🔹 Running Query #109...
-✅ Success! Returned 2 rows.
- person
-2274342
-1154622
+✅ Success! Returned 36 rows.
+                area_name     male_percentage
+              Daman & Diu 61.7894568072781987
+     Dadra & Nagar Haveli 56.3732692481139569
+               Chandigarh 55.0156805154199630
+             NCT of Delhi 53.5344149708412723
+Andaman & Nicobar Islands 53.3056038005050173
 --------------------------------------------------
 🔹 Running Query #110...
-✅ Success! Returned 1 rows.
- tot_p
-440280
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS teen_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age IN ('10-14','15-19') GROUP BY r.area_name ORDER BY teen_population DESC;
 --------------------------------------------------
 🔹 Running Query #111...
-✅ Success! Returned 2 rows.
- person
-    419
-    419
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS teen_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age IN ('10-14','15-19') GROUP BY r.area_name ORDER BY teen_population ASC;
 --------------------------------------------------
 🔹 Running Query #112...
-✅ Success! Returned 2 rows.
-  area_name   tot_f
-Maharashtra 3216294
-     Sikkim   81914
+✅ Success! Returned 36 rows.
+    area_name working_age_population
+        India             2421709954
+Uttar Pradesh              399624682
+  Maharashtra              224748666
+        Bihar              208198904
+  West Bengal              182552230
 --------------------------------------------------
 🔹 Running Query #113...
-✅ Success! Returned 2 rows.
- person
- 774057
- 745903
+✅ Success! Returned 36 rows.
+                area_name working_age_population
+              Lakshadweep                 128946
+              Daman & Diu                 486494
+     Dadra & Nagar Haveli                 687418
+Andaman & Nicobar Islands                 761162
+                   Sikkim                1221154
 --------------------------------------------------
 🔹 Running Query #114...
-✅ Success! Returned 1 rows.
-           lit_gap
-6.7093364196699839
+✅ Success! Returned 29 rows.
+  area_name
+  Jharkhand
+  Rajasthan
+Uttarakhand
+Maharashtra
+      Bihar
 --------------------------------------------------
 🔹 Running Query #115...
-✅ Success! Returned 2 rows.
- person
-3592208
-  46664
+✅ Success! Returned 7 rows.
+   area_name
+ Lakshadweep
+  Puducherry
+     Mizoram
+NCT of Delhi
+  Chandigarh
 --------------------------------------------------
 🔹 Running Query #116...
-✅ Success! Returned 1 rows.
-area_name  tot_work_p
-    India    11658513
+✅ Success! Returned 36 rows.
+                area_name
+     Dadra & Nagar Haveli
+              Lakshadweep
+                  Mizoram
+Andaman & Nicobar Islands
+              Daman & Diu
 --------------------------------------------------
 🔹 Running Query #117...
-✅ Success! Returned 2 rows.
- person
-1164290
-1139697
+✅ Success! Returned 36 rows.
+    area_name
+        India
+Uttar Pradesh
+        Bihar
+    Rajasthan
+  West Bengal
 --------------------------------------------------
 🔹 Running Query #118...
-✅ Success! Returned 1 rows.
- tot_p
-236340
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons)*100.0/SUM(SUM(p.persons)) OVER () AS child_share FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age='0-6' GROUP BY r.area_name ORDER BY child_share DESC;
 --------------------------------------------------
 🔹 Running Query #119...
-✅ Success! Returned 2 rows.
- person
- 952164
- 951014
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons)*100.0/SUM(SUM(p.persons)) OVER () AS child_share FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age='0-6' GROUP BY r.area_name ORDER BY child_share ASC;
 --------------------------------------------------
 🔹 Running Query #120...
 ⚠️  Query ran successfully but returned NO data.
-Query: SELECT t.name, ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Gujarat' AND l.name = 'Jain' AND t.name IN ('Rural', 'Urban') ORDER BY ls.person DESC;
+Query: SELECT r.area_name, SUM(p.persons)*100.0/SUM(SUM(p.persons)) OVER () AS elderly_share FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age IN ('60+','65+') GROUP BY r.area_name ORDER BY elderly_share DESC;
 --------------------------------------------------
 🔹 Running Query #121...
-✅ Success! Returned 2 rows.
- person
- 123488
- 123488
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons)*100.0/SUM(SUM(p.persons)) OVER () AS elderly_share FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age IN ('60+','65+') GROUP BY r.area_name ORDER BY elderly_share ASC;
 --------------------------------------------------
 🔹 Running Query #122...
-✅ Success! Returned 1 rows.
-           sex_ratio
-970.2519468123681335
+✅ Success! Returned 36 rows.
+  area_name
+  Jharkhand
+  Rajasthan
+Uttarakhand
+Maharashtra
+Lakshadweep
 --------------------------------------------------
 🔹 Running Query #123...
-✅ Success! Returned 2 rows.
- person
- 994302
- 992197
+✅ Success! Returned 36 rows.
+  area_name
+  Jharkhand
+  Rajasthan
+Uttarakhand
+Maharashtra
+Lakshadweep
 --------------------------------------------------
 🔹 Running Query #124...
-✅ Success! Returned 1 rows.
-area_name       literacy_rate
-  Haryana 41.7630078895574236
+✅ Success! Returned 36 rows.
+    area_name total_population
+        India       4843419908
+Uttar Pradesh        799249364
+  Maharashtra        449497332
+        Bihar        416397808
+  West Bengal        365104460
 --------------------------------------------------
 🔹 Running Query #125...
-✅ Success! Returned 2 rows.
- person
- 939283
- 939177
+✅ Success! Returned 36 rows.
+                area_name total_population
+              Lakshadweep           257892
+              Daman & Diu           972988
+     Dadra & Nagar Haveli          1374836
+Andaman & Nicobar Islands          1522324
+                   Sikkim          2442308
 --------------------------------------------------
 🔹 Running Query #126...
-✅ Success! Returned 1 rows.
- tot_p
- 80984
+✅ Success! Returned 36 rows.
+    area_name            rural_share
+        India 0.50000000000000000000
+Uttar Pradesh 0.09314392315349179036
+        Bihar 0.05537724926306705128
+  West Bengal 0.03729127353569057748
+  Maharashtra 0.03691523763561356004
 --------------------------------------------------
 🔹 Running Query #127...
-✅ Success! Returned 2 rows.
- person
-1616730
-   2887
+✅ Success! Returned 36 rows.
+                area_name                rural_share
+              Lakshadweep 0.000008480371496811368323
+               Chandigarh 0.000017385930985365842519
+              Daman & Diu 0.000036219540125975489799
+     Dadra & Nagar Haveli     0.00010981364445704808
+Andaman & Nicobar Islands     0.00014218490342221185
 --------------------------------------------------
 🔹 Running Query #128...
-✅ Success! Returned 1 rows.
-   tot_m    tot_f
-31715046 31473122
+✅ Success! Returned 36 rows.
+    area_name            urban_share
+        India 0.50000000000000000000
+  Maharashtra 0.06737925431468396330
+Uttar Pradesh 0.05899541276344954620
+   Tamil Nadu 0.04629656969904691948
+  West Bengal 0.03857402475231607548
 --------------------------------------------------
 🔹 Running Query #129...
-✅ Success! Returned 1 rows.
- person
- 151565
+✅ Success! Returned 36 rows.
+                area_name                urban_share
+              Lakshadweep 0.000066734529968188663072
+Andaman & Nicobar Islands     0.00019024883247388252
+                   Sikkim     0.00020362702939391398
+     Dadra & Nagar Haveli     0.00021293077644920246
+              Daman & Diu     0.00024243971110254441
 --------------------------------------------------
 🔹 Running Query #130...
-✅ Success! Returned 1 rows.
-work_participation_rate
-    35.7481283373677596
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name FROM population_stats p JOIN regions r ON p.state=r.state WHERE p.age='0-6' GROUP BY r.area_name ORDER BY SUM(p.persons) DESC;
 --------------------------------------------------
 🔹 Running Query #131...
-✅ Success! Returned 2 rows.
- person
-  82712
-  82662
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name FROM population_stats p JOIN regions r ON p.state=r.state WHERE p.age IN ('60+','65+') GROUP BY r.area_name ORDER BY SUM(p.persons) DESC;
 --------------------------------------------------
 🔹 Running Query #132...
-✅ Success! Returned 1 rows.
-area_name  non_work_p
-    India     2870151
+✅ Success! Returned 36 rows.
+  area_name gender_gap
+Lakshadweep       7092
+    Mizoram      53888
+  Meghalaya      67100
+        Goa      78940
+    Manipur      85512
 --------------------------------------------------
 🔹 Running Query #133...
-✅ Success! Returned 2 rows.
- person
- 802763
- 797839
+✅ Success! Returned 36 rows.
+     area_name gender_gap
+         India  142742156
+ Uttar Pradesh   36594716
+         Bihar   17827448
+   Maharashtra   16447116
+Madhya Pradesh   10391212
 --------------------------------------------------
 🔹 Running Query #134...
-✅ Success! Returned 1 rows.
-      literacy_rate
-68.0064779019956117
+✅ Success! Returned 28 rows.
+                crop  area_sown_2025_26
+         Grand Total            1110.80
+                Rice             438.51
+Total Coarse Cereals             192.91
+      Total Oilseeds             188.81
+             Soybean             120.43
 --------------------------------------------------
 🔹 Running Query #135...
-✅ Success! Returned 2 rows.
- person
- 706304
- 706281
+✅ Success! Returned 28 rows.
+          crop  area_sown_2025_26
+Other Oilseeds               0.06
+         Mesta               0.20
+        Kulthi               0.52
+     Sunflower               0.68
+     Nigerseed               0.87
 --------------------------------------------------
 🔹 Running Query #136...
-✅ Success! Returned 2 rows.
-area_name   tot_f
-   Kerala 3147488
-      Goa  194166
+✅ Success! Returned 28 rows.
+                crop  difference_area
+         Grand Total            14.92
+Total Coarse Cereals            12.17
+               Maize            10.54
+                Rice             8.45
+           Sugarcane             1.64
 --------------------------------------------------
 🔹 Running Query #137...
-✅ Success! Returned 2 rows.
- person
- 470386
- 433018
+✅ Success! Returned 28 rows.
+          crop  difference_area
+       Soybean            -5.81
+Total Oilseeds            -5.12
+        Cotton            -2.85
+       Sesamum            -0.59
+           Tur            -0.45
 --------------------------------------------------
 🔹 Running Query #138...
-✅ Success! Returned 1 rows.
-   tot_p
-10679345
+✅ Success! Returned 25 rows.
+      crop
+     Bajra
+Castorseed
+    Cotton
+ Groundnut
+     Jowar
 --------------------------------------------------
 🔹 Running Query #139...
 ⚠️  Query ran successfully but returned NO data.
-Query: SELECT ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Arunachal Pradesh' AND l.name = 'Nishi' AND t.name = 'Total';
+Query: SELECT c.crop FROM crop_stats c WHERE c.difference_area > 500 ORDER BY c.difference_area DESC;
 --------------------------------------------------
 🔹 Running Query #140...
-✅ Success! Returned 3 rows.
-  area_name  female
-      India  130563
-      India  130563
-Maharashtra   55456
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT c.crop FROM crop_stats c WHERE c.difference_area < -500 ORDER BY c.difference_area ASC;
 --------------------------------------------------
 🔹 Running Query #141...
-✅ Success! Returned 2 rows.
- person
- 231084
- 114588
+✅ Success! Returned 28 rows.
+                crop  area_sown_2025_26
+         Grand Total            1110.80
+                Rice             438.51
+Total Coarse Cereals             192.91
+      Total Oilseeds             188.81
+             Soybean             120.43
 --------------------------------------------------
 🔹 Running Query #142...
-✅ Success! Returned 1 rows.
-           lit_gap
-7.8160541031131349
+✅ Success! Returned 28 rows.
+          crop  area_sown_2025_26
+Other Oilseeds               0.06
+         Mesta               0.20
+        Kulthi               0.52
+     Sunflower               0.68
+     Nigerseed               0.87
 --------------------------------------------------
 🔹 Running Query #143...
-✅ Success! Returned 2 rows.
- person
-   8268
-   8268
+✅ Success! Returned 28 rows.
+       crop
+      Bajra
+ Castorseed
+     Cotton
+Grand Total
+  Groundnut
 --------------------------------------------------
 🔹 Running Query #144...
-✅ Success! Returned 2 rows.
-     area_name   tot_p
-   Maharashtra 1400349
-Madhya Pradesh  567028
+✅ Success! Returned 36 rows.
+    area_name total_females
+        India    1175169438
+Uttar Pradesh     190663662
+  Maharashtra     108262554
+        Bihar      99642590
+  West Bengal      88934176
 --------------------------------------------------
 🔹 Running Query #145...
-✅ Success! Returned 2 rows.
- person
- 151883
-  40008
+✅ Success! Returned 36 rows.
+    area_name total_males
+        India  1246540516
+Uttar Pradesh   208961020
+  Maharashtra   116486112
+        Bihar   108556314
+  West Bengal    93618054
 --------------------------------------------------
 🔹 Running Query #146...
-⚠️  Query ran successfully but returned NO data.
-Query: SELECT rs.tot_p FROM religion_stats rs JOIN regions r ON rs.state = r.state JOIN religions rel ON rs.religion_id = rel.id JOIN tru t ON rs.tru_id = t.id WHERE r.area_name = 'Ladakh' AND rel.religion_name = 'Buddhist' AND t.name = 'Total';
+✅ Success! Returned 36 rows.
+                area_name total_population
+              Lakshadweep           128946
+              Daman & Diu           486494
+     Dadra & Nagar Haveli           687418
+Andaman & Nicobar Islands           761162
+                   Sikkim          1221154
 --------------------------------------------------
 🔹 Running Query #147...
-✅ Success! Returned 2 rows.
- person
- 177488
- 177488
+✅ Success! Returned 36 rows.
+  area_name child_share
+  Jharkhand       0E-24
+  Rajasthan       0E-28
+Uttarakhand       0E-24
+Maharashtra       0E-28
+Lakshadweep       0E-24
 --------------------------------------------------
 🔹 Running Query #148...
-✅ Success! Returned 1 rows.
-religion_name  tot_work_p
-        Total    49427878
+✅ Success! Returned 36 rows.
+  area_name elderly_share
+  Jharkhand         0E-24
+  Rajasthan         0E-28
+Uttarakhand         0E-24
+Maharashtra         0E-28
+Lakshadweep         0E-24
 --------------------------------------------------
 🔹 Running Query #149...
-✅ Success! Returned 2 rows.
- person
- 223779
- 223171
+✅ Success! Returned 36 rows.
+                area_name
+     Dadra & Nagar Haveli
+              Lakshadweep
+                  Mizoram
+Andaman & Nicobar Islands
+              Daman & Diu
 --------------------------------------------------
 🔹 Running Query #150...
-✅ Success! Returned 1 rows.
-            sex_ratio
-1010.9432871842775777
+✅ Success! Returned 36 rows.
+    area_name
+        India
+Uttar Pradesh
+        Bihar
+    Rajasthan
+  West Bengal
 --------------------------------------------------
