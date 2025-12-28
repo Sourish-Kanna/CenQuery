@@ -38,113 +38,74 @@ Which states have higher hypertension cases than diabetes cases?
 Which state has the lowest child malnutrition problem?
 Where is the vaccination gap bigger between boys and girls?
 Which state has the worst overall health burden?
-Which state has the highest share of people suffering from any chronic disease?
 Do villages or cities have more infant deaths across India?
 Which state has more mothers surviving childbirth?
 Which states have better vaccination coverage in villages than cities?
-Which 5 states have the highest number of elderly with health issues?
 Where do women face more health problems than men?
-Which state has the lowest percentage of underweight children?
 Which states have more diabetes cases than total vaccinated children?
 Is child malnutrition worse in rural India or urban India?
-Which state has the biggest gap between infant births and infant deaths?
 Which state has the highest female health burden overall?
-Which state reports the lowest asthma cases per person?
 Which states have more children missing vaccines than underweight children?
 Which state has the best balance between male and female health outcomes?
 Which states have higher obesity in cities than villages?
 Which state has the highest newborn survival rate?
 Which states have lower maternal deaths despite high birth rates?
 Which state has the least pressure from chronic illnesses?
-Which states show better child health than adult health?
 Which state has the most balanced rural and urban health outcomes overall?
 Which state spends the least on child health outcomes based on low vaccination and high malnutrition?
-Which state has more healthy adults than people with chronic diseases?
 Where is child vaccination almost complete across the population?
 Which states have unusually high diabetes cases but low obesity levels?
 Which state has the lowest infant deaths despite high birth numbers?
 Do women or men face more health issues overall in India?
-Which state has the smallest gap between total population and people with any illness?
 Which states have worse health outcomes in villages than cities overall?
-Which state has the lowest share of elderly people with illnesses?
 Which states report more maternal deaths than infant deaths?
 Where is the drop from child vaccination to adult health the sharpest?
-Which state has the highest illness concentration per 1,000 people?
 Which states show better maternal health than child health?
 Which state has the most uneven health distribution between genders?
 Which states have strong vaccination but still high infant deaths?
-Which state has the lowest chronic disease load per person?
-Which states have more underweight children than elderly with illnesses?
 Where does urban health outperform rural health the most?
 Which state shows the strongest overall public health performance?
-Which state has more sick people than healthy people overall?
 Which state has the smallest number of infant deaths per 10,000 births?
-Which states have more elderly illness cases than child malnutrition cases?
-Which state shows the highest imbalance between births and healthcare outcomes?
 Which state has diabetes as its most dominant health issue?
 Which state has the lowest share of vaccinated children despite low population?
 Which states have child health problems but relatively healthy adults?
 Which state has the highest illness burden among working-age people?
 Which states show poor vaccination but low infant mortality?
-Which state has the lowest proportion of anaemic women compared to total women?
 Which states have higher maternal deaths than cancer cases?
-Which state shows the sharpest drop from adult health to elderly health?
 Which state has more obese people than underweight children?
 Which states have consistently poor health across children, adults, and elderly?
 Which state has the lowest overall illness diversity (one disease dominates)?
 Which state has better survival outcomes despite high disease burden?
-Which states show stronger child health than maternal health?
-Which state has the highest mismatch between population size and health infrastructure outcomes?
 Which state shows the weakest link between vaccination and child survival?
 Which state has the most uneven health outcomes across age groups?
-Which state protects babies best when births are very high?
 Where does vaccination success not translate into better infant survival?
 Which state relies least on hospitals by having fewer chronic cases per person?
 Where are women healthier than men overall?
-Which state shows the weakest protection for newborns despite low disease levels?
 Where do villages outperform cities in child health the most?
-Which state has strong adult health but weak child nutrition?
 Where is obesity replacing undernutrition as the main concern?
-Which state has the smallest health penalty for ageing?
 Where is health most evenly spread across age groups?
 Which state shows high disease numbers but good survival outcomes?
 Where does maternal health lag far behind child health?
 Which state minimizes health loss despite a large population?
-Where are childhood vaccines not the main barrier to child health?
 Which state has the highest return on vaccination in terms of survival?
-Where is adult disease concentrated but child health remains strong?
 Which state has the least gender gap in chronic illness?
 Where do health outcomes remain stable between rural and urban areas?
 Which state struggles most with preventable health issues?
 Where is child survival strong even with modest vaccination rates?
 Which state shows health resilience despite poverty-linked indicators?
-Where does ageing add the least extra health burden?
 Which state converts population size into better health outcomes best?
-Where is health inequality lowest across life stages?
 Which state shows early-life health success but later-life failure?
 Where is maternal safety the weakest link in the health chain?
 Which state balances prevention and treatment the best?
 Where does health improve the most from childhood to adulthood?
 Which state shows the clearest signs of a successful public health system?
-Where does population growth put the least pressure on health outcomes?
-Which state has the healthiest overall population balance?
 Which state shows the strongest link between vaccination and survival?
 Which state has the lowest disease burden among large states?
 Which state has the most preventable child health problems?
 Which state has the smallest rural–urban health divide?
-Which state has better elderly health than adult health?
 Which state shows poor adult health but good maternal outcomes?
 Which state has the lowest combined infant and maternal mortality?
 Which state has more chronic illness than acute illness indicators?
-Which state has the most efficient health outcomes per capita?
 Which state shows strong child and maternal health together?
-Which state has the weakest elderly health support?
-Which state shows balanced health outcomes across genders and ages?
 Which state has the highest preventable disease burden?
-Which state shows the most unequal health distribution overall?
-Which state performs best in child, maternal, and adult health combined?
-Which state has the least health stress from population growth?
 Which state shows strong prevention but weak treatment outcomes?
-Which state has the best overall health efficiency score?
-Which state shows minimum health inequality overall?
-Which state demonstrates the most sustainable public health system?
