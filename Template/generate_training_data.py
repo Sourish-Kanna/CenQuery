@@ -7,13 +7,12 @@ import re
 # 🔧 CONFIGURATION
 # ==========================================
 SCHEMA_FILE = "database_schema.json"  # Your schema file
-<<<<<<< Updated upstream
-QUESTIONS_FILE = "sourish_questions.txt"      # File containing list of questions
-SQL_FILE = "sourish_queries.sql"              # File containing list of SQL queries
-=======
 QUESTIONS_FILE = "questions_nd.txt"      # File containing list of questions
 SQL_FILE = "queries_nd.sql"              # File containing list of SQL queries
->>>>>>> Stashed changes
+
+QUESTIONS_FILE = "questions_nd.txt"      # File containing list of questions
+SQL_FILE = "queries_nd.sql"              # File containing list of SQL queries
+
 OUTPUT_DIR = "training_data"
 
 def load_schema_string(schema_path):
