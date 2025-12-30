@@ -12,8 +12,8 @@ from sqlalchemy.dialects import postgresql
 BASE_DATA_DIR = "data"  # <---- COMMON BASE FOLDER
 
 SCHEMA_FILE = "database_schema.json"
-QUESTIONS_FILE = "sourish_questions.txt"
-SQL_FILE = "sourish_queries.sql"
+QUESTIONS_FILE = "maharajan_questions.txt"
+SQL_FILE = "maharajan_queries.sql"
 OUTPUT_DIR = "training_data"
 MAX_OPTIONAL_TABLES = 6  # only for NON-core tables
 
@@ -62,6 +62,134 @@ RELIGION_ALIASES = {
     "bahai", "baháʼí"
 }
 
+IMPLICIT_POPULATION_TERMS = {
+    "men", "women", "male", "female",
+    "children", "child", "elderly", "youth", "teenagers",
+    "urban", "rural", "village", "city",
+    "ratio", "gap", "difference", "percentage",
+    "most", "least", "largest", "smallest",
+    "more", "less", "higher", "lower",
+    "twice", "double", "triple"
+}
+
+# =========================
+# IMPLICIT INTENT KEYWORDS
+# =========================
+
+IMPLICIT_POPULATION_TERMS = {
+    "men", "women", "male", "female",
+    "children", "child", "elderly", "youth", "teenagers",
+    "urban", "rural", "village", "villages", "city", "cities",
+    "ratio", "gap", "difference", "percentage", "percent",
+    "most", "least", "largest", "smallest",
+    "more", "less", "higher", "lower",
+    "twice", "double", "triple",
+    "population", "people", "persons", "count", "total", "live", "living"
+}
+
+IMPLICIT_RELIGION_TERMS = {
+    "religion", "religious", "community", "faith",
+    "hindu", "muslim", "christian", "sikh", "buddhist", "jain",
+    "parsi", "zoroastrian"
+}
+
+IMPLICIT_LANGUAGE_TERMS = {
+    "language", "languages", "spoken", "speakers",
+    "mother tongue", "linguistic"
+}
+
+IMPLICIT_EDUCATION_TERMS = {
+    "literacy", "literate", "illiterate",
+    "education", "educated", "schooling",
+    "literacy rate", "education level"
+}
+
+IMPLICIT_OCCUPATION_TERMS = {
+    "work", "working", "worker", "workers",
+    "employment", "employed", "unemployed",
+    "non-worker", "non workers",
+    "workforce", "participation"
+}
+
+IMPLICIT_HEALTH_TERMS = {
+    "health", "mortality", "death", "deaths",
+    "fertility", "birth", "births",
+    "vaccination", "anaemia", "diabetes",
+    "nutrition", "disease", "illness"
+}
+
+IMPLICIT_AGE_TERMS = {
+    "age", "aged",
+    "children", "child", "0-6",
+    "teen", "teenagers",
+    "youth",
+    "adult", "adults",
+    "elderly", "senior", "old age",
+    "working age"
+}
+
+
+RULES = [
+    {
+        "name": "religion",
+        "trigger": lambda q: (
+            any(r in q for r in RELIGION_KEYWORDS)
+            or any(w in q for w in IMPLICIT_RELIGION_TERMS)
+        ),
+        "adds": {"religion_stats"},
+    },
+
+    {
+        "name": "language",
+        "trigger": lambda q: (
+            any(l in q for l in LANGUAGE_KEYWORDS)
+            or any(w in q for w in IMPLICIT_LANGUAGE_TERMS)
+        ),
+        "adds": {"language_stats"},
+    },
+
+    {
+        "name": "population",
+        "trigger": lambda q: any(w in q for w in IMPLICIT_POPULATION_TERMS),
+        "adds": {"population_stats"},
+    },
+
+    {
+        "name": "education",
+        "trigger": lambda q: any(w in q for w in IMPLICIT_EDUCATION_TERMS),
+        "adds": {"education_stats"},
+        "depends_on": {
+            "religion": {"religion_stats"},
+        },
+    },
+
+    {
+        "name": "occupation",
+        "trigger": lambda q: any(w in q for w in IMPLICIT_OCCUPATION_TERMS),
+        "adds": {"occupation_stats"},
+        "depends_on": {
+            "religion": {"religion_stats"},
+        },
+    },
+
+    {
+        "name": "health",
+        "trigger": lambda q: any(w in q for w in IMPLICIT_HEALTH_TERMS),
+        "adds": {"healthcare_stats"},
+        "depends_on": {
+            "religion": {"religion_stats"},
+        },
+    },
+
+    {
+        "name": "age",
+        "trigger": lambda q: (
+            any(a in q for a in AGE_GROUP_KEYWORDS)
+            or any(w in q for w in IMPLICIT_AGE_TERMS)
+        ),
+        "adds": {"age_groups"},
+    },
+]
 
 # =========================
 # LOAD FULL SCHEMA
@@ -73,65 +201,8 @@ def load_schema(schema_path):
         return json.load(f)
 
 # =========================
-# RULE-BASED TABLE SELECTOR (FIXED + SAFE)
-# =========================
-# =========================
 # RULE GRAPH
 # =========================
-RULES = [
-    {
-    "name": "religion",
-    "trigger": lambda q: (
-        any(r in q for r in RELIGION_KEYWORDS)
-        or any(a in q for a in RELIGION_ALIASES)
-        or "religious" in q
-        or re.search(r"\bwhich\s+religion\b", q) is not None
-        or re.search(r"\breligion\s+has\b", q) is not None
-    ),
-    "adds": {"religion_stats"},
-    },
-    {
-        "name": "language",
-        "trigger": lambda q: (
-            any(l in q for l in LANGUAGE_KEYWORDS)
-            or "language" in q
-            or "spoken" in q
-            or "mother tongue" in q
-        ),
-        "adds": {"language_stats"},
-    },
-    {
-        "name": "population",
-        "trigger": lambda q: any(w in q for w in ["population", "people", "count", "live"]),
-        "adds": {"population_stats"},
-    },
-    {
-        "name": "education",
-        "trigger": lambda q: any(w in q for w in ["literacy", "literate", "illiterate", "education"]),
-        "adds": {"education_stats"},
-        "depends_on": {
-            "religion": {"religion_stats"},
-            "language": {"language_stats"},
-        },
-    },
-    {
-        "name": "occupation",
-        "trigger": lambda q: any(w in q for w in ["worker", "employment", "non-worker"]),
-        "adds": {"occupation_stats"},
-        "depends_on": {
-            "religion": {"religion_stats"},
-        },
-    },
-    {
-        "name": "health",
-        "trigger": lambda q: any(w in q for w in ["mortality", "fertility", "health"]),
-        "adds": {"healthcare_stats"},
-        "depends_on": {
-            "religion": {"religion_stats"},
-        },
-    },
-]
-
 def select_tables(question: str):
     q = question.lower()
     tables = set(CORE_TABLES)
