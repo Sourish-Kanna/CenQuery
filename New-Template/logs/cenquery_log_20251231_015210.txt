@@ -1,0 +1,4 @@
+🤖 CENQUERY ROBUST GENERATOR (FINAL_V2)
+Enter your name: ✅ Generated 500 samples
+📂 Saved to training_data\train_S-M-G.jsonl
+🧾 Log: logs\cenquery_log_20251231_015210.txt

@@ -50,6 +50,7 @@ OUTPUT_DIR = "training_data"
 
 MAX_OPTIONAL_TABLES = 6
 
+# These tables are ALWAYS included
 CORE_TABLES = {
     "regions",
     "tru",
@@ -79,7 +80,7 @@ AGE_GROUP_KEYWORDS = load_csv_keywords("age_groups.csv", "name")
 
 
 # ==================================================
-# INTENT DEFINITIONS (COMPREHENSIVE)
+# INTENT DEFINITIONS (FINAL)
 # ==================================================
 INTENTS = {
     "population": {
@@ -90,7 +91,7 @@ INTENTS = {
             "dwellers", "villagers", "citizens", "residents"
         },
         "weak": {
-            "most", "least", "largest", "smallest",
+            "most", "least", "largest", "smallest", "fewest",
             "more", "less", "higher", "lower",
             "ratio", "gap", "difference", "percentage", "percent"
         }
@@ -151,8 +152,7 @@ INTENTS = {
             "registered", "registration", "authority"
         },
         "weak": set()
-    }
-    ,
+    },
 
     "age": {
         "strong": AGE_GROUP_KEYWORDS | {
@@ -165,7 +165,7 @@ INTENTS = {
 }
 
 # ==================================================
-# RULE GRAPH (OPTIMIZED)
+# RULE GRAPH (FINAL FIX)
 # ==================================================
 RULES = [
     # Basic mappings
@@ -173,13 +173,17 @@ RULES = [
     {"intent": "language",   "adds": {"language_stats"}},
     {"intent": "population", "adds": {"population_stats"}},
     {"intent": "health",     "adds": {"healthcare_stats"}},
-    {"intent": "occupation", "adds": {"occupation_stats"}},
     
-    # Smart Rules:
-    # 1. Education data is spread across three tables in your schema.
-    #    We select all three to ensure the SQL has what it needs.
+    # FIX: Questions about "Age" (children/teenagers) require population stats to count them
+    {"intent": "age",        "adds": {"population_stats"}},
+
+    # FIX: "Occupation" data (like 'paid in cash') sometimes lives in healthcare_stats in this schema
+    {"intent": "occupation", "adds": {"occupation_stats", "healthcare_stats"}},
+    
+    # FIX: "Education" data is spread across multiple tables in this schema
     {"intent": "education",  "adds": {"education_stats", "religion_stats", "healthcare_stats"}},
 ]
+
 
 # ==================================================
 # SCHEMA
@@ -263,6 +267,7 @@ def used_tables(sql):
         if a: found.add(a)
         if b: found.add(b)
     return found
+
 # =========================
 # LOAD QUESTIONS / SQL
 # =========================
@@ -310,7 +315,7 @@ def get_unique_filename(directory, filename):
 # MAIN
 # ==================================================
 def main():
-    print("🤖 CENQUERY ROBUST GENERATOR (FINAL, FIXED)")
+    print("🤖 CENQUERY ROBUST GENERATOR (FINAL_V2)")
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     member = input("Enter your name: ").strip().replace(" ", "_") or "Member"
@@ -329,19 +334,22 @@ def main():
                 raise ValueError(f"❌ Invalid SQL syntax:\n{s}\n{err}")
 
             tables = select_tables(q)
+            
+            # Helper to check for missing real tables (ignores CTEs)
             missing = used_tables(s) - tables
-            if missing:
+            real_missing = {t for t in missing if t in schema_json}
+            
+            if real_missing:
                 print("-" * 60)
-                print(f"🧠 Question {n}:")
-                print(q)
-                print("📊 Selected tables:")
-                print(sorted(tables))
-                print("⚠️ Missing tables (selector issue):", missing)
-            tables |= {t for t in missing if t in schema_json}
+                print(f"🧠 Question {n}: {q}")
+                print("📊 Selected tables:", sorted(tables))
+                print("⚠️ Missing tables:", real_missing)
+            
+            # Auto-fix for output generation
+            tables |= real_missing
 
             schema = build_schema(schema_json, tables)
-
-            out.write(json.dumps(format_entry(q, s, schema)))
+            out.write(json.dumps(format_entry(q, s, schema)) + "\n")
             n+=1
 
     print(f"✅ Generated {len(questions)} samples")
