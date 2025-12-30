@@ -56,6 +56,13 @@ AGE_GROUP_ALIASES = {
     "adults", "elderly", "women", "men", "youth"
 }
 
+RELIGION_ALIASES = {
+    "parsi", "parsis", "zoroastrian", "zoroastrians",
+    "jew", "jews", "jewish",
+    "bahai", "baháʼí"
+}
+
+
 # =========================
 # LOAD FULL SCHEMA
 # =========================
@@ -73,9 +80,15 @@ def load_schema(schema_path):
 # =========================
 RULES = [
     {
-        "name": "religion",
-        "trigger": lambda q: any(r in q for r in RELIGION_KEYWORDS) or "religious" in q,
-        "adds": {"religion_stats"},
+    "name": "religion",
+    "trigger": lambda q: (
+        any(r in q for r in RELIGION_KEYWORDS)
+        or any(a in q for a in RELIGION_ALIASES)
+        or "religious" in q
+        or re.search(r"\bwhich\s+religion\b", q) is not None
+        or re.search(r"\breligion\s+has\b", q) is not None
+    ),
+    "adds": {"religion_stats"},
     },
     {
         "name": "language",
