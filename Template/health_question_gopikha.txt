@@ -1,0 +1,200 @@
+Which state has the highest percentage of fully vaccinated children (12-23 months)?
+Which state has the lowest percentage of fully vaccinated children?
+Which state has the highest prevalence of stunting in children under 5?
+Which state has the lowest prevalence of wasting in children under 5?
+Which state has the highest percentage of underweight children?
+Which states have a higher percentage of underweight children than stunted children?
+Which state has the highest percentage of institutional births?
+Which states have institutional birth rates below 50%?
+What is the average rate of institutional births in rural India?
+Which state has the highest percentage of mothers who received at least 4 antenatal care visits?
+Which states have antenatal care coverage below 30%?
+Which state has the highest percentage of children breastfed within one hour of birth?
+Is obesity more common in urban or rural India?
+Which state has the largest gap in obesity rates between men and women?
+Which states have more women with high blood sugar than men?
+Which state has the highest percentage of women using hygienic methods during menstruation?
+Which states have less than 50% of women using hygienic menstrual methods?
+Which state has the highest percentage of households using clean fuel for cooking?
+Which states have poor access to clean cooking fuel (below 20%)?
+Which state has the highest percentage of households with electricity?
+Which states have less than 80% electricity coverage?
+Which state has the highest percentage of households with improved sanitation?
+Which state has the lowest access to improved drinking water?
+Which state has the highest female literacy rate?
+What is the literacy gap between men and women in rural India?
+Which state has the highest percentage of women married before age 18?
+Which states have child marriage rates above 20%?
+Which state has the highest percentage of men married before age 21?
+Which state has the highest total fertility rate?
+Which states have a fertility rate below 2.0?
+Which state has the highest adolescent fertility rate (15-19 years)?
+Which state has the highest percentage of women who have ever used the internet?
+Which state has the biggest digital divide between men and women regarding internet usage?
+Which state has the highest percentage of women owning a house or land?
+Which state has the highest percentage of women with a bank account?
+Which state has the highest percentage of women with a mobile phone?
+Which state has the highest percentage of women who have experienced domestic violence?
+Which state has the highest tobacco use among men?
+Which state has the highest tobacco use among women?
+Which state has the highest alcohol consumption among men?
+Which states have alcohol consumption among men above 30%?
+Which state has the highest percentage of children with diarrhoea in the last 2 weeks?
+Which state has the highest percentage of children with fever or ARI symptoms?
+Which state has the highest percentage of children receiving an adequate diet?
+Which state has the highest percentage of registered pregnancies receiving a Mother and Child Protection Card?
+Which state has the highest percentage of C-section deliveries in private facilities?
+Which state has the highest percentage of C-section deliveries in public facilities?
+Which state has the highest percentage of women with comprehensive HIV knowledge?
+Which state has the highest percentage of men with comprehensive HIV knowledge?
+Which state has the highest percentage of households with health insurance?
+Which state has the highest female anaemia percentage?
+Which state has the lowest male anaemia percentage?
+What is the average vaccination rate across all states?
+Which states have vaccination rates below 70%?
+Which state has the highest obesity rate?
+Which state has the lowest obesity rate?
+Which states have diabetes rates above 10%?
+What is the average diabetes rate in urban areas?
+What is the average diabetes rate in rural areas?
+Which state has the highest hypertension rate?
+What is the average hypertension rate across all states?
+Which states have hypertension rates above the national average?
+What is the average female anaemia rate in rural areas?
+What is the average female anaemia rate in urban areas?
+Which states have male anaemia rates higher than female anaemia rates?
+Which state has the biggest gap between female and male anaemia?
+Which states have obesity rates above diabetes rates?
+Which state has the lowest vaccination rate?
+Which states have vaccination rates above 90%?
+Which states have higher hypertension rates in rural areas than urban areas?
+Which state has the highest combined anaemia burden?
+Which states have obesity rates below 5%?
+What is the average obesity rate in urban areas?
+What is the average obesity rate in rural areas?
+Which state has the highest vaccination rate in rural areas?
+Which state has the highest vaccination rate in urban areas?
+Which states have female anaemia rates above 50%?
+Which states have male anaemia rates below 20%?
+How many children in rural Bihar are fully vaccinated?
+Which state has the highest number of people suffering from high blood pressure?
+How many people in rural Uttar Pradesh have high blood pressure?
+How many women in Kerala are anaemic?
+How many children in urban Maharashtra are fully vaccinated?
+How many people in urban Rajasthan are obese?
+How many children in rural Odisha have not received any vaccines?
+How many people in Punjab suffer from diabetes?
+How many children in Bihar are underweight?
+How many people live with diabetes in Kerala?
+Is high blood pressure more common in cities or villages in Tamil Nadu?
+How many women are anaemic in Maharashtra?
+Which states have the most underweight children?
+Which state has the highest percentage of literate women?
+Which state has the lowest percentage of literate men?
+Which state has the highest percentage of women with 10 or more years of schooling?
+Which state has the lowest percentage of women with 10 or more years of schooling?
+Which state has the highest percentage of men with 10 or more years of schooling?
+Which state has the lowest percentage of men with 10 or more years of schooling?
+What is the average female literacy rate in urban areas?
+What is the average male literacy rate in rural areas?
+Which state has the highest percentage of children attending pre-primary school?
+Which state has the lowest percentage of children attending pre-primary school?
+Which state has the highest percentage of women who use the internet?
+Which state has the lowest percentage of women who use the internet?
+Which state has the highest percentage of men who use the internet?
+Which state has the lowest percentage of men who use the internet?
+Which state has the highest percentage of children with a birth certificate?
+Which state has the lowest percentage of children with a birth certificate?
+Which state has the highest percentage of deaths registered with civil authority?
+Which state has the lowest percentage of deaths registered with civil authority?
+Which state has the highest percentage of women using iodized salt?
+Which state has the lowest percentage of women using iodized salt?
+Which state has the highest percentage of women who are overweight or obese?
+Which state has the lowest percentage of women who are overweight or obese?
+Which state has the highest percentage of men who are overweight or obese?
+Which state has the lowest percentage of men who are overweight or obese?
+Which state has the highest percentage of women with high risk waist-to-hip ratio?
+Which state has the lowest percentage of women with high risk waist-to-hip ratio?
+Which state has the highest percentage of men with high risk waist-to-hip ratio?
+Which state has the lowest percentage of men with high risk waist-to-hip ratio?
+Which state has the highest percentage of women who are anaemic (all women)?
+Which state has the lowest percentage of women who are anaemic (all women)?
+Which state has the highest percentage of pregnant women who are anaemic?
+Which state has the lowest percentage of pregnant women who are anaemic?
+Which state has the highest percentage of non-pregnant women who are anaemic?
+Which state has the lowest percentage of non-pregnant women who are anaemic?
+Which state has the highest percentage of men who are anaemic?
+Which state has the lowest percentage of men who are anaemic?
+Which state has the highest percentage of women with high blood sugar?
+Which state has the lowest percentage of women with high blood sugar?
+Which state has the highest percentage of men with high blood sugar?
+Which state has the lowest percentage of men with high blood sugar?
+Which state has the highest percentage of women with very high blood sugar?
+Which state has the lowest percentage of women with very high blood sugar?
+Which state has the highest percentage of men with very high blood sugar?
+Which state has the lowest percentage of men with very high blood sugar?
+Which state has the highest percentage of women with elevated blood pressure?
+Which state has the lowest percentage of women with elevated blood pressure?
+Which state has the highest percentage of men with elevated blood pressure?
+Which state has the lowest percentage of men with elevated blood pressure?
+Which state has the highest percentage of women who have undergone cervical cancer screening?
+Which state has the lowest percentage of women who have undergone cervical cancer screening?
+Which state has the highest percentage of women who have undergone breast cancer screening?
+Which state has the lowest percentage of women who have undergone breast cancer screening?
+Which state has the highest percentage of women who have undergone oral cavity screening?
+Which state has the lowest percentage of women who have undergone oral cavity screening?
+Which state has the highest percentage of men who have undergone oral cavity screening?
+Which state has the lowest percentage of men who have undergone oral cavity screening?
+Which state has the highest percentage of women who know that condoms prevent HIV?
+Which state has the lowest percentage of women who know that condoms prevent HIV?
+Which state has the highest percentage of men who know that condoms prevent HIV?
+Which state has the lowest percentage of men who know that condoms prevent HIV?
+Which state has the highest percentage of currently married women who participate in household decisions?
+Which state has the lowest percentage of currently married women who participate in household decisions?
+Which state has the highest percentage of women who worked in the last 12 months and were paid in cash?
+Which state has the lowest percentage of women who worked in the last 12 months and were paid in cash?
+Which state has the highest percentage of women who experienced sexual violence by age 18?
+Which state has the lowest percentage of women who experienced sexual violence by age 18?
+Which state has the highest percentage of women who use any kind of tobacco?
+Which state has the lowest percentage of women who use any kind of tobacco?
+Which state has the highest percentage of men who use any kind of tobacco?
+Which state has the lowest percentage of men who use any kind of tobacco?
+Which state has the highest percentage of women who consume alcohol?
+Which state has the lowest percentage of women who consume alcohol?
+Which state has the highest percentage of men who consume alcohol?
+Which state has the lowest percentage of men who consume alcohol?
+Which state has the highest percentage of children with fever in the last 2 weeks?
+Which state has the lowest percentage of children with fever in the last 2 weeks?
+Which state has the highest percentage of children with ARI symptoms in the last 2 weeks?
+Which state has the lowest percentage of children with ARI symptoms in the last 2 weeks?
+Which state has the highest percentage of children who received advice or treatment for fever/ARI?
+Which state has the lowest percentage of children who received advice or treatment for fever/ARI?
+Which state has the highest percentage of children who received a Vitamin A dose in the last 6 months?
+Which state has the lowest percentage of children who received a Vitamin A dose in the last 6 months?
+Which state has the highest percentage of children who received 3 doses of rotavirus vaccine?
+Which state has the lowest percentage of children who received 3 doses of rotavirus vaccine?
+Which state has the highest percentage of children who received 3 doses of pentavalent vaccine?
+Which state has the lowest percentage of children who received 3 doses of pentavalent vaccine?
+Which state has the highest percentage of children who received 3 doses of polio vaccine?
+Which state has the lowest percentage of children who received 3 doses of polio vaccine?
+Which state has the highest percentage of children who received BCG vaccine?
+Which state has the lowest percentage of children who received BCG vaccine?
+Which state has the highest percentage of children who received measles vaccine?
+Which state has the lowest percentage of children who received measles vaccine?
+Which state has the highest percentage of children who received Hepatitis B vaccine?
+Which state has the lowest percentage of children who received Hepatitis B vaccine?
+Which state has the highest percentage of institutional births in public facilities?
+Which state has the lowest percentage of institutional births in public facilities?
+Which state has the highest percentage of home births conducted by skilled health personnel?
+Which state has the lowest percentage of home births conducted by skilled health personnel?
+Which state has the highest percentage of births attended by skilled health personnel?
+Which state has the lowest percentage of births attended by skilled health personnel?
+Which state has the highest percentage of women who received postnatal care from a doctor/nurse/LHV/ANM/midwife?
+Which state has the lowest percentage of women who received postnatal care from a doctor/nurse/LHV/ANM/midwife?
+Which state has the highest percentage of children who received postnatal care from a doctor/nurse/LHV/ANM/midwife?
+Which state has the lowest percentage of children who received postnatal care from a doctor/nurse/LHV/ANM/midwife?
+Which state has the highest average out-of-pocket expenditure per delivery in a public health facility?
+Which state has the lowest average out-of-pocket expenditure per delivery in a public health facility?
+Which state has the highest percentage of women who consumed iron folic acid for 100 days or more when pregnant?
+Which state has the lowest percentage of women who consumed iron folic acid for 100 days or more when pregnant?
+Which state has the highest percentage of women whose last birth was protected against neonatal tetanus?
