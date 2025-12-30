@@ -12,8 +12,8 @@ from sqlalchemy.dialects import postgresql
 BASE_DATA_DIR = "data"  # <---- COMMON BASE FOLDER
 
 SCHEMA_FILE = "database_schema.json"
-QUESTIONS_FILE = "maharajan_questions.txt"
-SQL_FILE = "maharajan_queries.sql"
+QUESTIONS_FILE = "questions.txt"
+SQL_FILE = "queries.sql"
 OUTPUT_DIR = "training_data"
 MAX_OPTIONAL_TABLES = 6  # only for NON-core tables
 

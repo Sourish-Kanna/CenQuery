@@ -1,0 +1,500 @@
+How many Muslims live in Kerala?
+Count the number of Hindi speakers in Uttar Pradesh.
+How many Christians live in rural areas compared to urban areas in Goa?
+What are the top 3 most spoken languages in Karnataka?
+Which religious group has the highest literacy rate across India?
+How many women list Tamil as their main language in Tamil Nadu?
+Find the total number of Jains in Maharashtra who aren't working.
+How many villagers in West Bengal speak Bengali?
+Which state has a larger Sikh population: Punjab or Haryana?
+What is the difference between male and female literacy numbers for Hindus in India?
+How many people speak Marathi in Maharashtra?
+What is the total Buddhist population in Sikkim?
+Are there more Hindi speakers in Madhya Pradesh or Rajasthan?
+How many Jains live in the cities of Gujarat?
+What is the literacy rate of Christians in Kerala?
+Compare the number of male and female Urdu speakers in Telangana.
+How many Sikhs in Punjab are currently working?
+Which 3 states have the highest number of English speakers?
+How many Buddhists live in the villages of Maharashtra?
+What is the second most spoken language in Tamil Nadu?
+Are there more men or women among the Muslim population in Uttar Pradesh?
+How many people speak Telugu in Karnataka?
+What is the total Hindu population in Assam?
+What is the gap between literate men and women for Buddhists in Maharashtra?
+How many people speak Gujarati in urban areas of Gujarat?
+How many Sikhs live in Goa?
+How many Muslims in Bihar are not working?
+How many Malayalam speakers live in Delhi?
+Do more people speak Kannada or Telugu in Karnataka?
+Which state has the highest population of Christians?
+Which state has the highest number of Urdu speakers?
+How many Jains live in the rural areas of Rajasthan?
+What is the literacy rate of Muslim women in Uttar Pradesh?
+How many people speak Bengali in Tripura?
+Are there more Christians in Nagaland or Mizoram?
+How many men speak English in Maharashtra?
+What is the total Sikh population in Delhi?
+Find the number of illiterate Hindus in Bihar.
+How many people speak Kannada in the cities of Karnataka?
+Which 3 states have the largest Buddhist populations?
+How many women speak Malayalam in Kerala?
+What is the work participation rate for Jains in Gujarat?
+How many people speak Punjabi in Haryana?
+Count the number of Muslims in West Bengal's villages.
+Which language is spoken more in Andhra Pradesh: Telugu or Urdu?
+How many Christian men live in Tamil Nadu?
+What is the total population of Parsis (Zoroastrians) in Maharashtra?
+How many Hindi speakers live in the rural parts of Madhya Pradesh?
+Which state has the lowest literacy rate for Buddhists?
+How many people speak Odia in Jharkhand?
+What is the sex ratio of Sikhs in Punjab?
+How many Jains are working in Madhya Pradesh?
+Are there more female Hindi speakers in Bihar or Uttar Pradesh?
+How many people speak Konkani in Goa?
+What is the total Muslim population in Jammu & Kashmir?
+How many literate Christian women are there in Meghalaya?
+Which 5 states have the most Marathi speakers?
+How many people speak Tamil in the urban areas of Delhi?
+Count the number of Buddhist men in Maharashtra.
+What is the difference in literacy rates between Jain men and women in Rajasthan?
+How many people speak Assamese in Assam?
+Which religion has the highest percentage of non-workers in Kerala?
+How many Urdu speakers live in Karnataka?
+What is the total Hindu population in the cities of West Bengal?
+How many people speak Gujarati in Daman & Diu?
+Are there more Sikhs in Rajasthan or Himachal Pradesh?
+How many women speak Telugu in Telangana?
+What is the literacy rate of the total population in Mizoram?
+How many people speak Sindhi in Gujarat?
+Which state has the highest number of Sanskrit speakers?
+How many people speak Nepali in Sikkim?
+What is the total Christian population in Meghalaya?
+Are there more Buddhist men or women in Arunachal Pradesh?
+How many people speak Dogri in Jammu & Kashmir?
+What is the literacy rate of Jains in Madhya Pradesh?
+How many Urdu speakers live in the cities of Andhra Pradesh?
+Which state has the highest number of Maithili speakers?
+How many Sikhs live in the villages of Haryana?
+What is the sex ratio of Muslims in Kerala?
+How many people speak Konkani in Karnataka?
+What is the total number of Jain women in Maharashtra?
+Which state has more English speakers: Tamil Nadu or Karnataka?
+How many people speak Manipuri in Manipur?
+What is the literacy gap between Hindu men and women in Rajasthan?
+How many Buddhists live in Himachal Pradesh?
+How many people speak Bodo in Assam?
+Are there more Sikh men in Punjab or Haryana?
+How many people speak Santhali in Jharkhand?
+What is the total Muslim population in Lakshadweep?
+How many women speak Gujarati in Maharashtra?
+Which state has the highest percentage of literate Jains?
+How many people speak Kashmiri in Jammu & Kashmir?
+What is the workforce participation rate of Christians in Goa?
+How many people speak Sindhi in Maharashtra?
+Are there more rural or urban Hindu speakers in Uttar Pradesh?
+How many people speak Tulu in Karnataka?
+What is the total population of Buddhists in West Bengal?
+How many illiterate Muslim women are there in Bihar?
+Which state has the largest population of Zoroastrians (Parsis)?
+How many people speak Khasi in Meghalaya?
+What is the sex ratio of Jains in Gujarat?
+How many people speak Garo in Meghalaya?
+Are there more Christians in Kerala or Tamil Nadu?
+How many people speak Mizo in Mizoram?
+What is the literacy rate of Sikhs in Delhi?
+How many people speak Kokborok in Tripura?
+Which 3 states have the highest number of Urdu speakers?
+How many Muslim men are working in Uttar Pradesh?
+How many people speak Punjabi in Rajasthan?
+What is the total Jain population in Karnataka?
+How many people speak English in Nagaland?
+Are there more Buddhist women in Maharashtra or Sikkim?
+How many people speak Malayalam in Karnataka?
+What is the literacy gap for Muslims in West Bengal?
+How many people speak Bhili/Bhilodi in Rajasthan?
+Which state has the highest number of Christian workers?
+How many people speak Gondi in Madhya Pradesh?
+What is the total Sikh population in Uttarakhand?
+How many people speak Kurukh/Oraon in Jharkhand?
+Are there more urban or rural Jain speakers in Gujarat?
+How many people speak Mundari in Odisha?
+What is the sex ratio of Buddhists in Maharashtra?
+How many people speak Ho in Jharkhand?
+Which state has the lowest literacy rate for Muslims?
+How many people speak Kui in Odisha?
+What is the total Christian population in Andaman & Nicobar Islands?
+How many people speak Khandeshi in Maharashtra?
+Are there more Hindu men or women in Tamil Nadu?
+How many people speak Malto in Jharkhand?
+What is the workforce participation rate of Sikhs in Punjab?
+How many people speak Kinnauri in Himachal Pradesh?
+Which state has the highest number of Jain non-workers?
+How many people speak Lushai/Mizo in Mizoram?
+What is the literacy rate of Buddhists in Karnataka?
+How many people speak Halabi in Chhattisgarh?
+Are there more Christian women in Goa or Kerala?
+How many people speak Korku in Madhya Pradesh?
+What is the total Muslim population in Assam?
+How many people speak Nishi in Arunachal Pradesh?
+Which 3 states have the highest number of English speaking women?
+How many people speak Ao in Nagaland?
+What is the literacy gap between Sikh men and women in Punjab?
+How many people speak Sema in Nagaland?
+Are there more Jains in Maharashtra or Madhya Pradesh?
+How many people speak Angami in Nagaland?
+What is the total Buddhist population in Ladakh?
+How many people speak Lotha in Nagaland?
+Which religion has the highest number of workers in Mumbai (Maharashtra)?
+How many people speak Thado in Manipur?
+What is the sex ratio of Christians in Meghalaya?
+How many Muslims live in Kerala?
+How many people speak Hindi in Uttar Pradesh?
+How does the Christian population compare between rural and urban Goa?
+Which three languages are spoken the most in Karnataka?
+Which religion has the highest literacy rate in India?
+How many women in Tamil Nadu speak Tamil?
+How many Jains in Maharashtra are currently not working?
+How many people in rural West Bengal speak Bengali?
+Who has a larger Sikh population: Punjab or Haryana?
+What is the literacy gap between Hindu men and women in India?
+Which states have the largest populations? List them in order.
+Which 5 states have the most people living in rural areas?
+Which 5 states have the most people living in urban areas?
+Which states have more women than men?
+Which states show the biggest difference in gender balance between their villages and cities?
+Which three age groups account for the most people in India?
+Can you break down the population by age, state, and whether they live in a city or village?
+Which state has the most young children (0-6) living in rural areas?
+What percentage of each state's total population is female?
+Which age group is the largest in the rural areas of each state?
+Which states have more people living in cities than in villages?
+Which states have a rural population that is larger than their urban population?
+Which state has the highest number of men?
+Which state has the highest number of women?
+Which state has the largest gap between the number of men and women?
+Which states have a lot of young people but very few elderly people?
+Which states have a large elderly population?
+Which states have the biggest urban populations?
+Which states have the biggest rural populations?
+Which states have the most equal ratio of men to women?
+Which states have the smallest populations?
+Which states are more rural than urban?
+Which states are more urban than rural?
+In which states do rural women outnumber rural men?
+In which states do urban women outnumber urban men?
+Which states have the largest population of children (0-6)?
+Which states have the smallest population of elderly people?
+Which states have twice as many people living in villages as in cities?
+Which states have twice as many people living in cities as in villages?
+Which states have the smallest difference between the number of men and women?
+Which states have the fewest people living in rural areas?
+Which states have the fewest people living in urban areas?
+Which states have the most elderly people (60+)?
+Which states have more elderly people than young children?
+In which states do men outnumber women in urban areas?
+In which states do women outnumber men in rural areas?
+Which states have three times as many city dwellers as villagers?
+Which states have three times as many villagers as city dwellers?
+Which states have the largest workforce (people not children or elderly)?
+Which states have roughly the same number of people in rural and urban areas?
+List the states with the biggest rural populations.
+List the states with the biggest urban populations.
+Where is the gender gap the smallest?
+Which states have the most women?
+Which states have the most men?
+Which states have the highest percentage of children?
+Which states have the highest percentage of elderly people?
+In which states does the rural population exceed the urban population?
+In which states does the urban population exceed the rural population?
+Which states have a rural/urban population split that is almost equal (less than 10% difference)?
+Rank the states by total population.
+Which states have the smallest rural populations?
+Which states have the smallest urban populations?
+Which states have at least 20% more women than men?
+Which states have at least 20% more men than women?
+Which states have the most teenagers?
+Which states have the fewest young children?
+Which states have the largest working-age populations?
+Which states have the smallest working-age populations?
+Which states have nearly identical rural and urban population counts (within 5%)?
+Where do the most villagers live?
+Where do the most city dwellers live?
+Which states have a rural population that is double the urban one?
+Which states have an urban population that is double the rural one?
+Which states have the lowest overall population?
+Which states have the fewest women?
+Which states have the fewest men?
+Which states have the most children?
+Which states have the fewest teenagers?
+Which states have the largest number of elderly people?
+Which states have the most women living in rural areas?
+Which states have the most men living in rural areas?
+Which states have the most women living in urban areas?
+Which states have the most men living in urban areas?
+Which states have the fewest elderly people?
+Which states have the fewest children?
+Which states have the most adults (15-59)?
+Which states have the fewest adults (15-59)?
+Which states have a similar number of young children and elderly people?
+Which states have the biggest difference between their child and elderly populations?
+Which state is home to the most Muslims?
+Which state is home to the most Christians?
+Which state is home to the most Sikhs?
+Which state is home to the most Buddhists?
+Which state is home to the most Jains?
+Where are the most Marathi speakers found?
+Where are the most Telugu speakers found?
+Where are the most Urdu speakers found?
+Where are the most Malayalam speakers found?
+Where are the most Punjabi speakers found?
+How many people speak Gujarati in Gujarat?
+Which state has the largest number of Odia speakers?
+How many people in Assam speak Assamese?
+Count the number of Kannada speakers in rural areas of Karnataka.
+Which state has the most people speaking Konkani?
+How many women are literate among the Muslim population in India?
+Which state has the highest number of literate Hindu women?
+How many Christians in Kerala are currently working?
+Find the total number of illiterate Jains in Rajasthan.
+Which religion has the lowest female literacy rate in Uttar Pradesh?
+How many Sikh men live in rural Punjab?
+Which state has the highest number of Buddhists living in cities?
+How many people speak Maithili in Bihar?
+Which state has the most Santali speakers?
+How many people list English as their language in Maharashtra?
+What is the total number of Kashmiri speakers in Jammu & Kashmir?
+How many Nepali speakers live in Sikkim?
+Which state has the largest Sindhi-speaking population?
+How many Dogri speakers are there in India?
+In which state is the gender gap in literacy the highest for Muslims?
+Which state has the highest percentage of working women among Christians?
+How many Buddhist children (0-6) are there in Maharashtra?
+Which state has the largest population of illiterate men?
+Which state has the largest population of illiterate women?
+How many Hindus live in the urban areas of West Bengal?
+How many Muslims live in the rural areas of Bihar?
+Which state has the most Jain men?
+Which state has the most Sikh women?
+How many people speak Sanskrit in India?
+Which state has the highest number of Tulu speakers?
+Compare the number of Hindi speakers in rural vs urban Madhya Pradesh.
+Which religious group has the highest workforce participation in India?
+How many women are non-workers among the Sikh population in Punjab?
+Which state has the highest number of literate Buddhist men?
+How many people speak Bodo in Assam?
+Which state has the most Manipuri speakers?
+How many people speak Mizo in Mizoram?
+Which state has the largest population of Khasi speakers?
+How many Garo speakers live in Meghalaya?
+Which state has the most Bhili/Bhilodi speakers?
+How many Gondi speakers are there in Chhattisgarh?
+Which state has the highest number of Kurukh/Oraon speakers?
+How many people speak Mundari in Jharkhand?
+Which state has the most Ho speakers?
+How many Khandeshi speakers are there in Maharashtra?
+Which religious community has the most people living in rural India?
+Which religious community is the most urbanized in India?
+How many Jain women are literate in Gujarat?
+Which state has the highest number of Christian men?
+How many Muslim men are illiterate in Bihar?
+Which state has the highest percentage of fully vaccinated children (12-23 months)?
+Which state has the lowest percentage of fully vaccinated children?
+Which state has the highest prevalence of stunting in children under 5?
+Which state has the lowest prevalence of wasting in children under 5?
+Which state has the highest percentage of underweight children?
+Which states have a higher percentage of underweight children than stunted children?
+Which state has the highest percentage of institutional births?
+Which states have institutional birth rates below 50%?
+What is the average rate of institutional births in rural India?
+Which state has the highest percentage of mothers who received at least 4 antenatal care visits?
+Which states have antenatal care coverage below 30%?
+Which state has the highest percentage of children breastfed within one hour of birth?
+Is obesity more common in urban or rural India?
+Which state has the largest gap in obesity rates between men and women?
+Which states have more women with high blood sugar than men?
+Which state has the highest percentage of women using hygienic methods during menstruation?
+Which states have less than 50% of women using hygienic menstrual methods?
+Which state has the highest percentage of households using clean fuel for cooking?
+Which states have poor access to clean cooking fuel (below 20%)?
+Which state has the highest percentage of households with electricity?
+Which states have less than 80% electricity coverage?
+Which state has the highest percentage of households with improved sanitation?
+Which state has the lowest access to improved drinking water?
+Which state has the highest female literacy rate?
+What is the literacy gap between men and women in rural India?
+Which state has the highest percentage of women married before age 18?
+Which states have child marriage rates above 20%?
+Which state has the highest percentage of men married before age 21?
+Which state has the highest total fertility rate?
+Which states have a fertility rate below 2.0?
+Which state has the highest adolescent fertility rate (15-19 years)?
+Which state has the highest percentage of women who have ever used the internet?
+Which state has the biggest digital divide between men and women regarding internet usage?
+Which state has the highest percentage of women owning a house or land?
+Which state has the highest percentage of women with a bank account?
+Which state has the highest percentage of women with a mobile phone?
+Which state has the highest percentage of women who have experienced domestic violence?
+Which state has the highest tobacco use among men?
+Which state has the highest tobacco use among women?
+Which state has the highest alcohol consumption among men?
+Which states have alcohol consumption among men above 30%?
+Which state has the highest percentage of children with diarrhoea in the last 2 weeks?
+Which state has the highest percentage of children with fever or ARI symptoms?
+Which state has the highest percentage of children receiving an adequate diet?
+Which state has the highest percentage of registered pregnancies receiving a Mother and Child Protection Card?
+Which state has the highest percentage of C-section deliveries in private facilities?
+Which state has the highest percentage of C-section deliveries in public facilities?
+Which state has the highest percentage of women with comprehensive HIV knowledge?
+Which state has the highest percentage of men with comprehensive HIV knowledge?
+Which state has the highest percentage of households with health insurance?
+Which state has the highest female anaemia percentage?
+Which state has the lowest male anaemia percentage?
+What is the average vaccination rate across all states?
+Which states have vaccination rates below 70%?
+Which state has the highest obesity rate?
+Which state has the lowest obesity rate?
+Which states have diabetes rates above 10%?
+What is the average diabetes rate in urban areas?
+What is the average diabetes rate in rural areas?
+Which state has the highest hypertension rate?
+What is the average hypertension rate across all states?
+Which states have hypertension rates above the national average?
+What is the average female anaemia rate in rural areas?
+What is the average female anaemia rate in urban areas?
+Which states have male anaemia rates higher than female anaemia rates?
+Which state has the biggest gap between female and male anaemia?
+Which states have obesity rates above diabetes rates?
+Which state has the lowest vaccination rate?
+Which states have vaccination rates above 90%?
+Which states have higher hypertension rates in rural areas than urban areas?
+Which state has the highest combined anaemia burden?
+Which states have obesity rates below 5%?
+What is the average obesity rate in urban areas?
+What is the average obesity rate in rural areas?
+Which state has the highest vaccination rate in rural areas?
+Which state has the highest vaccination rate in urban areas?
+Which states have female anaemia rates above 50%?
+Which states have male anaemia rates below 20%?
+How many children in rural Bihar are fully vaccinated?
+Which state has the highest number of people suffering from high blood pressure?
+How many people in rural Uttar Pradesh have high blood pressure?
+How many women in Kerala are anaemic?
+How many children in urban Maharashtra are fully vaccinated?
+How many people in urban Rajasthan are obese?
+How many children in rural Odisha have not received any vaccines?
+How many people in Punjab suffer from diabetes?
+How many children in Bihar are underweight?
+How many people live with diabetes in Kerala?
+Is high blood pressure more common in cities or villages in Tamil Nadu?
+How many women are anaemic in Maharashtra?
+Which states have the most underweight children?
+Which state has the highest percentage of literate women?
+Which state has the lowest percentage of literate men?
+Which state has the highest percentage of women with 10 or more years of schooling?
+Which state has the lowest percentage of women with 10 or more years of schooling?
+Which state has the highest percentage of men with 10 or more years of schooling?
+Which state has the lowest percentage of men with 10 or more years of schooling?
+What is the average female literacy rate in urban areas?
+What is the average male literacy rate in rural areas?
+Which state has the highest percentage of children attending pre-primary school?
+Which state has the lowest percentage of children attending pre-primary school?
+Which state has the highest percentage of women who use the internet?
+Which state has the lowest percentage of women who use the internet?
+Which state has the highest percentage of men who use the internet?
+Which state has the lowest percentage of men who use the internet?
+Which state has the highest percentage of children with a birth certificate?
+Which state has the lowest percentage of children with a birth certificate?
+Which state has the highest percentage of deaths registered with civil authority?
+Which state has the lowest percentage of deaths registered with civil authority?
+Which state has the highest percentage of women using iodized salt?
+Which state has the lowest percentage of women using iodized salt?
+Which state has the highest percentage of women who are overweight or obese?
+Which state has the lowest percentage of women who are overweight or obese?
+Which state has the highest percentage of men who are overweight or obese?
+Which state has the lowest percentage of men who are overweight or obese?
+Which state has the highest percentage of women with high risk waist-to-hip ratio?
+Which state has the lowest percentage of women with high risk waist-to-hip ratio?
+Which state has the highest percentage of men with high risk waist-to-hip ratio?
+Which state has the lowest percentage of men with high risk waist-to-hip ratio?
+Which state has the highest percentage of women who are anaemic (all women)?
+Which state has the lowest percentage of women who are anaemic (all women)?
+Which state has the highest percentage of pregnant women who are anaemic?
+Which state has the lowest percentage of pregnant women who are anaemic?
+Which state has the highest percentage of non-pregnant women who are anaemic?
+Which state has the lowest percentage of non-pregnant women who are anaemic?
+Which state has the highest percentage of men who are anaemic?
+Which state has the lowest percentage of men who are anaemic?
+Which state has the highest percentage of women with high blood sugar?
+Which state has the lowest percentage of women with high blood sugar?
+Which state has the highest percentage of men with high blood sugar?
+Which state has the lowest percentage of men with high blood sugar?
+Which state has the highest percentage of women with very high blood sugar?
+Which state has the lowest percentage of women with very high blood sugar?
+Which state has the highest percentage of men with very high blood sugar?
+Which state has the lowest percentage of men with very high blood sugar?
+Which state has the highest percentage of women with elevated blood pressure?
+Which state has the lowest percentage of women with elevated blood pressure?
+Which state has the highest percentage of men with elevated blood pressure?
+Which state has the lowest percentage of men with elevated blood pressure?
+Which state has the highest percentage of women who have undergone cervical cancer screening?
+Which state has the lowest percentage of women who have undergone cervical cancer screening?
+Which state has the highest percentage of women who have undergone breast cancer screening?
+Which state has the lowest percentage of women who have undergone breast cancer screening?
+Which state has the highest percentage of women who have undergone oral cavity screening?
+Which state has the lowest percentage of women who have undergone oral cavity screening?
+Which state has the highest percentage of men who have undergone oral cavity screening?
+Which state has the lowest percentage of men who have undergone oral cavity screening?
+Which state has the highest percentage of women who know that condoms prevent HIV?
+Which state has the lowest percentage of women who know that condoms prevent HIV?
+Which state has the highest percentage of men who know that condoms prevent HIV?
+Which state has the lowest percentage of men who know that condoms prevent HIV?
+Which state has the highest percentage of currently married women who participate in household decisions?
+Which state has the lowest percentage of currently married women who participate in household decisions?
+Which state has the highest percentage of women who worked in the last 12 months and were paid in cash?
+Which state has the lowest percentage of women who worked in the last 12 months and were paid in cash?
+Which state has the highest percentage of women who experienced sexual violence by age 18?
+Which state has the lowest percentage of women who experienced sexual violence by age 18?
+Which state has the highest percentage of women who use any kind of tobacco?
+Which state has the lowest percentage of women who use any kind of tobacco?
+Which state has the highest percentage of men who use any kind of tobacco?
+Which state has the lowest percentage of men who use any kind of tobacco?
+Which state has the highest percentage of women who consume alcohol?
+Which state has the lowest percentage of women who consume alcohol?
+Which state has the highest percentage of men who consume alcohol?
+Which state has the lowest percentage of men who consume alcohol?
+Which state has the highest percentage of children with fever in the last 2 weeks?
+Which state has the lowest percentage of children with fever in the last 2 weeks?
+Which state has the highest percentage of children with ARI symptoms in the last 2 weeks?
+Which state has the lowest percentage of children with ARI symptoms in the last 2 weeks?
+Which state has the highest percentage of children who received advice or treatment for fever/ARI?
+Which state has the lowest percentage of children who received advice or treatment for fever/ARI?
+Which state has the highest percentage of children who received a Vitamin A dose in the last 6 months?
+Which state has the lowest percentage of children who received a Vitamin A dose in the last 6 months?
+Which state has the highest percentage of children who received 3 doses of rotavirus vaccine?
+Which state has the lowest percentage of children who received 3 doses of rotavirus vaccine?
+Which state has the highest percentage of children who received 3 doses of pentavalent vaccine?
+Which state has the lowest percentage of children who received 3 doses of pentavalent vaccine?
+Which state has the highest percentage of children who received 3 doses of polio vaccine?
+Which state has the lowest percentage of children who received 3 doses of polio vaccine?
+Which state has the highest percentage of children who received BCG vaccine?
+Which state has the lowest percentage of children who received BCG vaccine?
+Which state has the highest percentage of children who received measles vaccine?
+Which state has the lowest percentage of children who received measles vaccine?
+Which state has the highest percentage of children who received Hepatitis B vaccine?
+Which state has the lowest percentage of children who received Hepatitis B vaccine?
+Which state has the highest percentage of institutional births in public facilities?
+Which state has the lowest percentage of institutional births in public facilities?
+Which state has the highest percentage of home births conducted by skilled health personnel?
+Which state has the lowest percentage of home births conducted by skilled health personnel?
+Which state has the highest percentage of births attended by skilled health personnel?
+Which state has the lowest percentage of births attended by skilled health personnel?
+Which state has the highest percentage of women who received postnatal care from a doctor/nurse/LHV/ANM/midwife?
+Which state has the lowest percentage of women who received postnatal care from a doctor/nurse/LHV/ANM/midwife?
+Which state has the highest percentage of children who received postnatal care from a doctor/nurse/LHV/ANM/midwife?
+Which state has the lowest percentage of children who received postnatal care from a doctor/nurse/LHV/ANM/midwife?
+Which state has the highest average out-of-pocket expenditure per delivery in a public health facility?
+Which state has the lowest average out-of-pocket expenditure per delivery in a public health facility?
+Which state has the highest percentage of women who consumed iron folic acid for 100 days or more when pregnant?
+Which state has the lowest percentage of women who consumed iron folic acid for 100 days or more when pregnant?
+Which state has the highest percentage of women whose last birth was protected against neonatal tetanus?
