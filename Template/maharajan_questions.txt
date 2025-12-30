@@ -1,0 +1,149 @@
+How many Muslims live in Kerala?
+Count the number of Hindi speakers in Uttar Pradesh.
+How many Christians live in rural areas compared to urban areas in Goa?
+What are the top 3 most spoken languages in Karnataka?
+Which religious group has the highest literacy rate across India?
+How many women list Tamil as their main language in Tamil Nadu?
+Find the total number of Jains in Maharashtra who aren't working.
+How many villagers in West Bengal speak Bengali?
+Which state has a larger Sikh population: Punjab or Haryana?
+What is the difference between male and female literacy numbers for Hindus in India?
+Which states have the biggest population overall? Rank them from highest to lowest.
+Where do most rural people live? Show me the top 5 states.
+Which states have the largest urban population? Give me the top 5.
+Which states have more women than men overall?
+Is the gender balance different in villages compared to cities? Show states where rural and urban sex ratios differ a lot.
+Which age groups make up most of India’s population? Show the top 3.
+How does the population break down by age in each state for rural and urban areas?
+Where do most young children live in rural areas? Show the state with the highest number of kids aged 0–6.
+In each state, what percentage of the population is female?
+In rural areas, which age group dominates each state’s population?
+Which states have the highest total population?
+Which states have the lowest total population?
+Which states have more rural population than urban population?
+Which states have more urban population than rural population?
+Which states have the highest rural population?
+Which states have the highest urban population?
+Which states have the smallest difference between rural and urban population?
+Which states have the largest difference between rural and urban population?
+Which states have the highest number of females overall?
+Which states have the highest number of males overall?
+Which states have the smallest gender gap?
+Which states have the largest gender gap?
+Which states have a higher female population than male population?
+Which states have a higher male population than female population?
+Which states have the highest share of rural population?
+Which states have the highest share of urban population?
+Which states are mostly rural in terms of population?
+Which states are mostly urban in terms of population?
+Which states have the most balanced male and female population?
+Which states have the most imbalanced male and female population?
+Which states have the highest total population when rural and urban are combined?
+Which states have the lowest total population when rural and urban are combined?
+Which states have the highest rural-to-urban population ratio?
+Which states have the lowest rural-to-urban population ratio?
+Which states have the highest female-to-male ratio?
+Which states have the lowest female-to-male ratio?
+Which states have the largest total population difference between males and females?
+Which states have the smallest total population difference between males and females?
+Which states have nearly equal rural and urban populations?
+Which states have extremely uneven rural and urban populations?
+Which states have the highest rural population overall?
+Which states have the highest urban population overall?
+Where is the difference between male and female population the smallest?
+Which states have a very high number of women compared to men?
+Which states have a very high number of men compared to women?
+Which states have a large share of children in their population?
+Which states have a large share of elderly people?
+Which states have the highest total rural population?
+Which states have the highest total urban population?
+Which states have a larger female population than male population overall?
+Which states have a larger male population than female population overall?
+Which states have very low population in villages?
+Which states have very low population in cities?
+Where is the female population much higher than the male population?
+Where is the male population much higher than the female population?
+Which states have the highest total population overall?
+Which states have the lowest total population overall?
+Which states have the most balanced rural and urban populations?
+Which states have the most imbalanced rural and urban populations?
+Which states have the most people living in villages?
+Which states have the most people living in cities?
+Which states have the highest share of rural population?
+Which states have the highest share of urban population?
+Which states are predominantly rural in population?
+Which states are predominantly urban in population?
+Which states have the smallest number of men?
+Which states have a very high number of children compared to others?
+Which states have very few teenagers?
+Which states have a very high elderly population compared to others?
+Which states grow a lot of crops for a relatively small population?
+Which states have the highest total rural population compared to urban population?
+Which states have the highest total urban population compared to rural population?
+Which states have the smallest difference between male and female population?
+Which states have the largest difference between male and female population?
+Which states have nearly equal rural and urban population sizes?
+Which states have fewer people but strong farming activity?
+Which states would struggle the most if farming output dropped?
+Which states are least dependent on farming for their population size?
+Which states produce enough crops for their population?
+Which states produce too little crops for their population?
+Which states look most sustainable based on people and farming?
+Which states look least sustainable based on people and farming?
+Which states have the highest total population overall?
+Which states have the lowest total population overall?
+Which states have more people living in rural areas than urban areas?
+Which states have more people living in urban areas than rural areas?
+Which states have the highest number of women overall?
+Which states have the highest number of men overall?
+Which states have the largest gender gap in population?
+Which states have the highest population of young children?
+Which states have the highest population of elderly people?
+Which states have the most balanced male and female population?
+Which states have the highest rural population?
+Which states have the highest urban population?
+Which states have the lowest rural population?
+Which states have the lowest urban population?
+Which states have the highest percentage of women?
+Which states have the highest percentage of men?
+Which states have the highest population of teenagers?
+Which states have the lowest population of teenagers?
+Which states have the highest working-age population?
+Which states have the lowest working-age population?
+Which states have a larger rural population than urban population?
+Which states have a larger urban population than rural population?
+Which states have the most balanced rural and urban populations?
+Which states have the biggest difference between rural and urban population?
+Which states have the highest child population compared to total population?
+Which states have the lowest child population compared to total population?
+Which states have the highest elderly population compared to total population?
+Which states have the lowest elderly population compared to total population?
+Which states have a high dependency ratio (children and elderly together)?
+Which states have a low dependency ratio?
+Which states have the highest total population density across age groups?
+Which states have the lowest total population density across age groups?
+Which states have the highest share of rural population?
+Which states have the lowest share of rural population?
+Which states have the highest share of urban population?
+Which states have the lowest share of urban population?
+Which states have a very young population overall?
+Which states have a very old population overall?
+Which states have the smallest gender imbalance?
+Which states have the largest gender imbalance?
+Which crops have the largest area sown in 2025-26?
+Which crops have the smallest area sown in 2025-26?
+Which crops saw the biggest increase in area compared to last year?
+Which crops saw the biggest decrease in area compared to last year?
+Which crops had almost no change in area compared to last year?
+Which crops expanded their area significantly in 2025-26?
+Which crops reduced their area significantly in 2025-26?
+Which crops dominate agricultural land usage nationally?
+Which crops use very little agricultural land nationally?
+Which crops experienced stable cultivation patterns year over year?
+Which states have the highest total female population?
+Which states have the highest total male population?
+Which states have the lowest total population overall?
+Which states have the highest share of children in their population?
+Which states have the highest share of elderly in their population?
+Which states have the most balanced rural and urban populations?
+Which states have the most imbalanced rural and urban populations?

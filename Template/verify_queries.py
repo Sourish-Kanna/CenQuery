@@ -42,7 +42,7 @@ if not DB_CONNECTION_STRING:
     print("❌ Error: DB_CONNECTION_STRING not found in .env file.")
     sys.exit(1)
 
-SQL_FILE = "sourish_queries.sql"
+SQL_FILE = "maharajan_queries_final.sql"
 
 def load_queries(filepath):
     """Reads queries from the file (one query per line)."""
@@ -94,6 +94,7 @@ def verify_queries():
                 except Exception as q_err:
                     print(f"❌ Query #{index} Failed: {q_err}")
                     conn.rollback()
+                
                 print("-" * 50)
 
     except Exception as e:
