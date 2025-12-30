@@ -1,0 +1,40 @@
+1. Which state has the highest female anaemia percentage?
+2. Which state has the lowest male anaemia percentage?
+3. What is the average vaccination rate across all states?
+4. Which states have vaccination rates below 70%?
+5. Which state has the highest obesity rate?
+6. Which state has the lowest obesity rate?
+7. Which states have diabetes rates above 10%?
+8. What is the average diabetes rate in urban areas?
+9. What is the average diabetes rate in rural areas?
+10. Which state has the highest asthma rate?
+11. Which states have asthma rates below 5%?
+12. Which state has the highest hypertension rate?
+13. What is the average hypertension rate across all states?
+14. Which states have hypertension rates above the national average?
+15. Which state has the highest cancer rate?
+16. Which states have cancer rates below 1%?
+17. What is the average female anaemia rate in rural areas?
+18. What is the average female anaemia rate in urban areas?
+19. Which states have male anaemia rates higher than female anaemia rates?
+20. Which state has the biggest gap between female and male anaemia?
+21. Which states have obesity rates above diabetes rates?
+22. Which state has the lowest vaccination rate?
+23. Which states have vaccination rates above 90%?
+24. What is the average asthma rate in urban areas?
+25. What is the average asthma rate in rural areas?
+26. Which state has the highest maternal mortality rate?
+27. Which states have maternal mortality rates above 100?
+28. What is the average maternal mortality rate across all states?
+29. Which state has the lowest maternal mortality rate?
+30. Which states have higher hypertension rates in rural areas than urban areas?
+31. Which state has the highest combined anaemia burden?
+32. Which states have obesity rates below 5%?
+33. What is the average obesity rate in urban areas?
+34. What is the average obesity rate in rural areas?
+35. Which states have diabetes rates lower than asthma rates?
+36. Which state has the highest vaccination rate in rural areas?
+37. Which state has the highest vaccination rate in urban areas?
+38. Which states have female anaemia rates above 50%?
+39. Which states have male anaemia rates below 20%?
+40. Which state has the lowest cancer rate?
