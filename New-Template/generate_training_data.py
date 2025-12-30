@@ -72,10 +72,6 @@ IMPLICIT_POPULATION_TERMS = {
     "twice", "double", "triple"
 }
 
-# =========================
-# IMPLICIT INTENT KEYWORDS
-# =========================
-
 IMPLICIT_POPULATION_TERMS = {
     "men", "women", "male", "female",
     "children", "child", "elderly", "youth", "teenagers",
@@ -128,65 +124,93 @@ IMPLICIT_AGE_TERMS = {
     "working age"
 }
 
+# =========================
+# IMPLICIT INTENT TERMS (SINGLE SOURCE OF TRUTH)
+# =========================
+
+INTENT_TERMS = {
+    "population": {
+        "strong": {
+            "population", "people", "persons", "count", "total",
+            "live", "living"
+        },
+        "weak": {
+            "most", "least", "largest", "smallest",
+            "more", "less", "higher", "lower",
+            "twice", "double", "triple",
+            "ratio", "gap", "difference", "percentage", "percent"
+        }
+    },
+
+    "religion": {
+        "strong": IMPLICIT_RELIGION_TERMS | RELIGION_KEYWORDS,
+        "weak": {"community", "faith"}
+    },
+
+    "language": {
+        "strong": IMPLICIT_LANGUAGE_TERMS | LANGUAGE_KEYWORDS,
+        "weak": {"linguistic"}
+    },
+
+    "education": {
+        "strong": IMPLICIT_EDUCATION_TERMS,
+        "weak": {"rate", "level"}
+    },
+
+    "occupation": {
+        "strong": IMPLICIT_OCCUPATION_TERMS,
+        "weak": {"participation"}
+    },
+
+    "health": {
+        "strong": IMPLICIT_HEALTH_TERMS,
+        "weak": set()
+    },
+
+    "age": {
+        "strong": IMPLICIT_AGE_TERMS | AGE_GROUP_KEYWORDS,
+        "weak": {"group"}
+    }
+}
+
 
 RULES = [
     {
         "name": "religion",
-        "trigger": lambda q: (
-            any(r in q for r in RELIGION_KEYWORDS)
-            or any(w in q for w in IMPLICIT_RELIGION_TERMS)
-        ),
+        "intent": "religion",
         "adds": {"religion_stats"},
     },
-
     {
         "name": "language",
-        "trigger": lambda q: (
-            any(l in q for l in LANGUAGE_KEYWORDS)
-            or any(w in q for w in IMPLICIT_LANGUAGE_TERMS)
-        ),
+        "intent": "language",
         "adds": {"language_stats"},
     },
-
     {
         "name": "population",
-        "trigger": lambda q: any(w in q for w in IMPLICIT_POPULATION_TERMS),
+        "intent": "population",
         "adds": {"population_stats"},
     },
-
     {
         "name": "education",
-        "trigger": lambda q: any(w in q for w in IMPLICIT_EDUCATION_TERMS),
+        "intent": "education",
         "adds": {"education_stats"},
-        "depends_on": {
-            "religion": {"religion_stats"},
-        },
+        "requires": {"religion"},
     },
-
     {
         "name": "occupation",
-        "trigger": lambda q: any(w in q for w in IMPLICIT_OCCUPATION_TERMS),
+        "intent": "occupation",
         "adds": {"occupation_stats"},
-        "depends_on": {
-            "religion": {"religion_stats"},
-        },
+        "requires": {"religion"},
     },
-
     {
         "name": "health",
-        "trigger": lambda q: any(w in q for w in IMPLICIT_HEALTH_TERMS),
+        "intent": "health",
         "adds": {"healthcare_stats"},
-        "depends_on": {
-            "religion": {"religion_stats"},
-        },
+        "requires": {"religion"},
     },
-
     {
         "name": "age",
-        "trigger": lambda q: (
-            any(a in q for a in AGE_GROUP_KEYWORDS)
-            or any(w in q for w in IMPLICIT_AGE_TERMS)
-        ),
+        "intent": "age",
         "adds": {"age_groups"},
     },
 ]
@@ -206,23 +230,23 @@ def load_schema(schema_path):
 def select_tables(question: str):
     q = question.lower()
     tables = set(CORE_TABLES)
+    active_intents = set()
 
-    active_rules = set()
+    # Detect intents
+    for intent, groups in INTENT_TERMS.items():
+        if any(t in q for t in groups["strong"]):
+            active_intents.add(intent)
+        elif any(t in q for t in groups["weak"]) and active_intents:
+            active_intents.add(intent)
 
-    # Pass 1: activate rules
+    # Apply rules
     for rule in RULES:
-        if rule["trigger"](q):
+        if rule["intent"] in active_intents:
+            if "requires" in rule and not rule["requires"].issubset(active_intents):
+                continue
             tables.update(rule["adds"])
-            active_rules.add(rule["name"])
 
-    # Pass 2: resolve dependencies
-    for rule in RULES:
-        if rule["name"] in active_rules and "depends_on" in rule:
-            for dep_name, dep_tables in rule["depends_on"].items():
-                if dep_name in active_rules:
-                    tables.update(dep_tables)
-
-    # Cap only optional tables
+    # Cap optional tables
     optional = tables - CORE_TABLES
     if len(optional) > MAX_OPTIONAL_TABLES:
         optional = set(list(optional)[:MAX_OPTIONAL_TABLES])
@@ -350,9 +374,11 @@ def main():
 
             missing = validate_sql_tables(s, tables)
             if missing:
-                print("⚠️ Auto-fixing missing tables:", missing)
-                tables = tables.union(missing)
-                schema = build_schema(schema_json, tables)
+                valid_missing = {t for t in missing if t in schema_json}
+                if valid_missing:
+                    print("⚠️ Auto-fixing missing tables:", valid_missing)
+                    tables |= valid_missing
+                    schema = build_schema(schema_json, tables)
 
             out.write(json.dumps(format_entry(q, s, schema)) + "\n")
 
