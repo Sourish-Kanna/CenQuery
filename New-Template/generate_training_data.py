@@ -79,13 +79,15 @@ AGE_GROUP_KEYWORDS = load_csv_keywords("age_groups.csv", "name")
 
 
 # ==================================================
-# INTENT DEFINITIONS (SINGLE SOURCE OF TRUTH)
+# INTENT DEFINITIONS (COMPREHENSIVE)
 # ==================================================
 INTENTS = {
     "population": {
         "strong": {
             "population", "people", "persons", "count", "total",
-            "live", "living"
+            "live", "living", "men", "women", "male", "female", 
+            "boys", "girls", "sex ratio", "gender", "households",
+            "dwellers", "villagers", "citizens", "residents"
         },
         "weak": {
             "most", "least", "largest", "smallest",
@@ -96,7 +98,8 @@ INTENTS = {
 
     "religion": {
         "strong": RELIGION_KEYWORDS | {
-            "religion", "religious", "faith", "community"
+            "religion", "religious", "faith", "community",
+            "parsi", "parsis", "zoroastrian", "zoroastrians"
         },
         "weak": set()
     },
@@ -111,7 +114,8 @@ INTENTS = {
     "education": {
         "strong": {
             "literacy", "literate", "illiterate",
-            "education", "educated", "schooling"
+            "education", "educated", "schooling", "school", 
+            "university", "college", "degree", "diploma", "pre-primary"
         },
         "weak": {"rate"}
     },
@@ -119,41 +123,63 @@ INTENTS = {
     "occupation": {
         "strong": {
             "work", "working", "worker", "employment",
-            "non-worker", "workforce", "participation"
+            "non-worker", "workforce", "participation",
+            "job", "jobs", "employed", "unemployed", "cultivator",
+            "labourer", "agricultural", "paid", "cash"
         },
         "weak": set()
     },
 
     "health": {
         "strong": {
-            "health", "mortality", "fertility",
-            "disease", "anaemia", "diabetes"
+            "health", "mortality", "fertility", "disease", "anaemia", "diabetes",
+            "vaccinated", "vaccination", "vaccine", "vaccines", 
+            "stunting", "stunted", "wasting", "wasted",
+            "underweight", "overweight", "obese", "obesity", "bmi",
+            "birth", "births", "delivery", "deliveries", "antenatal", "postnatal",
+            "breastfed", "breastfeeding", "diet", "nutrition",
+            "blood sugar", "blood pressure", "hypertension",
+            "hygienic", "menstruation", "sanitation", "clean fuel", "cooking fuel",
+            "electricity", "drinking water", "water", "toilet",
+            "internet", "bank account", "mobile phone", "insurance",
+            "violence", "crime", "tobacco", "alcohol", "smoking",
+            "fever", "ari", "diarrhoea", "treatment", "advice",
+            "vitamin", "iodized", "salt", "cancer", "screening", "c-section",
+            "hiv", "aids", "condom", "knowledge",
+            "anaemic", "pregnant", "pregnancy", "married", "marriage", 
+            "waist", "hip", "folic", "acid", "decision", "owning", "house", "land",
+            "registered", "registration", "authority"
         },
         "weak": set()
-    },
+    }
+    ,
 
     "age": {
         "strong": AGE_GROUP_KEYWORDS | {
             "age", "children", "elderly", "youth",
-            "adult", "working age"
+            "adult", "adults", "working age", "teenagers", "seniors", 
+            "0-6", "15-49", "60+"
         },
         "weak": set()
     }
 }
 
-
 # ==================================================
-# RULE GRAPH
+# RULE GRAPH (OPTIMIZED)
 # ==================================================
 RULES = [
+    # Basic mappings
     {"intent": "religion",   "adds": {"religion_stats"}},
     {"intent": "language",   "adds": {"language_stats"}},
     {"intent": "population", "adds": {"population_stats"}},
-    {"intent": "education",  "adds": {"education_stats"}, "requires": {"religion"}},
-    {"intent": "occupation", "adds": {"occupation_stats"}, "requires": {"religion"}},
-    {"intent": "health",     "adds": {"healthcare_stats"}, "requires": {"religion"}},
+    {"intent": "health",     "adds": {"healthcare_stats"}},
+    {"intent": "occupation", "adds": {"occupation_stats"}},
+    
+    # Smart Rules:
+    # 1. Education data is spread across three tables in your schema.
+    #    We select all three to ensure the SQL has what it needs.
+    {"intent": "education",  "adds": {"education_stats", "religion_stats", "healthcare_stats"}},
 ]
-
 
 # ==================================================
 # SCHEMA
@@ -164,7 +190,7 @@ def load_schema(path):
 
 
 # ==================================================
-# INTENT DETECTION (FIXED)
+# INTENT DETECTION
 # ==================================================
 def detect_intents(question: str):
     q = question.lower()
@@ -303,14 +329,13 @@ def main():
                 raise ValueError(f"❌ Invalid SQL syntax:\n{s}\n{err}")
 
             tables = select_tables(q)
-            print("-" * 60)
-            print(f"🧠 Question {n}:")
-            print(q)
-
-            print("📊 Selected tables:")
-            print(sorted(tables))
             missing = used_tables(s) - tables
             if missing:
+                print("-" * 60)
+                print(f"🧠 Question {n}:")
+                print(q)
+                print("📊 Selected tables:")
+                print(sorted(tables))
                 print("⚠️ Missing tables (selector issue):", missing)
             tables |= {t for t in missing if t in schema_json}
 
