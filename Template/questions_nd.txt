@@ -148,5 +148,3 @@ What percentage of illiterate people are part of the workforce?
 How does employment vary with literacy across regions?
 Is workforce participation higher in highly literate regions?
 How strongly are literacy and employment correlated across states?
-
-
