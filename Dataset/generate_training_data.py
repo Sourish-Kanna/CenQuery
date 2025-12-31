@@ -289,16 +289,11 @@ def load_sql_queries(path):
 # FORMAT TRAINING ENTRY
 # =========================
 def format_entry(question, sql, schema):
-    return {"text": f"""### Task
-Generate a SQL query to answer the following question:
-`{question}`
-
-### Database Schema
-This query will run on a database whose schema is represented in this string:
-{schema}
-
-### SQL
-{sql}"""
+    return {
+        "question": question,
+        "sql": sql,
+        "instruction": "Generate a SQL query to answer the following question and only based on given schema and don't invent new column names.",
+        "schema": schema,
     }
 
 # =========================
