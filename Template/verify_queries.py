@@ -42,7 +42,7 @@ if not DB_CONNECTION_STRING:
     print("❌ Error: DB_CONNECTION_STRING not found in .env file.")
     sys.exit(1)
 
-SQL_FILE ="health_queries_gopikha.sql"
+SQL_FILE = "queries_nd_1.sql"
 
 def load_queries(filepath):
     """Reads queries from the file (one query per line)."""
