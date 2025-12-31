@@ -1,0 +1,764 @@
+📄 Output is being saved to: D:\College Study\Semester 8\Major Project\CenQuery\Template\output.txt
+🚀 Connecting to Database...
+📋 Found 110 queries. Starting verification...
+
+🔹 Running Query #1...
+✅ Success! Returned 1 rows.
+           ?column?
+72.5737700262923919
+--------------------------------------------------
+🔹 Running Query #2...
+✅ Success! Returned 1 rows.
+           ?column?
+57.2524972318901964
+--------------------------------------------------
+🔹 Running Query #3...
+✅ Success! Returned 2 rows.
+ name       literacy_rate
+Urban 74.4737246047117373
+Rural 57.9093829679259072
+--------------------------------------------------
+🔹 Running Query #4...
+✅ Success! Returned 1 rows.
+area_name       literacy_rate
+   Kerala 84.2237101824127065
+--------------------------------------------------
+🔹 Running Query #5...
+✅ Success! Returned 1 rows.
+area_name       literacy_rate
+    Bihar 50.4369158446674628
+--------------------------------------------------
+🔹 Running Query #6...
+✅ Success! Returned 1 rows.
+        female_rate           male_rate
+83.0382212104059412 85.5091452069741515
+--------------------------------------------------
+🔹 Running Query #7...
+✅ Success! Returned 1 rows.
+           ?column?
+66.0861997072680747
+--------------------------------------------------
+🔹 Running Query #8...
+✅ Success! Returned 1 rows.
+           ?column?
+58.2334123835486898
+--------------------------------------------------
+🔹 Running Query #9...
+✅ Success! Returned 1 rows.
+           ?column?
+51.4011748890570690
+--------------------------------------------------
+🔹 Running Query #10...
+✅ Success! Returned 1 rows.
+area_name      urban_literacy
+   Kerala 85.2624229318667686
+--------------------------------------------------
+🔹 Running Query #11...
+✅ Success! Returned 1 rows.
+      sum
+894142112
+--------------------------------------------------
+🔹 Running Query #12...
+✅ Success! Returned 1 rows.
+area_name illiterates
+    India   447071056
+--------------------------------------------------
+🔹 Running Query #13...
+✅ Success! Returned 1 rows.
+area_name literates
+    India 763498517
+--------------------------------------------------
+🔹 Running Query #14...
+❌ Query #14 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_...
+                     ^
+
+[SQL: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_person)) * 100.0 / NULLIF(SUM(o.total_worker_person + o.non_working_person), 0)) FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE r.area_name = 'Maharashtra' AND t.name = 'Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #15...
+❌ Query #15 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_...
+                     ^
+
+[SQL: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_person)) * 100.0 / NULLIF(SUM(o.total_worker_person + o.non_working_person), 0)) FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE r.area_name = 'Kerala' AND t.name = 'Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #16...
+❌ Query #16 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT r.area_name, ((SUM(o.main_working_person) + SUM(o.mar...
+                                  ^
+
+[SQL: SELECT r.area_name, ((SUM(o.main_working_person) + SUM(o.marginal_worker_person)) * 100.0 / NULLIF(SUM(o.total_worker_person + o.non_working_person), 0)) AS wpr FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name ORDER BY wpr DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #17...
+❌ Query #17 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT r.area_name, ((SUM(o.main_working_person) + SUM(o.mar...
+                                  ^
+
+[SQL: SELECT r.area_name, ((SUM(o.main_working_person) + SUM(o.marginal_worker_person)) * 100.0 / NULLIF(SUM(o.total_worker_person + o.non_working_person), 0)) AS wpr FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name ORDER BY wpr ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #18...
+❌ Query #18 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT SUM(o.main_working_person) FROM occupation_stats o JO...
+                   ^
+
+[SQL: SELECT SUM(o.main_working_person) FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE r.area_name = 'Uttar Pradesh' AND t.name = 'Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #19...
+❌ Query #19 Failed: (psycopg2.errors.UndefinedColumn) column o.marginal_worker_person does not exist
+LINE 1: SELECT SUM(o.marginal_worker_person) FROM occupation_stats o...
+                   ^
+
+[SQL: SELECT SUM(o.marginal_worker_person) FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE r.area_name = 'Bihar' AND t.name = 'Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #20...
+❌ Query #20 Failed: (psycopg2.errors.UndefinedColumn) column "main_working_person" does not exist
+LINE 1: SELECT SUM(main_working_person) FROM occupation_stats WHERE ...
+                   ^
+
+[SQL: SELECT SUM(main_working_person) FROM occupation_stats WHERE tru_id = (SELECT id FROM tru WHERE name = 'Total');]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #21...
+❌ Query #21 Failed: (psycopg2.errors.UndefinedColumn) column "non_working_person" does not exist
+LINE 1: SELECT SUM(non_working_person) FROM occupation_stats WHERE t...
+                   ^
+
+[SQL: SELECT SUM(non_working_person) FROM occupation_stats WHERE tru_id = (SELECT id FROM tru WHERE name = 'Total');]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #22...
+❌ Query #22 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT t.name, ((SUM(o.main_working_person) + SUM(o.marginal...
+                             ^
+
+[SQL: SELECT t.name, ((SUM(o.main_working_person) + SUM(o.marginal_worker_person)) * 100.0 / NULLIF(SUM(o.total_worker_person + o.non_working_person), 0)) AS wpr FROM occupation_stats o JOIN tru t ON o.tru_id = t.id WHERE t.name IN ('Rural', 'Urban') GROUP BY t.name;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #23...
+✅ Success! Returned 1 rows.
+           ?column?
+66.5310162908284086
+--------------------------------------------------
+🔹 Running Query #24...
+✅ Success! Returned 1 rows.
+           ?column?
+67.9906806937401336
+--------------------------------------------------
+🔹 Running Query #25...
+✅ Success! Returned 1 rows.
+area_name          gender_gap
+Rajasthan 22.4261359402538087
+--------------------------------------------------
+🔹 Running Query #26...
+✅ Success! Returned 1 rows.
+           ?column?
+61.1311736997535241
+--------------------------------------------------
+🔹 Running Query #27...
+✅ Success! Returned 1 rows.
+           ?column?
+76.0049102874909302
+--------------------------------------------------
+🔹 Running Query #28...
+✅ Success! Returned 1 rows.
+           ?column?
+59.0018611446910741
+--------------------------------------------------
+🔹 Running Query #29...
+❌ Query #29 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_...
+                     ^
+
+[SQL: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_person)) * 100.0 / NULLIF(SUM(o.total_worker_person + o.non_working_person), 0)) FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE r.area_name = 'Tamil Nadu' AND t.name = 'Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #30...
+❌ Query #30 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_...
+                     ^
+
+[SQL: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_person)) * 100.0 / NULLIF(SUM(o.total_worker_person + o.non_working_person), 0)) FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE r.area_name = 'Gujarat' AND t.name = 'Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #31...
+❌ Query #31 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT r.area_name, SUM(o.main_working_person) AS main_worke...
+                                ^
+
+[SQL: SELECT r.area_name, SUM(o.main_working_person) AS main_workers FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name ORDER BY main_workers DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #32...
+❌ Query #32 Failed: (psycopg2.errors.UndefinedColumn) column o.marginal_worker_person does not exist
+LINE 1: SELECT r.area_name, SUM(o.marginal_worker_person) AS margina...
+                                ^
+
+[SQL: SELECT r.area_name, SUM(o.marginal_worker_person) AS marginal_workers FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name ORDER BY marginal_workers DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #33...
+❌ Query #33 Failed: (psycopg2.errors.UndefinedColumn) column o.non_working_person does not exist
+LINE 1: SELECT r.area_name, SUM(o.non_working_person) AS non_workers...
+                                ^
+
+[SQL: SELECT r.area_name, SUM(o.non_working_person) AS non_workers FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name ORDER BY non_workers DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #34...
+❌ Query #34 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_female does not exist
+LINE 1: SELECT ((SUM(o.main_working_female) + SUM(o.marginal_worker_...
+                     ^
+HINT:  Perhaps you meant to reference the column "o.main_workers_female".
+
+[SQL: SELECT ((SUM(o.main_working_female) + SUM(o.marginal_worker_female)) * 100.0 / NULLIF(SUM(o.total_worker_female + o.non_working_female), 0)) FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE r.area_name = 'Maharashtra' AND t.name = 'Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #35...
+❌ Query #35 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_male does not exist
+LINE 1: SELECT ((SUM(o.main_working_male) + SUM(o.marginal_worker_ma...
+                     ^
+HINT:  Perhaps you meant to reference the column "o.main_workers_male".
+
+[SQL: SELECT ((SUM(o.main_working_male) + SUM(o.marginal_worker_male)) * 100.0 / NULLIF(SUM(o.total_worker_male + o.non_working_male), 0)) FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE r.area_name = 'Uttar Pradesh' AND t.name = 'Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #36...
+✅ Success! Returned 1 rows.
+           ?column?
+59.7733454257579119
+--------------------------------------------------
+🔹 Running Query #37...
+✅ Success! Returned 1 rows.
+?column?
+    None
+--------------------------------------------------
+🔹 Running Query #38...
+✅ Success! Returned 1 rows.
+area_name            male_lit
+   Kerala 85.5091452069741515
+--------------------------------------------------
+🔹 Running Query #39...
+✅ Success! Returned 1 rows.
+area_name          female_lit
+   Kerala 83.0382212104059412
+--------------------------------------------------
+🔹 Running Query #40...
+❌ Query #40 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_...
+                     ^
+
+[SQL: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_person)) * 100.0 / NULLIF(SUM(o.total_worker_person + o.non_working_person), 0)) FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE r.area_name = 'Karnataka' AND t.name = 'Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #41...
+❌ Query #41 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_...
+                     ^
+
+[SQL: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_person)) * 100.0 / NULLIF(SUM(o.total_worker_person + o.non_working_person), 0)) FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE r.area_name = 'Andhra Pradesh' AND t.name = 'Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #42...
+❌ Query #42 Failed: (psycopg2.errors.UndefinedColumn) column "main_working_person" does not exist
+LINE 1: SELECT SUM(main_working_person + marginal_worker_person) FRO...
+                   ^
+
+[SQL: SELECT SUM(main_working_person + marginal_worker_person) FROM occupation_stats WHERE tru_id = (SELECT id FROM tru WHERE name = 'Total');]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #43...
+❌ Query #43 Failed: (psycopg2.errors.UndefinedColumn) column "non_working_person" does not exist
+LINE 1: SELECT SUM(non_working_person) FROM occupation_stats WHERE t...
+                   ^
+
+[SQL: SELECT SUM(non_working_person) FROM occupation_stats WHERE tru_id = (SELECT id FROM tru WHERE name = 'Total');]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #44...
+❌ Query #44 Failed: (psycopg2.errors.UndefinedColumn) column o.marginal_worker_person does not exist
+LINE 1: SELECT SUM(o.marginal_worker_person) FROM occupation_stats o...
+                   ^
+
+[SQL: SELECT SUM(o.marginal_worker_person) FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE r.area_name = 'Maharashtra' AND t.name = 'Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #45...
+❌ Query #45 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT SUM(o.main_working_person) FROM occupation_stats o JO...
+                   ^
+
+[SQL: SELECT SUM(o.main_working_person) FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE r.area_name = 'Tamil Nadu' AND t.name = 'Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #46...
+✅ Success! Returned 1 rows.
+           ?column?
+67.4292941966824612
+--------------------------------------------------
+🔹 Running Query #47...
+✅ Success! Returned 1 rows.
+           ?column?
+65.4754664642220634
+--------------------------------------------------
+🔹 Running Query #48...
+✅ Success! Returned 1 rows.
+area_name    urban_female_lit
+  Mizoram 84.6428333806077033
+--------------------------------------------------
+🔹 Running Query #49...
+✅ Success! Returned 1 rows.
+area_name      rural_male_lit
+   Kerala 84.8285465340731637
+--------------------------------------------------
+🔹 Running Query #50...
+❌ Query #50 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_...
+                     ^
+
+[SQL: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_person)) * 100.0 / NULLIF(SUM(o.total_worker_person + o.non_working_person), 0)) FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE r.area_name = 'Rajasthan' AND t.name = 'Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #51...
+❌ Query #51 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_...
+                     ^
+
+[SQL: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_person)) * 100.0 / NULLIF(SUM(o.total_worker_person + o.non_working_person), 0)) FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE r.area_name = 'West Bengal' AND t.name = 'Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #52...
+❌ Query #52 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_female does not exist
+LINE 1: SELECT r.area_name, SUM(o.main_working_female + o.marginal_w...
+                                ^
+HINT:  Perhaps you meant to reference the column "o.main_workers_female".
+
+[SQL: SELECT r.area_name, SUM(o.main_working_female + o.marginal_worker_female) AS female_workers FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name ORDER BY female_workers DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #53...
+❌ Query #53 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_male does not exist
+LINE 1: SELECT r.area_name, SUM(o.main_working_male + o.marginal_wor...
+                                ^
+HINT:  Perhaps you meant to reference the column "o.main_workers_male".
+
+[SQL: SELECT r.area_name, SUM(o.main_working_male + o.marginal_worker_male) AS male_workers FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name ORDER BY male_workers DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #54...
+❌ Query #54 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_...
+                     ^
+
+[SQL: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_person)) * 100.0 / NULLIF(SUM(o.total_worker_person + o.non_working_person), 0)) FROM occupation_stats o JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Rural';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #55...
+❌ Query #55 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_...
+                     ^
+
+[SQL: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_person)) * 100.0 / NULLIF(SUM(o.total_worker_person + o.non_working_person), 0)) FROM occupation_stats o JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Urban';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #56...
+✅ Success! Returned 1 rows.
+area_name            lit_rate
+   Kerala 83.0382212104059412
+--------------------------------------------------
+🔹 Running Query #57...
+✅ Success! Returned 1 rows.
+area_name            lit_rate
+    Bihar 41.9429683632270097
+--------------------------------------------------
+🔹 Running Query #58...
+✅ Success! Returned 1 rows.
+area_name            lit_rate
+   Kerala 85.5091452069741515
+--------------------------------------------------
+🔹 Running Query #59...
+✅ Success! Returned 1 rows.
+area_name            lit_rate
+    Bihar 58.2334123835486898
+--------------------------------------------------
+🔹 Running Query #60...
+✅ Success! Returned 1 rows.
+      sum
+869367558
+--------------------------------------------------
+🔹 Running Query #61...
+✅ Success! Returned 1 rows.
+      sum
+657629476
+--------------------------------------------------
+🔹 Running Query #62...
+❌ Query #62 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT r.area_name, SUM(o.main_working_person) AS rural_main...
+                                ^
+
+[SQL: SELECT r.area_name, SUM(o.main_working_person) AS rural_main_workers FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Rural' GROUP BY r.area_name ORDER BY rural_main_workers DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #63...
+❌ Query #63 Failed: (psycopg2.errors.UndefinedColumn) column o.marginal_worker_person does not exist
+LINE 1: SELECT r.area_name, SUM(o.marginal_worker_person) AS urban_m...
+                                ^
+
+[SQL: SELECT r.area_name, SUM(o.marginal_worker_person) AS urban_marginal_workers FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Urban' GROUP BY r.area_name ORDER BY urban_marginal_workers DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #64...
+❌ Query #64 Failed: (psycopg2.errors.UndefinedColumn) column "main_working_person" does not exist
+LINE 1: SELECT (SUM(main_working_person) * 100.0 / NULLIF(SUM(main_w...
+                    ^
+
+[SQL: SELECT (SUM(main_working_person) * 100.0 / NULLIF(SUM(main_working_person + marginal_worker_person), 0)) FROM occupation_stats WHERE tru_id = (SELECT id FROM tru WHERE name = 'Total');]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #65...
+❌ Query #65 Failed: (psycopg2.errors.UndefinedColumn) column "marginal_worker_person" does not exist
+LINE 1: SELECT (SUM(marginal_worker_person) * 100.0 / NULLIF(SUM(mai...
+                    ^
+
+[SQL: SELECT (SUM(marginal_worker_person) * 100.0 / NULLIF(SUM(main_working_person + marginal_worker_person), 0)) FROM occupation_stats WHERE tru_id = (SELECT id FROM tru WHERE name = 'Total');]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #66...
+❌ Query #66 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_female does not exist
+LINE 1: SELECT SUM(o.main_working_female + o.marginal_worker_female)...
+                   ^
+HINT:  Perhaps you meant to reference the column "o.main_workers_female".
+
+[SQL: SELECT SUM(o.main_working_female + o.marginal_worker_female) FROM occupation_stats o JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Urban';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #67...
+❌ Query #67 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_male does not exist
+LINE 1: SELECT SUM(o.main_working_male + o.marginal_worker_male) FRO...
+                   ^
+HINT:  Perhaps you meant to reference the column "o.main_workers_male".
+
+[SQL: SELECT SUM(o.main_working_male + o.marginal_worker_male) FROM occupation_stats o JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Rural';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #68...
+❌ Query #68 Failed: (psycopg2.errors.UndefinedColumn) column o.non_working_person does not exist
+LINE 1: SELECT r.area_name, SUM(o.non_working_person) AS rural_non_w...
+                                ^
+
+[SQL: SELECT r.area_name, SUM(o.non_working_person) AS rural_non_workers FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Rural' GROUP BY r.area_name ORDER BY rural_non_workers DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #69...
+❌ Query #69 Failed: (psycopg2.errors.UndefinedColumn) column o.non_working_person does not exist
+LINE 1: SELECT r.area_name, SUM(o.non_working_person) AS urban_non_w...
+                                ^
+
+[SQL: SELECT r.area_name, SUM(o.non_working_person) AS urban_non_workers FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Urban' GROUP BY r.area_name ORDER BY urban_non_workers DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #70...
+✅ Success! Returned 1 rows.
+area_name              ratio
+   Kerala 1.0529750557154618
+--------------------------------------------------
+🔹 Running Query #71...
+✅ Success! Returned 1 rows.
+  area_name                  ratio
+Daman & Diu 0.51156502972489429812
+--------------------------------------------------
+🔹 Running Query #72...
+✅ Success! Returned 1 rows.
+                abs
+16.5643416367858301
+--------------------------------------------------
+🔹 Running Query #73...
+❌ Query #73 Failed: (psycopg2.errors.UndefinedColumn) column o.non_working_person does not exist
+LINE 1: SELECT r.area_name, SUM(o.non_working_person) AS urban_non_w...
+                                ^
+
+[SQL: SELECT r.area_name, SUM(o.non_working_person) AS urban_non_workers FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Urban' GROUP BY r.area_name ORDER BY urban_non_workers DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #74...
+❌ Query #74 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT r.area_name, SUM(o.main_working_person) AS rural_main...
+                                ^
+
+[SQL: SELECT r.area_name, SUM(o.main_working_person) AS rural_main_workers FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Rural' GROUP BY r.area_name ORDER BY rural_main_workers DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #75...
+✅ Success! Returned 1 rows.
+      sum
+517265984
+--------------------------------------------------
+🔹 Running Query #76...
+✅ Success! Returned 1 rows.
+      sum
+376876128
+--------------------------------------------------
+🔹 Running Query #77...
+❌ Query #77 Failed: (psycopg2.errors.UndefinedColumn) column o.non_working_female does not exist
+LINE 1: SELECT r.area_name, SUM(o.non_working_female) AS female_non_...
+                                ^
+HINT:  Perhaps you meant to reference the column "o.non_workers_female".
+
+[SQL: SELECT r.area_name, SUM(o.non_working_female) AS female_non_workers FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name ORDER BY female_non_workers DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #78...
+❌ Query #78 Failed: (psycopg2.errors.UndefinedColumn) column o.non_working_male does not exist
+LINE 1: SELECT r.area_name, SUM(o.non_working_male) AS male_non_work...
+                                ^
+HINT:  Perhaps you meant to reference the column "o.non_workers_male".
+
+[SQL: SELECT r.area_name, SUM(o.non_working_male) AS male_non_workers FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name ORDER BY male_non_workers DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #79...
+❌ Query #79 Failed: (psycopg2.errors.UndefinedColumn) column "main_working_person" does not exist
+LINE 1: SELECT AVG(main_workers) FROM (SELECT SUM(main_working_perso...
+                                                  ^
+
+[SQL: SELECT AVG(main_workers) FROM (SELECT SUM(main_working_person) as main_workers FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name) sub;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #80...
+❌ Query #80 Failed: (psycopg2.errors.UndefinedColumn) column "marginal_worker_person" does not exist
+LINE 1: SELECT AVG(marginal_workers) FROM (SELECT SUM(marginal_worke...
+                                                      ^
+
+[SQL: SELECT AVG(marginal_workers) FROM (SELECT SUM(marginal_worker_person) as marginal_workers FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name) sub;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #81...
+❌ Query #81 Failed: (psycopg2.errors.UndefinedColumn) column o.marginal_worker_person does not exist
+LINE 1: SELECT r.area_name, (SUM(o.marginal_worker_person) * 100.0 /...
+                                 ^
+
+[SQL: SELECT r.area_name, (SUM(o.marginal_worker_person) * 100.0 / NULLIF(SUM(o.main_working_person + o.marginal_worker_person), 0)) AS marginal_ratio FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name ORDER BY marginal_ratio DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #82...
+❌ Query #82 Failed: (psycopg2.errors.UndefinedColumn) column o.non_working_person does not exist
+LINE 1: SELECT r.area_name, (SUM(o.non_working_person) * 100.0 / NUL...
+                                 ^
+
+[SQL: SELECT r.area_name, (SUM(o.non_working_person) * 100.0 / NULLIF(SUM(o.total_worker_person + o.non_working_person), 0)) AS non_work_rate FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name ORDER BY non_work_rate ASC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #83...
+❌ Query #83 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT SUM(o.main_working_person + o.marginal_worker_person)...
+                   ^
+
+[SQL: SELECT SUM(o.main_working_person + o.marginal_worker_person) FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE r.area_name = 'Bihar' AND t.name = 'Rural';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #84...
+❌ Query #84 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT SUM(o.main_working_person + o.marginal_worker_person)...
+                   ^
+
+[SQL: SELECT SUM(o.main_working_person + o.marginal_worker_person) FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE r.area_name = 'Karnataka' AND t.name = 'Urban';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #85...
+✅ Success! Returned 1 rows.
+area_name rural_literates
+    India       482653540
+--------------------------------------------------
+🔹 Running Query #86...
+✅ Success! Returned 1 rows.
+  area_name urban_literates
+Lakshadweep           41265
+--------------------------------------------------
+🔹 Running Query #87...
+❌ Query #87 Failed: (psycopg2.errors.UndefinedColumn) column "main_working_person" does not exist
+LINE 1: SELECT (SUM(main_working_person) * 1.0 / NULLIF(SUM(non_work...
+                    ^
+
+[SQL: SELECT (SUM(main_working_person) * 1.0 / NULLIF(SUM(non_working_person), 0)) FROM occupation_stats WHERE tru_id = (SELECT id FROM tru WHERE name = 'Total');]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #88...
+❌ Query #88 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_female does not exist
+LINE 1: SELECT r.area_name, SUM(o.main_working_female) AS female_mai...
+                                ^
+HINT:  Perhaps you meant to reference the column "o.main_workers_female".
+
+[SQL: SELECT r.area_name, SUM(o.main_working_female) AS female_main_workers FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name ORDER BY female_main_workers DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #89...
+❌ Query #89 Failed: (psycopg2.errors.UndefinedColumn) column o.marginal_worker_male does not exist
+LINE 1: SELECT r.area_name, SUM(o.marginal_worker_male) AS male_marg...
+                                ^
+HINT:  Perhaps you meant to reference the column "o.marginal_workers_male".
+
+[SQL: SELECT r.area_name, SUM(o.marginal_worker_male) AS male_marginal_workers FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name ORDER BY male_marginal_workers DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #90...
+✅ Success! Returned 1 rows.
+     sum
+85414786
+--------------------------------------------------
+🔹 Running Query #91...
+✅ Success! Returned 1 rows.
+     sum
+28135824
+--------------------------------------------------
+🔹 Running Query #92...
+❌ Query #92 Failed: (psycopg2.errors.UndefinedColumn) column o.main_household_industries_person does not exist
+LINE 1: SELECT r.area_name, SUM(o.main_household_industries_person) ...
+                                ^
+
+[SQL: SELECT r.area_name, SUM(o.main_household_industries_person) AS val FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name ORDER BY val DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #93...
+❌ Query #93 Failed: (psycopg2.errors.UndefinedColumn) column o.main_agricultural_labourers_person does not exist
+LINE 1: SELECT r.area_name, SUM(o.main_agricultural_labourers_person...
+                                ^
+
+[SQL: SELECT r.area_name, SUM(o.main_agricultural_labourers_person) AS val FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name ORDER BY val DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #94...
+❌ Query #94 Failed: (psycopg2.errors.UndefinedColumn) column o.main_cultivator_person does not exist
+LINE 1: SELECT r.area_name, SUM(o.main_cultivator_person) AS val FRO...
+                                ^
+
+[SQL: SELECT r.area_name, SUM(o.main_cultivator_person) AS val FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name ORDER BY val DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #95...
+❌ Query #95 Failed: (psycopg2.errors.UndefinedColumn) column o.main_other_workers_person does not exist
+LINE 1: SELECT r.area_name, SUM(o.main_other_workers_person) AS val ...
+                                ^
+
+[SQL: SELECT r.area_name, SUM(o.main_other_workers_person) AS val FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name ORDER BY val DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #96...
+❌ Query #96 Failed: (psycopg2.errors.UndefinedColumn) column "marginal_household_industries_person" does not exist
+LINE 1: SELECT SUM(marginal_household_industries_person) FROM occupa...
+                   ^
+
+[SQL: SELECT SUM(marginal_household_industries_person) FROM occupation_stats WHERE tru_id = (SELECT id FROM tru WHERE name = 'Total');]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #97...
+❌ Query #97 Failed: (psycopg2.errors.UndefinedColumn) column "marginal_agriculture_labourers_person" does not exist
+LINE 1: SELECT SUM(marginal_agriculture_labourers_person) FROM occup...
+                   ^
+
+[SQL: SELECT SUM(marginal_agriculture_labourers_person) FROM occupation_stats WHERE tru_id = (SELECT id FROM tru WHERE name = 'Total');]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #98...
+❌ Query #98 Failed: (psycopg2.errors.UndefinedColumn) column "marginal_cultivator_person" does not exist
+LINE 1: SELECT SUM(marginal_cultivator_person) FROM occupation_stats...
+                   ^
+
+[SQL: SELECT SUM(marginal_cultivator_person) FROM occupation_stats WHERE tru_id = (SELECT id FROM tru WHERE name = 'Total');]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #99...
+❌ Query #99 Failed: (psycopg2.errors.UndefinedColumn) column "main_cultivator_female" does not exist
+LINE 1: SELECT SUM(main_cultivator_female + marginal_cultivator_fema...
+                   ^
+
+[SQL: SELECT SUM(main_cultivator_female + marginal_cultivator_female) FROM occupation_stats WHERE tru_id = (SELECT id FROM tru WHERE name = 'Total');]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #100...
+❌ Query #100 Failed: (psycopg2.errors.UndefinedColumn) column "main_agricultural_labourers_male" does not exist
+LINE 1: SELECT SUM(main_agricultural_labourers_male + marginal_agric...
+                   ^
+
+[SQL: SELECT SUM(main_agricultural_labourers_male + marginal_agriculture_labourers_male) FROM occupation_stats WHERE tru_id = (SELECT id FROM tru WHERE name = 'Total');]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #101...
+❌ Query #101 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_female does not exist
+LINE 1: SELECT r.area_name, SUM(o.main_working_female) AS val FROM o...
+                                ^
+HINT:  Perhaps you meant to reference the column "o.main_workers_female".
+
+[SQL: SELECT r.area_name, SUM(o.main_working_female) AS val FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name ORDER BY val DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #102...
+❌ Query #102 Failed: (psycopg2.errors.UndefinedColumn) column o.marginal_worker_male does not exist
+LINE 1: SELECT r.area_name, SUM(o.marginal_worker_male) AS val FROM ...
+                                ^
+HINT:  Perhaps you meant to reference the column "o.marginal_workers_male".
+
+[SQL: SELECT r.area_name, SUM(o.marginal_worker_male) AS val FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' GROUP BY r.area_name ORDER BY val DESC LIMIT 1;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #103...
+✅ Success! Returned 1 rows.
+           ?column?
+63.0693628874149805
+--------------------------------------------------
+🔹 Running Query #104...
+❌ Query #104 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_...
+                     ^
+
+[SQL: SELECT ((SUM(o.main_working_person) + SUM(o.marginal_worker_person)) * 100.0 / NULLIF(SUM(o.total_worker_person + o.non_working_person), 0)) FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE t.name = 'Total' AND r.state = (SELECT state FROM population_stats WHERE tru_id = (SELECT id FROM tru WHERE name = 'Total') ORDER BY persons ASC LIMIT 1);]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #105...
+❌ Query #105 Failed: (psycopg2.errors.UndefinedColumn) column "non_working_female" does not exist
+LINE 1: SELECT SUM(non_working_female) FROM occupation_stats WHERE t...
+                   ^
+HINT:  Perhaps you meant to reference the column "occupation_stats.non_workers_female".
+
+[SQL: SELECT SUM(non_working_female) FROM occupation_stats WHERE tru_id = (SELECT id FROM tru WHERE name = 'Total');]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #106...
+❌ Query #106 Failed: (psycopg2.errors.UndefinedColumn) column "non_working_male" does not exist
+LINE 1: SELECT SUM(non_working_male) FROM occupation_stats WHERE tru...
+                   ^
+HINT:  Perhaps you meant to reference the column "occupation_stats.non_workers_male".
+
+[SQL: SELECT SUM(non_working_male) FROM occupation_stats WHERE tru_id = (SELECT id FROM tru WHERE name = 'Total');]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #107...
+✅ Success! Returned 1 rows.
+area_name rural_lit_women
+    India       201372009
+--------------------------------------------------
+🔹 Running Query #108...
+✅ Success! Returned 1 rows.
+area_name urban_lit_men
+    India     153402248
+--------------------------------------------------
+🔹 Running Query #109...
+❌ Query #109 Failed: (psycopg2.errors.UndefinedColumn) column o.main_working_person does not exist
+LINE 1: SELECT SUM(o.main_working_person) FROM occupation_stats o JO...
+                   ^
+
+[SQL: SELECT SUM(o.main_working_person) FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE r.area_name IN ('Tamil Nadu', 'Kerala', 'Karnataka', 'Andhra Pradesh', 'Telangana') AND t.name = 'Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
+🔹 Running Query #110...
+❌ Query #110 Failed: (psycopg2.errors.UndefinedColumn) column o.marginal_worker_person does not exist
+LINE 1: SELECT SUM(o.marginal_worker_person) FROM occupation_stats o...
+                   ^
+
+[SQL: SELECT SUM(o.marginal_worker_person) FROM occupation_stats o JOIN regions r ON o.state = r.state JOIN tru t ON o.tru_id = t.id WHERE r.area_name IN ('Punjab', 'Haryana', 'Uttar Pradesh', 'Rajasthan') AND t.name = 'Total';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+--------------------------------------------------
