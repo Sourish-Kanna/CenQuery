@@ -1,0 +1,3628 @@
+📄 Output is being saved to: D:\College Study\Semester 8\Major Project\CenQuery\Dataset\output.txt
+🚀 Connecting to Database...
+📋 Found 650 queries. Starting verification...
+
+🔹 Running Query #1...
+✅ Success! Returned 1 rows.
+                               area_name
+Dadra and Nagar Haveli and Daman and Diu
+--------------------------------------------------
+🔹 Running Query #2...
+✅ Success! Returned 1 rows.
+  area_name
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #3...
+✅ Success! Returned 1 rows.
+area_name
+Meghalaya
+--------------------------------------------------
+🔹 Running Query #4...
+✅ Success! Returned 1 rows.
+ area_name
+Chandigarh
+--------------------------------------------------
+🔹 Running Query #5...
+✅ Success! Returned 1 rows.
+area_name
+    Bihar
+--------------------------------------------------
+🔹 Running Query #6...
+✅ Success! Returned 2 rows.
+                area_name
+Andaman & Nicobar Islands
+                  Gujarat
+--------------------------------------------------
+🔹 Running Query #7...
+✅ Success! Returned 1 rows.
+area_name
+   Kerala
+--------------------------------------------------
+🔹 Running Query #8...
+✅ Success! Returned 1 rows.
+area_name
+ Nagaland
+--------------------------------------------------
+🔹 Running Query #9...
+✅ Success! Returned 1 rows.
+      avg
+87.400286
+--------------------------------------------------
+🔹 Running Query #10...
+✅ Success! Returned 1 rows.
+area_name
+      Goa
+--------------------------------------------------
+🔹 Running Query #11...
+✅ Success! Returned 2 rows.
+area_name
+    Bihar
+ Nagaland
+--------------------------------------------------
+🔹 Running Query #12...
+✅ Success! Returned 1 rows.
+area_name
+Meghalaya
+--------------------------------------------------
+🔹 Running Query #13...
+✅ Success! Returned 1 rows.
+ case
+Urban
+--------------------------------------------------
+🔹 Running Query #14...
+✅ Success! Returned 1 rows.
+ area_name
+Chandigarh
+--------------------------------------------------
+🔹 Running Query #15...
+✅ Success! Returned 3 rows.
+      area_name
+     Chandigarh
+Jammu & Kashmir
+         Punjab
+--------------------------------------------------
+🔹 Running Query #16...
+✅ Success! Returned 1 rows.
+ area_name
+Puducherry
+--------------------------------------------------
+🔹 Running Query #17...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name FROM healthcare_stats h JOIN regions r ON h.state = r.state JOIN tru t ON h.tru_id = t.id WHERE t.name = 'Total' AND CAST(h.women_age_1524_years_who_use_hygienic_methods_of_protection_ AS DOUBLE PRECISION) < 50;
+--------------------------------------------------
+🔹 Running Query #18...
+✅ Success! Returned 1 rows.
+   area_name
+NCT of Delhi
+--------------------------------------------------
+🔹 Running Query #19...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name FROM healthcare_stats h JOIN regions r ON h.state = r.state JOIN tru t ON h.tru_id = t.id WHERE t.name = 'Total' AND CAST(h.hh_using_clean_fuel_for_cooking3_ AS DOUBLE PRECISION) < 20;
+--------------------------------------------------
+🔹 Running Query #20...
+✅ Success! Returned 1 rows.
+area_name
+      Goa
+--------------------------------------------------
+🔹 Running Query #21...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name FROM healthcare_stats h JOIN regions r ON h.state = r.state JOIN tru t ON h.tru_id = t.id WHERE t.name = 'Total' AND h.pop_living_in_hh_with_electricity_ < 80;
+--------------------------------------------------
+🔹 Running Query #22...
+✅ Success! Returned 1 rows.
+  area_name
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #23...
+✅ Success! Returned 1 rows.
+area_name
+  Manipur
+--------------------------------------------------
+🔹 Running Query #24...
+✅ Success! Returned 1 rows.
+area_name
+   Kerala
+--------------------------------------------------
+🔹 Running Query #25...
+✅ Success! Returned 1 rows.
+     avg
+1.304286
+--------------------------------------------------
+🔹 Running Query #26...
+✅ Success! Returned 1 rows.
+  area_name
+West Bengal
+--------------------------------------------------
+🔹 Running Query #27...
+✅ Success! Returned 14 rows.
+                               area_name
+                                   India
+                          Andhra Pradesh
+                                   Assam
+                                   Bihar
+Dadra and Nagar Haveli and Daman and Diu
+--------------------------------------------------
+🔹 Running Query #28...
+✅ Success! Returned 1 rows.
+ area_name
+Chandigarh
+--------------------------------------------------
+🔹 Running Query #29...
+✅ Success! Returned 1 rows.
+area_name
+    Bihar
+--------------------------------------------------
+🔹 Running Query #30...
+✅ Success! Returned 30 rows.
+                area_name
+                    India
+Andaman & Nicobar Islands
+           Andhra Pradesh
+        Arunachal Pradesh
+                    Assam
+--------------------------------------------------
+🔹 Running Query #31...
+✅ Success! Returned 1 rows.
+area_name
+  Tripura
+--------------------------------------------------
+🔹 Running Query #32...
+✅ Success! Returned 1 rows.
+area_name
+   Sikkim
+--------------------------------------------------
+🔹 Running Query #33...
+✅ Success! Returned 1 rows.
+                               area_name
+Dadra and Nagar Haveli and Daman and Diu
+--------------------------------------------------
+🔹 Running Query #34...
+✅ Success! Returned 1 rows.
+area_name
+   Ladakh
+--------------------------------------------------
+🔹 Running Query #35...
+✅ Success! Returned 1 rows.
+ area_name
+Puducherry
+--------------------------------------------------
+🔹 Running Query #36...
+✅ Success! Returned 1 rows.
+area_name
+      Goa
+--------------------------------------------------
+🔹 Running Query #37...
+✅ Success! Returned 1 rows.
+area_name
+Karnataka
+--------------------------------------------------
+🔹 Running Query #38...
+✅ Success! Returned 1 rows.
+area_name
+  Mizoram
+--------------------------------------------------
+🔹 Running Query #39...
+✅ Success! Returned 1 rows.
+area_name
+  Mizoram
+--------------------------------------------------
+🔹 Running Query #40...
+✅ Success! Returned 1 rows.
+        area_name
+Arunachal Pradesh
+--------------------------------------------------
+🔹 Running Query #41...
+✅ Success! Returned 11 rows.
+                area_name
+Andaman & Nicobar Islands
+        Arunachal Pradesh
+             Chhattisgarh
+                      Goa
+         Himachal Pradesh
+--------------------------------------------------
+🔹 Running Query #42...
+✅ Success! Returned 1 rows.
+area_name
+    Bihar
+--------------------------------------------------
+🔹 Running Query #43...
+✅ Success! Returned 1 rows.
+ area_name
+Chandigarh
+--------------------------------------------------
+🔹 Running Query #44...
+✅ Success! Returned 1 rows.
+area_name
+Meghalaya
+--------------------------------------------------
+🔹 Running Query #45...
+✅ Success! Returned 1 rows.
+area_name
+      Goa
+--------------------------------------------------
+🔹 Running Query #46...
+✅ Success! Returned 1 rows.
+area_name
+   Ladakh
+--------------------------------------------------
+🔹 Running Query #47...
+✅ Success! Returned 1 rows.
+area_name
+Telangana
+--------------------------------------------------
+🔹 Running Query #48...
+✅ Success! Returned 1 rows.
+area_name
+  Mizoram
+--------------------------------------------------
+🔹 Running Query #49...
+✅ Success! Returned 1 rows.
+area_name
+      Goa
+--------------------------------------------------
+🔹 Running Query #50...
+✅ Success! Returned 1 rows.
+area_name
+Rajasthan
+--------------------------------------------------
+🔹 Running Query #51...
+✅ Success! Returned 1 rows.
+area_name
+   Ladakh
+--------------------------------------------------
+🔹 Running Query #52...
+✅ Success! Returned 1 rows.
+  area_name
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #53...
+✅ Success! Returned 1 rows.
+      avg
+68.708056
+--------------------------------------------------
+🔹 Running Query #54...
+✅ Success! Returned 9 rows.
+        area_name
+Arunachal Pradesh
+            Assam
+       Chandigarh
+      Lakshadweep
+          Manipur
+--------------------------------------------------
+🔹 Running Query #55...
+✅ Success! Returned 1 rows.
+ area_name
+Puducherry
+--------------------------------------------------
+🔹 Running Query #56...
+✅ Success! Returned 1 rows.
+area_name
+Meghalaya
+--------------------------------------------------
+🔹 Running Query #57...
+✅ Success! Returned 32 rows.
+                area_name
+                    India
+Andaman & Nicobar Islands
+           Andhra Pradesh
+        Arunachal Pradesh
+                    Assam
+--------------------------------------------------
+🔹 Running Query #58...
+✅ Success! Returned 1 rows.
+      avg
+16.538056
+--------------------------------------------------
+🔹 Running Query #59...
+✅ Success! Returned 1 rows.
+      avg
+13.114306
+--------------------------------------------------
+🔹 Running Query #60...
+✅ Success! Returned 1 rows.
+area_name
+   Sikkim
+--------------------------------------------------
+🔹 Running Query #61...
+✅ Success! Returned 1 rows.
+      avg
+24.308333
+--------------------------------------------------
+🔹 Running Query #62...
+✅ Success! Returned 18 rows.
+   area_name
+      Punjab
+  Chandigarh
+ Uttarakhand
+NCT of Delhi
+      Sikkim
+--------------------------------------------------
+🔹 Running Query #63...
+✅ Success! Returned 1 rows.
+      avg
+51.753889
+--------------------------------------------------
+🔹 Running Query #64...
+✅ Success! Returned 1 rows.
+      avg
+52.286111
+--------------------------------------------------
+🔹 Running Query #65...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name FROM healthcare_stats h JOIN regions r ON h.state = r.state JOIN tru t ON h.tru_id = t.id WHERE t.name = 'Total' AND CAST(h.men_age_1549_years_who_are_anaemic_130_gdl22_ AS DOUBLE PRECISION) > h.all_women_15_49_who_are_anaemic22_;
+--------------------------------------------------
+🔹 Running Query #66...
+✅ Success! Returned 1 rows.
+ area_name
+Chandigarh
+--------------------------------------------------
+🔹 Running Query #67...
+✅ Success! Returned 36 rows.
+                area_name
+                    India
+Andaman & Nicobar Islands
+           Andhra Pradesh
+        Arunachal Pradesh
+                    Assam
+--------------------------------------------------
+🔹 Running Query #68...
+✅ Success! Returned 1 rows.
+  area_name
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #69...
+✅ Success! Returned 2 rows.
+                               area_name
+Dadra and Nagar Haveli and Daman and Diu
+                                  Odisha
+--------------------------------------------------
+🔹 Running Query #70...
+✅ Success! Returned 7 rows.
+                area_name
+Andaman & Nicobar Islands
+                      Goa
+                   Kerala
+                   Ladakh
+                 Nagaland
+--------------------------------------------------
+🔹 Running Query #71...
+✅ Success! Returned 1 rows.
+area_name
+   Ladakh
+--------------------------------------------------
+🔹 Running Query #72...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name FROM healthcare_stats h JOIN regions r ON h.state = r.state JOIN tru t ON h.tru_id = t.id WHERE t.name = 'Total' AND ((CAST(h.women_age_1549_years_who_are_overweight_or_obese_bmi_250_kgm AS DOUBLE PRECISION) + CAST(h.men_age_1549_years_who_are_overweight_or_obese_bmi_250_kgm2_ AS DOUBLE PRECISION))/2.0) < 5;
+--------------------------------------------------
+🔹 Running Query #73...
+✅ Success! Returned 1 rows.
+      avg
+33.167361
+--------------------------------------------------
+🔹 Running Query #74...
+✅ Success! Returned 1 rows.
+   avg
+22.294
+--------------------------------------------------
+🔹 Running Query #75...
+✅ Success! Returned 1 rows.
+ area_name
+Chandigarh
+--------------------------------------------------
+🔹 Running Query #76...
+✅ Success! Returned 1 rows.
+area_name
+   Ladakh
+--------------------------------------------------
+🔹 Running Query #77...
+✅ Success! Returned 25 rows.
+                area_name
+                    India
+Andaman & Nicobar Islands
+           Andhra Pradesh
+                    Assam
+                    Bihar
+--------------------------------------------------
+🔹 Running Query #78...
+✅ Success! Returned 18 rows.
+                area_name
+Andaman & Nicobar Islands
+           Andhra Pradesh
+               Chandigarh
+                      Goa
+                  Haryana
+--------------------------------------------------
+🔹 Running Query #79...
+✅ Success! Returned 1 rows.
+ ?column?
+ 22944.22
+--------------------------------------------------
+🔹 Running Query #80...
+✅ Success! Returned 1 rows.
+area_name
+   Sikkim
+--------------------------------------------------
+🔹 Running Query #81...
+✅ Success! Returned 1 rows.
+  ?column?
+15178.0877
+--------------------------------------------------
+🔹 Running Query #82...
+✅ Success! Returned 1 rows.
+ ?column?
+3986.1346
+--------------------------------------------------
+🔹 Running Query #83...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT (CAST(h.children_age_1223_months_fully_vaccinated_based_on_informati AS DOUBLE PRECISION) * h.number_of_hh_surveyed / 100) FROM healthcare_stats h JOIN regions r ON h.state = r.state JOIN tru t ON h.tru_id = t.id WHERE r.area_name = 'Maharashtra' AND t.name = 'Urban';
+--------------------------------------------------
+🔹 Running Query #84...
+✅ Success! Returned 1 rows.
+ ?column?
+2160.6632
+--------------------------------------------------
+🔹 Running Query #85...
+✅ Success! Returned 1 rows.
+ ?column?
+ 2232.756
+--------------------------------------------------
+🔹 Running Query #86...
+✅ Success! Returned 1 rows.
+ ?column?
+3672.7926
+--------------------------------------------------
+🔹 Running Query #87...
+✅ Success! Returned 1 rows.
+  ?column?
+14702.6902
+--------------------------------------------------
+🔹 Running Query #88...
+✅ Success! Returned 1 rows.
+ ?column?
+3120.5104
+--------------------------------------------------
+🔹 Running Query #89...
+✅ Success! Returned 1 rows.
+ case
+Urban
+--------------------------------------------------
+🔹 Running Query #90...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT (h.all_women_15_49_who_are_anaemic22_ * h.number_of_women_15_49_interviewed / 100) FROM healthcare_stats h JOIN regions r ON h.state = r.state JOIN tru t ON h.tru_id = t.id WHERE r.area_name = 'Maharashtra' AND t.name = 'Total';
+--------------------------------------------------
+🔹 Running Query #91...
+✅ Success! Returned 5 rows.
+                               area_name
+                                   Bihar
+                                 Gujarat
+                               Jharkhand
+Dadra and Nagar Haveli and Daman and Diu
+                          Madhya Pradesh
+--------------------------------------------------
+🔹 Running Query #92...
+✅ Success! Returned 1 rows.
+area_name
+   Kerala
+--------------------------------------------------
+🔹 Running Query #93...
+✅ Success! Returned 1 rows.
+area_name
+    Bihar
+--------------------------------------------------
+🔹 Running Query #94...
+✅ Success! Returned 1 rows.
+area_name
+   Kerala
+--------------------------------------------------
+🔹 Running Query #95...
+✅ Success! Returned 1 rows.
+area_name
+  Tripura
+--------------------------------------------------
+🔹 Running Query #96...
+✅ Success! Returned 1 rows.
+  area_name
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #97...
+✅ Success! Returned 1 rows.
+area_name
+  Tripura
+--------------------------------------------------
+🔹 Running Query #98...
+✅ Success! Returned 1 rows.
+      avg
+86.916389
+--------------------------------------------------
+🔹 Running Query #99...
+✅ Success! Returned 1 rows.
+      avg
+77.820286
+--------------------------------------------------
+🔹 Running Query #100...
+✅ Success! Returned 1 rows.
+                area_name
+Andaman & Nicobar Islands
+--------------------------------------------------
+🔹 Running Query #101...
+✅ Success! Returned 1 rows.
+area_name
+   Ladakh
+--------------------------------------------------
+🔹 Running Query #102...
+✅ Success! Returned 1 rows.
+area_name
+   Sikkim
+--------------------------------------------------
+🔹 Running Query #103...
+✅ Success! Returned 1 rows.
+area_name
+    Bihar
+--------------------------------------------------
+🔹 Running Query #104...
+✅ Success! Returned 1 rows.
+ area_name
+Chandigarh
+--------------------------------------------------
+🔹 Running Query #105...
+✅ Success! Returned 1 rows.
+area_name
+Meghalaya
+--------------------------------------------------
+🔹 Running Query #106...
+✅ Success! Returned 1 rows.
+area_name
+      Goa
+--------------------------------------------------
+🔹 Running Query #107...
+✅ Success! Returned 1 rows.
+area_name
+ Nagaland
+--------------------------------------------------
+🔹 Running Query #108...
+✅ Success! Returned 1 rows.
+area_name
+      Goa
+--------------------------------------------------
+🔹 Running Query #109...
+✅ Success! Returned 1 rows.
+        area_name
+Arunachal Pradesh
+--------------------------------------------------
+🔹 Running Query #110...
+✅ Success! Returned 1 rows.
+                area_name
+Andaman & Nicobar Islands
+--------------------------------------------------
+🔹 Running Query #111...
+✅ Success! Returned 1 rows.
+     area_name
+Andhra Pradesh
+--------------------------------------------------
+🔹 Running Query #112...
+✅ Success! Returned 1 rows.
+ area_name
+Puducherry
+--------------------------------------------------
+🔹 Running Query #113...
+✅ Success! Returned 1 rows.
+area_name
+Meghalaya
+--------------------------------------------------
+🔹 Running Query #114...
+✅ Success! Returned 1 rows.
+                area_name
+Andaman & Nicobar Islands
+--------------------------------------------------
+🔹 Running Query #115...
+✅ Success! Returned 1 rows.
+area_name
+Meghalaya
+--------------------------------------------------
+🔹 Running Query #116...
+✅ Success! Returned 1 rows.
+      area_name
+Jammu & Kashmir
+--------------------------------------------------
+🔹 Running Query #117...
+✅ Success! Returned 1 rows.
+     area_name
+Madhya Pradesh
+--------------------------------------------------
+🔹 Running Query #118...
+✅ Success! Returned 1 rows.
+ area_name
+Chandigarh
+--------------------------------------------------
+🔹 Running Query #119...
+✅ Success! Returned 1 rows.
+area_name
+Meghalaya
+--------------------------------------------------
+🔹 Running Query #120...
+✅ Success! Returned 1 rows.
+area_name
+   Ladakh
+--------------------------------------------------
+🔹 Running Query #121...
+✅ Success! Returned 1 rows.
+  area_name
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #122...
+✅ Success! Returned 1 rows.
+ area_name
+Chandigarh
+--------------------------------------------------
+🔹 Running Query #123...
+✅ Success! Returned 1 rows.
+                area_name
+Andaman & Nicobar Islands
+--------------------------------------------------
+🔹 Running Query #124...
+✅ Success! Returned 1 rows.
+area_name
+   Ladakh
+--------------------------------------------------
+🔹 Running Query #125...
+✅ Success! Returned 1 rows.
+  area_name
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #126...
+✅ Success! Returned 1 rows.
+area_name
+   Ladakh
+--------------------------------------------------
+🔹 Running Query #127...
+✅ Success! Returned 1 rows.
+  area_name
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #128...
+✅ Success! Returned 1 rows.
+  area_name
+West Bengal
+--------------------------------------------------
+🔹 Running Query #129...
+✅ Success! Returned 1 rows.
+area_name
+Rajasthan
+--------------------------------------------------
+🔹 Running Query #130...
+✅ Success! Returned 1 rows.
+  area_name
+West Bengal
+--------------------------------------------------
+🔹 Running Query #131...
+✅ Success! Returned 1 rows.
+      area_name
+Jammu & Kashmir
+--------------------------------------------------
+🔹 Running Query #132...
+✅ Success! Returned 1 rows.
+area_name
+   Kerala
+--------------------------------------------------
+🔹 Running Query #133...
+✅ Success! Returned 1 rows.
+area_name
+   Ladakh
+--------------------------------------------------
+🔹 Running Query #134...
+✅ Success! Returned 1 rows.
+area_name
+   Kerala
+--------------------------------------------------
+🔹 Running Query #135...
+✅ Success! Returned 1 rows.
+area_name
+   Ladakh
+--------------------------------------------------
+🔹 Running Query #136...
+✅ Success! Returned 1 rows.
+area_name
+   Sikkim
+--------------------------------------------------
+🔹 Running Query #137...
+✅ Success! Returned 1 rows.
+                               area_name
+Dadra and Nagar Haveli and Daman and Diu
+--------------------------------------------------
+🔹 Running Query #138...
+✅ Success! Returned 1 rows.
+area_name
+   Sikkim
+--------------------------------------------------
+🔹 Running Query #139...
+✅ Success! Returned 1 rows.
+                               area_name
+Dadra and Nagar Haveli and Daman and Diu
+--------------------------------------------------
+🔹 Running Query #140...
+✅ Success! Returned 1 rows.
+ area_name
+Tamil Nadu
+--------------------------------------------------
+🔹 Running Query #141...
+✅ Success! Returned 1 rows.
+  area_name
+West Bengal
+--------------------------------------------------
+🔹 Running Query #142...
+✅ Success! Returned 1 rows.
+ area_name
+Tamil Nadu
+--------------------------------------------------
+🔹 Running Query #143...
+✅ Success! Returned 1 rows.
+ area_name
+Chandigarh
+--------------------------------------------------
+🔹 Running Query #144...
+✅ Success! Returned 1 rows.
+                area_name
+Andaman & Nicobar Islands
+--------------------------------------------------
+🔹 Running Query #145...
+✅ Success! Returned 1 rows.
+  area_name
+West Bengal
+--------------------------------------------------
+🔹 Running Query #146...
+✅ Success! Returned 1 rows.
+     area_name
+Andhra Pradesh
+--------------------------------------------------
+🔹 Running Query #147...
+✅ Success! Returned 1 rows.
+ area_name
+Chandigarh
+--------------------------------------------------
+🔹 Running Query #148...
+✅ Success! Returned 1 rows.
+area_name
+  Mizoram
+--------------------------------------------------
+🔹 Running Query #149...
+✅ Success! Returned 1 rows.
+area_name
+Meghalaya
+--------------------------------------------------
+🔹 Running Query #150...
+✅ Success! Returned 1 rows.
+area_name
+      Goa
+--------------------------------------------------
+🔹 Running Query #151...
+✅ Success! Returned 1 rows.
+area_name
+Meghalaya
+--------------------------------------------------
+🔹 Running Query #152...
+✅ Success! Returned 1 rows.
+area_name
+ Nagaland
+--------------------------------------------------
+🔹 Running Query #153...
+✅ Success! Returned 1 rows.
+area_name
+   Ladakh
+--------------------------------------------------
+🔹 Running Query #154...
+✅ Success! Returned 1 rows.
+area_name
+Telangana
+--------------------------------------------------
+🔹 Running Query #155...
+✅ Success! Returned 1 rows.
+  area_name
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #156...
+✅ Success! Returned 1 rows.
+ area_name
+Chandigarh
+--------------------------------------------------
+🔹 Running Query #157...
+✅ Success! Returned 1 rows.
+ area_name
+Puducherry
+--------------------------------------------------
+🔹 Running Query #158...
+✅ Success! Returned 1 rows.
+area_name
+  Mizoram
+--------------------------------------------------
+🔹 Running Query #159...
+✅ Success! Returned 1 rows.
+area_name
+   Punjab
+--------------------------------------------------
+🔹 Running Query #160...
+✅ Success! Returned 1 rows.
+area_name
+  Mizoram
+--------------------------------------------------
+🔹 Running Query #161...
+✅ Success! Returned 1 rows.
+ area_name
+Chandigarh
+--------------------------------------------------
+🔹 Running Query #162...
+✅ Success! Returned 1 rows.
+        area_name
+Arunachal Pradesh
+--------------------------------------------------
+🔹 Running Query #163...
+✅ Success! Returned 1 rows.
+      area_name
+Jammu & Kashmir
+--------------------------------------------------
+🔹 Running Query #164...
+✅ Success! Returned 1 rows.
+        area_name
+Arunachal Pradesh
+--------------------------------------------------
+🔹 Running Query #165...
+✅ Success! Returned 1 rows.
+  area_name
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #166...
+✅ Success! Returned 1 rows.
+ area_name
+Chandigarh
+--------------------------------------------------
+🔹 Running Query #167...
+✅ Success! Returned 1 rows.
+area_name
+ Nagaland
+--------------------------------------------------
+🔹 Running Query #168...
+✅ Success! Returned 1 rows.
+   area_name
+NCT of Delhi
+--------------------------------------------------
+🔹 Running Query #169...
+✅ Success! Returned 1 rows.
+                               area_name
+Dadra and Nagar Haveli and Daman and Diu
+--------------------------------------------------
+🔹 Running Query #170...
+✅ Success! Returned 1 rows.
+ area_name
+Chandigarh
+--------------------------------------------------
+🔹 Running Query #171...
+✅ Success! Returned 1 rows.
+area_name
+ Nagaland
+--------------------------------------------------
+🔹 Running Query #172...
+✅ Success! Returned 1 rows.
+area_name
+      Goa
+--------------------------------------------------
+🔹 Running Query #173...
+✅ Success! Returned 1 rows.
+  area_name
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #174...
+✅ Success! Returned 1 rows.
+area_name
+   Odisha
+--------------------------------------------------
+🔹 Running Query #175...
+✅ Success! Returned 1 rows.
+ area_name
+Chandigarh
+--------------------------------------------------
+🔹 Running Query #176...
+✅ Success! Returned 1 rows.
+                               area_name
+Dadra and Nagar Haveli and Daman and Diu
+--------------------------------------------------
+🔹 Running Query #177...
+✅ Success! Returned 1 rows.
+  area_name
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #178...
+✅ Success! Returned 1 rows.
+                               area_name
+Dadra and Nagar Haveli and Daman and Diu
+--------------------------------------------------
+🔹 Running Query #179...
+✅ Success! Returned 1 rows.
+  area_name
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #180...
+✅ Success! Returned 1 rows.
+area_name
+   Ladakh
+--------------------------------------------------
+🔹 Running Query #181...
+✅ Success! Returned 1 rows.
+ area_name
+Chandigarh
+--------------------------------------------------
+🔹 Running Query #182...
+✅ Success! Returned 1 rows.
+                               area_name
+Dadra and Nagar Haveli and Daman and Diu
+--------------------------------------------------
+🔹 Running Query #183...
+✅ Success! Returned 1 rows.
+  area_name
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #184...
+✅ Success! Returned 1 rows.
+       area_name
+Himachal Pradesh
+--------------------------------------------------
+🔹 Running Query #185...
+✅ Success! Returned 1 rows.
+  area_name
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #186...
+✅ Success! Returned 1 rows.
+area_name
+   Ladakh
+--------------------------------------------------
+🔹 Running Query #187...
+✅ Success! Returned 1 rows.
+area_name
+   Kerala
+--------------------------------------------------
+🔹 Running Query #188...
+✅ Success! Returned 1 rows.
+area_name
+ Nagaland
+--------------------------------------------------
+🔹 Running Query #189...
+✅ Success! Returned 1 rows.
+area_name
+      Goa
+--------------------------------------------------
+🔹 Running Query #190...
+✅ Success! Returned 1 rows.
+  area_name
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #191...
+✅ Success! Returned 1 rows.
+area_name
+ Nagaland
+--------------------------------------------------
+🔹 Running Query #192...
+✅ Success! Returned 1 rows.
+area_name
+      Goa
+--------------------------------------------------
+🔹 Running Query #193...
+✅ Success! Returned 1 rows.
+area_name
+ Nagaland
+--------------------------------------------------
+🔹 Running Query #194...
+✅ Success! Returned 1 rows.
+area_name
+      Goa
+--------------------------------------------------
+🔹 Running Query #195...
+✅ Success! Returned 1 rows.
+area_name
+  Mizoram
+--------------------------------------------------
+🔹 Running Query #196...
+✅ Success! Returned 1 rows.
+area_name
+  Manipur
+--------------------------------------------------
+🔹 Running Query #197...
+✅ Success! Returned 1 rows.
+                               area_name
+Dadra and Nagar Haveli and Daman and Diu
+--------------------------------------------------
+🔹 Running Query #198...
+✅ Success! Returned 1 rows.
+area_name
+      Goa
+--------------------------------------------------
+🔹 Running Query #199...
+✅ Success! Returned 1 rows.
+area_name
+ Nagaland
+--------------------------------------------------
+🔹 Running Query #200...
+✅ Success! Returned 1 rows.
+  area_name
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #201...
+✅ Success! Returned 1 rows.
+  tot_p
+8873472
+--------------------------------------------------
+🔹 Running Query #202...
+✅ Success! Returned 2 rows.
+   person
+187979055
+160159977
+--------------------------------------------------
+🔹 Running Query #203...
+✅ Success! Returned 2 rows.
+area_type  tot_p
+    Rural 134947
+    Urban 231183
+--------------------------------------------------
+🔹 Running Query #204...
+✅ Success! Returned 3 rows.
+   name   person
+Kannada 40651090
+Kannada 40622836
+   Urdu  6618324
+--------------------------------------------------
+🔹 Running Query #205...
+✅ Success! Returned 1 rows.
+religion_name       literacy_rate
+         Jain 86.4286720309954303
+--------------------------------------------------
+🔹 Running Query #206...
+✅ Success! Returned 2 rows.
+  female
+31835443
+31830308
+--------------------------------------------------
+🔹 Running Query #207...
+✅ Success! Returned 1 rows.
+ non_work_p
+     885475
+--------------------------------------------------
+🔹 Running Query #208...
+✅ Success! Returned 2 rows.
+  person
+56188667
+55684784
+--------------------------------------------------
+🔹 Running Query #209...
+✅ Success! Returned 2 rows.
+area_name    tot_p
+   Punjab 16004754
+  Haryana  1243752
+--------------------------------------------------
+🔹 Running Query #210...
+✅ Success! Returned 1 rows.
+ literacy_gap
+     90728690
+--------------------------------------------------
+🔹 Running Query #211...
+✅ Success! Returned 36 rows.
+   state_name total_population
+        India       2421709954
+Uttar Pradesh        399624682
+  Maharashtra        224748666
+        Bihar        208198904
+  West Bengal        182552230
+--------------------------------------------------
+🔹 Running Query #212...
+✅ Success! Returned 5 rows.
+   state_name rural_population
+        India       1667497704
+Uttar Pradesh        310634556
+        Bihar        184682872
+  West Bengal        124366226
+  Maharashtra        123112148
+--------------------------------------------------
+🔹 Running Query #213...
+✅ Success! Returned 5 rows.
+   state_name urban_population
+        India        754212250
+  Maharashtra        101636518
+Uttar Pradesh         88990126
+   Tamil Nadu         69834880
+  West Bengal         58186004
+--------------------------------------------------
+🔹 Running Query #214...
+✅ Success! Returned 36 rows.
+    state_name             sex_ratio
+        Kerala 1084.3078720382305016
+    Puducherry 1037.4376949964980221
+    Tamil Nadu  996.4325615920648570
+Andhra Pradesh  992.8487357825874309
+  Chhattisgarh  990.6028998133312865
+--------------------------------------------------
+🔹 Running Query #215...
+✅ Success! Returned 36 rows.
+          state_name sex_ratio_difference
+         Daman & Diu 313.5416393648002108
+Dadra & Nagar Haveli 180.2971870773915175
+    Himachal Pradesh 132.3501617584523808
+          Chandigarh 131.0982989628282457
+         Uttarakhand 115.8958524262762665
+--------------------------------------------------
+🔹 Running Query #216...
+✅ Success! Returned 3 rows.
+     age total_population
+All ages       4843419908
+      10        122208428
+      30        121596116
+--------------------------------------------------
+🔹 Running Query #217...
+✅ Success! Returned 11124 rows.
+               state_name area_type  age population
+Andaman & Nicobar Islands     Rural    0       3575
+Andaman & Nicobar Islands     Rural    1       3837
+Andaman & Nicobar Islands     Rural   10       4436
+Andaman & Nicobar Islands     Rural 100+         75
+Andaman & Nicobar Islands     Rural   11       4374
+--------------------------------------------------
+🔹 Running Query #218...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name AS state_name, SUM(p.persons) AS rural_children FROM population_stats p JOIN regions r ON p.state = r.state JOIN tru t ON p.tru_id = t.id WHERE t.name = 'Rural' AND p.age = '0-6' GROUP BY r.area_name ORDER BY rural_children DESC LIMIT 1;
+--------------------------------------------------
+🔹 Running Query #219...
+✅ Success! Returned 36 rows.
+ state_name   female_percentage
+  Jharkhand 48.6775608465759233
+  Rajasthan 48.1374068383207629
+Uttarakhand 49.0618256937237193
+Maharashtra 48.1704990409153307
+Lakshadweep 48.6250058163882555
+--------------------------------------------------
+🔹 Running Query #220...
+✅ Success! Returned 36 rows.
+      state_name      age
+           India All ages
+ Jammu & Kashmir All ages
+Himachal Pradesh All ages
+          Punjab All ages
+      Chandigarh All ages
+--------------------------------------------------
+🔹 Running Query #221...
+✅ Success! Returned 7 rows.
+   area_name
+ Lakshadweep
+  Puducherry
+     Mizoram
+NCT of Delhi
+  Chandigarh
+--------------------------------------------------
+🔹 Running Query #222...
+✅ Success! Returned 29 rows.
+  area_name
+  Jharkhand
+  Rajasthan
+Uttarakhand
+Maharashtra
+      Bihar
+--------------------------------------------------
+🔹 Running Query #223...
+✅ Success! Returned 1 rows.
+area_name total_males
+    India  1246540516
+--------------------------------------------------
+🔹 Running Query #224...
+✅ Success! Returned 1 rows.
+area_name total_females
+    India    1175169438
+--------------------------------------------------
+🔹 Running Query #225...
+✅ Success! Returned 36 rows.
+     area_name gender_gap
+         India   71371078
+ Uttar Pradesh   18297358
+         Bihar    8913724
+   Maharashtra    8223558
+Madhya Pradesh    5195606
+--------------------------------------------------
+🔹 Running Query #226...
+✅ Success! Returned 36 rows.
+  area_name young_pop
+  Jharkhand         0
+  Rajasthan         0
+Uttarakhand         0
+Maharashtra         0
+Lakshadweep         0
+--------------------------------------------------
+🔹 Running Query #227...
+✅ Success! Returned 36 rows.
+  area_name elderly_pop
+  Jharkhand           0
+  Rajasthan           0
+Uttarakhand           0
+Maharashtra           0
+Lakshadweep           0
+--------------------------------------------------
+🔹 Running Query #228...
+✅ Success! Returned 36 rows.
+    area_name urban_pop
+        India 754212250
+  Maharashtra 101636518
+Uttar Pradesh  88990126
+   Tamil Nadu  69834880
+  West Bengal  58186004
+--------------------------------------------------
+🔹 Running Query #229...
+✅ Success! Returned 36 rows.
+    area_name  rural_pop
+        India 1667497704
+Uttar Pradesh  310634556
+        Bihar  184682872
+  West Bengal  124366226
+  Maharashtra  123112148
+--------------------------------------------------
+🔹 Running Query #230...
+✅ Success! Returned 12 rows.
+       area_name
+     Uttarakhand
+      Puducherry
+Himachal Pradesh
+       Karnataka
+         Mizoram
+--------------------------------------------------
+🔹 Running Query #231...
+✅ Success! Returned 36 rows.
+                area_name total_population
+              Lakshadweep           128946
+              Daman & Diu           486494
+     Dadra & Nagar Haveli           687418
+Andaman & Nicobar Islands           761162
+                   Sikkim          1221154
+--------------------------------------------------
+🔹 Running Query #232...
+✅ Success! Returned 29 rows.
+  area_name
+  Jharkhand
+  Rajasthan
+Uttarakhand
+Maharashtra
+      Bihar
+--------------------------------------------------
+🔹 Running Query #233...
+✅ Success! Returned 7 rows.
+   area_name
+ Lakshadweep
+  Puducherry
+     Mizoram
+NCT of Delhi
+  Chandigarh
+--------------------------------------------------
+🔹 Running Query #234...
+✅ Success! Returned 4 rows.
+   area_name
+  Puducherry
+      Kerala
+Chhattisgarh
+         Goa
+--------------------------------------------------
+🔹 Running Query #235...
+✅ Success! Returned 4 rows.
+ area_name
+Puducherry
+    Kerala
+ Meghalaya
+   Manipur
+--------------------------------------------------
+🔹 Running Query #236...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS children_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age='0-6' GROUP BY r.area_name ORDER BY children_population DESC;
+--------------------------------------------------
+🔹 Running Query #237...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS elderly_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age IN ('60+','65+') GROUP BY r.area_name ORDER BY elderly_population ASC;
+--------------------------------------------------
+🔹 Running Query #238...
+✅ Success! Returned 19 rows.
+       area_name
+       Jharkhand
+       Rajasthan
+     Uttarakhand
+           Bihar
+Himachal Pradesh
+--------------------------------------------------
+🔹 Running Query #239...
+✅ Success! Returned 5 rows.
+   area_name
+ Lakshadweep
+  Puducherry
+NCT of Delhi
+  Chandigarh
+ Daman & Diu
+--------------------------------------------------
+🔹 Running Query #240...
+✅ Success! Returned 5 rows.
+     area_name
+Andhra Pradesh
+    Tamil Nadu
+  Chhattisgarh
+     Meghalaya
+       Manipur
+--------------------------------------------------
+🔹 Running Query #241...
+✅ Success! Returned 36 rows.
+                area_name rural_population
+              Lakshadweep            28282
+               Chandigarh            57982
+              Daman & Diu           120792
+     Dadra & Nagar Haveli           366228
+Andaman & Nicobar Islands           474186
+--------------------------------------------------
+🔹 Running Query #242...
+✅ Success! Returned 36 rows.
+                area_name urban_population
+              Lakshadweep           100664
+Andaman & Nicobar Islands           286976
+                   Sikkim           307156
+     Dadra & Nagar Haveli           321190
+              Daman & Diu           365702
+--------------------------------------------------
+🔹 Running Query #243...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS elderly_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age IN ('60+','65+') GROUP BY r.area_name ORDER BY elderly_population DESC;
+--------------------------------------------------
+🔹 Running Query #244...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' GROUP BY r.area_name HAVING SUM(CASE WHEN p.age IN ('60+','65+') THEN p.persons ELSE 0 END) > SUM(CASE WHEN p.age='0-6' THEN p.persons ELSE 0 END);
+--------------------------------------------------
+🔹 Running Query #245...
+✅ Success! Returned 32 rows.
+  area_name
+  Jharkhand
+  Rajasthan
+Uttarakhand
+Maharashtra
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #246...
+✅ Success! Returned 4 rows.
+   area_name
+  Puducherry
+      Kerala
+Chhattisgarh
+         Goa
+--------------------------------------------------
+🔹 Running Query #247...
+✅ Success! Returned 4 rows.
+   area_name
+ Lakshadweep
+NCT of Delhi
+  Chandigarh
+ Daman & Diu
+--------------------------------------------------
+🔹 Running Query #248...
+✅ Success! Returned 10 rows.
+       area_name
+       Jharkhand
+       Rajasthan
+           Bihar
+Himachal Pradesh
+           Assam
+--------------------------------------------------
+🔹 Running Query #249...
+✅ Success! Returned 36 rows.
+    area_name working_age_population
+        India             2421709954
+Uttar Pradesh              399624682
+  Maharashtra              224748666
+        Bihar              208198904
+  West Bengal              182552230
+--------------------------------------------------
+🔹 Running Query #250...
+✅ Success! Returned 5 rows.
+           area_name
+         Maharashtra
+              Kerala
+             Mizoram
+          Tamil Nadu
+Dadra & Nagar Haveli
+--------------------------------------------------
+🔹 Running Query #251...
+✅ Success! Returned 36 rows.
+    area_name rural_population
+        India       1667497704
+Uttar Pradesh        310634556
+        Bihar        184682872
+  West Bengal        124366226
+  Maharashtra        123112148
+--------------------------------------------------
+🔹 Running Query #252...
+✅ Success! Returned 36 rows.
+    area_name urban_population
+        India        754212250
+  Maharashtra        101636518
+Uttar Pradesh         88990126
+   Tamil Nadu         69834880
+  West Bengal         58186004
+--------------------------------------------------
+🔹 Running Query #253...
+✅ Success! Returned 36 rows.
+  area_name gender_diff
+Lakshadweep        3546
+    Mizoram       26944
+  Meghalaya       33550
+        Goa       39470
+    Manipur       42756
+--------------------------------------------------
+🔹 Running Query #254...
+✅ Success! Returned 36 rows.
+    area_name total_females
+        India    1175169438
+Uttar Pradesh     190663662
+  Maharashtra     108262554
+        Bihar      99642590
+  West Bengal      88934176
+--------------------------------------------------
+🔹 Running Query #255...
+✅ Success! Returned 36 rows.
+    area_name total_males
+        India  1246540516
+Uttar Pradesh   208961020
+  Maharashtra   116486112
+        Bihar   108556314
+  West Bengal    93618054
+--------------------------------------------------
+🔹 Running Query #256...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) * 1.0 / (SELECT SUM(persons) FROM population_stats ps WHERE ps.state=p.state AND ps.tru_id=p.tru_id) AS child_share FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age='0-6' GROUP BY r.area_name, p.state, p.tru_id ORDER BY child_share DESC;
+--------------------------------------------------
+🔹 Running Query #257...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) * 1.0 / (SELECT SUM(persons) FROM population_stats ps WHERE ps.state=p.state AND ps.tru_id=p.tru_id) AS elderly_share FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age IN ('60+','65+') GROUP BY r.area_name, p.state, p.tru_id ORDER BY elderly_share DESC;
+--------------------------------------------------
+🔹 Running Query #258...
+✅ Success! Returned 29 rows.
+  area_name
+  Jharkhand
+  Rajasthan
+Uttarakhand
+Maharashtra
+      Bihar
+--------------------------------------------------
+🔹 Running Query #259...
+✅ Success! Returned 7 rows.
+   area_name
+ Lakshadweep
+  Puducherry
+     Mizoram
+NCT of Delhi
+  Chandigarh
+--------------------------------------------------
+🔹 Running Query #260...
+✅ Success! Returned 6 rows.
+  area_name
+Maharashtra
+    Gujarat
+     Kerala
+    Mizoram
+ Tamil Nadu
+--------------------------------------------------
+🔹 Running Query #261...
+✅ Success! Returned 36 rows.
+    area_name total_population
+        India       2421709954
+Uttar Pradesh        399624682
+  Maharashtra        224748666
+        Bihar        208198904
+  West Bengal        182552230
+--------------------------------------------------
+🔹 Running Query #262...
+✅ Success! Returned 36 rows.
+                area_name rural_population
+              Lakshadweep            28282
+               Chandigarh            57982
+              Daman & Diu           120792
+     Dadra & Nagar Haveli           366228
+Andaman & Nicobar Islands           474186
+--------------------------------------------------
+🔹 Running Query #263...
+✅ Success! Returned 36 rows.
+                area_name urban_population
+              Lakshadweep           100664
+Andaman & Nicobar Islands           286976
+                   Sikkim           307156
+     Dadra & Nagar Haveli           321190
+              Daman & Diu           365702
+--------------------------------------------------
+🔹 Running Query #264...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' GROUP BY r.area_name HAVING SUM(p.females) > 1.2 * SUM(p.males);
+--------------------------------------------------
+🔹 Running Query #265...
+✅ Success! Returned 3 rows.
+           area_name
+          Chandigarh
+Dadra & Nagar Haveli
+         Daman & Diu
+--------------------------------------------------
+🔹 Running Query #266...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS teen_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age IN ('10-14','15-19') GROUP BY r.area_name ORDER BY teen_population DESC;
+--------------------------------------------------
+🔹 Running Query #267...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS child_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age='0-6' GROUP BY r.area_name ORDER BY child_population ASC;
+--------------------------------------------------
+🔹 Running Query #268...
+✅ Success! Returned 36 rows.
+    area_name working_age_population
+        India             2421709954
+Uttar Pradesh              399624682
+  Maharashtra              224748666
+        Bihar              208198904
+  West Bengal              182552230
+--------------------------------------------------
+🔹 Running Query #269...
+✅ Success! Returned 36 rows.
+                area_name working_age_population
+              Lakshadweep                 128946
+              Daman & Diu                 486494
+     Dadra & Nagar Haveli                 687418
+Andaman & Nicobar Islands                 761162
+                   Sikkim                1221154
+--------------------------------------------------
+🔹 Running Query #270...
+✅ Success! Returned 5 rows.
+           area_name
+         Maharashtra
+              Kerala
+             Mizoram
+          Tamil Nadu
+Dadra & Nagar Haveli
+--------------------------------------------------
+🔹 Running Query #271...
+✅ Success! Returned 36 rows.
+    area_name rural_population
+        India       1667497704
+Uttar Pradesh        310634556
+        Bihar        184682872
+  West Bengal        124366226
+  Maharashtra        123112148
+--------------------------------------------------
+🔹 Running Query #272...
+✅ Success! Returned 36 rows.
+    area_name urban_population
+        India        754212250
+  Maharashtra        101636518
+Uttar Pradesh         88990126
+   Tamil Nadu         69834880
+  West Bengal         58186004
+--------------------------------------------------
+🔹 Running Query #273...
+✅ Success! Returned 19 rows.
+       area_name
+       Jharkhand
+       Rajasthan
+     Uttarakhand
+           Bihar
+Himachal Pradesh
+--------------------------------------------------
+🔹 Running Query #274...
+✅ Success! Returned 5 rows.
+   area_name
+ Lakshadweep
+  Puducherry
+NCT of Delhi
+  Chandigarh
+ Daman & Diu
+--------------------------------------------------
+🔹 Running Query #275...
+✅ Success! Returned 36 rows.
+                area_name total_population
+              Lakshadweep           128946
+              Daman & Diu           486494
+     Dadra & Nagar Haveli           687418
+Andaman & Nicobar Islands           761162
+                   Sikkim          1221154
+--------------------------------------------------
+🔹 Running Query #276...
+✅ Success! Returned 36 rows.
+                area_name total_females
+              Lakshadweep         62700
+              Daman & Diu        185892
+     Dadra & Nagar Haveli        299898
+Andaman & Nicobar Islands        355420
+                   Sikkim        575014
+--------------------------------------------------
+🔹 Running Query #277...
+✅ Success! Returned 36 rows.
+                area_name total_males
+              Lakshadweep       66246
+              Daman & Diu      300602
+     Dadra & Nagar Haveli      387520
+Andaman & Nicobar Islands      405742
+                   Sikkim      646140
+--------------------------------------------------
+🔹 Running Query #278...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS child_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age='0-6' GROUP BY r.area_name ORDER BY child_population DESC;
+--------------------------------------------------
+🔹 Running Query #279...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS teen_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age IN ('10-14','15-19') GROUP BY r.area_name ORDER BY teen_population ASC;
+--------------------------------------------------
+🔹 Running Query #280...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS elderly_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age IN ('60+','65+') GROUP BY r.area_name ORDER BY elderly_population DESC;
+--------------------------------------------------
+🔹 Running Query #281...
+✅ Success! Returned 36 rows.
+    area_name rural_females
+        India     811935588
+Uttar Pradesh     148648566
+        Bihar      88535172
+  West Bengal      60676336
+  Maharashtra      60034080
+--------------------------------------------------
+🔹 Running Query #282...
+✅ Success! Returned 36 rows.
+    area_name rural_males
+        India   855562116
+Uttar Pradesh   161985990
+        Bihar    96147700
+  West Bengal    63689890
+  Maharashtra    63078068
+--------------------------------------------------
+🔹 Running Query #283...
+✅ Success! Returned 36 rows.
+    area_name urban_females
+        India     363233850
+  Maharashtra      48228474
+Uttar Pradesh      42015096
+   Tamil Nadu      34917060
+  West Bengal      28257840
+--------------------------------------------------
+🔹 Running Query #284...
+✅ Success! Returned 36 rows.
+    area_name urban_males
+        India   390978400
+  Maharashtra    53408044
+Uttar Pradesh    46975030
+   Tamil Nadu    34917820
+  West Bengal    29928164
+--------------------------------------------------
+🔹 Running Query #285...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS elderly_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age IN ('60+','65+') GROUP BY r.area_name ORDER BY elderly_population ASC;
+--------------------------------------------------
+🔹 Running Query #286...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, SUM(p.persons) AS child_population FROM population_stats p JOIN regions r ON p.state=r.state JOIN tru t ON p.tru_id=t.id WHERE t.name='Total' AND p.age='0-6' GROUP BY r.area_name ORDER BY child_population ASC;
+--------------------------------------------------
+🔹 Running Query #287...
+✅ Success! Returned 36 rows.
+    area_name adult_population
+        India       2421709954
+Uttar Pradesh        399624682
+  Maharashtra        224748666
+        Bihar        208198904
+  West Bengal        182552230
+--------------------------------------------------
+🔹 Running Query #288...
+✅ Success! Returned 36 rows.
+                area_name adult_population
+              Lakshadweep           128946
+              Daman & Diu           486494
+     Dadra & Nagar Haveli           687418
+Andaman & Nicobar Islands           761162
+                   Sikkim          1221154
+--------------------------------------------------
+🔹 Running Query #289...
+✅ Success! Returned 36 rows.
+  area_name
+  Jharkhand
+  Rajasthan
+Uttarakhand
+Maharashtra
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #290...
+✅ Success! Returned 36 rows.
+  area_name
+  Jharkhand
+  Rajasthan
+Uttarakhand
+Maharashtra
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #291...
+✅ Success! Returned 1 rows.
+area_name total_muslim_population
+    India               172245158
+--------------------------------------------------
+🔹 Running Query #292...
+✅ Success! Returned 1 rows.
+area_name total_christian_population
+    India                   27819588
+--------------------------------------------------
+🔹 Running Query #293...
+✅ Success! Returned 1 rows.
+area_name total_sikh_population
+    India              20833116
+--------------------------------------------------
+🔹 Running Query #294...
+✅ Success! Returned 1 rows.
+area_name total_buddhist_population
+    India                   8442972
+--------------------------------------------------
+🔹 Running Query #295...
+✅ Success! Returned 1 rows.
+area_name total_jain_population
+    India               4451753
+--------------------------------------------------
+🔹 Running Query #296...
+✅ Success! Returned 1 rows.
+area_name marathi_speakers
+    India        165827820
+--------------------------------------------------
+🔹 Running Query #297...
+✅ Success! Returned 1 rows.
+area_name telugu_speakers
+    India       162040199
+--------------------------------------------------
+🔹 Running Query #298...
+✅ Success! Returned 1 rows.
+area_name urdu_speakers
+    India     101498393
+--------------------------------------------------
+🔹 Running Query #299...
+✅ Success! Returned 1 rows.
+area_name malayalam_speakers
+    India           69615352
+--------------------------------------------------
+🔹 Running Query #300...
+✅ Success! Returned 1 rows.
+area_name punjabi_speakers
+    India         64268821
+--------------------------------------------------
+🔹 Running Query #301...
+✅ Success! Returned 2 rows.
+  person
+51958730
+51937867
+--------------------------------------------------
+🔹 Running Query #302...
+✅ Success! Returned 1 rows.
+area_name odia_speakers
+    India      71580590
+--------------------------------------------------
+🔹 Running Query #303...
+✅ Success! Returned 2 rows.
+  person
+15095797
+14609227
+--------------------------------------------------
+🔹 Running Query #304...
+✅ Success! Returned 2 rows.
+  person
+29040962
+29019265
+--------------------------------------------------
+🔹 Running Query #305...
+✅ Success! Returned 1 rows.
+area_name konkani_speakers
+    India          4403408
+--------------------------------------------------
+🔹 Running Query #306...
+✅ Success! Returned 1 rows.
+literate_muslim_women
+             43573993
+--------------------------------------------------
+🔹 Running Query #307...
+✅ Success! Returned 1 rows.
+area_name literate_hindu_women
+    India            261925301
+--------------------------------------------------
+🔹 Running Query #308...
+✅ Success! Returned 1 rows.
+ tot_work_p
+    2267591
+--------------------------------------------------
+🔹 Running Query #309...
+✅ Success! Returned 1 rows.
+ p_ill
+ 83769
+--------------------------------------------------
+🔹 Running Query #310...
+✅ Success! Returned 1 rows.
+religion_name female_literacy_rate
+       Muslim  41.9595079738554508
+--------------------------------------------------
+🔹 Running Query #311...
+✅ Success! Returned 1 rows.
+  tot_m
+6474159
+--------------------------------------------------
+🔹 Running Query #312...
+✅ Success! Returned 1 rows.
+area_name urban_buddhists
+    India         3628123
+--------------------------------------------------
+🔹 Running Query #313...
+✅ Success! Returned 2 rows.
+  person
+13063042
+12918324
+--------------------------------------------------
+🔹 Running Query #314...
+✅ Success! Returned 1 rows.
+area_name santali_speakers
+    India         14341537
+--------------------------------------------------
+🔹 Running Query #315...
+✅ Success! Returned 2 rows.
+ person
+ 106656
+ 106656
+--------------------------------------------------
+🔹 Running Query #316...
+✅ Success! Returned 2 rows.
+ person
+6680837
+6486219
+--------------------------------------------------
+🔹 Running Query #317...
+✅ Success! Returned 2 rows.
+ person
+ 382200
+ 382171
+--------------------------------------------------
+🔹 Running Query #318...
+✅ Success! Returned 1 rows.
+area_name sindhi_speakers
+    India         4451510
+--------------------------------------------------
+🔹 Running Query #319...
+✅ Success! Returned 1 rows.
+total_dogri_speakers
+             5193530
+--------------------------------------------------
+🔹 Running Query #320...
+✅ Success! Returned 1 rows.
+area_name        literacy_gap
+  Haryana 23.7941594379066882
+--------------------------------------------------
+🔹 Running Query #321...
+✅ Success! Returned 1 rows.
+area_name female_work_participation
+ Nagaland       46.9645247189072476
+--------------------------------------------------
+🔹 Running Query #322...
+✅ Success! Returned 1 rows.
+  p_06
+739969
+--------------------------------------------------
+🔹 Running Query #323...
+✅ Success! Returned 1 rows.
+area_name illiterate_men
+    India      377013272
+--------------------------------------------------
+🔹 Running Query #324...
+✅ Success! Returned 1 rows.
+area_name illiterate_women
+    India        517419058
+--------------------------------------------------
+🔹 Running Query #325...
+✅ Success! Returned 1 rows.
+   tot_p
+23053946
+--------------------------------------------------
+🔹 Running Query #326...
+✅ Success! Returned 1 rows.
+   tot_p
+15196308
+--------------------------------------------------
+🔹 Running Query #327...
+✅ Success! Returned 1 rows.
+area_name jain_men
+    India  2278097
+--------------------------------------------------
+🔹 Running Query #328...
+✅ Success! Returned 1 rows.
+area_name sikh_women
+    India    9884685
+--------------------------------------------------
+🔹 Running Query #329...
+✅ Success! Returned 1 rows.
+sanskrit_speakers
+            49530
+--------------------------------------------------
+🔹 Running Query #330...
+✅ Success! Returned 1 rows.
+area_name tulu_speakers
+    India       3688390
+--------------------------------------------------
+🔹 Running Query #331...
+✅ Success! Returned 4 rows.
+ name   person
+Rural 46244040
+Urban 18080923
+Rural 33235355
+Urban 16118232
+--------------------------------------------------
+🔹 Running Query #332...
+✅ Success! Returned 1 rows.
+                  religion_name work_participation_rate
+Other religions and persuasions     48.4979340451569680
+--------------------------------------------------
+🔹 Running Query #333...
+✅ Success! Returned 1 rows.
+ non_work_f
+    6523934
+--------------------------------------------------
+🔹 Running Query #334...
+✅ Success! Returned 1 rows.
+area_name literate_buddhist_men
+    India               3345185
+--------------------------------------------------
+🔹 Running Query #335...
+✅ Success! Returned 1 rows.
+ person
+1416125
+--------------------------------------------------
+🔹 Running Query #336...
+✅ Success! Returned 1 rows.
+area_name manipuri_speakers
+    India           3521992
+--------------------------------------------------
+🔹 Running Query #337...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Mizoram' AND l.name = 'Mizo' AND t.name = 'Total';
+--------------------------------------------------
+🔹 Running Query #338...
+✅ Success! Returned 1 rows.
+area_name khasi_speakers
+    India        2469308
+--------------------------------------------------
+🔹 Running Query #339...
+✅ Success! Returned 2 rows.
+ person
+ 936496
+ 930619
+--------------------------------------------------
+🔹 Running Query #340...
+✅ Success! Returned 1 rows.
+area_name bhili_speakers
+    India       13620170
+--------------------------------------------------
+🔹 Running Query #341...
+✅ Success! Returned 2 rows.
+ person
+1071400
+1009692
+--------------------------------------------------
+🔹 Running Query #342...
+✅ Success! Returned 1 rows.
+area_name kurukh_speakers
+    India         3965270
+--------------------------------------------------
+🔹 Running Query #343...
+✅ Success! Returned 2 rows.
+ person
+ 942108
+ 941965
+--------------------------------------------------
+🔹 Running Query #344...
+✅ Success! Returned 1 rows.
+area_name ho_speakers
+    India     2832414
+--------------------------------------------------
+🔹 Running Query #345...
+✅ Success! Returned 2 rows.
+ person
+1616730
+   2887
+--------------------------------------------------
+🔹 Running Query #346...
+✅ Success! Returned 1 rows.
+religion_name rural_population
+        Total        833748852
+--------------------------------------------------
+🔹 Running Query #347...
+✅ Success! Returned 1 rows.
+religion_name   urbanization_rate
+         Jain 39.8376100381130759
+--------------------------------------------------
+🔹 Running Query #348...
+✅ Success! Returned 1 rows.
+ f_lit
+253009
+--------------------------------------------------
+🔹 Running Query #349...
+✅ Success! Returned 1 rows.
+area_name christian_men
+    India      13751031
+--------------------------------------------------
+🔹 Running Query #350...
+✅ Success! Returned 1 rows.
+  m_ill
+4427397
+--------------------------------------------------
+🔹 Running Query #351...
+✅ Success! Returned 1 rows.
+           ?column?
+72.5737700262923919
+--------------------------------------------------
+🔹 Running Query #352...
+✅ Success! Returned 1 rows.
+           ?column?
+57.2524972318901964
+--------------------------------------------------
+🔹 Running Query #353...
+✅ Success! Returned 2 rows.
+ name       literacy_rate
+Urban 74.4737246047117373
+Rural 57.9093829679259072
+--------------------------------------------------
+🔹 Running Query #354...
+✅ Success! Returned 1 rows.
+area_name       literacy_rate
+   Kerala 84.2237101824127065
+--------------------------------------------------
+🔹 Running Query #355...
+✅ Success! Returned 1 rows.
+area_name       literacy_rate
+    Bihar 50.4369158446674628
+--------------------------------------------------
+🔹 Running Query #356...
+✅ Success! Returned 1 rows.
+        female_rate           male_rate
+83.0382212104059412 85.5091452069741515
+--------------------------------------------------
+🔹 Running Query #357...
+✅ Success! Returned 1 rows.
+           ?column?
+66.0861997072680747
+--------------------------------------------------
+🔹 Running Query #358...
+✅ Success! Returned 1 rows.
+           ?column?
+58.2334123835486898
+--------------------------------------------------
+🔹 Running Query #359...
+✅ Success! Returned 1 rows.
+           ?column?
+51.4011748890570690
+--------------------------------------------------
+🔹 Running Query #360...
+✅ Success! Returned 1 rows.
+area_name      urban_literacy
+   Kerala 85.2624229318667686
+--------------------------------------------------
+🔹 Running Query #361...
+✅ Success! Returned 1 rows.
+      sum
+894142112
+--------------------------------------------------
+🔹 Running Query #362...
+✅ Success! Returned 1 rows.
+area_name illiterates
+    India   447071056
+--------------------------------------------------
+🔹 Running Query #363...
+✅ Success! Returned 1 rows.
+area_name literates
+    India 763498517
+--------------------------------------------------
+🔹 Running Query #364...
+✅ Success! Returned 1 rows.
+           ?column?
+43.9850245874206880
+--------------------------------------------------
+🔹 Running Query #365...
+✅ Success! Returned 1 rows.
+           ?column?
+34.7813021116138176
+--------------------------------------------------
+🔹 Running Query #366...
+✅ Success! Returned 1 rows.
+       area_name                 wpr
+Himachal Pradesh 51.8518335076090355
+--------------------------------------------------
+🔹 Running Query #367...
+✅ Success! Returned 1 rows.
+  area_name                 wpr
+Lakshadweep 29.0865943883486110
+--------------------------------------------------
+🔹 Running Query #368...
+✅ Success! Returned 1 rows.
+     sum
+44635492
+--------------------------------------------------
+🔹 Running Query #369...
+✅ Success! Returned 1 rows.
+     sum
+13365376
+--------------------------------------------------
+🔹 Running Query #370...
+✅ Success! Returned 1 rows.
+      sum
+724892840
+--------------------------------------------------
+🔹 Running Query #371...
+✅ Success! Returned 1 rows.
+       sum
+1457652524
+--------------------------------------------------
+🔹 Running Query #372...
+✅ Success! Returned 2 rows.
+ name                 wpr
+Urban 35.3072430207809539
+Rural 41.8251737177561265
+--------------------------------------------------
+🔹 Running Query #373...
+✅ Success! Returned 1 rows.
+           ?column?
+66.5310162908284086
+--------------------------------------------------
+🔹 Running Query #374...
+✅ Success! Returned 1 rows.
+           ?column?
+67.9906806937401336
+--------------------------------------------------
+🔹 Running Query #375...
+✅ Success! Returned 1 rows.
+area_name          gender_gap
+Rajasthan 22.4261359402538087
+--------------------------------------------------
+🔹 Running Query #376...
+✅ Success! Returned 1 rows.
+           ?column?
+61.1311736997535241
+--------------------------------------------------
+🔹 Running Query #377...
+✅ Success! Returned 1 rows.
+           ?column?
+76.0049102874909302
+--------------------------------------------------
+🔹 Running Query #378...
+✅ Success! Returned 1 rows.
+           ?column?
+59.0018611446910741
+--------------------------------------------------
+🔹 Running Query #379...
+✅ Success! Returned 1 rows.
+           ?column?
+45.5800897140187198
+--------------------------------------------------
+🔹 Running Query #380...
+✅ Success! Returned 1 rows.
+           ?column?
+40.9792740174784478
+--------------------------------------------------
+🔹 Running Query #381...
+✅ Success! Returned 1 rows.
+area_name main_workers
+    India    362446420
+--------------------------------------------------
+🔹 Running Query #382...
+✅ Success! Returned 1 rows.
+area_name marginal_workers
+    India        119296891
+--------------------------------------------------
+🔹 Running Query #383...
+✅ Success! Returned 1 rows.
+area_name non_workers
+    India   728826262
+--------------------------------------------------
+🔹 Running Query #384...
+✅ Success! Returned 1 rows.
+           ?column?
+31.0559882043795124
+--------------------------------------------------
+🔹 Running Query #385...
+✅ Success! Returned 1 rows.
+           ?column?
+47.7091488163677608
+--------------------------------------------------
+🔹 Running Query #386...
+✅ Success! Returned 1 rows.
+           ?column?
+59.7733454257579119
+--------------------------------------------------
+🔹 Running Query #387...
+✅ Success! Returned 1 rows.
+?column?
+    None
+--------------------------------------------------
+🔹 Running Query #388...
+✅ Success! Returned 1 rows.
+area_name            male_lit
+   Kerala 85.5091452069741515
+--------------------------------------------------
+🔹 Running Query #389...
+✅ Success! Returned 1 rows.
+area_name          female_lit
+   Kerala 83.0382212104059412
+--------------------------------------------------
+🔹 Running Query #390...
+✅ Success! Returned 1 rows.
+           ?column?
+45.6215099502667120
+--------------------------------------------------
+🔹 Running Query #391...
+✅ Success! Returned 1 rows.
+           ?column?
+46.6097704446484335
+--------------------------------------------------
+🔹 Running Query #392...
+✅ Success! Returned 1 rows.
+      sum
+963486622
+--------------------------------------------------
+🔹 Running Query #393...
+✅ Success! Returned 1 rows.
+       sum
+1457652524
+--------------------------------------------------
+🔹 Running Query #394...
+✅ Success! Returned 1 rows.
+    sum
+5664988
+--------------------------------------------------
+🔹 Running Query #395...
+✅ Success! Returned 1 rows.
+     sum
+27942181
+--------------------------------------------------
+🔹 Running Query #396...
+✅ Success! Returned 1 rows.
+           ?column?
+67.4292941966824612
+--------------------------------------------------
+🔹 Running Query #397...
+✅ Success! Returned 1 rows.
+           ?column?
+65.4754664642220634
+--------------------------------------------------
+🔹 Running Query #398...
+✅ Success! Returned 1 rows.
+area_name    urban_female_lit
+  Mizoram 84.6428333806077033
+--------------------------------------------------
+🔹 Running Query #399...
+✅ Success! Returned 1 rows.
+area_name      rural_male_lit
+   Kerala 84.8285465340731637
+--------------------------------------------------
+🔹 Running Query #400...
+✅ Success! Returned 1 rows.
+           ?column?
+43.5987402601170906
+--------------------------------------------------
+🔹 Running Query #401...
+✅ Success! Returned 1 rows.
+           ?column?
+38.0782584797786365
+--------------------------------------------------
+🔹 Running Query #402...
+✅ Success! Returned 1 rows.
+area_name female_workers
+    India      149877381
+--------------------------------------------------
+🔹 Running Query #403...
+✅ Success! Returned 1 rows.
+area_name male_workers
+    India    331865930
+--------------------------------------------------
+🔹 Running Query #404...
+✅ Success! Returned 1 rows.
+           ?column?
+41.8251737177561265
+--------------------------------------------------
+🔹 Running Query #405...
+✅ Success! Returned 1 rows.
+           ?column?
+35.3072430207809539
+--------------------------------------------------
+🔹 Running Query #406...
+✅ Success! Returned 1 rows.
+area_name            lit_rate
+   Kerala 83.0382212104059412
+--------------------------------------------------
+🔹 Running Query #407...
+✅ Success! Returned 1 rows.
+area_name            lit_rate
+    Bihar 41.9429683632270097
+--------------------------------------------------
+🔹 Running Query #408...
+✅ Success! Returned 1 rows.
+area_name            lit_rate
+   Kerala 85.5091452069741515
+--------------------------------------------------
+🔹 Running Query #409...
+✅ Success! Returned 1 rows.
+area_name            lit_rate
+    Bihar 58.2334123835486898
+--------------------------------------------------
+🔹 Running Query #410...
+✅ Success! Returned 1 rows.
+      sum
+869367558
+--------------------------------------------------
+🔹 Running Query #411...
+✅ Success! Returned 1 rows.
+      sum
+657629476
+--------------------------------------------------
+🔹 Running Query #412...
+✅ Success! Returned 1 rows.
+area_name rural_main_workers
+    India          245749270
+--------------------------------------------------
+🔹 Running Query #413...
+✅ Success! Returned 1 rows.
+area_name urban_marginal_workers
+    India               16448626
+--------------------------------------------------
+🔹 Running Query #414...
+✅ Success! Returned 1 rows.
+           ?column?
+75.2364198368703453
+--------------------------------------------------
+🔹 Running Query #415...
+✅ Success! Returned 1 rows.
+           ?column?
+24.7635801631296547
+--------------------------------------------------
+🔹 Running Query #416...
+✅ Success! Returned 1 rows.
+     sum
+56085828
+--------------------------------------------------
+🔹 Running Query #417...
+✅ Success! Returned 1 rows.
+      sum
+453526136
+--------------------------------------------------
+🔹 Running Query #418...
+✅ Success! Returned 1 rows.
+area_name rural_non_workers
+    India         484865913
+--------------------------------------------------
+🔹 Running Query #419...
+✅ Success! Returned 1 rows.
+area_name urban_non_workers
+    India         243960349
+--------------------------------------------------
+🔹 Running Query #420...
+✅ Success! Returned 1 rows.
+area_name              ratio
+   Kerala 1.0529750557154618
+--------------------------------------------------
+🔹 Running Query #421...
+✅ Success! Returned 1 rows.
+  area_name                  ratio
+Daman & Diu 0.51156502972489429812
+--------------------------------------------------
+🔹 Running Query #422...
+✅ Success! Returned 1 rows.
+                abs
+16.5643416367858301
+--------------------------------------------------
+🔹 Running Query #423...
+✅ Success! Returned 1 rows.
+area_name urban_non_workers
+    India         243960349
+--------------------------------------------------
+🔹 Running Query #424...
+✅ Success! Returned 1 rows.
+area_name rural_main_workers
+    India          245749270
+--------------------------------------------------
+🔹 Running Query #425...
+✅ Success! Returned 1 rows.
+      sum
+517265984
+--------------------------------------------------
+🔹 Running Query #426...
+✅ Success! Returned 1 rows.
+      sum
+376876128
+--------------------------------------------------
+🔹 Running Query #427...
+✅ Success! Returned 1 rows.
+area_name female_non_workers
+    India          437570349
+--------------------------------------------------
+🔹 Running Query #428...
+✅ Success! Returned 1 rows.
+area_name male_non_workers
+    India        291255913
+--------------------------------------------------
+🔹 Running Query #429...
+✅ Success! Returned 1 rows.
+                  avg
+20135912.222222222222
+--------------------------------------------------
+🔹 Running Query #430...
+✅ Success! Returned 1 rows.
+                 avg
+6627605.055555555556
+--------------------------------------------------
+🔹 Running Query #431...
+✅ Success! Returned 1 rows.
+area_name      marginal_ratio
+Jharkhand 47.9427976541031284
+--------------------------------------------------
+🔹 Running Query #432...
+✅ Success! Returned 1 rows.
+       area_name       non_work_rate
+Himachal Pradesh 48.1481664923909645
+--------------------------------------------------
+🔹 Running Query #433...
+✅ Success! Returned 1 rows.
+     sum
+31359767
+--------------------------------------------------
+🔹 Running Query #434...
+✅ Success! Returned 1 rows.
+    sum
+9370367
+--------------------------------------------------
+🔹 Running Query #435...
+✅ Success! Returned 1 rows.
+area_name rural_literates
+    India       482653540
+--------------------------------------------------
+🔹 Running Query #436...
+✅ Success! Returned 1 rows.
+  area_name urban_literates
+Lakshadweep           41265
+--------------------------------------------------
+🔹 Running Query #437...
+✅ Success! Returned 1 rows.
+              ?column?
+0.49730153659034860629
+--------------------------------------------------
+🔹 Running Query #438...
+✅ Success! Returned 1 rows.
+area_name female_main_workers
+    India            89297061
+--------------------------------------------------
+🔹 Running Query #439...
+✅ Success! Returned 1 rows.
+area_name male_marginal_workers
+    India              58716571
+--------------------------------------------------
+🔹 Running Query #440...
+✅ Success! Returned 1 rows.
+     sum
+85414786
+--------------------------------------------------
+🔹 Running Query #441...
+✅ Success! Returned 1 rows.
+     sum
+28135824
+--------------------------------------------------
+🔹 Running Query #442...
+✅ Success! Returned 1 rows.
+area_name      val
+    India 12331464
+--------------------------------------------------
+🔹 Running Query #443...
+✅ Success! Returned 1 rows.
+area_name      val
+    India 86166871
+--------------------------------------------------
+🔹 Running Query #444...
+✅ Success! Returned 1 rows.
+area_name      val
+    India 95841357
+--------------------------------------------------
+🔹 Running Query #445...
+✅ Success! Returned 1 rows.
+area_name       val
+    India 168106728
+--------------------------------------------------
+🔹 Running Query #446...
+✅ Success! Returned 1 rows.
+     sum
+12009686
+--------------------------------------------------
+🔹 Running Query #447...
+✅ Success! Returned 1 rows.
+      sum
+116325924
+--------------------------------------------------
+🔹 Running Query #448...
+✅ Success! Returned 1 rows.
+     sum
+45702566
+--------------------------------------------------
+🔹 Running Query #449...
+✅ Success! Returned 1 rows.
+     sum
+71971832
+--------------------------------------------------
+🔹 Running Query #450...
+✅ Success! Returned 1 rows.
+      sum
+165480702
+--------------------------------------------------
+🔹 Running Query #451...
+✅ Success! Returned 1 rows.
+area_name      val
+    India 89297061
+--------------------------------------------------
+🔹 Running Query #452...
+✅ Success! Returned 1 rows.
+area_name      val
+    India 58716571
+--------------------------------------------------
+🔹 Running Query #453...
+✅ Success! Returned 1 rows.
+           ?column?
+63.0693628874149805
+--------------------------------------------------
+🔹 Running Query #454...
+✅ Success! Returned 1 rows.
+           ?column?
+29.0865943883486110
+--------------------------------------------------
+🔹 Running Query #455...
+✅ Success! Returned 1 rows.
+      sum
+875140698
+--------------------------------------------------
+🔹 Running Query #456...
+✅ Success! Returned 1 rows.
+      sum
+582511826
+--------------------------------------------------
+🔹 Running Query #457...
+✅ Success! Returned 1 rows.
+area_name rural_lit_women
+    India       201372009
+--------------------------------------------------
+🔹 Running Query #458...
+✅ Success! Returned 1 rows.
+area_name urban_lit_men
+    India     153402248
+--------------------------------------------------
+🔹 Running Query #459...
+✅ Success! Returned 1 rows.
+     sum
+93706487
+--------------------------------------------------
+🔹 Running Query #460...
+✅ Success! Returned 1 rows.
+     sum
+33355161
+--------------------------------------------------
+🔹 Running Query #461...
+✅ Success! Returned 1 rows.
+area_name      val
+    India 22823252
+--------------------------------------------------
+🔹 Running Query #462...
+✅ Success! Returned 1 rows.
+area_name     val
+    India 7540121
+--------------------------------------------------
+🔹 Running Query #463...
+✅ Success! Returned 1 rows.
+      sum
+205696530
+--------------------------------------------------
+🔹 Running Query #464...
+✅ Success! Returned 1 rows.
+      sum
+233394300
+--------------------------------------------------
+🔹 Running Query #465...
+✅ Success! Returned 1 rows.
+area_name          female_pct
+ Nagaland 43.8102208963558979
+--------------------------------------------------
+🔹 Running Query #466...
+✅ Success! Returned 1 rows.
+  area_name          female_pct
+Daman & Diu 11.4099826009515878
+--------------------------------------------------
+🔹 Running Query #467...
+✅ Success! Returned 1 rows.
+            ?column?
+158.4865839476077334
+--------------------------------------------------
+🔹 Running Query #468...
+✅ Success! Returned 1 rows.
+area_name ill_workers
+    India   447071056
+--------------------------------------------------
+🔹 Running Query #469...
+✅ Success! Returned 1 rows.
+      sum
+336213456
+--------------------------------------------------
+🔹 Running Query #470...
+✅ Success! Returned 1 rows.
+     sum
+64555606
+--------------------------------------------------
+🔹 Running Query #471...
+✅ Success! Returned 1 rows.
+area_name      val
+    India 58162962
+--------------------------------------------------
+🔹 Running Query #472...
+✅ Success! Returned 1 rows.
+area_name     val
+    India 6004843
+--------------------------------------------------
+🔹 Running Query #473...
+✅ Success! Returned 1 rows.
+              ?column?
+0.82237079841975567172
+--------------------------------------------------
+🔹 Running Query #474...
+✅ Success! Returned 1 rows.
+  area_name               ratio
+Daman & Diu 24.0767162944582299
+--------------------------------------------------
+🔹 Running Query #475...
+✅ Success! Returned 1 rows.
+area_name              ratio
+Jharkhand 1.0858190362915047
+--------------------------------------------------
+🔹 Running Query #476...
+✅ Success! Returned 1 rows.
+      sum
+108239820
+--------------------------------------------------
+🔹 Running Query #477...
+✅ Success! Returned 1 rows.
+      sum
+190229292
+--------------------------------------------------
+🔹 Running Query #478...
+✅ Success! Returned 1 rows.
+area_name urban_fem_nonwork
+    India         153574011
+--------------------------------------------------
+🔹 Running Query #479...
+✅ Success! Returned 1 rows.
+area_name rural_male_nonwork
+    India          200869575
+--------------------------------------------------
+🔹 Running Query #480...
+✅ Success! Returned 1 rows.
+     sum
+18140505
+--------------------------------------------------
+🔹 Running Query #481...
+✅ Success! Returned 1 rows.
+area_name            lit_rate
+   Kerala 81.8362982742844293
+--------------------------------------------------
+🔹 Running Query #482...
+✅ Success! Returned 1 rows.
+    area_name            lit_rate
+Uttar Pradesh 70.0000659925070830
+--------------------------------------------------
+🔹 Running Query #483...
+✅ Success! Returned 1 rows.
+                abs
+27.7452801012113337
+--------------------------------------------------
+🔹 Running Query #484...
+✅ Success! Returned 1 rows.
+area_name      val
+    India 22252784
+--------------------------------------------------
+🔹 Running Query #485...
+✅ Success! Returned 1 rows.
+area_name      val
+    India 97044107
+--------------------------------------------------
+🔹 Running Query #486...
+✅ Success! Returned 1 rows.
+     sum
+36672614
+--------------------------------------------------
+🔹 Running Query #487...
+✅ Success! Returned 1 rows.
+      sum
+237385280
+--------------------------------------------------
+🔹 Running Query #488...
+✅ Success! Returned 1 rows.
+      sum
+288659666
+--------------------------------------------------
+🔹 Running Query #489...
+✅ Success! Returned 1 rows.
+area_name                 pct
+    Bihar 52.8312623990327196
+--------------------------------------------------
+🔹 Running Query #490...
+✅ Success! Returned 1 rows.
+area_name                pct
+  Manipur 7.7213897897680261
+--------------------------------------------------
+🔹 Running Query #491...
+✅ Success! Returned 1 rows.
+      sum
+408917592
+--------------------------------------------------
+🔹 Running Query #492...
+✅ Success! Returned 1 rows.
+      sum
+306804496
+--------------------------------------------------
+🔹 Running Query #493...
+✅ Success! Returned 1 rows.
+area_name      val
+    India 67714557
+--------------------------------------------------
+🔹 Running Query #494...
+✅ Success! Returned 1 rows.
+area_name     val
+    India 9988216
+--------------------------------------------------
+🔹 Running Query #495...
+✅ Success! Returned 1 rows.
+     sum
+21786998
+--------------------------------------------------
+🔹 Running Query #496...
+✅ Success! Returned 1 rows.
+     sum
+34724987
+--------------------------------------------------
+🔹 Running Query #497...
+✅ Success! Returned 1 rows.
+area_name       val
+    India 201378086
+--------------------------------------------------
+🔹 Running Query #498...
+✅ Success! Returned 1 rows.
+area_name       val
+    India 104281034
+--------------------------------------------------
+🔹 Running Query #499...
+✅ Success! Returned 1 rows.
+            ?column?
+379.1368426254681952
+--------------------------------------------------
+🔹 Running Query #500...
+✅ Success! Returned 1 rows.
+            ?column?
+732.1547243192851348
+--------------------------------------------------
+🔹 Running Query #501...
+✅ Success! Returned 1 rows.
+  tot_p
+8873472
+--------------------------------------------------
+🔹 Running Query #502...
+✅ Success! Returned 2 rows.
+   person
+187979055
+160159977
+--------------------------------------------------
+🔹 Running Query #503...
+✅ Success! Returned 2 rows.
+area_type  tot_p
+    Rural 134947
+    Urban 231183
+--------------------------------------------------
+🔹 Running Query #504...
+✅ Success! Returned 3 rows.
+   name   person
+Kannada 40651090
+Kannada 40622836
+   Urdu  6618324
+--------------------------------------------------
+🔹 Running Query #505...
+✅ Success! Returned 1 rows.
+religion_name       literacy_rate
+         Jain 86.4286720309954303
+--------------------------------------------------
+🔹 Running Query #506...
+✅ Success! Returned 2 rows.
+  female
+31835443
+31830308
+--------------------------------------------------
+🔹 Running Query #507...
+✅ Success! Returned 1 rows.
+ non_work_p
+     885475
+--------------------------------------------------
+🔹 Running Query #508...
+✅ Success! Returned 2 rows.
+  person
+56188667
+55684784
+--------------------------------------------------
+🔹 Running Query #509...
+✅ Success! Returned 2 rows.
+area_name    tot_p
+   Punjab 16004754
+  Haryana  1243752
+--------------------------------------------------
+🔹 Running Query #510...
+✅ Success! Returned 1 rows.
+ literacy_gap
+     90728690
+--------------------------------------------------
+🔹 Running Query #511...
+✅ Success! Returned 2 rows.
+  person
+77461172
+77357905
+--------------------------------------------------
+🔹 Running Query #512...
+✅ Success! Returned 1 rows.
+ tot_p
+167216
+--------------------------------------------------
+🔹 Running Query #513...
+✅ Success! Returned 4 rows.
+     area_name   person
+Madhya Pradesh 64324963
+     Rajasthan 61274274
+Madhya Pradesh 49353587
+     Rajasthan 18742450
+--------------------------------------------------
+🔹 Running Query #514...
+✅ Success! Returned 1 rows.
+ tot_p
+535536
+--------------------------------------------------
+🔹 Running Query #515...
+✅ Success! Returned 1 rows.
+      literacy_rate
+87.9012627520468489
+--------------------------------------------------
+🔹 Running Query #516...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT ls.male, ls.female FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Telangana' AND l.name = 'Urdu' AND t.name = 'Total';
+--------------------------------------------------
+🔹 Running Query #517...
+✅ Success! Returned 1 rows.
+ tot_work_p
+    5721400
+--------------------------------------------------
+🔹 Running Query #518...
+✅ Success! Returned 3 rows.
+  area_name  person
+      India  259678
+      India  259678
+Maharashtra  106656
+--------------------------------------------------
+🔹 Running Query #519...
+✅ Success! Returned 1 rows.
+  tot_p
+3412078
+--------------------------------------------------
+🔹 Running Query #520...
+✅ Success! Returned 1 rows.
+ name   person
+Tamil 63743847
+--------------------------------------------------
+🔹 Running Query #521...
+✅ Success! Returned 1 rows.
+   tot_m    tot_f
+19867314 18616653
+--------------------------------------------------
+🔹 Running Query #522...
+✅ Success! Returned 2 rows.
+ person
+3569400
+3565618
+--------------------------------------------------
+🔹 Running Query #523...
+✅ Success! Returned 1 rows.
+   tot_p
+19180759
+--------------------------------------------------
+🔹 Running Query #524...
+✅ Success! Returned 1 rows.
+ lit_gap
+  457850
+--------------------------------------------------
+🔹 Running Query #525...
+✅ Success! Returned 2 rows.
+  person
+19498567
+19480141
+--------------------------------------------------
+🔹 Running Query #526...
+✅ Success! Returned 1 rows.
+ tot_p
+  1473
+--------------------------------------------------
+🔹 Running Query #527...
+✅ Success! Returned 1 rows.
+ non_work_p
+   12201625
+--------------------------------------------------
+🔹 Running Query #528...
+✅ Success! Returned 2 rows.
+ person
+  88662
+  87718
+--------------------------------------------------
+🔹 Running Query #529...
+✅ Success! Returned 4 rows.
+   name   person
+Kannada 40651090
+Kannada 40622836
+ Telugu  3569400
+ Telugu  3565618
+--------------------------------------------------
+🔹 Running Query #530...
+✅ Success! Returned 1 rows.
+area_name    tot_p
+    India 27819588
+--------------------------------------------------
+🔹 Running Query #531...
+✅ Success! Returned 1 rows.
+area_name   person
+    India 50772631
+--------------------------------------------------
+🔹 Running Query #532...
+✅ Success! Returned 1 rows.
+ tot_p
+166322
+--------------------------------------------------
+🔹 Running Query #533...
+✅ Success! Returned 1 rows.
+female_literacy_rate
+ 41.9595079738554508
+--------------------------------------------------
+🔹 Running Query #534...
+✅ Success! Returned 2 rows.
+ person
+2414774
+2330452
+--------------------------------------------------
+🔹 Running Query #535...
+✅ Success! Returned 2 rows.
+area_name   tot_p
+ Nagaland 1739651
+  Mizoram  956331
+--------------------------------------------------
+🔹 Running Query #536...
+✅ Success! Returned 2 rows.
+ male
+51200
+51200
+--------------------------------------------------
+🔹 Running Query #537...
+✅ Success! Returned 1 rows.
+ tot_p
+570581
+--------------------------------------------------
+🔹 Running Query #538...
+✅ Success! Returned 1 rows.
+   p_ill
+41710498
+--------------------------------------------------
+🔹 Running Query #539...
+✅ Success! Returned 2 rows.
+  person
+11610128
+11603571
+--------------------------------------------------
+🔹 Running Query #540...
+✅ Success! Returned 3 rows.
+  area_name   tot_p
+      India 8442972
+Maharashtra 6531200
+West Bengal  282898
+--------------------------------------------------
+🔹 Running Query #541...
+✅ Success! Returned 2 rows.
+  female
+16921247
+16910907
+--------------------------------------------------
+🔹 Running Query #542...
+✅ Success! Returned 1 rows.
+work_participation_rate
+    34.1548578979874201
+--------------------------------------------------
+🔹 Running Query #543...
+✅ Success! Returned 2 rows.
+ person
+2400883
+1865482
+--------------------------------------------------
+🔹 Running Query #544...
+✅ Success! Returned 1 rows.
+   tot_p
+19146627
+--------------------------------------------------
+🔹 Running Query #545...
+✅ Success! Returned 4 rows.
+  name   person
+Telugu 70667780
+Telugu 70662838
+  Urdu  7505623
+  Urdu  7504151
+--------------------------------------------------
+🔹 Running Query #546...
+✅ Success! Returned 1 rows.
+  tot_m
+2171413
+--------------------------------------------------
+🔹 Running Query #547...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT rs.tot_p FROM religion_stats rs JOIN regions r ON rs.state = r.state JOIN religions rel ON rs.religion_id = rel.id JOIN tru t ON rs.tru_id = t.id WHERE r.area_name = 'Maharashtra' AND rel.religion_name = 'Zoroastrian' AND t.name = 'Total';
+--------------------------------------------------
+🔹 Running Query #548...
+✅ Success! Returned 2 rows.
+  person
+46244040
+33235355
+--------------------------------------------------
+🔹 Running Query #549...
+✅ Success! Returned 1 rows.
+area_name       literacy_rate
+  Mizoram 38.4044705655650833
+--------------------------------------------------
+🔹 Running Query #550...
+✅ Success! Returned 2 rows.
+ person
+ 531077
+ 529531
+--------------------------------------------------
+🔹 Running Query #551...
+✅ Success! Returned 1 rows.
+           sex_ratio
+906.2816787971409980
+--------------------------------------------------
+🔹 Running Query #552...
+✅ Success! Returned 1 rows.
+ tot_work_p
+     196127
+--------------------------------------------------
+🔹 Running Query #553...
+✅ Success! Returned 4 rows.
+    area_name   female
+Uttar Pradesh 89646220
+Uttar Pradesh 75974328
+        Bihar 38586200
+        Bihar 12583592
+--------------------------------------------------
+🔹 Running Query #554...
+✅ Success! Returned 2 rows.
+ person
+ 964305
+ 963980
+--------------------------------------------------
+🔹 Running Query #555...
+✅ Success! Returned 1 rows.
+  tot_p
+8567485
+--------------------------------------------------
+🔹 Running Query #556...
+✅ Success! Returned 1 rows.
+ f_lit
+677597
+--------------------------------------------------
+🔹 Running Query #557...
+✅ Success! Returned 5 rows.
+  area_name   person
+      India 83026680
+      India 82801140
+Maharashtra 77461172
+Maharashtra 77357905
+  Karnataka  2064906
+--------------------------------------------------
+🔹 Running Query #558...
+✅ Success! Returned 2 rows.
+ person
+  82613
+  82559
+--------------------------------------------------
+🔹 Running Query #559...
+✅ Success! Returned 1 rows.
+  tot_m
+3314906
+--------------------------------------------------
+🔹 Running Query #560...
+✅ Success! Returned 1 rows.
+           lit_gap
+4.2948128497337484
+--------------------------------------------------
+🔹 Running Query #561...
+✅ Success! Returned 2 rows.
+  person
+15095797
+14609227
+--------------------------------------------------
+🔹 Running Query #562...
+✅ Success! Returned 1 rows.
+religion_name       non_work_rate
+       Muslim 75.4699513335929837
+--------------------------------------------------
+🔹 Running Query #563...
+✅ Success! Returned 2 rows.
+ person
+6618324
+6617850
+--------------------------------------------------
+🔹 Running Query #564...
+✅ Success! Returned 1 rows.
+   tot_p
+23053946
+--------------------------------------------------
+🔹 Running Query #565...
+✅ Success! Returned 2 rows.
+ person
+ 123648
+ 123176
+--------------------------------------------------
+🔹 Running Query #566...
+✅ Success! Returned 2 rows.
+       area_name  tot_p
+       Rajasthan 872930
+Himachal Pradesh  79896
+--------------------------------------------------
+🔹 Running Query #567...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT ls.female FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Telangana' AND l.name = 'Telugu' AND t.name = 'Total';
+--------------------------------------------------
+🔹 Running Query #568...
+✅ Success! Returned 1 rows.
+      literacy_rate
+77.3031682291201470
+--------------------------------------------------
+🔹 Running Query #569...
+✅ Success! Returned 2 rows.
+ person
+1184024
+ 321031
+--------------------------------------------------
+🔹 Running Query #570...
+✅ Success! Returned 1 rows.
+area_name  person
+    India   24821
+--------------------------------------------------
+🔹 Running Query #571...
+✅ Success! Returned 2 rows.
+ person
+ 382200
+ 382171
+--------------------------------------------------
+🔹 Running Query #572...
+✅ Success! Returned 1 rows.
+  tot_p
+2213027
+--------------------------------------------------
+🔹 Running Query #573...
+✅ Success! Returned 1 rows.
+ tot_m  tot_f
+ 80988  81827
+--------------------------------------------------
+🔹 Running Query #574...
+✅ Success! Returned 2 rows.
+ person
+2513712
+2513712
+--------------------------------------------------
+🔹 Running Query #575...
+✅ Success! Returned 1 rows.
+      literacy_rate
+87.5457649357703676
+--------------------------------------------------
+🔹 Running Query #576...
+✅ Success! Returned 2 rows.
+ person
+4999581
+4998899
+--------------------------------------------------
+🔹 Running Query #577...
+✅ Success! Returned 1 rows.
+area_name   person
+    India 13583464
+--------------------------------------------------
+🔹 Running Query #578...
+✅ Success! Returned 1 rows.
+ tot_p
+912937
+--------------------------------------------------
+🔹 Running Query #579...
+✅ Success! Returned 1 rows.
+            sex_ratio
+1124.7438195225147890
+--------------------------------------------------
+🔹 Running Query #580...
+✅ Success! Returned 2 rows.
+ person
+ 788294
+ 764196
+--------------------------------------------------
+🔹 Running Query #581...
+✅ Success! Returned 1 rows.
+ tot_f
+687192
+--------------------------------------------------
+🔹 Running Query #582...
+✅ Success! Returned 4 rows.
+ area_name  person
+Tamil Nadu   24495
+Tamil Nadu   24495
+ Karnataka   23227
+ Karnataka   23227
+--------------------------------------------------
+🔹 Running Query #583...
+✅ Success! Returned 2 rows.
+ person
+1522132
+1522132
+--------------------------------------------------
+🔹 Running Query #584...
+✅ Success! Returned 1 rows.
+            lit_gap
+22.9054289383694396
+--------------------------------------------------
+🔹 Running Query #585...
+✅ Success! Returned 1 rows.
+ tot_p
+ 78659
+--------------------------------------------------
+🔹 Running Query #586...
+✅ Success! Returned 1 rows.
+ person
+1416125
+--------------------------------------------------
+🔹 Running Query #587...
+✅ Success! Returned 2 rows.
+area_name   tot_m
+   Punjab 8395797
+  Haryana  653468
+--------------------------------------------------
+🔹 Running Query #588...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Jharkhand' AND l.name = 'Santhali' AND t.name = 'Total';
+--------------------------------------------------
+🔹 Running Query #589...
+✅ Success! Returned 1 rows.
+ tot_p
+ 62268
+--------------------------------------------------
+🔹 Running Query #590...
+✅ Success! Returned 2 rows.
+ female
+1172997
+1147671
+--------------------------------------------------
+🔹 Running Query #591...
+✅ Success! Returned 1 rows.
+ area_name       literacy_rate
+Chandigarh 90.9693877551020408
+--------------------------------------------------
+🔹 Running Query #592...
+✅ Success! Returned 2 rows.
+ person
+6680837
+6486219
+--------------------------------------------------
+🔹 Running Query #593...
+✅ Success! Returned 1 rows.
+work_participation_rate
+    34.7810886843470898
+--------------------------------------------------
+🔹 Running Query #594...
+✅ Success! Returned 2 rows.
+ person
+ 723748
+ 558054
+--------------------------------------------------
+🔹 Running Query #595...
+✅ Success! Returned 4 rows.
+ name    person
+Rural 149936334
+Rural 123866244
+Urban  38042721
+Urban  36293733
+--------------------------------------------------
+🔹 Running Query #596...
+✅ Success! Returned 2 rows.
+ person
+1595038
+1592915
+--------------------------------------------------
+🔹 Running Query #597...
+✅ Success! Returned 1 rows.
+ tot_p
+282898
+--------------------------------------------------
+🔹 Running Query #598...
+✅ Success! Returned 1 rows.
+  f_ill
+5239098
+--------------------------------------------------
+🔹 Running Query #599...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT r.area_name, rs.tot_p FROM religion_stats rs JOIN regions r ON rs.state = r.state JOIN religions rel ON rs.religion_id = rel.id JOIN tru t ON rs.tru_id = t.id WHERE rel.religion_name = 'Zoroastrian' AND t.name = 'Total' ORDER BY rs.tot_p DESC LIMIT 1;
+--------------------------------------------------
+🔹 Running Query #600...
+✅ Success! Returned 2 rows.
+ person
+1382278
+ 996733
+--------------------------------------------------
+🔹 Running Query #601...
+✅ Success! Returned 1 rows.
+           sex_ratio
+965.5218014926537159
+--------------------------------------------------
+🔹 Running Query #602...
+✅ Success! Returned 2 rows.
+ person
+ 936496
+ 930619
+--------------------------------------------------
+🔹 Running Query #603...
+✅ Success! Returned 2 rows.
+ area_name   tot_p
+    Kerala 6141269
+Tamil Nadu 4418331
+--------------------------------------------------
+🔹 Running Query #604...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Mizoram' AND l.name = 'Mizo' AND t.name = 'Total';
+--------------------------------------------------
+🔹 Running Query #605...
+✅ Success! Returned 1 rows.
+      literacy_rate
+85.6744265932444298
+--------------------------------------------------
+🔹 Running Query #606...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Tripura' AND l.name = 'Kokborok' AND t.name = 'Total';
+--------------------------------------------------
+🔹 Running Query #607...
+✅ Success! Returned 3 rows.
+    area_name   person
+        India 50772631
+        India 50725762
+Uttar Pradesh 10820232
+--------------------------------------------------
+🔹 Running Query #608...
+✅ Success! Returned 1 rows.
+ tot_work_m
+    9217857
+--------------------------------------------------
+🔹 Running Query #609...
+✅ Success! Returned 2 rows.
+ person
+2274342
+1154622
+--------------------------------------------------
+🔹 Running Query #610...
+✅ Success! Returned 1 rows.
+ tot_p
+440280
+--------------------------------------------------
+🔹 Running Query #611...
+✅ Success! Returned 2 rows.
+ person
+    419
+    419
+--------------------------------------------------
+🔹 Running Query #612...
+✅ Success! Returned 2 rows.
+  area_name   tot_f
+Maharashtra 3216294
+     Sikkim   81914
+--------------------------------------------------
+🔹 Running Query #613...
+✅ Success! Returned 2 rows.
+ person
+ 774057
+ 745903
+--------------------------------------------------
+🔹 Running Query #614...
+✅ Success! Returned 1 rows.
+           lit_gap
+6.7093364196699839
+--------------------------------------------------
+🔹 Running Query #615...
+✅ Success! Returned 2 rows.
+ person
+3592208
+  46664
+--------------------------------------------------
+🔹 Running Query #616...
+✅ Success! Returned 1 rows.
+area_name  tot_work_p
+    India    11658513
+--------------------------------------------------
+🔹 Running Query #617...
+✅ Success! Returned 2 rows.
+ person
+1164290
+1139697
+--------------------------------------------------
+🔹 Running Query #618...
+✅ Success! Returned 1 rows.
+ tot_p
+236340
+--------------------------------------------------
+🔹 Running Query #619...
+✅ Success! Returned 2 rows.
+ person
+ 952164
+ 951014
+--------------------------------------------------
+🔹 Running Query #620...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT t.name, ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Gujarat' AND l.name = 'Jain' AND t.name IN ('Rural', 'Urban') ORDER BY ls.person DESC;
+--------------------------------------------------
+🔹 Running Query #621...
+✅ Success! Returned 2 rows.
+ person
+ 123488
+ 123488
+--------------------------------------------------
+🔹 Running Query #622...
+✅ Success! Returned 1 rows.
+           sex_ratio
+970.2519468123681335
+--------------------------------------------------
+🔹 Running Query #623...
+✅ Success! Returned 2 rows.
+ person
+ 994302
+ 992197
+--------------------------------------------------
+🔹 Running Query #624...
+✅ Success! Returned 1 rows.
+area_name       literacy_rate
+  Haryana 41.7630078895574236
+--------------------------------------------------
+🔹 Running Query #625...
+✅ Success! Returned 2 rows.
+ person
+ 939283
+ 939177
+--------------------------------------------------
+🔹 Running Query #626...
+✅ Success! Returned 1 rows.
+ tot_p
+ 80984
+--------------------------------------------------
+🔹 Running Query #627...
+✅ Success! Returned 2 rows.
+ person
+1616730
+   2887
+--------------------------------------------------
+🔹 Running Query #628...
+✅ Success! Returned 1 rows.
+   tot_m    tot_f
+31715046 31473122
+--------------------------------------------------
+🔹 Running Query #629...
+✅ Success! Returned 1 rows.
+ person
+ 151565
+--------------------------------------------------
+🔹 Running Query #630...
+✅ Success! Returned 1 rows.
+work_participation_rate
+    35.7481283373677596
+--------------------------------------------------
+🔹 Running Query #631...
+✅ Success! Returned 2 rows.
+ person
+  82712
+  82662
+--------------------------------------------------
+🔹 Running Query #632...
+✅ Success! Returned 1 rows.
+area_name  non_work_p
+    India     2870151
+--------------------------------------------------
+🔹 Running Query #633...
+✅ Success! Returned 2 rows.
+ person
+ 802763
+ 797839
+--------------------------------------------------
+🔹 Running Query #634...
+✅ Success! Returned 1 rows.
+      literacy_rate
+68.0064779019956117
+--------------------------------------------------
+🔹 Running Query #635...
+✅ Success! Returned 2 rows.
+ person
+ 706304
+ 706281
+--------------------------------------------------
+🔹 Running Query #636...
+✅ Success! Returned 2 rows.
+area_name   tot_f
+   Kerala 3147488
+      Goa  194166
+--------------------------------------------------
+🔹 Running Query #637...
+✅ Success! Returned 2 rows.
+ person
+ 470386
+ 433018
+--------------------------------------------------
+🔹 Running Query #638...
+✅ Success! Returned 1 rows.
+   tot_p
+10679345
+--------------------------------------------------
+🔹 Running Query #639...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Arunachal Pradesh' AND l.name = 'Nishi' AND t.name = 'Total';
+--------------------------------------------------
+🔹 Running Query #640...
+✅ Success! Returned 3 rows.
+  area_name  female
+      India  130563
+      India  130563
+Maharashtra   55456
+--------------------------------------------------
+🔹 Running Query #641...
+✅ Success! Returned 2 rows.
+ person
+ 231084
+ 114588
+--------------------------------------------------
+🔹 Running Query #642...
+✅ Success! Returned 1 rows.
+           lit_gap
+7.8160541031131349
+--------------------------------------------------
+🔹 Running Query #643...
+✅ Success! Returned 2 rows.
+ person
+   8268
+   8268
+--------------------------------------------------
+🔹 Running Query #644...
+✅ Success! Returned 2 rows.
+     area_name   tot_p
+   Maharashtra 1400349
+Madhya Pradesh  567028
+--------------------------------------------------
+🔹 Running Query #645...
+✅ Success! Returned 2 rows.
+ person
+ 151883
+  40008
+--------------------------------------------------
+🔹 Running Query #646...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT rs.tot_p FROM religion_stats rs JOIN regions r ON rs.state = r.state JOIN religions rel ON rs.religion_id = rel.id JOIN tru t ON rs.tru_id = t.id WHERE r.area_name = 'Ladakh' AND rel.religion_name = 'Buddhist' AND t.name = 'Total';
+--------------------------------------------------
+🔹 Running Query #647...
+✅ Success! Returned 2 rows.
+ person
+ 177488
+ 177488
+--------------------------------------------------
+🔹 Running Query #648...
+✅ Success! Returned 1 rows.
+religion_name  tot_work_p
+        Total    49427878
+--------------------------------------------------
+🔹 Running Query #649...
+✅ Success! Returned 2 rows.
+ person
+ 223779
+ 223171
+--------------------------------------------------
+🔹 Running Query #650...
+✅ Success! Returned 1 rows.
+            sex_ratio
+1010.9432871842775777
+--------------------------------------------------

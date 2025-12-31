@@ -80,7 +80,7 @@ AGE_GROUP_KEYWORDS = load_csv_keywords("age_groups.csv", "name")
 
 
 # ==================================================
-# INTENT DEFINITIONS (FINAL)
+# INTENT DEFINITIONS (FINAL_V4)
 # ==================================================
 INTENTS = {
     "population": {
@@ -126,7 +126,9 @@ INTENTS = {
             "work", "working", "worker", "employment",
             "non-worker", "workforce", "participation",
             "job", "jobs", "employed", "unemployed", "cultivator",
-            "labourer", "agricultural", "paid", "cash"
+            "labourer", "agricultural", "paid", "cash",
+            # FIX: Added keywords for Q446 "household industries (Marginal)"
+            "marginal", "main", "industry", "industries", "engaged"
         },
         "weak": set()
     },
@@ -165,7 +167,7 @@ INTENTS = {
 }
 
 # ==================================================
-# RULE GRAPH (FINAL FIX)
+# RULE GRAPH (FINAL)
 # ==================================================
 RULES = [
     # Basic mappings
@@ -174,13 +176,13 @@ RULES = [
     {"intent": "population", "adds": {"population_stats"}},
     {"intent": "health",     "adds": {"healthcare_stats"}},
     
-    # FIX: Questions about "Age" (children/teenagers) require population stats to count them
+    # Age questions often need population counts
     {"intent": "age",        "adds": {"population_stats"}},
 
-    # FIX: "Occupation" data (like 'paid in cash') sometimes lives in healthcare_stats in this schema
-    {"intent": "occupation", "adds": {"occupation_stats", "healthcare_stats"}},
+    # FIX: Occupation queries need all three stats tables to handle complex joins
+    {"intent": "occupation", "adds": {"occupation_stats", "healthcare_stats", "education_stats"}},
     
-    # FIX: "Education" data is spread across multiple tables in this schema
+    # Education data is spread across multiple tables
     {"intent": "education",  "adds": {"education_stats", "religion_stats", "healthcare_stats"}},
 ]
 
@@ -315,7 +317,7 @@ def get_unique_filename(directory, filename):
 # MAIN
 # ==================================================
 def main():
-    print("🤖 CENQUERY ROBUST GENERATOR (FINAL_V2)")
+    print("🤖 CENQUERY ROBUST GENERATOR (FINAL_V4)")
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     member = input("Enter your name: ").strip().replace(" ", "_") or "Member"
@@ -341,7 +343,8 @@ def main():
             
             if real_missing:
                 print("-" * 60)
-                print(f"🧠 Question {n}: {q}")
+                print(f"🧠 Question {n}:")
+                print(q)
                 print("📊 Selected tables:", sorted(tables))
                 print("⚠️ Missing tables:", real_missing)
             
