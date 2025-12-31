@@ -1,0 +1,150 @@
+What is the literacy rate in Maharashtra?
+What is the literacy rate in Uttar Pradesh?
+Is literacy higher in urban areas than rural areas?
+Which state has the highest literacy rate?
+Which state has the lowest literacy rate?
+Are women more literate than men in Kerala?
+What is the female literacy rate in Tamil Nadu?
+What is the male literacy rate in Bihar?
+How literate are people in rural Rajasthan?
+How does urban literacy compare across states?
+What percentage of people are illiterate in India?
+Which state has the highest illiterate population?
+How does literacy vary across age groups?
+Is literacy higher among working age people?
+How does literacy differ between men and women?
+What is the worker population ratio in Maharashtra?
+What is the worker population ratio in Kerala?
+Which state has the highest worker population ratio?
+Which state has the lowest worker population ratio?
+How many main workers are there in Uttar Pradesh?
+How many marginal workers are there in Bihar?
+Are there more main workers than marginal workers in India?
+What percentage of people are non-workers in India?
+Is employment higher in urban areas than rural areas?
+Are men more likely to be working than women?
+What is the literacy rate in Karnataka?
+What is the literacy rate in Gujarat?
+Is literacy higher among females in urban areas?
+Which state shows the biggest gender gap in literacy?
+How does literacy differ between northern and southern states?
+What is the rural literacy rate in Odisha?
+What is the urban literacy rate in Delhi?
+How literate are people in Madhya Pradesh?
+Which age group has the highest literacy rate?
+Which age group has the lowest literacy rate?
+What percentage of people are literate nationwide?
+How does literacy differ between young and elderly people?
+Is female literacy improving compared to male literacy?
+What is the worker population ratio in Tamil Nadu?
+What is the worker population ratio in Gujarat?
+How does employment differ between states?
+Which state has the highest number of main workers?
+Which state has the highest number of marginal workers?
+How many non-workers are there in India?
+How does employment differ between age groups?
+Is employment higher among working-age people?
+What is the female worker population ratio in Maharashtra?
+What is the male worker population ratio in Uttar Pradesh?
+How does rural employment compare to urban employment?
+Which gender has higher workforce participation?
+What is the literacy rate in Andhra Pradesh?
+What is the literacy rate in Telangana?
+How does literacy in eastern states compare overall?
+Is rural literacy improving compared to urban literacy?
+Which state has the most literate people?
+Which state has the fewest literate people?
+How does literacy differ between males across states?
+How does literacy differ between females across states?
+What is the literacy rate of working age people in Kerala?
+How literate are elderly people in India?
+What is the worker population ratio in Karnataka?
+What is the worker population ratio in Andhra Pradesh?
+How does employment differ between southern states?
+Which state has the lowest worker population ratio?
+How many people are working in India?
+How many people are not working in India?
+What is the marginal worker population in Maharashtra?
+What is the main worker population in Tamil Nadu?
+How does employment differ between males and females?
+Is female employment higher in urban areas?
+Is male employment higher in rural areas?
+What is the employment rate among young adults?
+What is the employment rate among elderly people?
+Which age group has the highest workforce participation?
+Which age group has the lowest workforce participation?
+What is the literacy rate in Punjab?
+What is the literacy rate in Haryana?
+How does literacy in western states compare overall?
+Is female literacy higher in urban Punjab?
+Is male literacy higher in rural Haryana?
+Which state has the fastest improvement in literacy?
+How does literacy differ between urban males and rural females?
+What is the literacy rate of young adults in Tamil Nadu?
+How literate are middle-aged people in India?
+What is the average literacy rate across all age groups?
+What is the worker population ratio in Rajasthan?
+What is the worker population ratio in West Bengal?
+How does employment differ between eastern states?
+Which state has the highest number of non-workers?
+Which state has the lowest number of non-workers?
+How many female workers are there in India?
+How many male workers are there in India?
+What is the employment rate in rural areas?
+What is the employment rate in urban areas?
+How does employment differ between rural males and urban females?
+What is the worker population ratio of young adults?
+What is the worker population ratio of middle-aged people?
+How does workforce participation change with age?
+Do urban areas have more main workers than rural areas?
+Which region has the highest workforce participation overall?
+How does literacy differ between scheduled age groups?
+Which state has the highest literacy among young adults?
+Which state has the lowest literacy among elderly people?
+Is female literacy higher in southern states?
+Is male literacy higher in northern states?
+How does literacy differ between rural women and urban men?
+What is the literacy rate among middle-aged women?
+What is the literacy rate among middle-aged men?
+How many people are literate in urban India?
+How many people are literate in rural India?
+How does employment differ between northern and southern states?
+Which state has the highest employment among women?
+Which state has the lowest employment among women?
+How does male employment differ across states?
+How does female employment differ across states?
+What percentage of workers are main workers in India?
+What percentage of workers are marginal workers in India?
+How does main worker participation differ by age group?
+How does marginal worker participation differ by age group?
+Are non-workers more common among elderly people?
+How many urban women are working?
+How many rural men are working?
+Is employment higher among educated people?
+Do states with higher literacy show higher employment?
+How does workforce participation differ by region?
+What is the overall literacy rate among working people in India?
+How does literacy differ between employed and unemployed people?
+Which state has the highest literacy among workers?
+Which state has the lowest literacy among non-workers?
+Is literacy higher among main workers than marginal workers?
+How does education level affect employment rates?
+What is the employment rate among literate people?
+What is the employment rate among illiterate people?
+How does employment differ between educated men and women?
+Are literate women more likely to be employed than illiterate women?
+What is the average literacy rate among non-workers?
+How does workforce participation differ between literate and illiterate people?
+Which age group shows the strongest link between literacy and employment?
+Does higher literacy correspond to lower non-worker population?
+What is the literacy rate among people engaged as main workers?
+What is the literacy rate among people engaged as marginal workers?
+How does employment differ between states with high literacy?
+How does employment differ between states with low literacy?
+Which state shows the best balance of literacy and employment?
+Which state shows the weakest balance of literacy and employment?
+What percentage of literate people are part of the workforce?
+What percentage of illiterate people are part of the workforce?
+How does employment vary with literacy across regions?
+Is workforce participation higher in highly literate regions?
+How strongly are literacy and employment correlated across states?

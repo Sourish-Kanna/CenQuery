@@ -1,0 +1,150 @@
+What is the overall literacy rate in Maharashtra?
+Calculate the literacy rate for Uttar Pradesh.
+Compare the average literacy rate between urban and rural areas across India.
+Which state has the highest overall literacy rate?
+Which state has the lowest overall literacy rate?
+Is the literacy rate higher for women or men in Kerala?
+What is the literacy rate for women in Tamil Nadu?
+What is the literacy rate for men in Bihar?
+What is the literacy rate in rural Rajasthan?
+Which state has the highest urban literacy rate?
+What is the total illiterate population in India?
+Which state has the highest number of illiterate people?
+Which state has the highest number of literate people?
+What is the worker population ratio in Maharashtra?
+What is the worker population ratio in Kerala?
+Which state has the highest worker population ratio?
+Which state has the lowest worker population ratio?
+How many main workers are there in Uttar Pradesh?
+How many marginal workers are there in Bihar?
+What is the total number of main workers in India?
+What is the total number of non-workers in India?
+Is the worker population ratio higher in urban or rural areas?
+What is the literacy rate in Karnataka?
+What is the literacy rate in Gujarat?
+Which state has the largest gap between male and female literacy rates?
+What is the literacy rate in rural Odisha?
+What is the literacy rate in urban Delhi?
+What is the literacy rate in Madhya Pradesh?
+What is the worker population ratio in Tamil Nadu?
+What is the worker population ratio in Gujarat?
+Which state has the highest count of main workers?
+Which state has the highest count of marginal workers?
+Which state has the highest count of non-workers?
+What is the female worker population ratio in Maharashtra?
+What is the male worker population ratio in Uttar Pradesh?
+What is the literacy rate in Andhra Pradesh?
+What is the literacy rate in Telangana?
+Which state has the highest male literacy rate?
+Which state has the highest female literacy rate?
+What is the worker population ratio in Karnataka?
+What is the worker population ratio in Andhra Pradesh?
+How many people are working (main + marginal) in India?
+What is the total number of non-working people in India?
+What is the total number of marginal workers in Maharashtra?
+What is the total number of main workers in Tamil Nadu?
+What is the literacy rate in Punjab?
+What is the literacy rate in Haryana?
+Which state has the highest urban female literacy rate?
+Which state has the highest rural male literacy rate?
+What is the worker population ratio in Rajasthan?
+What is the worker population ratio in West Bengal?
+Which state has the highest number of female workers?
+Which state has the highest number of male workers?
+What is the worker population ratio in rural India?
+What is the worker population ratio in urban India?
+Which state has the highest literacy among women?
+Which state has the lowest literacy among women?
+Which state has the highest literacy among men?
+Which state has the lowest literacy among men?
+What is the total number of literate males in India?
+What is the total number of literate females in India?
+Which state has the highest number of main workers in rural areas?
+Which state has the highest number of marginal workers in urban areas?
+What is the percentage of main workers in the total workforce?
+What is the percentage of marginal workers in the total workforce?
+How many women are working as main or marginal workers in urban areas?
+How many men are working as main or marginal workers in rural areas?
+Which state has the highest number of non-workers in rural areas?
+Which state has the highest number of non-workers in urban areas?
+Which state has the best female-to-male literacy ratio?
+Which state has the worst female-to-male literacy ratio?
+What is the literacy rate gap between urban and rural India?
+Which state has the largest urban population of non-workers?
+Which state has the largest rural population of main workers?
+What is the total number of illiterate women in India?
+What is the total number of illiterate men in India?
+Which state has the highest number of female non-workers?
+Which state has the highest number of male non-workers?
+What is the average number of main workers per state?
+What is the average number of marginal workers per state?
+Which state has the highest proportion of marginal workers to total workers?
+Which state has the lowest proportion of non-workers?
+What is the total population of workers (main + marginal) in rural Bihar?
+What is the total population of workers (main + marginal) in urban Karnataka?
+Which state has the highest number of literate people in rural areas?
+Which state has the lowest number of literate people in urban areas?
+What is the ratio of main workers to non-workers in India?
+Which state has the highest count of main workers among women?
+Which state has the highest count of marginal workers among men?
+What is the total number of illiterate people in Uttar Pradesh?
+What is the total number of literate people in Kerala?
+Which state has the highest number of people working in household industries (Main)?
+Which state has the highest number of agricultural labourers (Main)?
+Which state has the highest number of cultivators (Main)?
+Which state has the highest number of other workers (Main)?
+How many people in India are engaged in household industries (Marginal)?
+How many people in India are engaged as agricultural labourers (Marginal)?
+How many people in India are engaged as cultivators (Marginal)?
+What is the total number of female cultivators in India?
+What is the total number of male agricultural labourers in India?
+Which state has the highest number of female main workers?
+Which state has the highest number of male marginal workers?
+What is the literacy rate in the state with the highest population?
+What is the worker population ratio in the state with the lowest population?
+How many women in India are non-workers?
+How many men in India are non-workers?
+Which state has the highest number of literate women in rural areas?
+Which state has the highest number of literate men in urban areas?
+What is the total number of main workers in the southern states (Tamil Nadu, Kerala, Karnataka, Andhra Pradesh, Telangana)?
+What is the total number of marginal workers in the northern states (Punjab, Haryana, Uttar Pradesh, Rajasthan)?
+Which state has the highest number of female cultivators (Main)?
+Which state has the highest number of male household industry workers (Main)?
+What is the total number of marginal workers in rural India?
+What is the total number of main workers in urban India?
+Which state has the highest percentage of female workers (Main + Marginal)?
+Which state has the lowest percentage of female workers (Main + Marginal)?
+What is the literacy rate of the total workforce in India?
+Which state has the highest number of illiterate workers (Main + Marginal)?
+What is the total number of other workers (Main) in India?
+What is the total number of other workers (Marginal) in India?
+Which state has the highest number of marginal agricultural labourers?
+Which state has the highest number of marginal household industry workers?
+What is the ratio of cultivators to agricultural labourers in India?
+Which state has the highest ratio of main workers to marginal workers?
+Which state has the lowest ratio of main workers to marginal workers?
+What is the total number of female marginal workers in rural areas?
+What is the total number of male main workers in urban areas?
+Which state has the highest number of female non-workers in urban areas?
+Which state has the highest number of male non-workers in rural areas?
+What is the total number of workers (Main + Marginal) in North East India?
+Which state has the highest literacy rate among rural females?
+Which state has the lowest literacy rate among urban males?
+What is the difference in worker population ratio between males and females in India?
+Which state has the highest number of marginal workers working less than 3 months?
+Which state has the highest number of marginal workers working 3-6 months?
+What is the total number of household industry workers (Main + Marginal) in India?
+What is the total number of cultivators (Main + Marginal) in India?
+What is the total number of agricultural labourers (Main + Marginal) in India?
+Which state has the highest proportion of agricultural labourers to total workers?
+Which state has the highest proportion of household industry workers to total workers?
+What is the total number of illiterate females in rural India?
+What is the total number of literate males in urban India?
+Which state has the highest number of female main workers in rural areas?
+Which state has the highest number of male marginal workers in urban areas?
+What is the total number of non-workers in the state with the highest literacy rate?
+What is the total number of workers in the state with the lowest literacy rate?
+Which state has the highest number of scheduled caste literates?
+Which state has the highest number of scheduled tribe literates?
+What is the literacy rate among scheduled castes in India?
+What is the literacy rate among scheduled tribes in India?
