@@ -7,8 +7,9 @@ import re
 # 🔧 CONFIGURATION
 # ==========================================
 SCHEMA_FILE = "database_schema.json"  # Your schema file
-QUESTIONS_FILE = "health_question_gopikha.txt"      # File containing list of questions
-SQL_FILE = "health_queries_gopikha.sql"             # File containing list of SQL queries
+QUESTIONS_FILE = "questions_nd_1.txt"      # File containing list of questions
+SQL_FILE = "queries_nd_1.sql"              # File containing list of SQL queries
+
 OUTPUT_DIR = "training_data"
 
 def load_schema_string(schema_path):
