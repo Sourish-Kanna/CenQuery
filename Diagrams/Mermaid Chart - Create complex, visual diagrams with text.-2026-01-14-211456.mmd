@@ -1,0 +1,36 @@
+---
+config:
+  layout: elk
+  theme: neutral
+  look: classic
+---
+flowchart BT
+ subgraph subGraph0["Client Layer (Frontend)"]
+        UI["Next.js Web Interface"]
+  end
+ subgraph subGraph1["Backend Layer (FastAPI)"]
+        API["FastAPI Router"]
+        Schema["Schema Linking Logic"]
+        Post["SQL Formatter/Post-processor"]
+  end
+ subgraph subGraph2["Model Layer (Hybrid Cloud)"]
+        Base["Llama-3-SQLCoder-8b Base Model"]
+        Adapter["Fine-tuned QLoRA Adapter"]
+        HF["Hugging Face Inference Endpoint"]
+  end
+ subgraph subGraph3["Data Layer (PostgreSQL)"]
+        DB[("Indian Census Database")]
+        Tables["12 Normalized Tables"]
+  end
+    UI -- Natural Language Query --> API
+    API -- Schema Context + Question --> Schema
+    Schema -- Prompt --> HF
+    HF -- Base Model + Adapter Merge --> Base
+    Base --> Adapter
+    Adapter -- Generated SQL --> Post
+    Post -- Clean SQL --> API
+    API -- Execute Query --> DB
+    DB -- Queries --> Tables
+    Tables -- Result --> DB
+    DB -- Result Set --> API
+    API -- JSON Response --> UI
