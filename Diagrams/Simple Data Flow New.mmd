@@ -1,0 +1,21 @@
+---
+config:
+  layout: elk
+  look: neo
+  theme: neutral
+---
+flowchart TB
+    User(["User"]) -- Asks Question --> UI["Frontend<br>(Next.js / React)"]
+    UI -- Sends Query --> API["Backend API<br>(FastAPI / Python)"]
+    API -- Prompt + Schema --> LLM["AI Model<br>(Llama-3-SQLCoder + <br>LoRA Adapter)"]
+    LLM -- Returns SQL --> API
+    API -- Executes SQL --> DB[("Database<br>(PostgreSQL)")]
+    DB -- Returns Data --> API
+    API -- Sends Result --> UI
+    UI -- Shows Table/Chart --> User
+
+    style User fill:#f9f,stroke:#333,stroke-width:2px
+    style UI fill:#bbf,stroke:#333,stroke-width:2px
+    style API fill:#dfd,stroke:#333,stroke-width:2px
+    style LLM fill:#fdd,stroke:#333,stroke-width:2px
+    style DB fill:#ff9,stroke:#333,stroke-width:2px
