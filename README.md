@@ -43,7 +43,7 @@ CenQuery-main/
 
 ## 🔄 System Flow
 
-![System Architecture](Diagrams/System%20arch.svg)
+![System Architecture](Diagrams/System%20arch.png)
 
 ---
 

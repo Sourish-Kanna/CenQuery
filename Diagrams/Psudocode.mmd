@@ -1,0 +1,21 @@
+---
+config:
+  theme: neutral
+  look: classic
+  layout: dagre
+---
+flowchart TB
+    Start(["Start: Input Question Q <br> Database Schema S"]) --> Extract["Extract Table Metadata S_context"]
+    Extract --> Prompt["Construct Prompt P_template<br>With System Instructions"]
+    Prompt --> Load["Load LoRA Adapter<br>(4-bit Quantization)"]
+    Load --> Tokenize["Tokenize Input"]
+    Tokenize --> Generate["Model Generation<br>(Inference)"]
+    Generate --> Decode["Decode Output SQL Y"]
+    Decode --> Check{"Hallucination Check:<br>Is Column Valid?"}
+    Check -- No (Invalid Column) --> Filter["Apply Schema Constraint Filter"]
+    Filter --> End(["Return Optimized SQL Y"])
+    Check -- Yes (Valid) --> End
+
+    style Start fill:#f9f,stroke:#333,stroke-width:2px
+    style Check fill:#fff4dd,stroke:#d4a017,stroke-width:2px
+    style End fill:#f9f,stroke:#333,stroke-width:2px
