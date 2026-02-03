@@ -1,5 +1,5 @@
--c requirements.txt
--r requirements.in
+-c Backend/requirements.txt
+-r Backend/requirements.in
 
 pandas
 sqlalchemy

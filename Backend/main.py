@@ -1,234 +1,238 @@
 import os
 import csv
 import time
+import json
+import httpx
 import pandas as pd
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel, Field
-from sqlalchemy import create_engine, text, inspect
-from langchain_core.prompts import PromptTemplate
-from langchain_groq import ChatGroq
-from dotenv import load_dotenv
-from typing import List, Dict, Any, Union
+from pydantic import BaseModel
+from sqlalchemy import create_engine, text
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
 
-# --- Configuration ---
+# Load environment variables
 load_dotenv()
 
+# --- CONFIGURATION ---
+INFERENCE_SERVER_URL = os.getenv("INFERENCE_SERVER_URL")
+DATABASE_URL = os.getenv("DATABASE_URL")
 GENERATION_LOG_FILE = "generation_log.csv"
 LOG_FILE = "metrics_log.csv"
-# Use the DATABASE_URL from environment variables
-DATABASE_URL = os.getenv("DATABASE_URL", "")
+JSON_SCHEMA_PATH = "database_schema.json"  # Ensure this file exists in Backend folder
+
 if not DATABASE_URL:
-    raise ValueError("DATABASE_URL environment variable not set. Please add it to your .env file.")
+    raise ValueError("❌ DATABASE_URL is missing in .env")
+if not INFERENCE_SERVER_URL:
+    print("⚠️ WARNING: INFERENCE_SERVER_URL is missing. LLM calls will fail.")
 
-# Check for Groq API key
-if not os.getenv("GROQ_API_KEY"):
-    raise ValueError("GROQ_API_KEY environment variable not set. Please add it to your .env file.")
+# Initialize App & DB
+app = FastAPI(title="CenQuery Backend Orchestrator")
+engine = create_engine(DATABASE_URL)
 
-# --- FastAPI App Initialization ---
-app = FastAPI(
-    title="Text-to-SQL API",
-    description="An API with separate endpoints to generate SELECT queries, generate other SQL commands, and execute any SQL.",
-    version="3.0.0"
-)
-
-# --- CORS Middleware ---
-# This is the new section to handle CORS errors.
-# It allows your frontend (e.g., running on localhost:3000) to communicate with the backend.
-origins = [
-    "http://localhost",
-    "http://localhost:3000", # Add the origin of your React app
-    "http://127.0.0.1:3000",
-]
-
+# --- CORS ---
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"], # Allows all methods
-    allow_headers=["*"], # Allows all headers
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
-# --- Database Connection ---
-try:
-    engine = create_engine(DATABASE_URL)
-    with engine.connect() as connection:
-      print("Database connection successful.")
-except Exception as e:
-    print(f"Failed to connect to the database: {e}")
-    print("Please ensure the PostgreSQL server is running and the DATABASE_URL is correct.")
-    # Exit if DB connection fails
-    exit()
 
-# --- Pydantic Models ---
-class GenerateSQLRequest(BaseModel):
-    question: str = Field(..., description="The natural language instruction to convert to SQL.")
-
-class GenerateSQLResponse(BaseModel):
+# --- DATA MODELS ---
+class QueryRequest(BaseModel):
     question: str
-    sql_query: str
 
-class ExecuteSQLRequest(BaseModel):
-    sql_query: str = Field(..., description="The SQL query to execute.")
-    question: str | None = Field(None, description="The original question (optional, for logging purposes).")
 
-class ExecuteSQLResponse(BaseModel):
-    sql_query: str
-    result: Union[List[Dict[str, Any]], Dict[str, int], str]
-    latency_ms: float
-    status: str
-
-# --- Logging ---
+# --- LOGGING FUNCTIONS ---
 def log_generation(question: str, sql_query: str):
-    """Logs the user question and the generated SQL query to a separate CSV file."""
+    """Logs the prompt and generated SQL."""
     file_exists = os.path.isfile(GENERATION_LOG_FILE)
-    with open(GENERATION_LOG_FILE, "a", newline="") as f:
-        writer = csv.writer(f)
-        if not file_exists:
-            writer.writerow(["question", "generated_sql_query"])
-        writer.writerow([question, sql_query])
+    try:
+        with open(GENERATION_LOG_FILE, "a", newline="", encoding='utf-8') as f:
+            writer = csv.writer(f)
+            if not file_exists:
+                writer.writerow(["question", "generated_sql_query"])
+            writer.writerow([question, sql_query])
+    except Exception as e:
+        print(f"⚠️ Log Generation Error: {e}")
+
 
 def log_metrics(question: str | None, sql_query: str, latency: float, status: str):
-    """Logs the performance and result of a query to a CSV file."""
+    """Logs performance metrics."""
     file_exists = os.path.isfile(LOG_FILE)
-    with open(LOG_FILE, "a", newline="") as f:
-        writer = csv.writer(f)
-        if not file_exists:
-            writer.writerow(["question", "sql_query", "latency_ms", "status"])
-        writer.writerow([question or "N/A", sql_query, latency, status])
-
-# --- Core Logic ---
-def get_schema(engine):
-    """Retrieves the schema for all tables in the public schema for PostgreSQL."""
     try:
-        inspector = inspect(engine)
-        schema_info = []
-        table_names = inspector.get_table_names(schema='public')
-        for table_name in table_names:
-            columns = inspector.get_columns(table_name, schema='public')
-            column_names = ", ".join([col['name'] for col in columns])
-            schema_info.append(f"Table '{table_name}' has columns: {column_names}")
-        return "\n".join(schema_info)
+        with open(LOG_FILE, "a", newline="", encoding='utf-8') as f:
+            writer = csv.writer(f)
+            if not file_exists:
+                writer.writerow(["question", "sql_query", "latency_ms", "status"])
+            writer.writerow([question or "N/A", sql_query, latency, status])
     except Exception as e:
-        print(f"Error retrieving schema: {e}")
-        return "Could not retrieve schema from the database."
+        print(f"⚠️ Log Metrics Error: {e}")
 
-def _generate_query(question: str, prompt_template: str) -> GenerateSQLResponse:
-    """Helper function to invoke the LLM for SQL generation."""
-    db_schema = get_schema(engine)
-    if "Could not retrieve" in db_schema:
-         raise HTTPException(status_code=500, detail="Could not retrieve database schema.")
-    
-    prompt = PromptTemplate(
-        input_variables=["schema", "question"],
-        template=prompt_template
-    )
-    
-    llm = ChatGroq(model="llama-3.1-8b-instant", temperature=0)
-    sql_generation_chain = prompt | llm
-    
+
+# --- SCHEMA MANAGEMENT (Caching + Fallback) ---
+# Global cache variable
+SCHEMA_CACHE = {
+    "text": None,
+    "last_updated": 0
+}
+CACHE_TTL = 3600  # 1 Hour in seconds
+
+
+def get_schema_from_json():
+    """Parses local database_schema.json into SQL DDL format."""
     try:
-        response_content = sql_generation_chain.invoke({"schema": db_schema, "question": question}).content
-        sql_query = response_content.strip().replace("`", "").replace("sql", "") # Clean up LLM output
-        # Log the successful generation
-        log_generation(question, sql_query)
-        return GenerateSQLResponse(question=question, sql_query=sql_query)
+        if not os.path.exists(JSON_SCHEMA_PATH):
+            return None
+
+        with open(JSON_SCHEMA_PATH, 'r') as f:
+            data = json.load(f)
+
+        # Assumption: JSON structure is {"table_name": ["col1 type", "col2 type"]...}
+        # Adjust parsing logic if your JSON structure is different
+        schema_text = ""
+        for table, cols in data.items():
+            # Handle if cols are dicts or lists
+            if isinstance(cols, list):
+                col_str = ", ".join(cols)
+            elif isinstance(cols, dict):
+                col_str = ", ".join([f"{k} {v}" for k, v in cols.items()])
+            else:
+                col_str = str(cols)
+            schema_text += f"CREATE TABLE {table} ({col_str});\n"
+        return schema_text
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"LLM Error: {e}")
+        print(f"⚠️ JSON Parse Error: {e}")
+        return None
 
-# --- API Endpoints ---
-@app.post("/generate-select-sql", response_model=GenerateSQLResponse)
-async def generate_select_sql(request: GenerateSQLRequest):
+
+def get_database_schema():
     """
-    Accepts a natural language question and returns a `SELECT` SQL query.
+    1. Checks Cache
+    2. Tries Live DB Fetch
+    3. Fallback to JSON File
+    4. Fallback to Hardcoded String
     """
-    if not request.question.strip():
-        raise HTTPException(status_code=400, detail="Question cannot be empty.")
+    global SCHEMA_CACHE
+    current_time = time.time()
 
-    prompt_template = """
-    You are an expert in converting English questions to **read-only SELECT** queries for a PostgreSQL database.
-    Given the database schema below, write a SQL query that answers the user's question. The query may require joining tables.
-    **Only output a SELECT query.** Do not output any other type of SQL statement.
-    **Important**: For any text-based filtering (e.g., in a WHERE clause), use the `ILIKE` operator for case-insensitive matching. The correct syntax is `column_name ILIKE 'value'`. For example: `WHERE district ILIKE 'pune'`. Do not use `ILIKE column_name = 'value'`.
-    Carefully select only the columns asked for in the question.
+    # 1. Return Cache if valid
+    if SCHEMA_CACHE["text"] and (current_time - SCHEMA_CACHE["last_updated"] < CACHE_TTL):
+        return SCHEMA_CACHE["text"]
 
-    Schema:
-    {schema}
+    schema_prompt = ""
 
-    Question: {question}
+    # 2. Try Live DB Fetch
+    try:
+        print("🔄 Fetching fresh schema from DB...")
+        with engine.connect() as conn:
+            tables = conn.execute(text(
+                "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public'"
+            )).fetchall()
 
-    SQL SELECT Query:
-    """
-    return _generate_query(request.question, prompt_template)
+            for table in tables:
+                t_name = table[0]
+                columns = conn.execute(text(
+                    f"SELECT column_name, data_type FROM information_schema.columns WHERE table_name = '{t_name}'"
+                )).fetchall()
+                col_str = ", ".join([f"{c[0]} {c[1]}" for c in columns])
+                schema_prompt += f"CREATE TABLE {t_name} ({col_str});\n"
 
-@app.post("/generate-other-sql", response_model=GenerateSQLResponse)
-async def generate_other_sql(request: GenerateSQLRequest):
-    """
-    Accepts a natural language instruction and returns a DML (INSERT, UPDATE, DELETE) or DDL (CREATE, ALTER) SQL command.
-    **Warning:** Use with caution as this can modify the database.
-    """
-    if not request.question.strip():
-        raise HTTPException(status_code=400, detail="Instruction cannot be empty.")
+        # Update Cache
+        if schema_prompt:
+            SCHEMA_CACHE["text"] = schema_prompt
+            SCHEMA_CACHE["last_updated"] = current_time
+            return schema_prompt
 
-    prompt_template = """
-    You are an expert in converting English instructions into data modification (DML) or schema modification (DDL) SQL commands for a PostgreSQL database.
-    Given the database schema below, write a single SQL command that performs the requested action.
-    **This is for expert use. The generated query can be INSERT, UPDATE, DELETE, CREATE, ALTER, or DROP.**
+    except Exception as e:
+        print(f"⚠️ Live Schema Fetch Failed: {e}")
 
-    For INSERT statements, you can add multiple records at once if the instruction implies it. For example, the instruction "Add population data for Thane (1.8m male, 1.6m female) and Dombivli (600k male, 550k female) in Maharashtra for 2011" should generate:
-    INSERT INTO population (state, district, year, male, female, total) VALUES
-    ('Maharashtra', 'Thane', 2011, 1800000, 1600000, 3400000),
-    ('Maharashtra', 'Dombivli', 2011, 600000, 550000, 1150000);
-    Remember to calculate the 'total' column yourself by adding male and female.
+    # 3. Fallback to JSON
+    print("⚠️ Attempting JSON Fallback...")
+    json_schema = get_schema_from_json()
+    if json_schema:
+        print("✅ Loaded Schema from JSON.")
+        SCHEMA_CACHE["text"] = json_schema
+        SCHEMA_CACHE["last_updated"] = current_time  # Cache the JSON version too
+        return json_schema
 
-    **Important**: For any text-based filtering (e.g., in a WHERE clause), use the `ILIKE` operator for case-insensitive matching. The correct syntax is `column_name ILIKE 'value'`. For example: `WHERE district ILIKE 'pune'`. Do not use `ILIKE column_name = 'value'`.
-    Carefully select only the columns asked for in the question. And dont use \\n in the output.
+    # 4. Ultimate Fallback
+    print("❌ All Schema Sources Failed. Using Minimal Hardcoded Schema.")
+    return "CREATE TABLE regions (state BIGINT, area_name TEXT);"
 
-    Schema:
-    {schema}
 
-    Instruction: {question}
-
-    SQL Command:
-    """
-    return _generate_query(request.question, prompt_template)
-
-@app.post("/execute-sql", response_model=ExecuteSQLResponse)
-async def execute_sql(request: ExecuteSQLRequest):
-    """
-    Executes a given SQL query and returns the result from the database.
-    """
-    if not request.sql_query.strip():
-        raise HTTPException(status_code=400, detail="SQL query cannot be empty.")
-
+# --- MAIN ENDPOINT ---
+@app.post("/generate-and-execute")
+async def process_query(request: QueryRequest):
     start_time = time.time()
+
+    # 1. Get Schema (Cached/Live/JSON)
+    schema_context = get_database_schema()
+
+    # 2. Call Inference Server
+    generated_sql = ""
     try:
-        with engine.connect() as connection:
-            # For queries that don't return rows (like INSERT, UPDATE, DELETE), use a transaction
-            if any(keyword in request.sql_query.strip().upper() for keyword in ["INSERT", "UPDATE", "DELETE", "CREATE", "ALTER", "DROP"]):
-                 with connection.begin(): # Start transaction
-                    result_proxy = connection.execute(text(request.sql_query))
-                    result = {"rows_affected": result_proxy.rowcount}
-            else: # For SELECT queries
-                df = pd.read_sql_query(sql=text(request.sql_query), con=connection)
-                result = df.to_dict(orient='records')
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                f"{INFERENCE_SERVER_URL}/generate",
+                json={
+                    "question": request.question,
+                    "schema_context": schema_context
+                },
+                timeout=60.0
+            )
+            response.raise_for_status()
+            generated_sql = response.json().get("sql")
 
-            status = "success"
     except Exception as e:
-        result = str(e)
-        status = "error"
-        
-    latency = (time.time() - start_time) * 1000
-    log_metrics(request.question, request.sql_query, latency, status)
-    
-    return ExecuteSQLResponse(
-        sql_query=request.sql_query,
-        result=result,
-        latency_ms=latency,
-        status=status
-    )
+        log_metrics(request.question, "ERROR", (time.time() - start_time) * 1000, "llm_failure")
+        raise HTTPException(status_code=500, detail=f"Inference Error: {e}")
 
+    # 3. Clean SQL
+    clean_sql = generated_sql.replace("```sql", "").replace("```", "").strip()
+    if clean_sql.endswith(";"):
+        clean_sql = clean_sql[:-1]
+
+    # LOG GENERATION
+    log_generation(request.question, clean_sql)
+
+    # 4. Execute on Supabase
+    query_results = []
+    status = "success"
+    error_message = None
+
+    try:
+        with engine.connect() as conn:
+            df = pd.read_sql_query(text(clean_sql), conn)
+            df = df.where(pd.notnull(df), None)
+            query_results = df.to_dict(orient='records')
+
+    except Exception as e:
+        status = "error"
+        error_message = str(e)
+
+    latency = (time.time() - start_time) * 1000
+
+    # LOG METRICS
+    log_metrics(request.question, clean_sql, latency, status)
+
+    return {
+        "question": request.question,
+        "generated_sql": clean_sql,
+        "results": query_results,
+        "status": status,
+        "error": error_message,
+        "latency_ms": round(latency, 2)
+    }
+
+
+@app.get("/health")
 @app.get("/", include_in_schema=False)
-async def root():
-    return {"message": "Text-to-SQL API is running. Go to /docs for the API documentation."}
+def health_check():
+    return {
+        "status": "online",
+        "schema_cached": bool(SCHEMA_CACHE["text"]),
+        "schema_last_updated": SCHEMA_CACHE["last_updated"],
+        "schema": SCHEMA_CACHE["text"][:100] + "..." if SCHEMA_CACHE["text"] else None
+    }
 
