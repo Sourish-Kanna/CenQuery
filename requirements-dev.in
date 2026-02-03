@@ -1,0 +1,10 @@
+-c requirements.txt
+-r requirements.in
+
+pandas
+sqlalchemy
+psycopg2-binary
+python-dotenv
+pdfplumber
+openpyxl
+pip-tools
