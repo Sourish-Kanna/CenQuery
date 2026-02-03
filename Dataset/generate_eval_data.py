@@ -44,9 +44,9 @@ sys.stderr = sys.stdout
 BASE_DATA_DIR = "data"
 
 SCHEMA_FILE = "database_schema.json"
-QUESTIONS_FILE = "question.txt"
-SQL_FILE = "queries.sql"
-OUTPUT_DIR = "training_data"
+QUESTIONS_FILE = "question_eval.txt"
+SQL_FILE = "queries_eval.sql"
+OUTPUT_DIR = "eval_data"
 
 MAX_OPTIONAL_TABLES = 6
 
@@ -225,7 +225,8 @@ def detect_intents(question: str):
 
     # Strong first
     for intent, groups in INTENTS.items():
-        if any(t in q for t in groups["strong"]):
+        # Using regex \b for word boundaries prevents partial matches
+        if any(re.search(r'\b' + re.escape(t) + r'\b', q) for t in groups["strong"]):
             active.add(intent)
 
     # Weak only if something already active

@@ -1,756 +1,1858 @@
 📄 Output is being saved to: D:\College Study\Semester 8\Major Project\CenQuery\Template\output.txt
 🚀 Connecting to Database...
-📋 Found 150 queries. Starting verification...
+📋 Found 350 queries. Starting verification...
 
 🔹 Running Query #1...
-✅ Success! Returned 1 rows.
-           ?column?
-72.5737700262923919
+✅ Success! Returned 2 rows.
+ person
+   1055
+   1055
 --------------------------------------------------
 🔹 Running Query #2...
-✅ Success! Returned 1 rows.
-           ?column?
-57.2524972318901964
+✅ Success! Returned 3 rows.
+                area_name
+               Puducherry
+                   Sikkim
+Andaman & Nicobar Islands
 --------------------------------------------------
 🔹 Running Query #3...
 ✅ Success! Returned 2 rows.
- name       literacy_rate
-Urban 74.4737246047117373
-Rural 57.9093829679259072
+ person
+   1001
+   1001
 --------------------------------------------------
 🔹 Running Query #4...
 ✅ Success! Returned 1 rows.
-area_name       literacy_rate
-   Kerala 84.2237101824127065
+ children_under_5_years_who_are_wasted_weightforheight18_
+                                                     9.78
 --------------------------------------------------
 🔹 Running Query #5...
 ✅ Success! Returned 1 rows.
-area_name       literacy_rate
-    Bihar 50.4369158446674628
+ marginal_cultivator_person
+                    1629446
 --------------------------------------------------
 🔹 Running Query #6...
-✅ Success! Returned 1 rows.
-        female_rate           male_rate
-83.0382212104059412 85.5091452069741515
+✅ Success! Returned 2 rows.
+ person
+ 399952
+ 399006
 --------------------------------------------------
 🔹 Running Query #7...
-✅ Success! Returned 1 rows.
-           ?column?
-66.0861997072680747
+✅ Success! Returned 2 rows.
+ person
+     24
+     23
 --------------------------------------------------
 🔹 Running Query #8...
 ✅ Success! Returned 1 rows.
-           ?column?
-58.2334123835486898
+ main_agricultural_labourers_person
+                               1483
 --------------------------------------------------
 🔹 Running Query #9...
 ✅ Success! Returned 1 rows.
-           ?column?
-51.4011748890570690
+ main_household_industries_person
+                           624910
 --------------------------------------------------
 🔹 Running Query #10...
 ✅ Success! Returned 1 rows.
-area_name      urban_literacy
-   Kerala 85.2624229318667686
+ marginal_cultivator_person
+                        667
 --------------------------------------------------
 🔹 Running Query #11...
 ✅ Success! Returned 1 rows.
-      sum
-894142112
+ children_under_age_3_years_breastfed_within_one_hour_of_birt
+                                                        40.68
 --------------------------------------------------
 🔹 Running Query #12...
 ✅ Success! Returned 1 rows.
-area_name illiterates
-    India   447071056
+ normal_area_dafw
+             6.19
 --------------------------------------------------
 🔹 Running Query #13...
 ✅ Success! Returned 1 rows.
-area_name literates
-    India 763498517
+ children_age_659_months_who_are_anaemic_110_gdl22_
+                                               72.7
 --------------------------------------------------
 🔹 Running Query #14...
 ✅ Success! Returned 1 rows.
-           ?column?
-43.9850245874206880
+ pop_living_in_hh_with_electricity_
+                               96.2
 --------------------------------------------------
 🔹 Running Query #15...
 ✅ Success! Returned 1 rows.
-           ?column?
-34.7813021116138176
+  area_name
+Lakshadweep
 --------------------------------------------------
 🔹 Running Query #16...
 ✅ Success! Returned 1 rows.
-       area_name                 wpr
-Himachal Pradesh 51.8518335076090355
+ case
+Urban
 --------------------------------------------------
 🔹 Running Query #17...
-✅ Success! Returned 1 rows.
-  area_name                 wpr
-Lakshadweep 29.0865943883486110
+✅ Success! Returned 2 rows.
+ person
+    600
+    599
 --------------------------------------------------
 🔹 Running Query #18...
 ✅ Success! Returned 1 rows.
-     sum
-44635492
+ case
+Urban
 --------------------------------------------------
 🔹 Running Query #19...
 ✅ Success! Returned 1 rows.
-     sum
-13365376
+area_name
+      Goa
 --------------------------------------------------
 🔹 Running Query #20...
 ✅ Success! Returned 1 rows.
-      sum
-724892840
+ mothers_who_had_at_least_4_antenatal_care_visits_for_last_bi
+                                                         59.3
 --------------------------------------------------
 🔹 Running Query #21...
 ✅ Success! Returned 1 rows.
-       sum
-1457652524
+area_name
+ Nagaland
 --------------------------------------------------
 🔹 Running Query #22...
-✅ Success! Returned 2 rows.
- name                 wpr
-Urban 35.3072430207809539
-Rural 41.8251737177561265
+✅ Success! Returned 1 rows.
+ hh_using_clean_fuel_for_cooking3_
+                             95.63
 --------------------------------------------------
 🔹 Running Query #23...
 ✅ Success! Returned 1 rows.
-           ?column?
-66.5310162908284086
+ children_age_1223_months_fully_vaccinated_based_on_informati
+                                                        77.92
 --------------------------------------------------
 🔹 Running Query #24...
 ✅ Success! Returned 1 rows.
-           ?column?
-67.9906806937401336
+ pop_living_in_hh_with_electricity_
+                               97.7
 --------------------------------------------------
 🔹 Running Query #25...
-✅ Success! Returned 1 rows.
-area_name          gender_gap
-Rajasthan 22.4261359402538087
+✅ Success! Returned 2 rows.
+ person
+     13
+     13
 --------------------------------------------------
 🔹 Running Query #26...
 ✅ Success! Returned 1 rows.
-           ?column?
-61.1311736997535241
+ tot_p
+  2410
 --------------------------------------------------
 🔹 Running Query #27...
-✅ Success! Returned 1 rows.
-           ?column?
-76.0049102874909302
+✅ Success! Returned 3 rows.
+ area_name
+Chandigarh
+   Mizoram
+   Manipur
 --------------------------------------------------
 🔹 Running Query #28...
 ✅ Success! Returned 1 rows.
-           ?column?
-59.0018611446910741
+ children_under_age_3_years_breastfed_within_one_hour_of_birt
+                                                        37.78
 --------------------------------------------------
 🔹 Running Query #29...
 ✅ Success! Returned 1 rows.
-           ?column?
-45.5800897140187198
+ normal_area_dafw
+            78.95
 --------------------------------------------------
 🔹 Running Query #30...
 ✅ Success! Returned 1 rows.
-           ?column?
-40.9792740174784478
+  tot_p
+4621685
 --------------------------------------------------
 🔹 Running Query #31...
 ✅ Success! Returned 1 rows.
-area_name main_workers
-    India    362446420
+ women_age_1549_who_are_lit4_
+                         83.1
 --------------------------------------------------
 🔹 Running Query #32...
 ✅ Success! Returned 1 rows.
-area_name marginal_workers
-    India        119296891
+ tot_p
+176233
 --------------------------------------------------
 🔹 Running Query #33...
-✅ Success! Returned 1 rows.
-area_name non_workers
-    India   728826262
+✅ Success! Returned 2 rows.
+ person
+ 511484
+ 509508
 --------------------------------------------------
 🔹 Running Query #34...
 ✅ Success! Returned 1 rows.
-           ?column?
-31.0559882043795124
+ non_working_person
+               9488
 --------------------------------------------------
 🔹 Running Query #35...
 ✅ Success! Returned 1 rows.
-           ?column?
-47.7091488163677608
+ main_household_industries_person
+                              119
 --------------------------------------------------
 🔹 Running Query #36...
 ✅ Success! Returned 1 rows.
-           ?column?
-59.7733454257579119
+ children_age_659_months_who_are_anaemic_110_gdl22_
+                                              52.84
 --------------------------------------------------
 🔹 Running Query #37...
 ✅ Success! Returned 1 rows.
-?column?
-    None
+area_name
+   Kerala
 --------------------------------------------------
 🔹 Running Query #38...
 ✅ Success! Returned 1 rows.
-area_name            male_lit
-   Kerala 85.5091452069741515
+ men_age_15_years_and_above_wih_high_141160_mgdl_blood_sugar_
+                                                          7.5
 --------------------------------------------------
 🔹 Running Query #39...
-✅ Success! Returned 1 rows.
-area_name          female_lit
-   Kerala 83.0382212104059412
+✅ Success! Returned 2 rows.
+ person
+   1251
+   1129
 --------------------------------------------------
 🔹 Running Query #40...
 ✅ Success! Returned 1 rows.
-           ?column?
-45.6215099502667120
+ hh_using_clean_fuel_for_cooking3_
+                             95.81
 --------------------------------------------------
 🔹 Running Query #41...
-✅ Success! Returned 1 rows.
-           ?column?
-46.6097704446484335
+✅ Success! Returned 2 rows.
+ person
+    183
+    144
 --------------------------------------------------
 🔹 Running Query #42...
 ✅ Success! Returned 1 rows.
-      sum
-963486622
+ case
+Rural
 --------------------------------------------------
 🔹 Running Query #43...
-✅ Success! Returned 1 rows.
-       sum
-1457652524
+✅ Success! Returned 3 rows.
+                               area_name
+                               Jharkhand
+                           Uttar Pradesh
+Dadra and Nagar Haveli and Daman and Diu
 --------------------------------------------------
 🔹 Running Query #44...
 ✅ Success! Returned 1 rows.
-    sum
-5664988
+ women_age_15_years_and_above_with_high_141160_mgdl_blood_sug
+                                                         8.77
 --------------------------------------------------
 🔹 Running Query #45...
 ✅ Success! Returned 1 rows.
-     sum
-27942181
+ case
+Urban
 --------------------------------------------------
 🔹 Running Query #46...
 ✅ Success! Returned 1 rows.
-           ?column?
-67.4292941966824612
+ women_age_1549_who_are_lit4_
+                        85.26
 --------------------------------------------------
 🔹 Running Query #47...
 ✅ Success! Returned 1 rows.
-           ?column?
-65.4754664642220634
+ tot_p
+ 80984
 --------------------------------------------------
 🔹 Running Query #48...
 ✅ Success! Returned 1 rows.
-area_name    urban_female_lit
-  Mizoram 84.6428333806077033
+ women_age_1549_years_having_a_mobile_phone_that_they_themsel
+                                                        71.93
 --------------------------------------------------
 🔹 Running Query #49...
-✅ Success! Returned 1 rows.
-area_name      rural_male_lit
-   Kerala 84.8285465340731637
+✅ Success! Returned 2 rows.
+ person
+   6820
+   6804
 --------------------------------------------------
 🔹 Running Query #50...
 ✅ Success! Returned 1 rows.
-           ?column?
-43.5987402601170906
+hh_using_clean_fuel_for_cooking3_
+                             None
 --------------------------------------------------
 🔹 Running Query #51...
 ✅ Success! Returned 1 rows.
-           ?column?
-38.0782584797786365
+ tot_p
+  1700
 --------------------------------------------------
 🔹 Running Query #52...
-✅ Success! Returned 1 rows.
-area_name female_workers
-    India      149877381
+✅ Success! Returned 2 rows.
+ person
+3120413
+ 705179
 --------------------------------------------------
 🔹 Running Query #53...
 ✅ Success! Returned 1 rows.
-area_name male_workers
-    India    331865930
+ women_age_1549_years_having_a_mobile_phone_that_they_themsel
+                                                        59.93
 --------------------------------------------------
 🔹 Running Query #54...
-✅ Success! Returned 1 rows.
-           ?column?
-41.8251737177561265
+✅ Success! Returned 5 rows.
+  area_name
+West Bengal
+        Goa
+Lakshadweep
+     Kerala
+    Tripura
 --------------------------------------------------
 🔹 Running Query #55...
 ✅ Success! Returned 1 rows.
-           ?column?
-35.3072430207809539
+  tot_p
+2213027
 --------------------------------------------------
 🔹 Running Query #56...
 ✅ Success! Returned 1 rows.
-area_name            lit_rate
-   Kerala 83.0382212104059412
+ children_age_1223_months_fully_vaccinated_based_on_informati
+                                                        75.99
 --------------------------------------------------
 🔹 Running Query #57...
 ✅ Success! Returned 1 rows.
-area_name            lit_rate
-    Bihar 41.9429683632270097
+ women_age_15_years_and_above_with_high_141160_mgdl_blood_sug
+                                                         7.44
 --------------------------------------------------
 🔹 Running Query #58...
-✅ Success! Returned 1 rows.
-area_name            lit_rate
-   Kerala 85.5091452069741515
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT h.children_under_5_years_who_are_wasted_weightforheight18_ FROM healthcare_stats h JOIN regions r ON h.state = r.state JOIN tru t ON h.tru_id = t.id WHERE r.area_name = 'Dadra & Nagar Haveli' AND t.name = 'Urban';
 --------------------------------------------------
 🔹 Running Query #59...
 ✅ Success! Returned 1 rows.
-area_name            lit_rate
-    Bihar 58.2334123835486898
+ children_under_5_years_who_are_underweight_weightforage18_
+                                                      19.38
 --------------------------------------------------
 🔹 Running Query #60...
 ✅ Success! Returned 1 rows.
-      sum
-869367558
+ institutional_births_in_the_5_years_before_the_survey_
+                                                  89.23
 --------------------------------------------------
 🔹 Running Query #61...
 ✅ Success! Returned 1 rows.
-      sum
-657629476
+ case
+Rural
 --------------------------------------------------
 🔹 Running Query #62...
 ✅ Success! Returned 1 rows.
-area_name rural_main_workers
-    India          245749270
+ institutional_births_in_the_5_years_before_the_survey_
+                                                  95.53
 --------------------------------------------------
 🔹 Running Query #63...
 ✅ Success! Returned 1 rows.
-area_name urban_marginal_workers
-    India               16448626
+ case
+Rural
 --------------------------------------------------
 🔹 Running Query #64...
-✅ Success! Returned 1 rows.
-           ?column?
-75.2364198368703453
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT normal_area_dafw FROM crop_stats WHERE crop = 'Pulses';
 --------------------------------------------------
 🔹 Running Query #65...
 ✅ Success! Returned 1 rows.
-           ?column?
-24.7635801631296547
+ non_working_person
+           13210470
 --------------------------------------------------
 🔹 Running Query #66...
 ✅ Success! Returned 1 rows.
-     sum
-56085828
+ children_under_5_years_who_are_stunted_heightforage18_
+                                                  28.23
 --------------------------------------------------
 🔹 Running Query #67...
 ✅ Success! Returned 1 rows.
-      sum
-453526136
+ women_age_1549_who_are_lit4_
+                        89.07
 --------------------------------------------------
 🔹 Running Query #68...
 ✅ Success! Returned 1 rows.
-area_name rural_non_workers
-    India         484865913
+ children_under_5_years_who_are_stunted_heightforage18_
+                                                  32.16
 --------------------------------------------------
 🔹 Running Query #69...
 ✅ Success! Returned 1 rows.
-area_name urban_non_workers
-    India         243960349
+ case
+Rural
 --------------------------------------------------
 🔹 Running Query #70...
-✅ Success! Returned 1 rows.
-area_name              ratio
-   Kerala 1.0529750557154618
+✅ Success! Returned 2 rows.
+ person
+    952
+    940
 --------------------------------------------------
 🔹 Running Query #71...
 ✅ Success! Returned 1 rows.
-  area_name                  ratio
-Daman & Diu 0.51156502972489429812
+ institutional_births_in_the_5_years_before_the_survey_
+                                                  99.78
 --------------------------------------------------
 🔹 Running Query #72...
 ✅ Success! Returned 1 rows.
-                abs
-16.5643416367858301
+area_name
+Meghalaya
 --------------------------------------------------
 🔹 Running Query #73...
 ✅ Success! Returned 1 rows.
-area_name urban_non_workers
-    India         243960349
+ tot_p
+    45
 --------------------------------------------------
 🔹 Running Query #74...
 ✅ Success! Returned 1 rows.
-area_name rural_main_workers
-    India          245749270
+ tot_p
+  3438
 --------------------------------------------------
 🔹 Running Query #75...
 ✅ Success! Returned 1 rows.
-      sum
-517265984
+ children_under_5_years_who_are_stunted_heightforage18_
+                                                  35.06
 --------------------------------------------------
 🔹 Running Query #76...
 ✅ Success! Returned 1 rows.
-      sum
-376876128
+ marginal_cultivator_person
+                     120645
 --------------------------------------------------
 🔹 Running Query #77...
-✅ Success! Returned 1 rows.
-area_name female_non_workers
-    India          437570349
+✅ Success! Returned 2 rows.
+ person
+  20392
+  20260
 --------------------------------------------------
 🔹 Running Query #78...
 ✅ Success! Returned 1 rows.
-area_name male_non_workers
-    India        291255913
+ hh_using_clean_fuel_for_cooking3_
+                             36.22
 --------------------------------------------------
 🔹 Running Query #79...
 ✅ Success! Returned 1 rows.
-                  avg
-20135912.222222222222
+ main_household_industries_person
+                            10780
 --------------------------------------------------
 🔹 Running Query #80...
-✅ Success! Returned 1 rows.
-                 avg
-6627605.055555555556
+✅ Success! Returned 3 rows.
+                area_name
+                   Kerala
+Andaman & Nicobar Islands
+                 Nagaland
 --------------------------------------------------
 🔹 Running Query #81...
-✅ Success! Returned 1 rows.
-area_name      marginal_ratio
-Jharkhand 47.9427976541031284
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT h.pop_living_in_hh_with_electricity_ FROM healthcare_stats h JOIN regions r ON h.state = r.state JOIN tru t ON h.tru_id = t.id WHERE r.area_name = 'Maharashtra' AND t.name = 'Rural';
 --------------------------------------------------
 🔹 Running Query #82...
 ✅ Success! Returned 1 rows.
-       area_name       non_work_rate
-Himachal Pradesh 48.1481664923909645
+ case
+Urban
 --------------------------------------------------
 🔹 Running Query #83...
 ✅ Success! Returned 1 rows.
-     sum
-31359767
+ case
+Urban
 --------------------------------------------------
 🔹 Running Query #84...
 ✅ Success! Returned 1 rows.
-    sum
-9370367
+ area_sown_2025_26
+             57.31
 --------------------------------------------------
 🔹 Running Query #85...
 ✅ Success! Returned 1 rows.
-area_name rural_literates
-    India       482653540
+ tot_p
+627520
 --------------------------------------------------
 🔹 Running Query #86...
 ✅ Success! Returned 1 rows.
-  area_name urban_literates
-Lakshadweep           41265
+ case
+Rural
 --------------------------------------------------
 🔹 Running Query #87...
-✅ Success! Returned 1 rows.
-              ?column?
-0.49730153659034860629
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT area_sown_2025_26 FROM crop_stats WHERE crop = 'Oilseeds';
 --------------------------------------------------
 🔹 Running Query #88...
-✅ Success! Returned 1 rows.
-area_name female_main_workers
-    India            89297061
+✅ Success! Returned 2 rows.
+ person
+   6912
+   6895
 --------------------------------------------------
 🔹 Running Query #89...
 ✅ Success! Returned 1 rows.
-area_name male_marginal_workers
-    India              58716571
+ women_age_1549_who_are_lit4_
+                        92.07
 --------------------------------------------------
 🔹 Running Query #90...
-✅ Success! Returned 1 rows.
-     sum
-85414786
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT h.children_under_age_3_years_breastfed_within_one_hour_of_birt FROM healthcare_stats h JOIN regions r ON h.state = r.state JOIN tru t ON h.tru_id = t.id WHERE r.area_name = 'Daman & Diu' AND t.name = 'Total';
 --------------------------------------------------
 🔹 Running Query #91...
 ✅ Success! Returned 1 rows.
-     sum
-28135824
+ tot_p
+ 18914
 --------------------------------------------------
 🔹 Running Query #92...
 ✅ Success! Returned 1 rows.
-area_name      val
-    India 12331464
+ tot_p
+   200
 --------------------------------------------------
 🔹 Running Query #93...
 ✅ Success! Returned 1 rows.
-area_name      val
-    India 86166871
+ non_working_person
+           38662182
 --------------------------------------------------
 🔹 Running Query #94...
 ✅ Success! Returned 1 rows.
-area_name      val
-    India 95841357
+ area_sown_2025_26
+            438.51
 --------------------------------------------------
 🔹 Running Query #95...
 ✅ Success! Returned 1 rows.
-area_name       val
-    India 168106728
+ tot_p
+   792
 --------------------------------------------------
 🔹 Running Query #96...
 ✅ Success! Returned 1 rows.
-     sum
-12009686
+ case
+Urban
 --------------------------------------------------
 🔹 Running Query #97...
 ✅ Success! Returned 1 rows.
-      sum
-116325924
+ tot_p
+   733
 --------------------------------------------------
 🔹 Running Query #98...
-✅ Success! Returned 1 rows.
-     sum
-45702566
+✅ Success! Returned 2 rows.
+ person
+  30704
+  30552
 --------------------------------------------------
 🔹 Running Query #99...
 ✅ Success! Returned 1 rows.
-     sum
-71971832
+ tot_p
+   324
 --------------------------------------------------
 🔹 Running Query #100...
 ✅ Success! Returned 1 rows.
-      sum
-165480702
+ women_age_1549_who_are_lit4_
+                         81.4
 --------------------------------------------------
 🔹 Running Query #101...
 ✅ Success! Returned 1 rows.
-area_name      val
-    India 89297061
+ women_age_1549_who_are_lit4_
+                        94.35
 --------------------------------------------------
 🔹 Running Query #102...
 ✅ Success! Returned 1 rows.
-area_name      val
-    India 58716571
+ tot_p
+  1473
 --------------------------------------------------
 🔹 Running Query #103...
 ✅ Success! Returned 1 rows.
-           ?column?
-63.0693628874149805
+area_name
+  Gujarat
 --------------------------------------------------
 🔹 Running Query #104...
 ✅ Success! Returned 1 rows.
-           ?column?
-29.0865943883486110
+ normal_area_dafw
+            52.51
 --------------------------------------------------
 🔹 Running Query #105...
 ✅ Success! Returned 1 rows.
-      sum
-875140698
+ men_age_15_years_and_above_wih_high_141160_mgdl_blood_sugar_
+                                                         6.98
 --------------------------------------------------
 🔹 Running Query #106...
 ✅ Success! Returned 1 rows.
-      sum
-582511826
+ main_household_industries_person
+                            78826
 --------------------------------------------------
 🔹 Running Query #107...
 ✅ Success! Returned 1 rows.
-area_name rural_lit_women
-    India       201372009
+ tot_p
+   172
 --------------------------------------------------
 🔹 Running Query #108...
-✅ Success! Returned 1 rows.
-area_name urban_lit_men
-    India     153402248
+✅ Success! Returned 5 rows.
+        area_name
+          Mizoram
+           Sikkim
+          Manipur
+       Puducherry
+Arunachal Pradesh
 --------------------------------------------------
 🔹 Running Query #109...
-✅ Success! Returned 1 rows.
-     sum
-93706487
+✅ Success! Returned 2 rows.
+ person
+2142104
+2141897
 --------------------------------------------------
 🔹 Running Query #110...
 ✅ Success! Returned 1 rows.
-     sum
-33355161
+ mothers_who_had_at_least_4_antenatal_care_visits_for_last_bi
+                                                        92.94
 --------------------------------------------------
 🔹 Running Query #111...
 ✅ Success! Returned 1 rows.
-area_name      val
-    India 22823252
+  tot_p
+4396066
 --------------------------------------------------
 🔹 Running Query #112...
 ✅ Success! Returned 1 rows.
-area_name     val
-    India 7540121
+ case
+Rural
 --------------------------------------------------
 🔹 Running Query #113...
 ✅ Success! Returned 1 rows.
-      sum
-205696530
+ non_working_person
+           16547428
 --------------------------------------------------
 🔹 Running Query #114...
 ✅ Success! Returned 1 rows.
-      sum
-233394300
+ tot_p
+134528
 --------------------------------------------------
 🔹 Running Query #115...
-✅ Success! Returned 1 rows.
-area_name          female_pct
- Nagaland 43.8102208963558979
+✅ Success! Returned 2 rows.
+ person
+   1008
+    902
 --------------------------------------------------
 🔹 Running Query #116...
 ✅ Success! Returned 1 rows.
-  area_name          female_pct
-Daman & Diu 11.4099826009515878
+ women_age_1549_who_are_lit4_
+                        98.27
 --------------------------------------------------
 🔹 Running Query #117...
 ✅ Success! Returned 1 rows.
-            ?column?
-158.4865839476077334
+ pop_living_in_hh_with_electricity_
+                              99.61
 --------------------------------------------------
 🔹 Running Query #118...
 ✅ Success! Returned 1 rows.
-area_name ill_workers
-    India   447071056
+ area_sown_2024_25
+             55.68
 --------------------------------------------------
 🔹 Running Query #119...
 ✅ Success! Returned 1 rows.
-      sum
-336213456
+ non_working_person
+            2223610
 --------------------------------------------------
 🔹 Running Query #120...
 ✅ Success! Returned 1 rows.
-     sum
-64555606
+ tot_p
+  2126
 --------------------------------------------------
 🔹 Running Query #121...
-✅ Success! Returned 1 rows.
-area_name      val
-    India 58162962
+✅ Success! Returned 2 rows.
+  person
+13040275
+12580262
 --------------------------------------------------
 🔹 Running Query #122...
-✅ Success! Returned 1 rows.
-area_name     val
-    India 6004843
+✅ Success! Returned 2 rows.
+ person
+  28800
+  28564
 --------------------------------------------------
 🔹 Running Query #123...
-✅ Success! Returned 1 rows.
-              ?column?
-0.82237079841975567172
+✅ Success! Returned 3 rows.
+  area_name
+  Meghalaya
+Lakshadweep
+     Odisha
 --------------------------------------------------
 🔹 Running Query #124...
-✅ Success! Returned 1 rows.
-  area_name               ratio
-Daman & Diu 24.0767162944582299
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT area_sown_2025_26 FROM crop_stats WHERE crop = 'Coarse Cereals';
 --------------------------------------------------
 🔹 Running Query #125...
 ✅ Success! Returned 1 rows.
-area_name              ratio
-Jharkhand 1.0858190362915047
+ tot_p
+   439
 --------------------------------------------------
 🔹 Running Query #126...
 ✅ Success! Returned 1 rows.
-      sum
-108239820
+ mothers_who_had_at_least_4_antenatal_care_visits_for_last_bi
+                                                        60.12
 --------------------------------------------------
 🔹 Running Query #127...
 ✅ Success! Returned 1 rows.
-      sum
-190229292
+ children_under_5_years_who_are_underweight_weightforage18_
+                                                      35.81
 --------------------------------------------------
 🔹 Running Query #128...
 ✅ Success! Returned 1 rows.
-area_name urban_fem_nonwork
-    India         153574011
+ hh_using_clean_fuel_for_cooking3_
+                              88.3
 --------------------------------------------------
 🔹 Running Query #129...
 ✅ Success! Returned 1 rows.
-area_name rural_male_nonwork
-    India          200869575
+ case
+Urban
 --------------------------------------------------
 🔹 Running Query #130...
-✅ Success! Returned 1 rows.
-     sum
-18140505
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT normal_area_dafw FROM crop_stats WHERE crop = 'Foodgrains';
 --------------------------------------------------
 🔹 Running Query #131...
 ✅ Success! Returned 1 rows.
-area_name            lit_rate
-   Kerala 81.8362982742844293
+ tot_p
+349180
 --------------------------------------------------
 🔹 Running Query #132...
 ✅ Success! Returned 1 rows.
-    area_name            lit_rate
-Uttar Pradesh 70.0000659925070830
+ women_age_1549_who_are_lit4_
+                        80.04
 --------------------------------------------------
 🔹 Running Query #133...
-✅ Success! Returned 1 rows.
-                abs
-27.7452801012113337
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT h.institutional_births_in_the_5_years_before_the_survey_ FROM healthcare_stats h JOIN regions r ON h.state = r.state JOIN tru t ON h.tru_id = t.id WHERE r.area_name = 'Daman & Diu' AND t.name = 'Rural';
 --------------------------------------------------
 🔹 Running Query #134...
 ✅ Success! Returned 1 rows.
-area_name      val
-    India 22252784
+ institutional_births_in_the_5_years_before_the_survey_
+                                                  92.16
 --------------------------------------------------
 🔹 Running Query #135...
 ✅ Success! Returned 1 rows.
-area_name      val
-    India 97044107
+ children_under_5_years_who_are_wasted_weightforheight18_
+                                                    18.95
 --------------------------------------------------
 🔹 Running Query #136...
 ✅ Success! Returned 1 rows.
-     sum
-36672614
+   tot_p
+32390541
 --------------------------------------------------
 🔹 Running Query #137...
-✅ Success! Returned 1 rows.
-      sum
-237385280
+✅ Success! Returned 3 rows.
+     area_name
+Madhya Pradesh
+  Chhattisgarh
+ Uttar Pradesh
 --------------------------------------------------
 🔹 Running Query #138...
-✅ Success! Returned 1 rows.
-      sum
-288659666
+✅ Success! Returned 5 rows.
+     area_name
+Madhya Pradesh
+  Chhattisgarh
+ Uttar Pradesh
+       Gujarat
+Andhra Pradesh
 --------------------------------------------------
 🔹 Running Query #139...
 ✅ Success! Returned 1 rows.
-area_name                 pct
-    Bihar 52.8312623990327196
+ tot_p
+ 24301
 --------------------------------------------------
 🔹 Running Query #140...
-✅ Success! Returned 1 rows.
-area_name                pct
-  Manipur 7.7213897897680261
+✅ Success! Returned 2 rows.
+ person
+   4175
+   1977
 --------------------------------------------------
 🔹 Running Query #141...
 ✅ Success! Returned 1 rows.
-      sum
-408917592
+ non_working_person
+           18419128
 --------------------------------------------------
 🔹 Running Query #142...
-✅ Success! Returned 1 rows.
-      sum
-306804496
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT h.men_age_15_years_and_above_wih_high_141160_mgdl_blood_sugar_ FROM healthcare_stats h JOIN regions r ON h.state = r.state JOIN tru t ON h.tru_id = t.id WHERE r.area_name = 'Daman & Diu' AND t.name = 'Rural';
 --------------------------------------------------
 🔹 Running Query #143...
 ✅ Success! Returned 1 rows.
-area_name      val
-    India 67714557
+ non_working_person
+           16438751
 --------------------------------------------------
 🔹 Running Query #144...
 ✅ Success! Returned 1 rows.
-area_name     val
-    India 9988216
+ children_age_1223_months_fully_vaccinated_based_on_informati
+                                                        76.89
 --------------------------------------------------
 🔹 Running Query #145...
 ✅ Success! Returned 1 rows.
-     sum
-21786998
+area_name
+    Bihar
 --------------------------------------------------
 🔹 Running Query #146...
-✅ Success! Returned 1 rows.
-     sum
-34724987
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT h.mothers_who_had_at_least_4_antenatal_care_visits_for_last_bi FROM healthcare_stats h JOIN regions r ON h.state = r.state JOIN tru t ON h.tru_id = t.id WHERE r.area_name = 'Maharashtra' AND t.name = 'Rural';
 --------------------------------------------------
 🔹 Running Query #147...
-✅ Success! Returned 1 rows.
-area_name       val
-    India 201378086
+✅ Success! Returned 2 rows.
+ person
+    139
+    139
 --------------------------------------------------
 🔹 Running Query #148...
 ✅ Success! Returned 1 rows.
-area_name       val
-    India 104281034
+ main_agricultural_labourers_person
+                            2392521
 --------------------------------------------------
 🔹 Running Query #149...
 ✅ Success! Returned 1 rows.
-            ?column?
-379.1368426254681952
+ children_under_5_years_who_are_underweight_weightforage18_
+                                                      11.25
 --------------------------------------------------
 🔹 Running Query #150...
+✅ Success! Returned 2 rows.
+ person
+     58
+     58
+--------------------------------------------------
+🔹 Running Query #151...
 ✅ Success! Returned 1 rows.
-            ?column?
-732.1547243192851348
+ main_agricultural_labourers_person
+                                  0
+--------------------------------------------------
+🔹 Running Query #152...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT normal_area_dafw FROM crop_stats WHERE crop = 'Coarse Cereals';
+--------------------------------------------------
+🔹 Running Query #153...
+✅ Success! Returned 2 rows.
+ person
+    296
+    293
+--------------------------------------------------
+🔹 Running Query #154...
+✅ Success! Returned 1 rows.
+ children_under_5_years_who_are_underweight_weightforage18_
+                                                      39.68
+--------------------------------------------------
+🔹 Running Query #155...
+✅ Success! Returned 1 rows.
+ women_age_1549_who_are_lit4_
+                        72.54
+--------------------------------------------------
+🔹 Running Query #156...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT h.women_age_1549_years_having_a_mobile_phone_that_they_themsel FROM healthcare_stats h JOIN regions r ON h.state = r.state JOIN tru t ON h.tru_id = t.id WHERE r.area_name = 'Maharashtra' AND t.name = 'Urban';
+--------------------------------------------------
+🔹 Running Query #157...
+✅ Success! Returned 1 rows.
+ children_under_5_years_who_are_stunted_heightforage18_
+                                                  25.07
+--------------------------------------------------
+🔹 Running Query #158...
+✅ Success! Returned 1 rows.
+ area_name
+Chandigarh
+--------------------------------------------------
+🔹 Running Query #159...
+✅ Success! Returned 1 rows.
+ tot_p
+  2674
+--------------------------------------------------
+🔹 Running Query #160...
+✅ Success! Returned 1 rows.
+ men_age_15_years_and_above_wih_high_141160_mgdl_blood_sugar_
+                                                         8.27
+--------------------------------------------------
+🔹 Running Query #161...
+✅ Success! Returned 1 rows.
+ tot_p
+ 18291
+--------------------------------------------------
+🔹 Running Query #162...
+✅ Success! Returned 1 rows.
+ main_household_industries_person
+                              977
+--------------------------------------------------
+🔹 Running Query #163...
+✅ Success! Returned 2 rows.
+ person
+  70192
+  70185
+--------------------------------------------------
+🔹 Running Query #164...
+✅ Success! Returned 1 rows.
+ tot_p
+  1960
+--------------------------------------------------
+🔹 Running Query #165...
+✅ Success! Returned 1 rows.
+ marginal_cultivator_person
+                       5639
+--------------------------------------------------
+🔹 Running Query #166...
+✅ Success! Returned 1 rows.
+ main_agricultural_labourers_person
+                              25351
+--------------------------------------------------
+🔹 Running Query #167...
+✅ Success! Returned 1 rows.
+ children_under_age_3_years_breastfed_within_one_hour_of_birt
+                                                        32.77
+--------------------------------------------------
+🔹 Running Query #168...
+✅ Success! Returned 1 rows.
+ mothers_who_had_at_least_4_antenatal_care_visits_for_last_bi
+                                                        78.88
+--------------------------------------------------
+🔹 Running Query #169...
+✅ Success! Returned 1 rows.
+ tot_p
+  5453
+--------------------------------------------------
+🔹 Running Query #170...
+✅ Success! Returned 1 rows.
+ mothers_who_had_at_least_4_antenatal_care_visits_for_last_bi
+                                                        61.83
+--------------------------------------------------
+🔹 Running Query #171...
+✅ Success! Returned 1 rows.
+ main_household_industries_person
+                              105
+--------------------------------------------------
+🔹 Running Query #172...
+✅ Success! Returned 3 rows.
+  area_name
+West Bengal
+        Goa
+Lakshadweep
+--------------------------------------------------
+🔹 Running Query #173...
+✅ Success! Returned 2 rows.
+ person
+   2921
+   2892
+--------------------------------------------------
+🔹 Running Query #174...
+✅ Success! Returned 2 rows.
+ person
+   3113
+   2671
+--------------------------------------------------
+🔹 Running Query #175...
+✅ Success! Returned 1 rows.
+ non_working_person
+          133997626
+--------------------------------------------------
+🔹 Running Query #176...
+✅ Success! Returned 1 rows.
+ tot_p
+   552
+--------------------------------------------------
+🔹 Running Query #177...
+✅ Success! Returned 1 rows.
+ tot_p
+  1890
+--------------------------------------------------
+🔹 Running Query #178...
+✅ Success! Returned 1 rows.
+ case
+Rural
+--------------------------------------------------
+🔹 Running Query #179...
+✅ Success! Returned 1 rows.
+ marginal_cultivator_person
+                      92179
+--------------------------------------------------
+🔹 Running Query #180...
+✅ Success! Returned 1 rows.
+   tot_p
+66007121
+--------------------------------------------------
+🔹 Running Query #181...
+✅ Success! Returned 1 rows.
+ marginal_cultivator_person
+                       1372
+--------------------------------------------------
+🔹 Running Query #182...
+✅ Success! Returned 1 rows.
+ children_age_659_months_who_are_anaemic_110_gdl22_
+                                              71.28
+--------------------------------------------------
+🔹 Running Query #183...
+✅ Success! Returned 2 rows.
+ person
+    638
+    633
+--------------------------------------------------
+🔹 Running Query #184...
+✅ Success! Returned 1 rows.
+ main_agricultural_labourers_person
+                           11068928
+--------------------------------------------------
+🔹 Running Query #185...
+✅ Success! Returned 1 rows.
+ children_under_5_years_who_are_wasted_weightforheight18_
+                                                    22.41
+--------------------------------------------------
+🔹 Running Query #186...
+✅ Success! Returned 1 rows.
+ men_age_15_years_and_above_wih_high_141160_mgdl_blood_sugar_
+                                                         5.43
+--------------------------------------------------
+🔹 Running Query #187...
+✅ Success! Returned 1 rows.
+ children_age_659_months_who_are_anaemic_110_gdl22_
+                                              55.35
+--------------------------------------------------
+🔹 Running Query #188...
+✅ Success! Returned 2 rows.
+ person
+    848
+    829
+--------------------------------------------------
+🔹 Running Query #189...
+✅ Success! Returned 1 rows.
+ case
+Rural
+--------------------------------------------------
+🔹 Running Query #190...
+✅ Success! Returned 1 rows.
+ mothers_who_had_at_least_4_antenatal_care_visits_for_last_bi
+                                                        67.46
+--------------------------------------------------
+🔹 Running Query #191...
+✅ Success! Returned 1 rows.
+ women_age_1549_years_having_a_mobile_phone_that_they_themsel
+                                                        73.12
+--------------------------------------------------
+🔹 Running Query #192...
+✅ Success! Returned 2 rows.
+ person
+     13
+     13
+--------------------------------------------------
+🔹 Running Query #193...
+✅ Success! Returned 1 rows.
+ tot_p
+316178
+--------------------------------------------------
+🔹 Running Query #194...
+✅ Success! Returned 1 rows.
+ mothers_who_had_at_least_4_antenatal_care_visits_for_last_bi
+                                                        55.32
+--------------------------------------------------
+🔹 Running Query #195...
+✅ Success! Returned 2 rows.
+ person
+   1085
+   1081
+--------------------------------------------------
+🔹 Running Query #196...
+✅ Success! Returned 1 rows.
+  tot_p
+1424576
+--------------------------------------------------
+🔹 Running Query #197...
+✅ Success! Returned 2 rows.
+ person
+     39
+     39
+--------------------------------------------------
+🔹 Running Query #198...
+✅ Success! Returned 1 rows.
+ tot_p
+110120
+--------------------------------------------------
+🔹 Running Query #199...
+✅ Success! Returned 1 rows.
+ main_household_industries_person
+                           104642
+--------------------------------------------------
+🔹 Running Query #200...
+✅ Success! Returned 1 rows.
+area_name
+   Kerala
+--------------------------------------------------
+🔹 Running Query #201...
+✅ Success! Returned 1 rows.
+ tot_p
+   169
+--------------------------------------------------
+🔹 Running Query #202...
+✅ Success! Returned 1 rows.
+ women_age_1549_who_are_lit4_
+                         90.6
+--------------------------------------------------
+🔹 Running Query #203...
+✅ Success! Returned 1 rows.
+ hh_using_clean_fuel_for_cooking3_
+                             31.89
+--------------------------------------------------
+🔹 Running Query #204...
+✅ Success! Returned 5 rows.
+      area_name
+Jammu & Kashmir
+         Ladakh
+      Rajasthan
+   NCT of Delhi
+   Chhattisgarh
+--------------------------------------------------
+🔹 Running Query #205...
+✅ Success! Returned 5 rows.
+                               area_name
+                                  Ladakh
+                                 Gujarat
+Dadra and Nagar Haveli and Daman and Diu
+                         Jammu & Kashmir
+                          Madhya Pradesh
+--------------------------------------------------
+🔹 Running Query #206...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT area_sown_2024_25 FROM crop_stats WHERE crop = 'Wheat';
+--------------------------------------------------
+🔹 Running Query #207...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT h.women_age_1549_who_are_lit4_ FROM healthcare_stats h JOIN regions r ON h.state = r.state JOIN tru t ON h.tru_id = t.id WHERE r.area_name = 'Daman & Diu' AND t.name = 'Rural';
+--------------------------------------------------
+🔹 Running Query #208...
+✅ Success! Returned 1 rows.
+ pop_living_in_hh_with_electricity_
+                              99.43
+--------------------------------------------------
+🔹 Running Query #209...
+✅ Success! Returned 1 rows.
+ women_age_15_years_and_above_with_high_141160_mgdl_blood_sug
+                                                         8.91
+--------------------------------------------------
+🔹 Running Query #210...
+✅ Success! Returned 1 rows.
+ tot_p
+  7084
+--------------------------------------------------
+🔹 Running Query #211...
+✅ Success! Returned 5 rows.
+        area_name
+    Uttar Pradesh
+        Meghalaya
+            Assam
+        Jharkhand
+Arunachal Pradesh
+--------------------------------------------------
+🔹 Running Query #212...
+✅ Success! Returned 1 rows.
+ tot_p
+ 11761
+--------------------------------------------------
+🔹 Running Query #213...
+✅ Success! Returned 2 rows.
+ person
+    238
+    238
+--------------------------------------------------
+🔹 Running Query #214...
+✅ Success! Returned 1 rows.
+ tot_p
+ 30483
+--------------------------------------------------
+🔹 Running Query #215...
+✅ Success! Returned 1 rows.
+ women_age_15_years_and_above_with_high_141160_mgdl_blood_sug
+                                                         6.89
+--------------------------------------------------
+🔹 Running Query #216...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Sikkim' AND l.name = 'Sanskrit' AND t.name = 'Rural';
+--------------------------------------------------
+🔹 Running Query #217...
+✅ Success! Returned 1 rows.
+ children_age_659_months_who_are_anaemic_110_gdl22_
+                                              70.97
+--------------------------------------------------
+🔹 Running Query #218...
+✅ Success! Returned 2 rows.
+  person
+78698852
+78151766
+--------------------------------------------------
+🔹 Running Query #219...
+✅ Success! Returned 1 rows.
+ main_household_industries_person
+                           563839
+--------------------------------------------------
+🔹 Running Query #220...
+✅ Success! Returned 1 rows.
+ non_working_person
+           30905203
+--------------------------------------------------
+🔹 Running Query #221...
+✅ Success! Returned 1 rows.
+ pop_living_in_hh_with_electricity_
+                              99.94
+--------------------------------------------------
+🔹 Running Query #222...
+✅ Success! Returned 2 rows.
+ person
+    317
+    304
+--------------------------------------------------
+🔹 Running Query #223...
+✅ Success! Returned 1 rows.
+ tot_p
+   860
+--------------------------------------------------
+🔹 Running Query #224...
+✅ Success! Returned 1 rows.
+ women_age_1549_years_having_a_mobile_phone_that_they_themsel
+                                                        76.33
+--------------------------------------------------
+🔹 Running Query #225...
+✅ Success! Returned 1 rows.
+ children_under_age_3_years_breastfed_within_one_hour_of_birt
+                                                        60.08
+--------------------------------------------------
+🔹 Running Query #226...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT area_sown_2024_25 FROM crop_stats WHERE crop = 'Coarse Cereals';
+--------------------------------------------------
+🔹 Running Query #227...
+✅ Success! Returned 1 rows.
+ children_under_age_3_years_breastfed_within_one_hour_of_birt
+                                                        51.19
+--------------------------------------------------
+🔹 Running Query #228...
+✅ Success! Returned 1 rows.
+ mothers_who_had_at_least_4_antenatal_care_visits_for_last_bi
+                                                         71.0
+--------------------------------------------------
+🔹 Running Query #229...
+✅ Success! Returned 2 rows.
+ person
+   3926
+   3748
+--------------------------------------------------
+🔹 Running Query #230...
+✅ Success! Returned 1 rows.
+ tot_p
+152170
+--------------------------------------------------
+🔹 Running Query #231...
+✅ Success! Returned 1 rows.
+ case
+Urban
+--------------------------------------------------
+🔹 Running Query #232...
+✅ Success! Returned 1 rows.
+area_name
+ Nagaland
+--------------------------------------------------
+🔹 Running Query #233...
+✅ Success! Returned 2 rows.
+ person
+ 186893
+ 186700
+--------------------------------------------------
+🔹 Running Query #234...
+✅ Success! Returned 1 rows.
+ area_sown_2025_26
+             94.84
+--------------------------------------------------
+🔹 Running Query #235...
+✅ Success! Returned 1 rows.
+ children_under_age_3_years_breastfed_within_one_hour_of_birt
+                                                        51.63
+--------------------------------------------------
+🔹 Running Query #236...
+✅ Success! Returned 1 rows.
+ non_working_person
+           13364973
+--------------------------------------------------
+🔹 Running Query #237...
+✅ Success! Returned 1 rows.
+ main_agricultural_labourers_person
+                             225529
+--------------------------------------------------
+🔹 Running Query #238...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT area_sown_2025_26 FROM crop_stats WHERE crop = 'Wheat';
+--------------------------------------------------
+🔹 Running Query #239...
+✅ Success! Returned 3 rows.
+  area_name
+Lakshadweep
+ Chandigarh
+   Nagaland
+--------------------------------------------------
+🔹 Running Query #240...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT h.children_under_5_years_who_are_wasted_weightforheight18_ FROM healthcare_stats h JOIN regions r ON h.state = r.state JOIN tru t ON h.tru_id = t.id WHERE r.area_name = 'Maharashtra' AND t.name = 'Total';
+--------------------------------------------------
+🔹 Running Query #241...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT ls.person FROM language_stats ls JOIN regions r ON ls.state = r.state JOIN languages l ON ls.language_id = l.id JOIN tru t ON ls.tru_id = t.id WHERE r.area_name = 'Lakshadweep' AND l.name = 'Maithili' AND t.name = 'Total';
+--------------------------------------------------
+🔹 Running Query #242...
+✅ Success! Returned 1 rows.
+ pop_living_in_hh_with_electricity_
+                              91.49
+--------------------------------------------------
+🔹 Running Query #243...
+✅ Success! Returned 1 rows.
+ marginal_cultivator_person
+                        367
+--------------------------------------------------
+🔹 Running Query #244...
+✅ Success! Returned 1 rows.
+ men_age_15_years_and_above_wih_high_141160_mgdl_blood_sugar_
+                                                         6.94
+--------------------------------------------------
+🔹 Running Query #245...
+✅ Success! Returned 1 rows.
+ marginal_cultivator_person
+                       7895
+--------------------------------------------------
+🔹 Running Query #246...
+✅ Success! Returned 1 rows.
+ pop_living_in_hh_with_electricity_
+                              96.43
+--------------------------------------------------
+🔹 Running Query #247...
+✅ Success! Returned 5 rows.
+   area_name
+  Chandigarh
+     Mizoram
+     Manipur
+      Punjab
+NCT of Delhi
+--------------------------------------------------
+🔹 Running Query #248...
+✅ Success! Returned 1 rows.
+ main_household_industries_person
+                            46685
+--------------------------------------------------
+🔹 Running Query #249...
+✅ Success! Returned 1 rows.
+ pop_living_in_hh_with_electricity_
+                              99.72
+--------------------------------------------------
+🔹 Running Query #250...
+✅ Success! Returned 1 rows.
+ tot_p
+ 17367
+--------------------------------------------------
+🔹 Running Query #251...
+✅ Success! Returned 1 rows.
+ case
+Urban
+--------------------------------------------------
+🔹 Running Query #252...
+✅ Success! Returned 1 rows.
+ children_age_1223_months_fully_vaccinated_based_on_informati
+                                                        73.91
+--------------------------------------------------
+🔹 Running Query #253...
+✅ Success! Returned 1 rows.
+ tot_p
+895508
+--------------------------------------------------
+🔹 Running Query #254...
+✅ Success! Returned 2 rows.
+ person
+      1
+      1
+--------------------------------------------------
+🔹 Running Query #255...
+✅ Success! Returned 1 rows.
+ tot_p
+872930
+--------------------------------------------------
+🔹 Running Query #256...
+✅ Success! Returned 1 rows.
+ children_age_659_months_who_are_anaemic_110_gdl22_
+                                              67.24
+--------------------------------------------------
+🔹 Running Query #257...
+✅ Success! Returned 1 rows.
+ main_agricultural_labourers_person
+                              42434
+--------------------------------------------------
+🔹 Running Query #258...
+✅ Success! Returned 1 rows.
+ case
+Urban
+--------------------------------------------------
+🔹 Running Query #259...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT area_sown_2025_26 FROM crop_stats WHERE crop = 'Nutri Cereals';
+--------------------------------------------------
+🔹 Running Query #260...
+✅ Success! Returned 2 rows.
+ person
+   2249
+   2236
+--------------------------------------------------
+🔹 Running Query #261...
+✅ Success! Returned 1 rows.
+ tot_p
+  1113
+--------------------------------------------------
+🔹 Running Query #262...
+✅ Success! Returned 1 rows.
+ tot_p
+ 11339
+--------------------------------------------------
+🔹 Running Query #263...
+✅ Success! Returned 3 rows.
+        area_name
+         Nagaland
+            Bihar
+Arunachal Pradesh
+--------------------------------------------------
+🔹 Running Query #264...
+✅ Success! Returned 2 rows.
+ person
+   1910
+   1909
+--------------------------------------------------
+🔹 Running Query #265...
+✅ Success! Returned 1 rows.
+ tot_p
+143726
+--------------------------------------------------
+🔹 Running Query #266...
+✅ Success! Returned 1 rows.
+ women_age_1549_years_having_a_mobile_phone_that_they_themsel
+                                                        68.19
+--------------------------------------------------
+🔹 Running Query #267...
+✅ Success! Returned 3 rows.
+    area_name
+Uttar Pradesh
+    Meghalaya
+        Assam
+--------------------------------------------------
+🔹 Running Query #268...
+✅ Success! Returned 1 rows.
+ case
+Rural
+--------------------------------------------------
+🔹 Running Query #269...
+✅ Success! Returned 1 rows.
+ children_under_5_years_who_are_underweight_weightforage18_
+                                                      15.29
+--------------------------------------------------
+🔹 Running Query #270...
+✅ Success! Returned 5 rows.
+     area_name
+         Bihar
+     Jharkhand
+     Rajasthan
+     Telangana
+Andhra Pradesh
+--------------------------------------------------
+🔹 Running Query #271...
+✅ Success! Returned 1 rows.
+ normal_area_dafw
+           403.09
+--------------------------------------------------
+🔹 Running Query #272...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT area_sown_2025_26 FROM crop_stats WHERE crop = 'Pulses';
+--------------------------------------------------
+🔹 Running Query #273...
+✅ Success! Returned 1 rows.
+ men_age_15_years_and_above_wih_high_141160_mgdl_blood_sugar_
+                                                         5.41
+--------------------------------------------------
+🔹 Running Query #274...
+✅ Success! Returned 2 rows.
+ person
+    318
+    303
+--------------------------------------------------
+🔹 Running Query #275...
+✅ Success! Returned 1 rows.
+ children_under_5_years_who_are_underweight_weightforage18_
+                                                      20.56
+--------------------------------------------------
+🔹 Running Query #276...
+✅ Success! Returned 1 rows.
+ marginal_cultivator_person
+                    1091298
+--------------------------------------------------
+🔹 Running Query #277...
+✅ Success! Returned 5 rows.
+        area_name
+      Lakshadweep
+       Chandigarh
+         Nagaland
+        Meghalaya
+Arunachal Pradesh
+--------------------------------------------------
+🔹 Running Query #278...
+✅ Success! Returned 1 rows.
+ marginal_cultivator_person
+                     130651
+--------------------------------------------------
+🔹 Running Query #279...
+✅ Success! Returned 1 rows.
+ non_working_person
+             802985
+--------------------------------------------------
+🔹 Running Query #280...
+✅ Success! Returned 3 rows.
+area_name
+  Gujarat
+    Bihar
+Jharkhand
+--------------------------------------------------
+🔹 Running Query #281...
+✅ Success! Returned 1 rows.
+area_name
+Meghalaya
+--------------------------------------------------
+🔹 Running Query #282...
+✅ Success! Returned 1 rows.
+ children_under_age_3_years_breastfed_within_one_hour_of_birt
+                                                        23.94
+--------------------------------------------------
+🔹 Running Query #283...
+✅ Success! Returned 1 rows.
+ children_age_1223_months_fully_vaccinated_based_on_informati
+                                                        64.68
+--------------------------------------------------
+🔹 Running Query #284...
+✅ Success! Returned 1 rows.
+ children_under_5_years_who_are_wasted_weightforheight18_
+                                                    17.39
+--------------------------------------------------
+🔹 Running Query #285...
+✅ Success! Returned 1 rows.
+ case
+Urban
+--------------------------------------------------
+🔹 Running Query #286...
+✅ Success! Returned 1 rows.
+area_name
+   Ladakh
+--------------------------------------------------
+🔹 Running Query #287...
+✅ Success! Returned 1 rows.
+ children_age_1223_months_fully_vaccinated_based_on_informati
+                                                        85.51
+--------------------------------------------------
+🔹 Running Query #288...
+✅ Success! Returned 1 rows.
+ case
+Rural
+--------------------------------------------------
+🔹 Running Query #289...
+✅ Success! Returned 3 rows.
+area_name
+  Mizoram
+   Sikkim
+  Manipur
+--------------------------------------------------
+🔹 Running Query #290...
+✅ Success! Returned 2 rows.
+ person
+ 910133
+ 806717
+--------------------------------------------------
+🔹 Running Query #291...
+✅ Success! Returned 1 rows.
+area_name
+Rajasthan
+--------------------------------------------------
+🔹 Running Query #292...
+✅ Success! Returned 2 rows.
+ person
+  74347
+  74347
+--------------------------------------------------
+🔹 Running Query #293...
+✅ Success! Returned 1 rows.
+ children_under_age_3_years_breastfed_within_one_hour_of_birt
+                                                        61.51
+--------------------------------------------------
+🔹 Running Query #294...
+✅ Success! Returned 1 rows.
+ institutional_births_in_the_5_years_before_the_survey_
+                                                  96.87
+--------------------------------------------------
+🔹 Running Query #295...
+✅ Success! Returned 1 rows.
+  tot_p
+2819715
+--------------------------------------------------
+🔹 Running Query #296...
+✅ Success! Returned 1 rows.
+ area_sown_2024_25
+            430.06
+--------------------------------------------------
+🔹 Running Query #297...
+✅ Success! Returned 2 rows.
+ person
+    625
+    624
+--------------------------------------------------
+🔹 Running Query #298...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT h.children_under_age_3_years_breastfed_within_one_hour_of_birt FROM healthcare_stats h JOIN regions r ON h.state = r.state JOIN tru t ON h.tru_id = t.id WHERE r.area_name = 'Daman & Diu' AND t.name = 'Urban';
+--------------------------------------------------
+🔹 Running Query #299...
+✅ Success! Returned 1 rows.
+ children_under_5_years_who_are_wasted_weightforheight18_
+                                                    17.69
+--------------------------------------------------
+🔹 Running Query #300...
+✅ Success! Returned 1 rows.
+ tot_p
+223230
+--------------------------------------------------
+🔹 Running Query #301...
+✅ Success! Returned 1 rows.
+ hh_using_clean_fuel_for_cooking3_
+                             23.55
+--------------------------------------------------
+🔹 Running Query #302...
+✅ Success! Returned 5 rows.
+                               area_name
+                                     Goa
+                              Tamil Nadu
+                             Lakshadweep
+                              Puducherry
+Dadra and Nagar Haveli and Daman and Diu
+--------------------------------------------------
+🔹 Running Query #303...
+✅ Success! Returned 5 rows.
+      area_name
+      Rajasthan
+         Ladakh
+    Uttarakhand
+Jammu & Kashmir
+   NCT of Delhi
+--------------------------------------------------
+🔹 Running Query #304...
+✅ Success! Returned 1 rows.
+ main_household_industries_person
+                            55970
+--------------------------------------------------
+🔹 Running Query #305...
+✅ Success! Returned 1 rows.
+ children_under_age_3_years_breastfed_within_one_hour_of_birt
+                                                        48.46
+--------------------------------------------------
+🔹 Running Query #306...
+✅ Success! Returned 1 rows.
+ tot_p
+   172
+--------------------------------------------------
+🔹 Running Query #307...
+✅ Success! Returned 1 rows.
+ tot_p
+  2630
+--------------------------------------------------
+🔹 Running Query #308...
+✅ Success! Returned 1 rows.
+area_name
+    Bihar
+--------------------------------------------------
+🔹 Running Query #309...
+✅ Success! Returned 1 rows.
+  tot_p
+3119122
+--------------------------------------------------
+🔹 Running Query #310...
+✅ Success! Returned 1 rows.
+   tot_p
+24156057
+--------------------------------------------------
+🔹 Running Query #311...
+✅ Success! Returned 1 rows.
+ main_agricultural_labourers_person
+                               8024
+--------------------------------------------------
+🔹 Running Query #312...
+✅ Success! Returned 1 rows.
+  tot_p
+1739651
+--------------------------------------------------
+🔹 Running Query #313...
+✅ Success! Returned 1 rows.
+  tot_p
+3755664
+--------------------------------------------------
+🔹 Running Query #314...
+✅ Success! Returned 1 rows.
+ children_under_5_years_who_are_wasted_weightforheight18_
+                                                    18.69
+--------------------------------------------------
+🔹 Running Query #315...
+✅ Success! Returned 1 rows.
+ main_agricultural_labourers_person
+                            2195304
+--------------------------------------------------
+🔹 Running Query #316...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT area_sown_2024_25 FROM crop_stats WHERE crop = 'Foodgrains';
+--------------------------------------------------
+🔹 Running Query #317...
+✅ Success! Returned 1 rows.
+ tot_p
+514998
+--------------------------------------------------
+🔹 Running Query #318...
+✅ Success! Returned 2 rows.
+ person
+   3921
+   3032
+--------------------------------------------------
+🔹 Running Query #319...
+✅ Success! Returned 2 rows.
+ person
+      0
+      0
+--------------------------------------------------
+🔹 Running Query #320...
+✅ Success! Returned 2 rows.
+ person
+   7342
+   7147
+--------------------------------------------------
+🔹 Running Query #321...
+✅ Success! Returned 3 rows.
+area_name
+    Bihar
+  Gujarat
+Jharkhand
+--------------------------------------------------
+🔹 Running Query #322...
+✅ Success! Returned 1 rows.
+ mothers_who_had_at_least_4_antenatal_care_visits_for_last_bi
+                                                        82.43
+--------------------------------------------------
+🔹 Running Query #323...
+✅ Success! Returned 2 rows.
+ person
+   7567
+   3733
+--------------------------------------------------
+🔹 Running Query #324...
+✅ Success! Returned 1 rows.
+ children_age_659_months_who_are_anaemic_110_gdl22_
+                                              57.13
+--------------------------------------------------
+🔹 Running Query #325...
+✅ Success! Returned 1 rows.
+ area_sown_2025_26
+              5.36
+--------------------------------------------------
+🔹 Running Query #326...
+✅ Success! Returned 1 rows.
+  area_name
+West Bengal
+--------------------------------------------------
+🔹 Running Query #327...
+✅ Success! Returned 2 rows.
+ person
+      2
+      2
+--------------------------------------------------
+🔹 Running Query #328...
+✅ Success! Returned 1 rows.
+ institutional_births_in_the_5_years_before_the_survey_
+                                                  98.56
+--------------------------------------------------
+🔹 Running Query #329...
+✅ Success! Returned 1 rows.
+ tot_p
+ 12430
+--------------------------------------------------
+🔹 Running Query #330...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT normal_area_dafw FROM crop_stats WHERE crop = 'Oilseeds';
+--------------------------------------------------
+🔹 Running Query #331...
+✅ Success! Returned 1 rows.
+ children_under_age_3_years_breastfed_within_one_hour_of_birt
+                                                        22.47
+--------------------------------------------------
+🔹 Running Query #332...
+✅ Success! Returned 3 rows.
+      area_name
+Jammu & Kashmir
+         Ladakh
+      Rajasthan
+--------------------------------------------------
+🔹 Running Query #333...
+✅ Success! Returned 1 rows.
+ children_under_age_3_years_breastfed_within_one_hour_of_birt
+                                                        24.93
+--------------------------------------------------
+🔹 Running Query #334...
+✅ Success! Returned 1 rows.
+ children_under_age_3_years_breastfed_within_one_hour_of_birt
+                                                        54.06
+--------------------------------------------------
+🔹 Running Query #335...
+✅ Success! Returned 1 rows.
+ children_under_5_years_who_are_wasted_weightforheight18_
+                                                    18.06
+--------------------------------------------------
+🔹 Running Query #336...
+✅ Success! Returned 1 rows.
+ women_age_15_years_and_above_with_high_141160_mgdl_blood_sug
+                                                         9.68
+--------------------------------------------------
+🔹 Running Query #337...
+✅ Success! Returned 1 rows.
+ mothers_who_had_at_least_4_antenatal_care_visits_for_last_bi
+                                                        70.85
+--------------------------------------------------
+🔹 Running Query #338...
+✅ Success! Returned 1 rows.
+ children_age_659_months_who_are_anaemic_110_gdl22_
+                                              68.67
+--------------------------------------------------
+🔹 Running Query #339...
+✅ Success! Returned 3 rows.
+area_name
+      Goa
+   Sikkim
+   Kerala
+--------------------------------------------------
+🔹 Running Query #340...
+✅ Success! Returned 2 rows.
+ person
+2428466
+2427907
+--------------------------------------------------
+🔹 Running Query #341...
+✅ Success! Returned 1 rows.
+ main_agricultural_labourers_person
+                              18776
+--------------------------------------------------
+🔹 Running Query #342...
+✅ Success! Returned 2 rows.
+ person
+   2520
+   2520
+--------------------------------------------------
+🔹 Running Query #343...
+✅ Success! Returned 1 rows.
+ area_sown_2024_25
+              5.51
+--------------------------------------------------
+🔹 Running Query #344...
+✅ Success! Returned 2 rows.
+ person
+   2154
+   2154
+--------------------------------------------------
+🔹 Running Query #345...
+✅ Success! Returned 1 rows.
+ tot_p
+ 48963
+--------------------------------------------------
+🔹 Running Query #346...
+✅ Success! Returned 5 rows.
+  area_name
+     Kerala
+        Goa
+Lakshadweep
+ Tamil Nadu
+ Puducherry
+--------------------------------------------------
+🔹 Running Query #347...
+✅ Success! Returned 1 rows.
+ case
+Urban
+--------------------------------------------------
+🔹 Running Query #348...
+✅ Success! Returned 1 rows.
+ hh_using_clean_fuel_for_cooking3_
+                              33.0
+--------------------------------------------------
+🔹 Running Query #349...
+✅ Success! Returned 1 rows.
+ children_age_1223_months_fully_vaccinated_based_on_informati
+                                                        80.41
+--------------------------------------------------
+🔹 Running Query #350...
+⚠️  Query ran successfully but returned NO data.
+Query: SELECT area_sown_2025_26 FROM crop_stats WHERE crop = 'Foodgrains';
 --------------------------------------------------
