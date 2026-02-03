@@ -225,8 +225,7 @@ def detect_intents(question: str):
 
     # Strong first
     for intent, groups in INTENTS.items():
-        # Using regex \b for word boundaries prevents partial matches
-        if any(re.search(r'\b' + re.escape(t) + r'\b', q) for t in groups["strong"]):
+        if any(t in q for t in groups["strong"]):
             active.add(intent)
 
     # Weak only if something already active
@@ -338,7 +337,7 @@ def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     member = input("Enter your name: ").strip().replace(" ", "_") or "Member"
-    out_path = get_unique_filename(OUTPUT_DIR, f"train_{member}.jsonl")
+    out_path = get_unique_filename(OUTPUT_DIR, f"eval_{member}.jsonl")
 
     schema_json = load_schema(SCHEMA_FILE)
     questions = load_questions(QUESTIONS_FILE)

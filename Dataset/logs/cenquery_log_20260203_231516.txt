@@ -1,0 +1,4 @@
+🤖 CENQUERY ROBUST GENERATOR (FINAL_V4)
+Enter your name: ✅ Generated 350 samples
+📂 Saved to eval_data\eval_(Mix).jsonl
+🧾 Log: logs\cenquery_log_20260203_231516.txt
