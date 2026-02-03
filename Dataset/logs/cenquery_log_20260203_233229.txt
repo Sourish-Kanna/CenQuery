@@ -1,0 +1,4 @@
+🤖 CENQUERY ROBUST GENERATOR (FINAL_V4)
+Enter your name: Choose output format (1 for structured JSON, 2 for prompt-style): ✅ Generated 650 samples
+📂 Saved to training_data\old_train_(Mixed).jsonl
+🧾 Log: logs\cenquery_log_20260203_233229.txt

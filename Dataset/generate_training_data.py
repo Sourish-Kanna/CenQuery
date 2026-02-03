@@ -317,6 +317,20 @@ def format_entry(question, sql, schema):
         "schema": schema,
     }
 
+def format_training_entry(question, sql, schema_string):
+    """Formats the entry into the exact prompt structure required."""
+    prompt = f"""### Task
+Generate a SQL query to answer the following question:
+`{question}`
+
+### Database Schema
+This query will run on a database whose schema is represented in this string:
+{schema_string}
+
+### SQL
+{sql}"""
+    return {"text": prompt}
+
 # =========================
 # UNIQUE OUTPUT FILE
 # =========================
@@ -336,15 +350,23 @@ def main():
     print("🤖 CENQUERY ROBUST GENERATOR (FINAL_V4)")
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-    member = input("Enter your name: ").strip().replace(" ", "_") or "Member"
-    out_path = get_unique_filename(OUTPUT_DIR, f"train_{member}.jsonl")
+    member = input("Enter your name: ").strip().replace(" ", "_") or "(Mixed)"
 
     schema_json = load_schema(SCHEMA_FILE)
     questions = load_questions(QUESTIONS_FILE)
     sqls = load_sql_queries(SQL_FILE)
 
+    format_type = input("Choose output format (1 for structured JSON, 2 for prompt-style): ").strip()
+    if format_type == "2":
+        out_path = get_unique_filename(OUTPUT_DIR, f"old_train_{member}.jsonl")
+    elif format_type == "1":
+        out_path = get_unique_filename(OUTPUT_DIR, f"train_{member}.jsonl")
+    else:
+        print("Invalid choice. Defaulting to structured JSON format.")
+        out_path = get_unique_filename(OUTPUT_DIR, f"train_{member}.jsonl")
+
     assert len(questions) == len(sqls), "Question/SQL count mismatch"
-    n= 1
+    n = 1
     with open(out_path, "w", encoding="utf-8") as out:
         for q, s in zip(questions, sqls):
             ok, err = validate_sql_syntax(s)
@@ -352,24 +374,25 @@ def main():
                 raise ValueError(f"❌ Invalid SQL syntax:\n{s}\n{err}")
 
             tables = select_tables(q)
-            
+
             # Helper to check for missing real tables (ignores CTEs)
             missing = used_tables(s) - tables
             real_missing = {t for t in missing if t in schema_json}
-            
+
             if real_missing:
                 print("-" * 60)
                 print(f"🧠 Question {n}:")
                 print(q)
                 print("📊 Selected tables:", sorted(tables))
                 print("⚠️ Missing tables:", real_missing)
-            
+
             # Auto-fix for output generation
             tables |= real_missing
 
             schema = build_schema(schema_json, tables)
-            out.write(json.dumps(format_entry(q, s, schema)) + "\n")
-            n+=1
+            entry = format_training_entry(q, s, schema) if format_type == "2" else format_entry(q, s, schema)
+            out.write(json.dumps(entry) + "\n")
+            n += 1
 
     print(f"✅ Generated {len(questions)} samples")
     print(f"📂 Saved to {out_path}")

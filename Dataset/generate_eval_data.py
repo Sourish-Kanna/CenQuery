@@ -317,6 +317,20 @@ def format_entry(question, sql, schema):
         "schema": schema,
     }
 
+def format_training_entry(question, sql, schema_string):
+    """Formats the entry into the exact prompt structure required."""
+    prompt = f"""### Task
+Generate a SQL query to answer the following question:
+`{question}`
+
+### Database Schema
+This query will run on a database whose schema is represented in this string:
+{schema_string}
+
+### SQL
+{sql}"""
+    return {"text": prompt}
+
 # =========================
 # UNIQUE OUTPUT FILE
 # =========================
@@ -336,12 +350,20 @@ def main():
     print("🤖 CENQUERY ROBUST GENERATOR (FINAL_V4)")
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-    member = input("Enter your name: ").strip().replace(" ", "_") or "Member"
-    out_path = get_unique_filename(OUTPUT_DIR, f"eval_{member}.jsonl")
+    member = input("Enter your name: ").strip().replace(" ", "_") or "(Mixed)"
 
     schema_json = load_schema(SCHEMA_FILE)
     questions = load_questions(QUESTIONS_FILE)
     sqls = load_sql_queries(SQL_FILE)
+
+    format_type = input("Choose output format (1 for structured JSON, 2 for prompt-style): ").strip()
+    if format_type == "2":
+        out_path = get_unique_filename(OUTPUT_DIR, f"old_eval_{member}.jsonl")
+    elif format_type == "1":
+        out_path = get_unique_filename(OUTPUT_DIR, f"eval_{member}.jsonl")
+    else:
+        print("Invalid choice. Defaulting to structured JSON format.")
+        out_path = get_unique_filename(OUTPUT_DIR, f"eval_{member}.jsonl")
 
     assert len(questions) == len(sqls), "Question/SQL count mismatch"
     n= 1
@@ -368,7 +390,8 @@ def main():
             tables |= real_missing
 
             schema = build_schema(schema_json, tables)
-            out.write(json.dumps(format_entry(q, s, schema)) + "\n")
+            entry = format_training_entry(q, s, schema) if format_type == "2" else format_entry(q, s, schema)
+            out.write(json.dumps(entry) + "\n")
             n+=1
 
     print(f"✅ Generated {len(questions)} samples")
