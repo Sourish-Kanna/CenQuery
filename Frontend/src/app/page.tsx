@@ -1,57 +1,81 @@
-"use client";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700 flex flex-col justify-center items-center text-white font-sans relative overflow-hidden p-8">
-      {/* Background Glow */}
-      <div className="absolute top-[-200px] left-[-200px] w-[400px] h-[400px] bg-white/20 blur-3xl rounded-full animate-pulse"></div>
-      <div className="absolute bottom-[-200px] right-[-200px] w-[400px] h-[400px] bg-pink-400/20 blur-3xl rounded-full animate-pulse delay-1000"></div>
+    <main className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center text-center px-6 py-24 bg-white">
+        <h1 className="text-4xl font-bold text-blue-700 mb-4">
+          CenQuery
+        </h1>
+        <p className="text-xl text-gray-600 mb-6 max-w-2xl">
+          A Natural Language Interface for Querying Indian Census Data
+        </p>
+        <Link href="/login">
+          <Button className="text-lg px-6 py-3">
+            Access System
+          </Button>
+        </Link>
+      </section>
 
-      {/* Content Container */}
-      <section className="flex flex-col md:flex-row items-center justify-between max-w-6xl w-full py-20 gap-12 relative z-10">
-        
-        {/* Text Section */}
-        <div className="flex-1 text-center md:text-left">
-          <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-            Transforming <span className="text-yellow-300">Natural Language</span> into SQL Queries
-          </h1>
-          <p className="text-lg md:text-xl text-gray-200 mb-8 max-w-lg mx-auto md:mx-0">
-            No SQL knowledge? No problem. Type your question in plain English, 
-            and our AI instantly gives you the SQL query to access your data.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
-             <button
-              className="bg-yellow-300 text-blue-900 font-semibold px-8 py-3 rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300 w-full sm:w-auto"
-              onClick={() => window.location.href = '/demo'}
-            >
-              Live Demo
-            </button>
-            <button
-              className="bg-white/20 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-white/30 transition-colors duration-300 w-full sm:w-auto"
-              onClick={() => window.location.href = '/app'}
-            >
-              Open App
-            </button>
+      {/* How It Works */}
+      <section className="py-16 px-6 max-w-5xl mx-auto">
+        <h2 className="text-2xl font-semibold text-center mb-10">
+          How It Works
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h3 className="font-semibold mb-2">1. Ask in English</h3>
+            <p className="text-gray-600">
+              Users type questions like “Show literacy rate of districts in Maharashtra”.
+            </p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h3 className="font-semibold mb-2">2. AI Generates SQL</h3>
+            <p className="text-gray-600">
+              The system converts the question into an optimized SQL query.
+            </p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow">
+            <h3 className="font-semibold mb-2">3. Data is Visualized</h3>
+            <p className="text-gray-600">
+              Results are shown as tables and charts for easy analysis.
+            </p>
           </div>
         </div>
+      </section>
 
-        {/* Image / Illustration Section */}
-        <div className="flex-1 flex justify-center mt-12 md:mt-0">
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-xl hover:scale-105 transition-transform duration-500">
-            <img
-              src="/illustration.jpg"
-              alt="Data visualization illustration"
-              className="rounded-xl w-[400px] md:w-[500px] h-auto"
-            />
+      {/* Features */}
+      <section className="py-16 px-6 bg-white">
+        <h2 className="text-2xl font-semibold text-center mb-10">
+          Key Features
+        </h2>
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="border p-4 rounded">
+            ✔ Natural language to SQL conversion
+          </div>
+          <div className="border p-4 rounded">
+            ✔ Designed for Indian Census data
+          </div>
+          <div className="border p-4 rounded">
+            ✔ Secure and offline architecture
+          </div>
+          <div className="border p-4 rounded">
+            ✔ Interactive data visualization
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="absolute bottom-6 text-sm text-gray-200">
-        © {new Date().getFullYear()} NaturalSQL
+      <footer className="text-center text-gray-500 py-6">
+        <p>
+          CenQuery – Final Year Major Project
+        </p>
+        <p>
+          Department of Computer Science
+        </p>
       </footer>
     </main>
   );
 }
-
