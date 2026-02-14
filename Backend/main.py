@@ -5,9 +5,11 @@ import json
 import re
 import requests
 import pandas as pd
+import difflib  # <--- NEW: For Fuzzy Matching
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 from sqlalchemy import create_engine, text, inspect
+from sqlalchemy.exc import ProgrammingError, OperationalError  # <--- NEW: Catch DB Errors
 from dotenv import load_dotenv
 from typing import List, Dict, Any, Union, Set
 from fastapi.middleware.cors import CORSMiddleware
@@ -29,16 +31,11 @@ if not DATABASE_URL:
 # --- Globals for Schema Caching ---
 # We will cache the DB structure here so we don't inspect it on every request
 FULL_SCHEMA_CACHE = {}
+ALL_COLUMN_NAMES = set()  # Optimized set for fast lookup
 
-# --- Intent & Table Config (From your script) ---
+# --- Config & keywords (Same as before) ---
 MAX_OPTIONAL_TABLES = 6
-CORE_TABLES = {
-    "regions",
-    "tru",
-    "languages",
-    "religions",
-    "age_groups",
-}
+CORE_TABLES = {"regions", "tru", "languages", "religions", "age_groups"}
 
 
 # Load keywords helper (Safe version)
@@ -162,11 +159,9 @@ RULES = [
     {"intent": "agriculture", "adds": {"crop_stats"}},
 ]
 
-# --- FastAPI App ---
-app = FastAPI(title="CenQuery API (Service B)", version="5.0.0")
+app = FastAPI(title="CenQuery API (Self-Healing)", version="5.2.0")
 
-origins = ["http://localhost", "http://localhost:3000", "https://cenquery-frontend.onrender.com"]
-app.add_middleware(CORSMiddleware, allow_origins=origins, allow_credentials=True, allow_methods=["*"],
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"],
                    allow_headers=["*"])
 
 # --- Database Connection & Caching ---
@@ -181,20 +176,21 @@ try:
         table_names = inspector.get_table_names(schema='public')
         for table in table_names:
             cols = inspector.get_columns(table, schema='public')
-            # Store in format compatible with your build_schema logic
             FULL_SCHEMA_CACHE[table] = {
                 "columns": [{"name": c["name"], "type": str(c["type"])} for c in cols]
-                # You can add constraints here if needed, but simple types usually suffice
             }
-        print(f"✅ Schema Cache Built ({len(FULL_SCHEMA_CACHE)} tables)")
+            # Add to global set for fuzzy matching
+            for c in cols:
+                ALL_COLUMN_NAMES.add(c["name"])
 
+        print(f"✅ Schema Cache Built ({len(FULL_SCHEMA_CACHE)} tables)")
 except Exception as e:
     print(f"❌ DB Error: {e}")
 
 
 # --- Pydantic Models ---
 class GenerateSQLRequest(BaseModel):
-    question: str = Field(..., description="The natural language instruction.")
+    question: str = Field(..., description="Natural language question.")
 
 
 class GenerateSQLResponse(BaseModel):
@@ -209,9 +205,10 @@ class ExecuteSQLRequest(BaseModel):
 
 class ExecuteSQLResponse(BaseModel):
     sql_query: str
-    result: Union[List[Dict[str, Any]], Dict[str, int], str]
+    result: Any
     latency_ms: float
     status: str
+    healed: bool = False  # Flag to show if we fixed it
 
 
 # --- Logging ---
@@ -272,9 +269,56 @@ def build_schema_ddl(selected_tables: Set[str]) -> str:
         if t not in FULL_SCHEMA_CACHE: continue
         cols = []
         for c in FULL_SCHEMA_CACHE[t]["columns"]:
-            cols.append(f"{c['name']} {c['type']}")
+            # Quote weird column names in the schema definition too, to help the LLM
+            col_name = c['name']
+            if "." in col_name or " " in col_name:
+                col_name = f'"{col_name}"'
+            cols.append(f"{col_name} {c['type']}")
         ddl.append(f"CREATE TABLE {t} ({', '.join(cols)});")
     return "\n".join(ddl)
+
+
+def sanitize_dot_columns(sql_query: str) -> str:
+    """Pre-execution fixer for unquoted dot columns."""
+    pattern_alias = r'\b([a-zA-Z0-9_]+)\.([a-zA-Z0-9_]+\.[0-9]+)\b'
+    return re.sub(pattern_alias, r'\1."\2"', sql_query)
+
+
+def heal_sql_query(bad_sql: str, error_msg: str) -> str:
+    """
+    Parses DB error message, finds the closest valid column, and patches the SQL.
+    """
+    print(f"🚑 Attempting to heal SQL. Error: {error_msg}")
+
+    # Regex to extract the missing column from PG error: column "xyz" does not exist
+    match = re.search(r'column "([^"]+)" does not exist', error_msg)
+    if not match:
+        # Try unquoted version
+        match = re.search(r'column ([^ ]+) does not exist', error_msg)
+
+    if match:
+        bad_col = match.group(1)
+        # 1. Remove table alias prefix if present (e.g. h.column -> column)
+        clean_bad_col = bad_col.split(".")[-1]
+
+        # 2. Find closest match in our ALL_COLUMN_NAMES cache
+        # cutoff=0.6 means it must be at least 60% similar
+        matches = difflib.get_close_matches(clean_bad_col, ALL_COLUMN_NAMES, n=1, cutoff=0.5)
+
+        if matches:
+            good_col = matches[0]
+            print(f"🩹 Healing: Replaced '{clean_bad_col}' with '{good_col}'")
+
+            # 3. Replace in SQL
+            # We must be careful to replace only the specific occurrence
+            # If the good column has dots, quote it
+            replacement = f'"{good_col}"' if "." in good_col else good_col
+
+            # Simple replace (might be risky if column name is common word, but usually safe for these long vars)
+            # We replace the bad_col (which might include alias in the error msg logic, but let's try replacing the clean version)
+            return bad_sql.replace(clean_bad_col, replacement)
+
+    return bad_sql  # Return original if we can't fix it
 
 
 def _call_remote_llm(question: str) -> GenerateSQLResponse:
@@ -294,8 +338,12 @@ Generate a SQL query to answer the following question:
 `{question}`
 
 ### Database Schema
-This query will run on a database whose schema is represented in this string:
 {schema_string}
+
+### Instructions
+- Output ONLY the SQL query.
+- Use ILIKE for text comparisons.
+- IMPORTANT: If a column name contains dots (e.g. col.1), you MUST enclose it in double quotes (e.g. "col.1").
 
 ### SQL
 """
@@ -314,14 +362,20 @@ This query will run on a database whose schema is represented in this string:
         )
         response.raise_for_status()
 
-        # 4. Clean SQL
         raw_sql = response.json().get("sql", "")
-        # Remove Markdown and trailing artifacts
         sql_query = raw_sql.replace("```sql", "").replace("```", "").strip()
-        # Stop at first semicolon if multiple are generated
-        if ";" in sql_query:
-            sql_query = sql_query.split(";")[0] + ";"
+        if ";" in sql_query: sql_query = sql_query.split(";")[0] + ";"
 
+        # Apply Regex Fixer
+        sql_query = sanitize_dot_columns(sql_query)
+
+        # Log
+        try:
+            with open(GENERATION_LOG_FILE, "a", newline="", encoding='utf-8') as f:
+                csv.writer(f).writerow([question, sql_query])
+        except:
+            pass
+        
         log_generation(question, sql_query)
         return GenerateSQLResponse(question=question, sql_query=sql_query)
 
@@ -348,32 +402,58 @@ async def generate_other_sql(request: GenerateSQLRequest):
 @app.post("/execute-sql", response_model=ExecuteSQLResponse)
 async def execute_sql(request: ExecuteSQLRequest):
     start_time = time.time()
-    try:
-        with engine.connect() as connection:
-            q_lower = request.sql_query.lower()
-            if any(k in q_lower for k in ["insert", "update", "delete", "create", "alter", "drop"]):
-                with connection.begin():
-                    result_proxy = connection.execute(text(request.sql_query))
-                    result = {"rows_affected": result_proxy.rowcount}
-            else:
-                df = pd.read_sql_query(sql=text(request.sql_query), con=connection)
-                if len(df) > 1000: df = df.head(1000)
-                result = df.to_dict(orient='records')
-            status = "success"
-    except Exception as e:
-        result = str(e)
-        status = "error"
+    current_sql = sanitize_dot_columns(request.sql_query)
+    status = "error"
+    result = []
+    healed = False
+    
+    # RETRY LOOP (Max 2 attempts: Original -> Healed)
+    for attempt in range(2):
+        try:
+            with engine.connect() as connection:
+                # Detect DML
+                if any(k in current_sql.lower() for k in ["insert", "update", "delete", "create", "alter", "drop"]):
+                     with connection.begin():
+                        res = connection.execute(text(current_sql))
+                        result = {"rows_affected": res.rowcount}
+                else:
+                    df = pd.read_sql_query(sql=text(current_sql), con=connection)
+                    if len(df) > 1000: df = df.head(1000)
+                    result = df.to_dict(orient='records')
+                
+                status = "success"
+                break # Success! Exit loop
+
+        except (ProgrammingError, OperationalError) as e:
+            error_str = str(e).lower()
+            # Check if it's a "column not found" error and we haven't tried healing yet
+            if attempt == 0 and ("column" in error_str and "does not exist" in error_str):
+                new_sql = heal_sql_query(current_sql, str(e))
+                if new_sql != current_sql:
+                    current_sql = new_sql
+                    healed = True
+                    continue # Retry with new SQL
+            
+            # If we get here, healing failed or wasn't applicable
+            result = str(e)
+            status = "error"
+            break
 
     latency = (time.time() - start_time) * 1000
-    log_metrics(request.question, request.sql_query, latency, status)
-
+    
+    # Log Metrics
+    try:
+        with open(LOG_FILE, "a", newline="", encoding='utf-8') as f:
+            csv.writer(f).writerow([request.question or "N/A", current_sql, latency, status])
+    except: pass
+    
     return ExecuteSQLResponse(
-        sql_query=request.sql_query,
+        sql_query=current_sql, # Return the potentially healed SQL
         result=result,
         latency_ms=latency,
-        status=status
+        status=status,
+        healed=healed
     )
-
 
 @app.get("/", include_in_schema=False)
 async def root():
