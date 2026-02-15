@@ -15,24 +15,30 @@ annotated-types==0.7.0
 anyio==4.12.1
     # via
     #   -c Backend/requirements.txt
-    #   httpx
     #   starlette
 build==1.4.0
     # via pip-tools
 certifi==2026.1.4
     # via
     #   -c Backend/requirements.txt
-    #   httpcore
-    #   httpx
+    #   requests
 cffi==2.0.0
     # via cryptography
 charset-normalizer==3.4.4
-    # via pdfminer-six
+    # via
+    #   -c Backend/requirements.txt
+    #   pdfminer-six
+    #   requests
 click==8.3.1
     # via
     #   -c Backend/requirements.txt
     #   pip-tools
     #   uvicorn
+colorama==0.4.6
+    # via
+    #   -c Backend/requirements.txt
+    #   build
+    #   click
 cryptography==46.0.5
     # via pdfminer-six
 et-xmlfile==2.0.0
@@ -48,21 +54,12 @@ greenlet==3.3.1
 h11==0.16.0
     # via
     #   -c Backend/requirements.txt
-    #   httpcore
     #   uvicorn
-httpcore==1.0.9
-    # via
-    #   -c Backend/requirements.txt
-    #   httpx
-httpx==0.28.1
-    # via
-    #   -c Backend/requirements.txt
-    #   -r Backend/requirements.in
 idna==3.11
     # via
     #   -c Backend/requirements.txt
     #   anyio
-    #   httpx
+    #   requests
 numpy==2.4.2
     # via
     #   -c Backend/requirements.txt
@@ -116,6 +113,10 @@ python-dotenv==1.2.1
     #   -c Backend/requirements.txt
     #   -r Backend/requirements.in
     #   -r requirements-dev.in
+requests==2.32.5
+    # via
+    #   -c Backend/requirements.txt
+    #   -r Backend/requirements.in
 six==1.17.0
     # via
     #   -c Backend/requirements.txt
@@ -132,17 +133,23 @@ starlette==0.50.0
 typing-extensions==4.15.0
     # via
     #   -c Backend/requirements.txt
-    #   anyio
     #   fastapi
     #   pydantic
     #   pydantic-core
     #   sqlalchemy
-    #   starlette
     #   typing-inspection
 typing-inspection==0.4.2
     # via
     #   -c Backend/requirements.txt
     #   pydantic
+tzdata==2025.3
+    # via
+    #   -c Backend/requirements.txt
+    #   pandas
+urllib3==2.6.3
+    # via
+    #   -c Backend/requirements.txt
+    #   requests
 uvicorn==0.40.0
     # via
     #   -c Backend/requirements.txt
