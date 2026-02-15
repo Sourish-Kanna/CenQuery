@@ -21,7 +21,7 @@ LOG_FILE = "metrics_log.csv"
 DATA_DIR = os.getenv("DATA_DIR", "data")  # Point this to where your CSVs are (optional)
 
 # 1. Database & Service Config
-DATABASE_URL = os.getenv("DATABASE_URL", "")
+DATABASE_URL = os.getenv("DB_CONNECTION_STRING", "")
 LLM_ENGINE_URL = os.getenv("LLM_ENGINE_URL", "")
 
 if not DATABASE_URL:
