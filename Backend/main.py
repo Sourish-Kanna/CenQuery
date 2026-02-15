@@ -1,7 +1,6 @@
 import os
 import csv
 import time
-import json
 import re
 import requests
 import pandas as pd
@@ -27,6 +26,8 @@ LLM_ENGINE_URL = os.getenv("LLM_ENGINE_URL", "")
 
 if not DATABASE_URL:
     raise ValueError("DATABASE_URL environment variable not set.")
+if not LLM_ENGINE_URL:
+    raise ValueError("LLM_ENGINE_URL not set. Generation endpoint will fail if called.")
 
 # --- Globals for Schema Caching ---
 # We will cache the DB structure here so we don't inspect it on every request
@@ -192,16 +193,13 @@ except Exception as e:
 class GenerateSQLRequest(BaseModel):
     question: str = Field(..., description="Natural language question.")
 
-
 class GenerateSQLResponse(BaseModel):
     question: str
     sql_query: str
 
-
 class ExecuteSQLRequest(BaseModel):
     sql_query: str
     question: str | None = None
-
 
 class ExecuteSQLResponse(BaseModel):
     sql_query: str
@@ -209,7 +207,6 @@ class ExecuteSQLResponse(BaseModel):
     latency_ms: float
     status: str
     healed: bool = False  # Flag to show if we fixed it
-
 
 # --- Logging ---
 def log_generation(question: str, sql_query: str):
@@ -301,7 +298,7 @@ def heal_sql_query(bad_sql: str, error_msg: str) -> str:
         # 1. Remove table alias prefix if present (e.g. h.column -> column)
         clean_bad_col = bad_col.split(".")[-1]
 
-        # 2. Find closest match in our ALL_COLUMN_NAMES cache
+        # 2. Find the closest match in our ALL_COLUMN_NAMES cache
         # cutoff=0.6 means it must be at least 60% similar
         matches = difflib.get_close_matches(clean_bad_col, ALL_COLUMN_NAMES, n=1, cutoff=0.5)
 
@@ -389,13 +386,15 @@ Generate a SQL query to answer the following question:
 async def generate_select_sql(request: GenerateSQLRequest):
     if not request.question.strip():
         raise HTTPException(status_code=400, detail="Empty question.")
+    print(f"Received question: {request.question}")
     return _call_remote_llm(request.question)
 
 
 @app.post("/generate-other-sql", response_model=GenerateSQLResponse)
 async def generate_other_sql(request: GenerateSQLRequest):
     # For DML/DDL, we might want to expose ALL tables or a different logic.
-    # For now, we reuse the same logic but you might want to force all tables.
+    # For now, we reuse the same logic, but you might want to force all tables.
+    print(f"Received question: {request.question}")
     return _call_remote_llm(request.question)
 
 
@@ -426,7 +425,7 @@ async def execute_sql(request: ExecuteSQLRequest):
 
         except (ProgrammingError, OperationalError) as e:
             error_str = str(e).lower()
-            # Check if it's a "column not found" error and we haven't tried healing yet
+            # Check if it's a "column not found" error, and we haven't tried healing yet
             if attempt == 0 and ("column" in error_str and "does not exist" in error_str):
                 new_sql = heal_sql_query(current_sql, str(e))
                 if new_sql != current_sql:
@@ -454,6 +453,7 @@ async def execute_sql(request: ExecuteSQLRequest):
         status=status,
         healed=healed
     )
+
 
 @app.get("/", include_in_schema=False)
 async def root():
