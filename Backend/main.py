@@ -196,6 +196,7 @@ class GenerateSQLRequest(BaseModel):
 class GenerateSQLResponse(BaseModel):
     question: str
     sql_query: str
+    schema_selected: str | None = None
 
 class ExecuteSQLRequest(BaseModel):
     sql_query: str
@@ -213,8 +214,8 @@ def log_generation(question: str, sql_query: str):
     try:
         with open(GENERATION_LOG_FILE, "a", newline="", encoding='utf-8') as f:
             writer = csv.writer(f)
-            if not os.path.isfile(GENERATION_LOG_FILE): writer.writerow(["question", "generated_sql_query"])
-            writer.writerow([question, sql_query])
+            if not os.path.isfile(GENERATION_LOG_FILE): writer.writerow(["question", "generated_sql_query", "schema_selected"])
+            writer.writerow([question, sql_query, None])  # schema_selected is None for generation logs
     except:
         pass
 
@@ -366,15 +367,15 @@ Generate a SQL query to answer the following question:
         # Apply Regex Fixer
         sql_query = sanitize_dot_columns(sql_query)
 
-        # Log
-        try:
-            with open(GENERATION_LOG_FILE, "a", newline="", encoding='utf-8') as f:
-                csv.writer(f).writerow([question, sql_query])
-        except:
-            pass
+        # # Log
+        # try:
+        #     with open(GENERATION_LOG_FILE, "a", newline="", encoding='utf-8') as f:
+        #         csv.writer(f).writerow([question, sql_query, ", ".join(sorted(relevant_tables))])
+        # except:
+        #     pass
         
         log_generation(question, sql_query)
-        return GenerateSQLResponse(question=question, sql_query=sql_query)
+        return GenerateSQLResponse(question=question, sql_query=sql_query, schema_selected=", ".join(sorted(relevant_tables)))
 
     except Exception as e:
         print(f"LLM Error: {e}")
@@ -440,12 +441,13 @@ async def execute_sql(request: ExecuteSQLRequest):
 
     latency = (time.time() - start_time) * 1000
     
-    # Log Metrics
-    try:
-        with open(LOG_FILE, "a", newline="", encoding='utf-8') as f:
-            csv.writer(f).writerow([request.question or "N/A", current_sql, latency, status])
-    except: pass
-    
+    # # Log Metrics
+    # try:
+    #     with open(LOG_FILE, "a", newline="", encoding='utf-8') as f:
+    #         csv.writer(f).writerow([request.question or "N/A", current_sql, latency, status])
+    # except: pass
+    log_metrics(request.question, current_sql, latency, status)
+
     return ExecuteSQLResponse(
         sql_query=current_sql, # Return the potentially healed SQL
         result=result,
