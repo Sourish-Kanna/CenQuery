@@ -224,6 +224,7 @@ class ExecuteSQLRequest(BaseModel):
 class ExecuteSQLResponse(BaseModel):
     sql_query: str
     result: Any
+    question: str | None = None
     latency_ms: float
     status: str
     healed: bool = False  # Flag to show if we fixed it
@@ -267,6 +268,10 @@ def detect_intents(question: str) -> Set[str]:
 
 def select_tables(question: str) -> Set[str]:
     intents = detect_intents(question)
+    if "agriculture" in intents:
+        print("🌾 Agriculture Intent Detected: Isolating crop_stats.")
+        return {"crop_stats"}
+
     tables = set(CORE_TABLES)
 
     for rule in RULES:
@@ -303,39 +308,36 @@ def sanitize_dot_columns(sql_query: str) -> str:
 
 def heal_sql_query(bad_sql: str, error_msg: str) -> str:
     """
-    Parses DB error message, finds the closest valid column, and patches the SQL.
+    Parses DB error message, finds the closest valid column OR fixes quoted identifiers.
     """
     print(f"🚑 Attempting to heal SQL. Error: {error_msg}")
 
-    # Regex to extract the missing column from PG error: column "xyz" does not exist
+    # Regex to extract the missing column from PG error
     match = re.search(r'column "([^"]+)" does not exist', error_msg)
     if not match:
-        # Try unquoted version
         match = re.search(r'column ([^ ]+) does not exist', error_msg)
 
     if match:
         bad_col = match.group(1)
-        # 1. Remove table alias prefix if present (e.g. h.column -> column)
-        clean_bad_col = bad_col.split(".")[-1]
+        clean_bad_col = bad_col.split(".")[-1] # Remove table alias if present
 
-        # 2. Find the closest match in our ALL_COLUMN_NAMES cache
-        # cutoff=0.6 means it must be at least 60% similar
+        # STRATEGY 1: Fuzzy Match Column Name (Typo Fix)
         matches = difflib.get_close_matches(clean_bad_col, ALL_COLUMN_NAMES, n=1, cutoff=0.5)
-
         if matches:
             good_col = matches[0]
             print(f"🩹 Healing: Replaced '{clean_bad_col}' with '{good_col}'")
-
-            # 3. Replace in SQL
-            # We must be careful to replace only the specific occurrence
-            # If the good column has dots, quote it
             replacement = f'"{good_col}"' if "." in good_col else good_col
-
-            # Simple replace (might be risky if column name is common word, but usually safe for these long vars)
-            # We replace the bad_col (which might include alias in the error msg logic, but let's try replacing the clean version)
             return bad_sql.replace(clean_bad_col, replacement)
 
-    return bad_sql  # Return original if we can't fix it
+        # STRATEGY 2: Literal vs Identifier Fix (The "Rice" Fix)
+        # If the "missing column" starts with Uppercase or has spaces, it's likely a value.
+        # Example: SELECT "Rice" -> SELECT 'Rice'
+        if clean_bad_col and (clean_bad_col[0].isupper() or " " in clean_bad_col):
+             print(f"🩹 Healing: Converting identifier \"{clean_bad_col}\" to string literal")
+             # Replace double quotes with single quotes for this specific token
+             return bad_sql.replace(f'"{clean_bad_col}"', f"'{clean_bad_col}'")
+
+    return bad_sql
 
 
 def _call_remote_llm(question: str) -> GenerateSQLResponse:
@@ -386,13 +388,6 @@ Generate a SQL query to answer the following question:
         # Apply Regex Fixer
         sql_query = sanitize_dot_columns(sql_query)
 
-        # # Log
-        # try:
-        #     with open(GENERATION_LOG_FILE, "a", newline="", encoding='utf-8') as f:
-        #         csv.writer(f).writerow([question, sql_query, ", ".join(sorted(relevant_tables))])
-        # except:
-        #     pass
-        
         log_generation(question, sql_query)
         print(f"✅ Received SQL from Service A: {sql_query}")
         return GenerateSQLResponse(question=question, sql_query=sql_query, schema_selected=", ".join(sorted(relevant_tables)))
@@ -411,56 +406,80 @@ def patch_broken_sql(sql_query: str) -> str:
 
     patched_sql = sql_query
 
+    # --- FIX 0: Syntax Hallucinations (BIGINT) ---
+    if "BIGINT" in patched_sql:
+        patched_sql = patched_sql.replace(" BIGINT ", " ")
+        patched_sql = patched_sql.replace("BIGINT ", " ")
+
     # --- FIX 1: Pluralization Errors ---
     replacements = {
         "illiterate_person ": "illiterate_persons ",
         "illiterate_person,": "illiterate_persons,",
         "illiterate_person)": "illiterate_persons)",
         "scheduled_castes_population_person": "scheduled_castes_person",
-        "scheduled_tribes_population_person": "scheduled_tribes_person"
+        "scheduled_tribes_population_person": "scheduled_tribes_person",
+        "language_name": "name"
     }
     for bad, good in replacements.items():
         if bad in patched_sql:
             patched_sql = patched_sql.replace(bad, good)
 
-    # --- FIX 2 & 3: Broken Language Joins (Dynamic Aliasing) ---
+    # --- FIX 2: Cross-Schema Hallucinations (Religion -> Education) ---
+    if "education_stats" in patched_sql and "religion_stats" not in patched_sql:
+        column_map = {
+            "tot_p": "total_person",
+            "p_lit": "literates_person",
+            "p_ill": "illiterate_persons",
+            "no_hh": "no_of_households",
+            "tot_m": "total_male",
+            "tot_f": "total_female",
+            "p_06": "population_in_the_age_group_06_person"
+        }
+        for bad_col, good_col in column_map.items():
+            patched_sql = patched_sql.replace(f".{bad_col}", f".{good_col}")
+            patched_sql = patched_sql.replace(f" {bad_col}", f" {good_col}")
+            patched_sql = patched_sql.replace(f",{bad_col}", f",{good_col}")
+
+    # --- FIX 3: Agriculture Specifics (Crop Stats) ---
+    if "crop_stats" in patched_sql:
+        # Remove "state_name" filters (Hallucinated column)
+        # Matches: AND state_name ILIKE '%...%'
+        patched_sql = re.sub(r"\bAND\s+state_name\s+ILIKE\s+'[^']+'", "", patched_sql, flags=re.IGNORECASE)
+        patched_sql = re.sub(r"\bWHERE\s+state_name\s+ILIKE\s+'[^']+'", "WHERE 1=1", patched_sql, flags=re.IGNORECASE)
+        
+        # Proactive "Rice" fix: SELECT "Rice" -> SELECT 'Rice'
+        patched_sql = patched_sql.replace('SELECT "Rice"', "SELECT 'Rice'")
+
+    # --- FIX 4: Broken Language Joins ---
     if "languages" in patched_sql and "language_stats" not in patched_sql:
-        
-        # PATTERN A: The "tru_id" hallucination (JOIN languages l ON es.tru_id = l.tru_id)
-        # PATTERN B: The "language_id" hallucination (JOIN languages l ON es.language_id = l.id)
-        
-        # We use a combined logic or sequential checks.
-        
-        # Regex for Pattern A: .tru_id = .tru_id
         pattern_a = r"JOIN\s+languages\s+(\w+)\s+ON\s+(\w+)\.tru_id\s*=\s*\1\.tru_id"
-        
-        # Regex for Pattern B: .language_id = .id
         pattern_b = r"JOIN\s+languages\s+(\w+)\s+ON\s+(\w+)\.language_id\s*=\s*\1\.id"
+        pattern_c = r"JOIN\s+languages\s+(\w+)\s+ON\s+(\w+)\.[\w]+\s*=\s*\1\.state"
 
         def bridge_replacer(match):
-            l_alias = match.group(1)      # e.g., 'l'
-            stats_alias = match.group(2)  # e.g., 'es'
-            
-            # Unique Alias for Bridge
+            l_alias = match.group(1)
+            stats_alias = match.group(2)
             bridge_alias = f"ls_{l_alias}"
             
-            # Inject Bridge
-            return (f"JOIN language_stats {bridge_alias} ON {stats_alias}.state = {bridge_alias}.state AND {stats_alias}.tru_id = {bridge_alias}.tru_id "
+            join_condition = f"{stats_alias}.state = {bridge_alias}.state"
+            if stats_alias != 'r': 
+                 join_condition += f" AND {stats_alias}.tru_id = {bridge_alias}.tru_id"
+
+            return (f"JOIN language_stats {bridge_alias} ON {join_condition} "
                     f"JOIN languages {l_alias} ON {bridge_alias}.language_id = {l_alias}.id")
 
         try:
-            # Apply Pattern A
             if ".tru_id" in patched_sql:
                 patched_sql = re.sub(pattern_a, bridge_replacer, patched_sql, flags=re.IGNORECASE)
-            
-            # Apply Pattern B (The new fix)
             if ".language_id" in patched_sql:
                 patched_sql = re.sub(pattern_b, bridge_replacer, patched_sql, flags=re.IGNORECASE)
-                
+            if ".state" in patched_sql:
+                patched_sql = re.sub(pattern_c, bridge_replacer, patched_sql, flags=re.IGNORECASE)
         except Exception as e:
             print(f"⚠️ Patch failed: {e}")
 
     return patched_sql
+
 
 # --- API Endpoints ---
 @app.post("/generate-select-sql", response_model=GenerateSQLResponse)
@@ -482,18 +501,19 @@ async def generate_other_sql(request: GenerateSQLRequest):
 @app.post("/execute-sql", response_model=ExecuteSQLResponse)
 async def execute_sql(request: ExecuteSQLRequest):
     start_time = time.time()
-    print(f"Executing SQL: {request.sql_query}")
+    print(f"Executing SQL: {request.sql_query}\n")
     current_sql = sanitize_dot_columns(request.sql_query)
-    print(f"Sanitized SQL: {current_sql}")
+    print(f"Sanitized SQL: {current_sql}\n")
     patched_sql = patch_broken_sql(current_sql)
-    print(f"Patched SQL: {patched_sql}")
+    print(f"Patched SQL: {patched_sql}\n")
+    healed = False
     if patched_sql != current_sql:
-        print(f"🩹 Applied SQL Patch: \nOld: {current_sql}\nNew: {patched_sql}")
+        print(f"🩹 Applied SQL Patch: \nOld: {current_sql}\nNew: {patched_sql}\n")
         current_sql = patched_sql
+        healed = True
     print(f"Final SQL to Execute: {current_sql}")
     status = "error"
     result = []
-    healed = False
     
     # RETRY LOOP (Max 2 attempts: Original -> Healed)
     for attempt in range(2):
@@ -512,7 +532,7 @@ async def execute_sql(request: ExecuteSQLRequest):
                 status = "success"
                 break # Success! Exit loop
 
-        except (ProgrammingError, OperationalError) as e:
+        except Exception as e:
             error_str = str(e).lower()
             # Check if it's a "column not found" error, and we haven't tried healing yet
             if attempt == 0 and ("column" in error_str and "does not exist" in error_str):
@@ -536,6 +556,7 @@ async def execute_sql(request: ExecuteSQLRequest):
     return ExecuteSQLResponse(
         sql_query=current_sql, # Return the potentially healed SQL
         result=result,
+        question=request.question,
         latency_ms=latency,
         status=status,
         healed=healed
