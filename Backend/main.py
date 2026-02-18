@@ -1,3 +1,4 @@
+import json
 import os
 import csv
 import time
@@ -155,8 +156,8 @@ RULES = [
     {"intent": "population", "adds": {"population_stats"}},
     {"intent": "health", "adds": {"healthcare_stats"}},
     {"intent": "age", "adds": {"population_stats"}},
-    {"intent": "occupation", "adds": {"occupation_stats", "healthcare_stats", "education_stats"}},
-    {"intent": "education", "adds": {"education_stats", "religion_stats", "healthcare_stats"}},
+    {"intent": "occupation", "adds": {"occupation_stats", "education_stats"}}, # "healthcare_stats"}},
+    {"intent": "education", "adds": {"education_stats", "religion_stats"}}, #"healthcare_stats"}},
     {"intent": "agriculture", "adds": {"crop_stats"}},
 ]
 
@@ -165,28 +166,46 @@ app = FastAPI(title="CenQuery API (Self-Healing)", version="5.2.0")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"],
                    allow_headers=["*"])
 
-# --- Database Connection & Caching ---
+# --- Database Connection & Schema Caching ---
 try:
+    # 1. Establish DB Connection (Still needed for execution)
     engine = create_engine(DATABASE_URL)
     with engine.connect() as connection:
         print("✅ Database connection successful.")
 
-        # --- BUILD SCHEMA CACHE ON STARTUP ---
-        print("⏳ Building Schema Cache...")
-        inspector = inspect(engine)
-        table_names = inspector.get_table_names(schema='public')
-        for table in table_names:
-            cols = inspector.get_columns(table, schema='public')
-            FULL_SCHEMA_CACHE[table] = {
-                "columns": [{"name": c["name"], "type": str(c["type"])} for c in cols]
-            }
-            # Add to global set for fuzzy matching
-            for c in cols:
-                ALL_COLUMN_NAMES.add(c["name"])
+    # 2. Build Schema Cache from FILE (Not Database Inspection)
+    print("⏳ Building Schema Cache from 'database_schema.json'...")
+    
+    # Ensure the path is correct relative to where you run the script
+    schema_path = "database_schema.json" 
+    
+    if not os.path.exists(schema_path):
+        raise FileNotFoundError(f"Schema file not found at {schema_path}")
 
-        print(f"✅ Schema Cache Built ({len(FULL_SCHEMA_CACHE)} tables)")
+    with open(schema_path, "r") as f:
+        file_schema = json.load(f)
+
+    for table_name, details in file_schema.items():
+        # Extract columns from the JSON structure
+        # JSON Structure: { "table": { "columns": [ {"name": "x", "type": "y"}, ... ] } }
+        cols_list = []
+        for col in details.get("columns", []):
+            c_name = col["name"]
+            c_type = col["type"]
+            
+            cols_list.append({"name": c_name, "type": c_type})
+            
+            # Add to global set for fuzzy matching
+            ALL_COLUMN_NAMES.add(c_name)
+
+        FULL_SCHEMA_CACHE[table_name] = {
+            "columns": cols_list
+        }
+
+    print(f"✅ Schema Cache Built from file ({len(FULL_SCHEMA_CACHE)} tables)")
+
 except Exception as e:
-    print(f"❌ DB Error: {e}")
+    print(f"❌ Initialization Error: {e}")
 
 
 # --- Pydantic Models ---
@@ -375,12 +394,73 @@ Generate a SQL query to answer the following question:
         #     pass
         
         log_generation(question, sql_query)
+        print(f"✅ Received SQL from Service A: {sql_query}")
         return GenerateSQLResponse(question=question, sql_query=sql_query, schema_selected=", ".join(sorted(relevant_tables)))
 
     except Exception as e:
         print(f"LLM Error: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+def patch_broken_sql(sql_query: str) -> str:
+    """
+    Emergency patch function to fix common LLM hallucinations 
+    before execution.
+    """
+    # 0. Safety Guard
+    if len(sql_query) > 2000: return sql_query
+
+    patched_sql = sql_query
+
+    # --- FIX 1: Pluralization Errors ---
+    replacements = {
+        "illiterate_person ": "illiterate_persons ",
+        "illiterate_person,": "illiterate_persons,",
+        "illiterate_person)": "illiterate_persons)",
+        "scheduled_castes_population_person": "scheduled_castes_person",
+        "scheduled_tribes_population_person": "scheduled_tribes_person"
+    }
+    for bad, good in replacements.items():
+        if bad in patched_sql:
+            patched_sql = patched_sql.replace(bad, good)
+
+    # --- FIX 2 & 3: Broken Language Joins (Dynamic Aliasing) ---
+    if "languages" in patched_sql and "language_stats" not in patched_sql:
+        
+        # PATTERN A: The "tru_id" hallucination (JOIN languages l ON es.tru_id = l.tru_id)
+        # PATTERN B: The "language_id" hallucination (JOIN languages l ON es.language_id = l.id)
+        
+        # We use a combined logic or sequential checks.
+        
+        # Regex for Pattern A: .tru_id = .tru_id
+        pattern_a = r"JOIN\s+languages\s+(\w+)\s+ON\s+(\w+)\.tru_id\s*=\s*\1\.tru_id"
+        
+        # Regex for Pattern B: .language_id = .id
+        pattern_b = r"JOIN\s+languages\s+(\w+)\s+ON\s+(\w+)\.language_id\s*=\s*\1\.id"
+
+        def bridge_replacer(match):
+            l_alias = match.group(1)      # e.g., 'l'
+            stats_alias = match.group(2)  # e.g., 'es'
+            
+            # Unique Alias for Bridge
+            bridge_alias = f"ls_{l_alias}"
+            
+            # Inject Bridge
+            return (f"JOIN language_stats {bridge_alias} ON {stats_alias}.state = {bridge_alias}.state AND {stats_alias}.tru_id = {bridge_alias}.tru_id "
+                    f"JOIN languages {l_alias} ON {bridge_alias}.language_id = {l_alias}.id")
+
+        try:
+            # Apply Pattern A
+            if ".tru_id" in patched_sql:
+                patched_sql = re.sub(pattern_a, bridge_replacer, patched_sql, flags=re.IGNORECASE)
+            
+            # Apply Pattern B (The new fix)
+            if ".language_id" in patched_sql:
+                patched_sql = re.sub(pattern_b, bridge_replacer, patched_sql, flags=re.IGNORECASE)
+                
+        except Exception as e:
+            print(f"⚠️ Patch failed: {e}")
+
+    return patched_sql
 
 # --- API Endpoints ---
 @app.post("/generate-select-sql", response_model=GenerateSQLResponse)
@@ -402,7 +482,15 @@ async def generate_other_sql(request: GenerateSQLRequest):
 @app.post("/execute-sql", response_model=ExecuteSQLResponse)
 async def execute_sql(request: ExecuteSQLRequest):
     start_time = time.time()
+    print(f"Executing SQL: {request.sql_query}")
     current_sql = sanitize_dot_columns(request.sql_query)
+    print(f"Sanitized SQL: {current_sql}")
+    patched_sql = patch_broken_sql(current_sql)
+    print(f"Patched SQL: {patched_sql}")
+    if patched_sql != current_sql:
+        print(f"🩹 Applied SQL Patch: \nOld: {current_sql}\nNew: {patched_sql}")
+        current_sql = patched_sql
+    print(f"Final SQL to Execute: {current_sql}")
     status = "error"
     result = []
     healed = False
@@ -419,7 +507,7 @@ async def execute_sql(request: ExecuteSQLRequest):
                 else:
                     df = pd.read_sql_query(sql=text(current_sql), con=connection)
                     if len(df) > 1000: df = df.head(1000)
-                    result = df.to_dict(orient='records')
+                    result = df.astype(object).where(pd.notnull(df), None).to_dict(orient='records')  # type: ignore
                 
                 status = "success"
                 break # Success! Exit loop
@@ -440,12 +528,9 @@ async def execute_sql(request: ExecuteSQLRequest):
             break
 
     latency = (time.time() - start_time) * 1000
+    print(f"Execution completed in {latency:.2f} ms with status: {status}")
+    print(f"Result: {result}")
     
-    # # Log Metrics
-    # try:
-    #     with open(LOG_FILE, "a", newline="", encoding='utf-8') as f:
-    #         csv.writer(f).writerow([request.question or "N/A", current_sql, latency, status])
-    # except: pass
     log_metrics(request.question, current_sql, latency, status)
 
     return ExecuteSQLResponse(
