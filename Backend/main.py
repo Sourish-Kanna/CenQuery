@@ -8,10 +8,9 @@ import pandas as pd
 import difflib  # <--- NEW: For Fuzzy Matching
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
-from sqlalchemy import create_engine, text, inspect
-from sqlalchemy.exc import ProgrammingError, OperationalError  # <--- NEW: Catch DB Errors
+from sqlalchemy import create_engine, text
 from dotenv import load_dotenv
-from typing import List, Dict, Any, Union, Set
+from typing import Any, Set
 from fastapi.middleware.cors import CORSMiddleware
 
 # --- Configuration ---
@@ -186,7 +185,6 @@ try:
         file_schema = json.load(f)
 
     for table_name, details in file_schema.items():
-        # Extract columns from the JSON structure
         # JSON Structure: { "table": { "columns": [ {"name": "x", "type": "y"}, ... ] } }
         cols_list = []
         for col in details.get("columns", []):
