@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+transformers
+peft
+bitsandbytes
+accelerate
+huggingface_hub
