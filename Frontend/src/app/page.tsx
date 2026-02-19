@@ -70,7 +70,7 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="text-center text-gray-500 py-6">
         <p>
-          CenQuery – Final Year Major Project
+          CenQuery - Final Year Major Project
         </p>
         <p>
           Department of Computer Science
