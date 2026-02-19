@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run Full Stack + Debug Frontend" type="CompoundRunConfigurationType">
+    <toRun name="Backend Run" type="Python.FastAPI" />
+    <toRun name="Frontend Chrome Debug" type="JavascriptDebugType" />
+    <toRun name="Frontend Run" type="js.build_tools.npm" />
+    <method v="2" />
+  </configuration>
+</component>
