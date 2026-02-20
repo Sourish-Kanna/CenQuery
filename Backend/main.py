@@ -501,9 +501,9 @@ async def execute_sql(request: ExecuteSQLRequest):
     start_time = time.time()
     print(f"Executing SQL: {request.sql_query}\n")
     current_sql = sanitize_dot_columns(request.sql_query)
-    print(f"Sanitized SQL: {current_sql}\n")
+    # print(f"Sanitized SQL: {current_sql}\n")
     patched_sql = patch_broken_sql(current_sql)
-    print(f"Patched SQL: {patched_sql}\n")
+    # print(f"Patched SQL: {patched_sql}\n")
     healed = False
     if patched_sql != current_sql:
         print(f"🩹 Applied SQL Patch: \nOld: {current_sql}\nNew: {patched_sql}\n")
