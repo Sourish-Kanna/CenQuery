@@ -1,7 +1,5 @@
-docker build -t cenquery-api .
+# Watch the model download
+docker logs -f cenquery-engine
 
-docker run -d \
-  --gpus all \
-  -p 8000:8000 \
-  -v $(pwd)/model_cache:/app/model_cache \
-  cenquery-api
+# Verify GPU usage
+nvidia-smi
