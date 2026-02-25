@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# This script sets up the CenQuery Engine by cloning the repository, building the Docker image, and running the container.
 # Setup Project
 cd /root
 git clone https://github.com/Sourish-Kanna/CenQuery.git
