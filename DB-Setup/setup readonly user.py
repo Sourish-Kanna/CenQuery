@@ -31,12 +31,11 @@ def main():
         cur = conn.cursor()
 
         print("Connected to PostgreSQL database")
-        username = input("Enter name: ")
         pas = input("Enter password and Remember it: ")
 
         # 1. CREATE THE USER/ROLE
         cur.execute(f"""
-            CREATE ROLE {username} WITH
+            CREATE ROLE census_reader WITH
                 LOGIN
                 PASSWORD '{pas}'
                 NOSUPERUSER
