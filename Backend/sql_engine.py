@@ -392,7 +392,7 @@ Generate a SQL query to answer the following question:
     model_type = "adapter" if use_adapter else "base"
     print(f"⏳ Sending to {model_type} endpoint: {endpoint} (Tables: {len(relevant_tables)})")
 
-    response = requests.post(endpoint, json={"prompt": formatted_prompt}, timeout=60)
+    response = requests.post(endpoint, json={"prompt": formatted_prompt}, timeout=120)
     response.raise_for_status()
 
     raw_sql = response.json().get("sql", "")

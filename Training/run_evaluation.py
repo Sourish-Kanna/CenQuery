@@ -1,5 +1,4 @@
 import json
-import os
 import requests
 import re
 import pandas as pd
@@ -10,18 +9,16 @@ EVAL_DATASET_PATH = "../Dataset/eval_data/old_eval_(Mixed).jsonl"
 API_BASE_URL = "http://localhost:8000" 
 TEST_MODE = "adapter" # Options: "adapter" or "base"
 RESULTS_FILE = f"evaluation_results_{TEST_MODE}.csv"
-LOG_DIR = f"Execution_Logs_{TEST_MODE}" 
+DETAILED_JSONL_FILE = f"detailed_logs_{TEST_MODE}.jsonl"
 # ---------------------
 
 def evaluate():
     print(f"🚀 Starting Evaluation Pipeline (Mode: {TEST_MODE.upper()})")
     
-    # Create the directory for individual CSV logs
-    os.makedirs(LOG_DIR, exist_ok=True)
-    print(f"📁 Individual API & Execution responses will be saved in: ./{LOG_DIR}/")
+    # Clear the detailed log file to start fresh
+    open(DETAILED_JSONL_FILE, 'w').close()
     
     # --- LOCAL DATASET LOADING ---
-    print(f"⏳ Loading local dataset from: {EVAL_DATASET_PATH}...")
     try:
         with open(EVAL_DATASET_PATH, 'r', encoding='utf-8') as f:
             eval_data = [json.loads(line) for line in f][:5]
@@ -62,32 +59,26 @@ def evaluate():
         if ground_truth_sql.endswith(';'):
             ground_truth_sql = ground_truth_sql[:-1].strip()
 
-        # 3. Call Generation API & Save LLM Response
+        # 3. Call Generation API
         generated_sql = "ERROR"
+        llm_data = {}
         try:
-            gen_response = requests.post(generate_endpoint, json={"question": question}, timeout=60)
+            gen_response = requests.post(generate_endpoint, json={"question": question}, timeout=120)
             gen_response.raise_for_status()
             llm_data = gen_response.json()
-            
-            # ---> NEW: Save the LLM API Response <---
-            pd.DataFrame([llm_data]).to_csv(os.path.join(LOG_DIR, f"q{idx}_llm_response.csv"), index=False)
             
             generated_sql = llm_data.get("sql_query", "").strip().lower()
             if generated_sql.endswith(';'):
                 generated_sql = generated_sql[:-1].strip()
-                
         except Exception as e:
-            # If LLM generation fails, log the error
-            print(f"\n⚠️ Generation failed for: '{question}' -> {e}")
-
-            pd.DataFrame([{"error": str(e), "question": question}]).to_csv(os.path.join(LOG_DIR, f"q{idx}_llm_response_error.csv"), index=False)
+            llm_data = {"error": str(e)}
 
         # 4. Check Exact Match (EM)
         is_em = (generated_sql == ground_truth_sql)
         if is_em:
             exact_matches += 1
 
-        # 5. Check Execution Accuracy (EX) & Save Execution CSVs
+        # 5. Check Execution Accuracy (EX)
         is_ex = False
         gt_result = None
         gen_result = None
@@ -95,20 +86,12 @@ def evaluate():
         if generated_sql != "ERROR":
             try:
                 # Execute Ground Truth
-                gt_resp = requests.post(execute_endpoint, json={"sql_query": ground_truth_sql}, timeout=30)
+                gt_resp = requests.post(execute_endpoint, json={"sql_query": ground_truth_sql}, timeout=120)
                 gt_result = gt_resp.json().get("result", [])
                 
                 # Execute Generated
-                gen_resp = requests.post(execute_endpoint, json={"sql_query": generated_sql}, timeout=30)
+                gen_resp = requests.post(execute_endpoint, json={"sql_query": generated_sql}, timeout=120)
                 gen_result = gen_resp.json().get("result", [])
-                
-                # Save GT Database Response
-                if isinstance(gt_result, list) and len(gt_result) > 0:
-                    pd.DataFrame(gt_result).to_csv(os.path.join(LOG_DIR, f"q{idx}_gt_response.csv"), index=False)
-                
-                # Save Generated Database Response
-                if isinstance(gen_result, list) and len(gen_result) > 0:
-                    pd.DataFrame(gen_result).to_csv(os.path.join(LOG_DIR, f"q{idx}_gen_response.csv"), index=False)
                 
                 # Compare Results
                 if isinstance(gt_result, list) and isinstance(gen_result, list):
@@ -118,7 +101,23 @@ def evaluate():
             except Exception as e:
                 print(f"\n⚠️ Execution failed for: '{question}' -> {e}")
 
-        # 6. Master Summary Log
+        # 6. Build and Append the Master JSONL Record
+        detailed_record = {
+            "id": f"q{idx}",
+            "question": question,
+            "ground_truth_sql": ground_truth_sql,
+            "generated_sql": generated_sql,
+            "exact_match": is_em,
+            "execution_match": is_ex,
+            "llm_api_response": llm_data,
+            "ground_truth_db_result": gt_result,
+            "generated_db_result": gen_result
+        }
+        
+        with open(DETAILED_JSONL_FILE, 'a', encoding='utf-8') as f:
+            f.write(json.dumps(detailed_record) + "\n")
+
+        # 7. Master Summary Log (for standard CSV overview)
         results_log.append({
             "id": f"q{idx}",
             "question": question,
@@ -143,8 +142,8 @@ def evaluate():
     print(f"Total Questions Evaluated : {evaluated_count} out of {total}")
     print(f"Exact Match (EM) Accuracy : {em_accuracy:.2f}% ({exact_matches}/{evaluated_count})")
     print(f"Execution (EX) Accuracy   : {ex_accuracy:.2f}% ({execution_matches}/{evaluated_count})")
-    print(f"Master Summary saved to   : {RESULTS_FILE}")
-    print(f"Individual outputs saved  : ./{LOG_DIR}/")
+    print(f"Summary saved to          : {RESULTS_FILE}")
+    print(f"Detailed JSONL saved to   : {DETAILED_JSONL_FILE}")
     print("="*50)
 
 if __name__ == "__main__":
