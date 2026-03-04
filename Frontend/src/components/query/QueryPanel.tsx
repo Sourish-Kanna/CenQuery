@@ -16,6 +16,7 @@ import {
 // 1. Define your Backend URL
 // const API_BASE_URL = "http://localhost:8000";
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
+console.log("Using API Base URL:", API_BASE_URL);
 
 const exampleQuestions = [
   "Show literacy rate of districts in Maharashtra",

@@ -49,21 +49,33 @@ class LLMEngine:
         ]
         print("✅ System Ready! CenQuery Brain is Online.")
 
-    def generate(self, prompt: str):
+    def generate(self, prompt: str, use_adapter: bool = True):
         gc.collect()
         torch.cuda.empty_cache()
         
         inputs = self.tokenizer(prompt, return_tensors="pt").to(self.model.device)
 
         with torch.no_grad():
-            outputs = self.model.generate(
-                **inputs,
-                max_new_tokens=300,
-                num_return_sequences=1,
-                eos_token_id=self.terminators,
-                pad_token_id=self.tokenizer.eos_token_id,
-                do_sample=False
-            )
+            if use_adapter:
+                outputs = self.model.generate(
+                    **inputs,
+                    max_new_tokens=300,
+                    num_return_sequences=1,
+                    eos_token_id=self.terminators,
+                    pad_token_id=self.tokenizer.eos_token_id,
+                    do_sample=False
+                )
+            else:
+                # Bypass adapter for bare model benchmarking
+                with self.model.disable_adapter():
+                    outputs = self.model.generate(
+                        **inputs,
+                        max_new_tokens=300,
+                        num_return_sequences=1,
+                        eos_token_id=self.terminators,
+                        pad_token_id=self.tokenizer.eos_token_id,
+                        do_sample=False
+                    )
 
         full_output = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
 
@@ -90,10 +102,18 @@ class QueryRequest(BaseModel):
     prompt: str
 
 @app.post("/generate")
-async def generate_sql(req: QueryRequest):
+async def generate_sql_adapter(req: QueryRequest):
     try:
-        sql = engine.generate(req.prompt)
-        return {"sql": sql}
+        sql = engine.generate(req.prompt, use_adapter=True)
+        return {"sql": sql, "model": "CenQuery-Adapter"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/generate/base")
+async def generate_sql_base(req: QueryRequest):
+    try:
+        sql = engine.generate(req.prompt, use_adapter=False)
+        return {"sql": sql, "model": "Llama-3-SQLCoder-8B-Base"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

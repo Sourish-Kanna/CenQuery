@@ -1,6 +1,9 @@
 #!/bin/bash
 
 # This script sets up the CenQuery Engine by cloning the repository, building the Docker image, and running the container.
+# It also ensures that any existing vLLM container is stopped and removed to avoid conflicts.
+# Usage: Run this script on your server to initialize the CenQuery Engine.
+
 # Setup Project
 cd /root
 git clone https://github.com/Sourish-Kanna/CenQuery.git
