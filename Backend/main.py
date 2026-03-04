@@ -95,6 +95,17 @@ async def generate_sql_base(request: GenerateSQLRequest):
         return GenerateSQLResponse(**response_data)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+    
+@app.post("/generate/adapter", response_model=GenerateSQLResponse, tags=["Benchmarking (Base Model)"])
+async def generate_sql_benchmark_adapter(request: GenerateSQLRequest):
+    """Generates SQL using the fine-tuned CenQuery adapter."""
+    if not request.question.strip():
+        raise HTTPException(status_code=400, detail="Empty question.")
+    try:
+        response_data = generate_sql(request.question, use_adapter=True)
+        return GenerateSQLResponse(**response_data)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/execute/bare", response_model=ExecuteSQLResponse, tags=["Benchmarking (Base Model)"])
 async def execute_sql_bare(request: ExecuteSQLRequest):

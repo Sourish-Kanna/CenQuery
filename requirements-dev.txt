@@ -39,6 +39,7 @@ colorama==0.4.6
     #   -c Backend/requirements.txt
     #   build
     #   click
+    #   tqdm
 cryptography==46.0.5
     # via pdfminer-six
 et-xmlfile==2.0.0
@@ -130,6 +131,8 @@ starlette==0.50.0
     # via
     #   -c Backend/requirements.txt
     #   fastapi
+tqdm==4.67.3
+    # via -r requirements-dev.in
 typing-extensions==4.15.0
     # via
     #   -c Backend/requirements.txt
