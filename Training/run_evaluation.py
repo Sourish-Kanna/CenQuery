@@ -1,25 +1,30 @@
 import json
-import time
+import os
 import requests
 import re
 import pandas as pd
 from tqdm import tqdm
 
 # --- CONFIGURATION ---
-EVAL_DATASET_PATH = "../Dataset/eval_data/old_eval_(Mixed).jsonl" # Path to your local 350-question dataset
-API_BASE_URL = "http://localhost:8000" # Change to your Colab ngrok IP if running remotely
+EVAL_DATASET_PATH = "../Dataset/eval_data/old_eval_(Mixed).jsonl" 
+API_BASE_URL = "http://localhost:8000" 
 TEST_MODE = "adapter" # Options: "adapter" or "base"
 RESULTS_FILE = f"evaluation_results_{TEST_MODE}.csv"
+LOG_DIR = f"Execution_Logs_{TEST_MODE}" 
 # ---------------------
 
 def evaluate():
     print(f"🚀 Starting Evaluation Pipeline (Mode: {TEST_MODE.upper()})")
     
+    # Create the directory for individual CSV logs
+    os.makedirs(LOG_DIR, exist_ok=True)
+    print(f"📁 Individual API & Execution responses will be saved in: ./{LOG_DIR}/")
+    
     # --- LOCAL DATASET LOADING ---
     print(f"⏳ Loading local dataset from: {EVAL_DATASET_PATH}...")
     try:
         with open(EVAL_DATASET_PATH, 'r', encoding='utf-8') as f:
-            eval_data = [json.loads(line) for line in f][:10]
+            eval_data = [json.loads(line) for line in f][:5]
     except Exception as e:
         print(f"❌ Failed to load local dataset: {e}")
         return
@@ -31,7 +36,6 @@ def evaluate():
     execution_matches = 0
     results_log = []
     
-    # Map correctly to the endpoints in main.py
     if TEST_MODE == "adapter":
         generate_endpoint = f"{API_BASE_URL}/generate-select-sql"
     else:
@@ -39,43 +43,51 @@ def evaluate():
         
     execute_endpoint = f"{API_BASE_URL}/execute/bare"
 
-    # Loop through the dataset with a progress bar
-    for item in tqdm(eval_data, desc="Evaluating"):
+    for idx, item in enumerate(tqdm(eval_data, desc="Evaluating")):
         full_text = item.get('text', '')
         
-        # 1. Extract the question using regex (looks for text inside backticks)
+        # 1. Extract the question 
         q_match = re.search(r'`([^`]+)`', full_text)
         if not q_match:
-            print("\n⚠️ Skipping item: No question found in backticks.")
+            print(f"\n⚠️ Skipping item {idx}: No question found in backticks.")
             continue
         question = q_match.group(1).strip()
         
-        # 2. Extract Ground Truth SQL (everything after "### SQL")
+        # 2. Extract Ground Truth SQL 
         if "### SQL" not in full_text:
-            print("\n⚠️ Skipping item: No '### SQL' marker found.")
+            print(f"\n⚠️ Skipping item {idx}: No '### SQL' marker found.")
             continue
             
         ground_truth_sql = full_text.split("### SQL")[-1].strip().lower()
         if ground_truth_sql.endswith(';'):
             ground_truth_sql = ground_truth_sql[:-1].strip()
 
-        # 3. Call Generation API
+        # 3. Call Generation API & Save LLM Response
+        generated_sql = "ERROR"
         try:
             gen_response = requests.post(generate_endpoint, json={"question": question}, timeout=60)
             gen_response.raise_for_status()
-            generated_sql = gen_response.json().get("sql_query", "").strip().lower()
+            llm_data = gen_response.json()
+            
+            # ---> NEW: Save the LLM API Response <---
+            pd.DataFrame([llm_data]).to_csv(os.path.join(LOG_DIR, f"q{idx}_llm_response.csv"), index=False)
+            
+            generated_sql = llm_data.get("sql_query", "").strip().lower()
             if generated_sql.endswith(';'):
                 generated_sql = generated_sql[:-1].strip()
+                
         except Exception as e:
+            # If LLM generation fails, log the error
             print(f"\n⚠️ Generation failed for: '{question}' -> {e}")
-            generated_sql = "ERROR"
+
+            pd.DataFrame([{"error": str(e), "question": question}]).to_csv(os.path.join(LOG_DIR, f"q{idx}_llm_response_error.csv"), index=False)
 
         # 4. Check Exact Match (EM)
         is_em = (generated_sql == ground_truth_sql)
         if is_em:
             exact_matches += 1
 
-        # 5. Check Execution Accuracy (EX)
+        # 5. Check Execution Accuracy (EX) & Save Execution CSVs
         is_ex = False
         gt_result = None
         gen_result = None
@@ -90,16 +102,25 @@ def evaluate():
                 gen_resp = requests.post(execute_endpoint, json={"sql_query": generated_sql}, timeout=30)
                 gen_result = gen_resp.json().get("result", [])
                 
+                # Save GT Database Response
+                if isinstance(gt_result, list) and len(gt_result) > 0:
+                    pd.DataFrame(gt_result).to_csv(os.path.join(LOG_DIR, f"q{idx}_gt_response.csv"), index=False)
+                
+                # Save Generated Database Response
+                if isinstance(gen_result, list) and len(gen_result) > 0:
+                    pd.DataFrame(gen_result).to_csv(os.path.join(LOG_DIR, f"q{idx}_gen_response.csv"), index=False)
+                
                 # Compare Results
                 if isinstance(gt_result, list) and isinstance(gen_result, list):
                     if gt_result == gen_result:
                         is_ex = True
                         execution_matches += 1
             except Exception as e:
-                pass 
+                print(f"\n⚠️ Execution failed for: '{question}' -> {e}")
 
-        # 6. Log Results
+        # 6. Master Summary Log
         results_log.append({
+            "id": f"q{idx}",
             "question": question,
             "ground_truth_sql": ground_truth_sql,
             "generated_sql": generated_sql,
@@ -122,7 +143,8 @@ def evaluate():
     print(f"Total Questions Evaluated : {evaluated_count} out of {total}")
     print(f"Exact Match (EM) Accuracy : {em_accuracy:.2f}% ({exact_matches}/{evaluated_count})")
     print(f"Execution (EX) Accuracy   : {ex_accuracy:.2f}% ({execution_matches}/{evaluated_count})")
-    print(f"Detailed logs saved to    : {RESULTS_FILE}")
+    print(f"Master Summary saved to   : {RESULTS_FILE}")
+    print(f"Individual outputs saved  : ./{LOG_DIR}/")
     print("="*50)
 
 if __name__ == "__main__":

@@ -153,10 +153,17 @@ RULES = [
 
 # --- Database Connection & Schema Caching ---
 try:
-    # 1. Establish DB Connection (Still needed for execution)
-    engine = create_engine(DATABASE_URL)
+    # UPDATED FOR SUPABASE: Added pooling parameters and pre-ping
+    engine = create_engine(
+        DATABASE_URL,
+        pool_size=10,          # Standard pool size
+        max_overflow=20,       # Allow up to 20 extra connections during spikes
+        pool_pre_ping=True,    # CRITICAL: Checks if the Supabase connection is still alive before querying
+        pool_recycle=1800      # Recycles connections every 30 minutes to prevent timeouts
+    )
+    
     with engine.connect() as connection:
-        print("✅ Database connection successful.")
+        print("✅ Supabase database connection successful.")
 
     # 2. Build Schema Cache from FILE (Not Database Inspection)
     print("⏳ Building Schema Cache from 'database_schema.json'...")
