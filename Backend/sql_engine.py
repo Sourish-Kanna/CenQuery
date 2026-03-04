@@ -379,7 +379,7 @@ Generate a SQL query to answer the following question:
 
     # Route to the correct vLLM / HuggingFace endpoint based on benchmarking needs
     base_url = LLM_ENGINE_URL.rstrip("/")
-    endpoint_path = "/generate" if use_adapter else "/generate/base"
+    endpoint_path = "/generate/adapter" if use_adapter else "/generate/base"
     endpoint = f"{base_url}{endpoint_path}"
     
     model_type = "adapter" if use_adapter else "base"

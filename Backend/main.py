@@ -35,8 +35,8 @@ tags_metadata = [
         "description": "Endpoints used by the frontend application. Uses the 650-question CenQuery adapter and includes auto-healing SQL execution.",
     },
     {
-        "name": "Benchmarking (Base Model)",
-        "description": "Endpoints used for the 350-question unseen evaluation dataset. Bypasses adapters and error healing to measure raw Llama-3-SQLCoder-8B performance.",
+        "name": "Benchmarking",
+        "description": "Endpoints used for the 350-question unseen evaluation dataset. Bypasses error healing to measure raw Llama-3-SQLCoder-8B performance.",
     },
 ]
 
@@ -85,7 +85,7 @@ async def execute_sql_robust(request: ExecuteSQLRequest):
 # 📊 BENCHMARKING ENDPOINTS
 # ==========================================
 
-@app.post("/generate/base", response_model=GenerateSQLResponse, tags=["Benchmarking (Base Model)"])
+@app.post("/generate/base", response_model=GenerateSQLResponse, tags=["Benchmarking"])
 async def generate_sql_base(request: GenerateSQLRequest):
     """Generates SQL using the raw Llama-3-SQLCoder-8B model (bypasses adapter)."""
     if not request.question.strip():
@@ -96,7 +96,7 @@ async def generate_sql_base(request: GenerateSQLRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
     
-@app.post("/generate/adapter", response_model=GenerateSQLResponse, tags=["Benchmarking (Base Model)"])
+@app.post("/generate/adapter", response_model=GenerateSQLResponse, tags=["Benchmarking"])
 async def generate_sql_benchmark_adapter(request: GenerateSQLRequest):
     """Generates SQL using the fine-tuned CenQuery adapter."""
     if not request.question.strip():
@@ -107,7 +107,7 @@ async def generate_sql_benchmark_adapter(request: GenerateSQLRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.post("/execute/bare", response_model=ExecuteSQLResponse, tags=["Benchmarking (Base Model)"])
+@app.post("/execute/bare", response_model=ExecuteSQLResponse, tags=["Benchmarking"])
 async def execute_sql_bare(request: ExecuteSQLRequest):
     """Raw execution without any safety checks, regex patching, or healing (for Exact Match / Execution Accuracy metrics)."""
     try:
