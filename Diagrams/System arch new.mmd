@@ -1,0 +1,28 @@
+---
+config:
+  layout: elk
+  theme: default
+  look: classic
+---
+flowchart LR
+ subgraph client["Client Layer (Frontend)"]
+        UI["Next.js Web Interface"]
+  end
+ subgraph backend["Orchestration Layer (FastAPI)"]
+        API["FastAPI Router"]
+        Schema["Schema Linking Logic"]
+        Post["SQL Formatter/Post-processor"]
+  end
+ subgraph llm-engine["Inference Layer (Hybrid Cloud)"]
+        Base["Llama-3-SQLCoder-8b Base Model"]
+        Adapter["Fine-tuned QLoRA Adapter"]
+        HF["Digital Ocean Inference Endpoint"]
+  end
+ subgraph database["Data Layer (PostgreSQL)"]
+        DB[("Indian Census Database")]
+  end
+    client <----> backend
+    backend <----> llm-engine & database
+    API <----> Schema & Post
+    Base ----> HF
+    Adapter ----> HF

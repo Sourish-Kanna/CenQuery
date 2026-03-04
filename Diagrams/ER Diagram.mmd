@@ -1,0 +1,42 @@
+---
+config:
+  layout: elk
+  look: neo
+  theme: redux-color
+---
+erDiagram
+	direction TB
+	REGIONS {
+		bigint state_id PK ""  
+		text name  ""  
+	}
+
+	STATS_TABLES {
+		bigint state_code FK ""  
+		bigint tru_id FK ""  
+		bigint category_id FK ""  
+		bigint metric_value  ""  
+	}
+
+	TRU {
+		bigint id PK ""  
+		text name  ""  
+	}
+
+	RELIGIONS {
+
+	}
+
+	LANGUAGES {
+
+	}
+
+	AGE_GROUPS {
+
+	}
+
+	REGIONS||--o{STATS_TABLES:"located_in"
+	TRU||--o{STATS_TABLES:"area_type"
+	RELIGIONS||--o{STATS_TABLES:"religion_id"
+	LANGUAGES||--o{STATS_TABLES:"language_id"
+	AGE_GROUPS||--o{STATS_TABLES:"age_id"

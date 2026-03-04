@@ -1,0 +1,29 @@
+sequenceDiagram
+    autonumber
+    actor User as 👤 User (Census Analyst)
+    participant FE as 🖥️ Frontend (Next.js)
+    participant API as ⚙️ Backend (FastAPI)
+    participant LLM as 🧠 HF Inference Endpoint<br/>(Llama-3-SQLCoder + LoRA)
+    participant DB as 🗄️ Database<br/>(PostgreSQL)
+
+    Note over User, FE: Phase 1: Query Ingestion
+    User->>FE: Enters Natural Language Question<br/>(e.g., "Total literates in Kerala?")
+    FE->>API: POST /generate_sql (question)
+    
+    Note over API, LLM: Phase 2: Schema Linking & Generation
+    API->>API: Retrieve Database Schema Context
+    API->>LLM: Send Prompt (Instruction + Schema + Question)
+    activate LLM
+    LLM-->>API: Return Generated SQL Query
+    deactivate LLM
+    
+    Note over API, DB: Phase 3: Execution & Validation
+    API->>API: Validate SQL Syntax (Basic Checks)
+    API->>DB: Execute SQL Query
+    activate DB
+    DB-->>API: Return Result Set (Rows/Data)
+    deactivate DB
+    
+    Note over API, User: Phase 4: Response
+    API-->>FE: Return JSON Response (SQL + Data)
+    FE->>User: Display Data Table & Generated SQL
