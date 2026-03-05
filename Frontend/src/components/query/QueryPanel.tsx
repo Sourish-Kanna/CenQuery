@@ -19,7 +19,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8
 console.log("Using API Base URL:", API_BASE_URL);
 
 const exampleQuestions = [
-  "Show literacy rate of districts in Maharashtra",
+  "How many people in Punjab are seeking work?",
   "Compare male and female population in Tamil Nadu",
   "List top 5 districts by population",
 ];
