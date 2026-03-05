@@ -5,4 +5,4 @@ docker logs -f cenquery-engine
 nvidia-smi
 
 # make script exceutable
-chmod u+x startup.sh
+chmod u+x setup.sh
