@@ -101,7 +101,7 @@ engine = LLMEngine()
 class QueryRequest(BaseModel):
     prompt: str
 
-@app.post("/generate")
+@app.post("/generate/adapter")
 async def generate_sql_adapter(req: QueryRequest):
     try:
         sql = engine.generate(req.prompt, use_adapter=True)

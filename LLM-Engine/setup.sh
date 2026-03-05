@@ -17,16 +17,18 @@ fi
 
 cd LLM-Engine
 
-# 2. Cleanup existing containers
+# 2. Cleanup existing containers (Ensures VRAM is freed)
 docker stop vllm cenquery-engine 2>/dev/null || true
 docker rm vllm cenquery-engine 2>/dev/null || true
 
 # 3. Build and Run
 docker build -t cenquery-api .
+
 docker run -d \
   --gpus all \
   --restart always \
   --name cenquery-engine \
+  -e PYTORCH_CUDA_ALLOC_CONF="expandable_segments:True" \
   -p 8001:8000 \
   -v $(pwd)/model_cache:/app/model_cache \
   cenquery-api
