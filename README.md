@@ -2,6 +2,8 @@
 
 **CenQuery** is a high-accuracy Natural Language to SQL (NL-to-SQL) system specifically architected for Indian Census datasets. By moving away from generic LLMs, this project utilizes a fine-tuned **Llama-3-SQLCoder-8b** model with **QLoRA adapters** to ensure schema-safe query generation and 100% execution accuracy.
 
+**[Project Demo Video](https://drive.google.com/file/d/16c4AwUkKUdbjDFtxAuA4cx7uH_hcqqO3/view?usp=drive_link)**
+
 ---
 
 ## 🏗️ System Architecture: The "Soft Reboot"
