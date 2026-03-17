@@ -46,11 +46,19 @@
     ],
     "compounds": [
         {
-            "name": "Run Full Stack + Debug Frontend",
+            "name": "Run Full Stack + Debug Frontend + Chrome",
             "configurations": [
                 "Frontend Run",
                 "Backend Run",
                 "Frontend Chrome Debug"
+            ],
+            "stopAll": true
+        },
+        {
+            "name": "Run Full Stack + Debug Frontend",
+            "configurations": [
+                "Frontend Run",
+                "Backend Run",
             ],
             "stopAll": true
         }
