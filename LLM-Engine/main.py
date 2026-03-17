@@ -47,6 +47,8 @@ class LLMEngine:
             self.tokenizer.eos_token_id,
             self.tokenizer.convert_tokens_to_ids("<|eot_id|>")
         ]
+        print("🔥 Warming up engine...")
+        self.generate("SELECT 1", use_adapter=True)
         print("✅ System Ready! CenQuery Brain is Online.")
 
     def generate(self, prompt: str, use_adapter: bool = True):

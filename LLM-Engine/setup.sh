@@ -6,14 +6,9 @@ BRANCH="stable"
 
 # 1. Setup/Update Project
 cd /root
-if [ -d "CenQuery" ]; then
-    echo "Updating existing repository..."
-    cd CenQuery && git fetch origin && git checkout $BRANCH && git pull origin $BRANCH
-else
-    echo "Cloning stable branch..."
-    git clone -b $BRANCH $REPO_URL
-    cd CenQuery
-fi
+echo "Cloning stable branch..."
+git clone -b $BRANCH $REPO_URL
+cd CenQuery
 
 cd LLM-Engine
 
