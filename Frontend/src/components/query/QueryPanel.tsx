@@ -45,7 +45,7 @@ export default function QueryPanel() {
       const genResponse = await fetch(`${API_BASE_URL}/generate-select-sql`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question }),
+        body: JSON.stringify({ question: question }),
       });
 
       if (!genResponse.ok) throw new Error("Failed to generate SQL query.");
