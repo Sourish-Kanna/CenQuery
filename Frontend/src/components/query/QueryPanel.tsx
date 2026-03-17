@@ -19,9 +19,14 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8
 console.log("Using API Base URL:", API_BASE_URL);
 
 const exampleQuestions = [
+  "What all states are there in India?",
   "How many people in Punjab are seeking work?",
-  "Compare male and female population in Tamil Nadu",
-  "List top 5 districts by population",
+  "What all crops were sowed?",
+  "How many males and females are there in Tamil Nadu?",
+  "Give me top 5 states by population in india?",
+  "What was the area sown for Rice in 2024-25?",
+  "How much Muslim population is there in Kerala?",
+  "What is the total population of India?",
 ];
 
 export default function QueryPanel() {
@@ -128,7 +133,7 @@ export default function QueryPanel() {
         <textarea
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
-          placeholder="e.g., Which district has the highest female literacy in Kerala?"
+          placeholder="e.g., how many males and females are there in Tamil Nadu?"
           className="w-full h-28 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
         />
       </div>

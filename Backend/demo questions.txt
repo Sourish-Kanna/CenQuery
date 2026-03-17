@@ -1,6 +1,16 @@
-What is the total literate population in Tamil Nadu?
-Count the Muslim population in Kerala.
-Total people in Karnataka who speak Kannada.
+# In Frontend
+What all states are there in India?
 How many people in Punjab are seeking work?
-What is the total population of the 20-24 age group in Kerala?
+What all crops were sowed?
+How many males and females are there in Tamil Nadu?
+Give me top 5 states by population in india?
+How many people in Punjab are seeking work?
 What was the area sown for Rice in 2024-25?
+How much Muslim population is there in Kerala"
+What is the total population of India?
+
+
+# Not upto standard
+how many people in Karnataka who speak Kannada.
+What is the total literate population in Tamil Nadu?
+What is the total population of the 20-24 age group in Kerala?
