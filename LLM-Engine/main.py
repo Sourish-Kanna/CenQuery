@@ -106,7 +106,9 @@ class QueryRequest(BaseModel):
 @app.post("/generate/adapter")
 async def generate_sql_adapter(req: QueryRequest):
     try:
+        print(f"🔸 [ADAPTER] Prompt: [{req.prompt.split('###')[1]}]")
         sql = engine.generate(req.prompt, use_adapter=True)
+        print(f"🔹 [ADAPTER] Generated: {sql}")
         return {"sql": sql, "model": "CenQuery-Adapter"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -114,7 +116,9 @@ async def generate_sql_adapter(req: QueryRequest):
 @app.post("/generate/base")
 async def generate_sql_base(req: QueryRequest):
     try:
+        print(f"🔸 [BASE] Prompt: [{req.prompt.split("###")[1]}]")
         sql = engine.generate(req.prompt, use_adapter=False)
+        print(f"🔹 [BASE] Generated: {sql}")
         return {"sql": sql, "model": "Llama-3-SQLCoder-8B-Base"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -122,3 +126,7 @@ async def generate_sql_base(req: QueryRequest):
 @app.get("/health", include_in_schema=False)
 async def health_check():
     return {"status": "healthy", "message": "API is running on DigitalOcean GPU"}
+
+@app.get("/", include_in_schema=False)
+async def root():
+    return {"status": "healthy", "message": "CenQuery LLM Service (Benchmarking Enabled) is Online!"}
