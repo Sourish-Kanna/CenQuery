@@ -116,7 +116,7 @@ async def generate_sql_adapter(req: QueryRequest):
 @app.post("/generate/base")
 async def generate_sql_base(req: QueryRequest):
     try:
-        print(f"🔸 [BASE] Prompt: [{req.prompt.split("###")[1]}]")
+        print(f"🔸 [BASE] Prompt: [{req.prompt.split('###')[1]}]")
         sql = engine.generate(req.prompt, use_adapter=False)
         print(f"🔹 [BASE] Generated: {sql}")
         return {"sql": sql, "model": "Llama-3-SQLCoder-8B-Base"}

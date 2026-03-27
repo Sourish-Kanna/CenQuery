@@ -5,7 +5,6 @@ REPO_URL="https://github.com/Sourish-Kanna/CenQuery.git"
 BRANCH="stable" 
 
 # 1. Setup/Update Project
-cd /root
 echo "Cloning stable branch..."
 git clone -b $BRANCH $REPO_URL
 cd CenQuery
