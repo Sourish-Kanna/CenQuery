@@ -1,7 +1,7 @@
 fastapi
 uvicorn
-transformers
-peft
-bitsandbytes
-accelerate
+transformers==4.44.2
+peft==0.12.0
+bitsandbytes==0.43.3
+accelerate==0.34.2
 huggingface_hub
