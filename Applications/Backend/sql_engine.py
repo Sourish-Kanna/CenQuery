@@ -257,7 +257,7 @@ Generate a SQL query to answer the following question:
 - Output ONLY the SQL query.
 - Use ILIKE for text comparisons.
 - NEVER use hardcoded IDs (e.g., state=10). Always JOIN with 'regions' and filter by 'area_name'.
-- Do NOT use SUM() or aggregates unless the question asks for "total", "sum", or "percentage".
+- Do NOT use SUM() or aggregates unless the question asks for "total", "overall", "How many", "How much", "sum", or "percentage".
 - If the column name contains dots (e.g. col.1), use double quotes (e.g. "col.1").
 
 ### SQL
