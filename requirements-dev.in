@@ -1,5 +1,5 @@
--c Backend/requirements.txt
--r Backend/requirements.in
+-c Applications/Backend/requirements.txt
+-r Applications/Backend/requirements.in
 
 pandas
 sqlalchemy
@@ -7,5 +7,7 @@ psycopg2-binary
 python-dotenv
 pdfplumber
 openpyxl
-pip-tools
 tqdm
+xlrd
+
+# pip-tools is needed to compile this
