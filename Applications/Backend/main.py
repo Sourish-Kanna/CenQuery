@@ -1,32 +1,9 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
-from typing import Any
+from constants import GenerateSQLRequest, GenerateSQLResponse, ExecuteSQLRequest, ExecuteSQLResponse
 
 # Import our core logic module
 from sql_engine import generate_sql, execute_and_heal, execute_bare
-
-# --- Pydantic Models ---
-class GenerateSQLRequest(BaseModel):
-    question: str = Field(..., description="Natural language question.")
-
-class GenerateSQLResponse(BaseModel):
-    question: str
-    sql_query: str
-    schema_selected: str | None = None
-    model_type: str | None = None
-
-class ExecuteSQLRequest(BaseModel):
-    sql_query: str
-    question: str | None = None
-
-class ExecuteSQLResponse(BaseModel):
-    sql_query: str
-    result: Any
-    question: str | None = None
-    latency_ms: float
-    status: str
-    healed: bool = False
 
 # --- Swagger UI Metadata ---
 tags_metadata = [
@@ -54,6 +31,14 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
+
+
+# ==========================================
+# ℹ️ SYSTEM ROUTE
+# ==========================================
+@app.get("/", include_in_schema=False)
+async def root():
+    return {"message": "CenQuery Service B (Dual-Mode Engine) is Online"}
 
 # ==========================================
 # 🚀 PRODUCTION ENDPOINTS
@@ -115,8 +100,3 @@ async def execute_sql_bare(request: ExecuteSQLRequest):
         return ExecuteSQLResponse(**execution_data)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-
-# --- System Route ---
-@app.get("/", include_in_schema=False)
-async def root():
-    return {"message": "CenQuery Service B (Dual-Mode Engine) is Online"}

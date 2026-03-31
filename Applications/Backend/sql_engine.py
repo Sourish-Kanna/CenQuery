@@ -1,5 +1,4 @@
 import os
-import csv
 import time
 import re
 import json
@@ -8,17 +7,11 @@ import pandas as pd
 import difflib
 from sqlalchemy import create_engine, text
 from dotenv import load_dotenv
-from typing import Set, Tuple, Any, Dict
+from typing import Set, Any, Dict
+from constants import INTENTS, RULES
 
 # --- Configuration ---
 load_dotenv()
-
-# Get the directory of the current script for relative paths
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-
-GENERATION_LOG_FILE = os.path.join(SCRIPT_DIR, "generation_log.csv")
-LOG_FILE = os.path.join(SCRIPT_DIR, "metrics_log.csv")
-DATA_DIR = os.getenv("DATA_DIR", os.path.join(SCRIPT_DIR, "data"))
 
 DATABASE_URL = os.getenv("DB_CONNECTION_STRING", "")
 LLM_ENGINE_URL = os.getenv("LLM_ENGINE_URL", "")
@@ -35,124 +28,6 @@ ALL_COLUMN_NAMES = set()
 # --- Config & keywords ---
 MAX_OPTIONAL_TABLES = 6
 CORE_TABLES = {"regions", "tru", "languages", "religions", "age_groups"}
-
-def load_csv_keywords(filename: str, column: str) -> Set[str]:
-    path = os.path.join(DATA_DIR, filename)
-    out = set()
-    if os.path.exists(path):
-        try:
-            with open(path, encoding="utf-8") as f:
-                for row in csv.DictReader(f):
-                    v = row.get(column, "").strip().lower()
-                    if v: out.add(v)
-            print(f"✅ Loaded {len(out)} keywords from {filename}")
-        except Exception as e:
-            print(f"⚠️ Could not load {filename}: {e}")
-    return out
-
-LANGUAGE_KEYWORDS = load_csv_keywords("languages.csv", "name")
-RELIGION_KEYWORDS = load_csv_keywords("religions.csv", "religion_name")
-AGE_GROUP_KEYWORDS = load_csv_keywords("age_groups.csv", "name")
-
-INTENTS = {
-    "population": {
-        "strong": {
-            "population", "people", "persons", "count", "total",
-            "live", "living", "men", "women", "male", "female",
-            "boys", "girls", "sex ratio", "gender", "households",
-            "dwellers", "villagers", "citizens", "residents"
-        },
-        "weak": {
-            "most", "least", "largest", "smallest", "fewest",
-            "more", "less", "higher", "lower",
-            "ratio", "gap", "difference", "percentage", "percent"
-        }
-    },
-    "religion": {
-        "strong": RELIGION_KEYWORDS | {
-            "religion", "religious", "faith", "community",
-            "parsi", "parsis", "zoroastrian", "zoroastrians"
-        },
-        "weak": set()
-    },
-    "language": {
-        "strong": LANGUAGE_KEYWORDS | {
-            "language", "languages", "spoken", "speakers", "mother tongue"
-        },
-        "weak": set()
-    },
-    "education": {
-        "strong": {
-            "literacy", "literate", "illiterate",
-            "education", "educated", "schooling", "school",
-            "university", "college", "degree", "diploma", "pre-primary"
-        },
-        "weak": {"rate"}
-    },
-    "occupation": {
-        "strong": {
-            "work", "working", "worker", "employment",
-            "non-worker", "workforce", "participation",
-            "job", "jobs", "employed", "unemployed", "cultivator",
-            "labourer", "agricultural", "paid", "cash",
-            "marginal", "main", "industry", "industries", "engaged"
-        },
-        "weak": set()
-    },
-    "health": {
-        "strong": {
-            "health", "mortality", "fertility", "disease", "anaemia", "diabetes",
-            "vaccinated", "vaccination", "vaccine", "vaccines",
-            "stunting", "stunted", "wasting", "wasted",
-            "underweight", "overweight", "obese", "obesity", "bmi",
-            "birth", "births", "delivery", "deliveries", "antenatal", "postnatal",
-            "breastfed", "breastfeeding", "diet", "nutrition",
-            "blood sugar", "blood pressure", "hypertension",
-            "hygienic", "menstruation", "sanitation", "clean fuel", "cooking fuel",
-            "electricity", "drinking water", "water", "toilet",
-            "internet", "bank account", "mobile phone", "insurance",
-            "violence", "crime", "tobacco", "alcohol", "smoking",
-            "fever", "ari", "diarrhoea", "treatment", "advice",
-            "vitamin", "iodized", "salt", "cancer", "screening", "c-section",
-            "hiv", "aids", "condom", "knowledge",
-            "anaemic", "pregnant", "pregnancy", "married", "marriage",
-            "waist", "hip", "folic", "acid", "decision", "owning", "house", "land",
-            "registered", "registration", "authority"
-        },
-        "weak": set()
-    },
-    "age": {
-        "strong": AGE_GROUP_KEYWORDS | {
-            "age", "children", "elderly", "youth",
-            "adult", "adults", "working age", "teenagers", "seniors",
-            "0-6", "15-49", "60+"
-        },
-        "weak": set()
-    },
-    "agriculture": {
-        "strong": {
-            "agriculture", "agricultural", "crop", "crops", "farming",
-            "sown", "sowing", "harvest", "harvesting", "yield", "production",
-            "area", "dafw", "hectare", "hectares", "tonnes", "metric",
-            "rice", "wheat", "maize", "jute", "sugarcane", "cotton",
-            "oilseeds", "pulses", "cereals", "millet", "millets",
-            "foodgrains", "nutri", "soybean", "barley", "groundnut",
-            "ragi", "jowar", "bajra", "tur", "gram", "lentil"
-        },
-        "weak": {"normal", "season", "growth"}
-    },
-}
-
-RULES = [
-    {"intent": "religion", "adds": {"religion_stats"}},
-    {"intent": "language", "adds": {"language_stats"}},
-    {"intent": "population", "adds": {"population_stats"}},
-    {"intent": "health", "adds": {"healthcare_stats"}},
-    {"intent": "age", "adds": {"population_stats"}},
-    {"intent": "occupation", "adds": {"occupation_stats", "education_stats"}}, # "healthcare_stats"}},
-    {"intent": "education", "adds": {"education_stats", "religion_stats"}}, #"healthcare_stats"}},
-    {"intent": "agriculture", "adds": {"crop_stats"}},
-]
 
 # --- Database Connection & Schema Caching ---
 try:
@@ -195,28 +70,8 @@ try:
         FULL_SCHEMA_CACHE[table_name] = {"columns": cols_list}
 
     print(f"✅ Schema Cache Built from file ({len(FULL_SCHEMA_CACHE)} tables)")
-
 except Exception as e:
     print(f"❌ Initialization Error: {e}")
-
-# --- Logging ---
-def log_generation(question: str, sql_query: str):
-    try:
-        with open(GENERATION_LOG_FILE, "a", newline="", encoding='utf-8') as f:
-            writer = csv.writer(f)
-            if not os.path.isfile(GENERATION_LOG_FILE): writer.writerow(["question", "generated_sql_query", "schema_selected"])
-            writer.writerow([question, sql_query, None])
-    except:
-        pass
-
-def log_metrics(question, sql, latency, status):
-    try:
-        with open(LOG_FILE, "a", newline="", encoding='utf-8') as f:
-            writer = csv.writer(f)
-            if not os.path.isfile(LOG_FILE): writer.writerow(["question", "sql_query", "latency_ms", "status"])
-            writer.writerow([question or "N/A", sql, latency, status])
-    except:
-        pass
 
 # --- Logic Functions ---
 def detect_intents(question: str) -> Set[str]:
@@ -365,8 +220,9 @@ def patch_broken_sql(sql_query: str) -> str:
 
     return patched_sql
 
-# --- Public Exported Functions ---
 
+
+# --- Public Exported Functions ---
 def generate_sql(question: str, use_adapter: bool = True) -> Dict[str, Any]:
     relevant_tables = select_tables(question)
     schema_string = build_schema_ddl(relevant_tables)
@@ -405,7 +261,6 @@ Generate a SQL query to answer the following question:
 
     # Standard sanitization for base string formatting
     sql_query = sanitize_dot_columns(sql_query)
-    log_generation(question, sql_query)
     print(f"✅ Received SQL from Service A: {sql_query}")
     
     return {
@@ -440,7 +295,6 @@ def execute_bare(sql_query: str, question: str | None = None) -> Dict[str, Any]:
         status = "error"
 
     latency = (time.time() - start_time) * 1000
-    log_metrics(question, sql_query, latency, status)
 
     return {
         "sql_query": sql_query,
@@ -494,7 +348,6 @@ def execute_and_heal(sql_query: str, question: str | None = None) -> Dict[str, A
             break
 
     latency = (time.time() - start_time) * 1000
-    log_metrics(question, current_sql, latency, status)
 
     return {
         "sql_query": current_sql,
