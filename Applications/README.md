@@ -25,7 +25,7 @@ Each sub-folder contains its own README with detailed setup instructions. Follow
 
 ## Development Workflow
 
-```
+``` text
 Frontend (React/Next.js) → Backend (FastAPI) → LLM-Engine (Transformers)
          ↓                            ↓                    ↓
     Port 3000                    Port 8000             Port 8001
