@@ -65,7 +65,9 @@ class LLMEngine:
                     num_return_sequences=1,
                     eos_token_id=self.terminators,
                     pad_token_id=self.tokenizer.eos_token_id,
-                    do_sample=False
+                    do_sample=False,
+                    temperature=None,
+                    top_p=None
                 )
             else:
                 # Bypass adapter for bare model benchmarking
