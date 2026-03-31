@@ -7,11 +7,11 @@ import os
 
 # --- CONFIGURATION ---
 # Based on your repo structure: Training/run_evaluation.py
-EVAL_DATASET_PATH = "../Dataset/eval_data/eval_(Mixed).jsonl" 
+EVAL_DATASET_PATH = "old_eval_(Mixed).jsonl" 
 API_BASE_URL = "http://localhost:8000" 
 TEST_MODE = "adapter" # Options: "adapter" or "base"
-RESULTS_FILE = f"evaluation_results_{TEST_MODE}.csv"
-DETAILED_JSONL_FILE = f"detailed_logs_{TEST_MODE}.jsonl"
+RESULTS_FILE = f"eval/evaluation_results_{TEST_MODE}.csv"
+DETAILED_JSONL_FILE = f"eval/detailed_logs_{TEST_MODE}.jsonl"
 
 # 1. Generation Endpoint Mapping (Matches Backend/main.py tags)
 if TEST_MODE == "adapter":
@@ -45,6 +45,7 @@ def evaluate():
     exact_matches = 0
     execution_matches = 0
     results_log = []
+    eval_data = eval_data[:10] 
 
     # Clear logs
     open(DETAILED_JSONL_FILE, 'w').close()

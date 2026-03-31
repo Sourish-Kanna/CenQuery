@@ -1,0 +1,11 @@
+id,question,gt_sql,gen_sql,em,ex
+0,How many people speak Sanskrit in total Goa?,,GEN_ERROR: 500 Server Error: Internal Server Error for url: http://localhost:8000/generate/adapter,False,False
+1,Which top 3 have the lowest percentage of stunted children under 5?,,GEN_ERROR: 500 Server Error: Internal Server Error for url: http://localhost:8000/generate/adapter,False,False
+2,How many people speak Malayalam in rural Uttarakhand?,,GEN_ERROR: 500 Server Error: Internal Server Error for url: http://localhost:8000/generate/adapter,False,False
+3,What is the percentage of wasted children under 5 in total Mizoram?,,GEN_ERROR: 500 Server Error: Internal Server Error for url: http://localhost:8000/generate/adapter,False,False
+4,How many marginal cultivators are there in total Madhya Pradesh?,,GEN_ERROR: 500 Server Error: Internal Server Error for url: http://localhost:8000/generate/adapter,False,False
+5,How many people speak Kannada in rural Andhra Pradesh?,,GEN_ERROR: 500 Server Error: Internal Server Error for url: http://localhost:8000/generate/adapter,False,False
+6,How many people speak Gujarati in total Lakshadweep?,,GEN_ERROR: 500 Server Error: Internal Server Error for url: http://localhost:8000/generate/adapter,False,False
+7,How many main agricultural labourers are there in urban Arunachal Pradesh?,,GEN_ERROR: 500 Server Error: Internal Server Error for url: http://localhost:8000/generate/adapter,False,False
+8,How many household industry workers are there in rural Bihar?,,GEN_ERROR: 500 Server Error: Internal Server Error for url: http://localhost:8000/generate/adapter,False,False
+9,How many marginal cultivators are there in total Daman & Diu?,,GEN_ERROR: 500 Server Error: Internal Server Error for url: http://localhost:8000/generate/adapter,False,False
