@@ -146,7 +146,7 @@ def heal_sql_query(bad_sql: str, error_msg: str) -> str:
     Parses DB error message, finds the closest valid column OR fixes quoted identifiers.
     """
     print(f"🚑 Attempting to heal SQL. Error: {error_msg}")
-    match = re.search(r'column "([^"]+)" does not exist', error_msg)
+    match = re.search(r'(?:column|attribute) "([^"]+)" does not exist', error_msg, re.IGNORECASE)
     if not match:
         match = re.search(r'column ([^ ]+) does not exist', error_msg)
 
