@@ -60,6 +60,8 @@ async def generate_sql_adapter(request: GenerateSQLRequest):
 @app.post("/execute-sql", response_model=ExecuteSQLResponse, tags=["Production (Adapter & Healing)"])
 async def execute_sql_robust(request: ExecuteSQLRequest):
     """Executes SQL against the Indian Census database with active error patching and retry loops."""
+
+    print(f"Received question: {request.question}")
     try:
         execution_data = execute_and_heal(request.sql_query, request.question)
         return ExecuteSQLResponse(**execution_data)
@@ -75,6 +77,8 @@ async def generate_sql_base(request: GenerateSQLRequest):
     """Generates SQL using the raw Llama-3-SQLCoder-8B model (bypasses adapter)."""
     if not request.question.strip():
         raise HTTPException(status_code=400, detail="Empty question.")
+    
+    print(f"Received question: {request.question}")
     try:
         response_data = generate_sql(request.question, use_adapter=False)
         return GenerateSQLResponse(**response_data)
@@ -86,6 +90,8 @@ async def generate_sql_benchmark_adapter(request: GenerateSQLRequest):
     """Generates SQL using the fine-tuned CenQuery adapter."""
     if not request.question.strip():
         raise HTTPException(status_code=400, detail="Empty question.")
+    
+    print(f"Received question: {request.question}")
     try:
         response_data = generate_sql(request.question, use_adapter=True)
         return GenerateSQLResponse(**response_data)
@@ -95,6 +101,8 @@ async def generate_sql_benchmark_adapter(request: GenerateSQLRequest):
 @app.post("/execute/bare", response_model=ExecuteSQLResponse, tags=["Benchmarking"])
 async def execute_sql_bare(request: ExecuteSQLRequest):
     """Raw execution without any safety checks, regex patching, or healing (for Exact Match / Execution Accuracy metrics)."""
+
+    print(f"Received question: {request.question}")
     try:
         execution_data = execute_bare(request.sql_query, request.question)
         return ExecuteSQLResponse(**execution_data)

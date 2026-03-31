@@ -40,6 +40,7 @@ def evaluate():
     os.makedirs("eval", exist_ok=True)
     with open(EVAL_DATASET_PATH, 'r', encoding='utf-8') as f:
         eval_data = [json.loads(line) for line in f]
+    # eval_data = eval_data[:10]  # Limit for quick testing
 
     # Initialize Log Lists
     logs = {"adapter_bare": [], "adapter_heal": [], "base": []}

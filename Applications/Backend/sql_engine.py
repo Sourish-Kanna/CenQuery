@@ -154,6 +154,20 @@ def heal_sql_query(bad_sql: str, error_msg: str) -> str:
         bad_col = match.group(1)
         clean_bad_col = bad_col.split(".")[-1] # Remove table alias if present
 
+        # Strategy 1.5: Direct Keyword Check (Add this before fuzzy matching)
+        keywords = {
+            "stn": "stunted",
+            "wast": "wasted",
+            "u5": "under_5_years",
+            "lit": "literate"
+        }
+        for short, long in keywords.items():
+            if short in clean_bad_col:
+                # Narrow down ALL_COLUMN_NAMES to only those containing the long keyword
+                matches = [c for c in ALL_COLUMN_NAMES if long in c]
+                if matches:
+                    return bad_sql.replace(clean_bad_col, matches[0])
+
         # STRATEGY 1: Fuzzy Match Column Name (Typo Fix)
         matches = difflib.get_close_matches(clean_bad_col, ALL_COLUMN_NAMES, n=1, cutoff=0.5)
         if matches:
