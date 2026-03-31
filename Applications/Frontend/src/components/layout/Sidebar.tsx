@@ -38,12 +38,12 @@ export default function Sidebar() {
       {/* Sidebar */}
       <aside
         className={clsx(
-          "w-64 border-r min-h-screen p-4 bg-gradient-to-b from-gray-50 to-gray-100 transition-all duration-300 z-40",
+          "w-64 border-r border-gray-200 dark:border-gray-700 min-h-screen p-4 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 transition-all duration-300 z-40",
           "md:relative md:translate-x-0",
           isOpen ? "fixed translate-x-0" : "fixed -translate-x-full"
         )}
       >
-        <p className="text-xs text-gray-500 mb-4 uppercase tracking-wide font-semibold">
+        <p className="text-xs text-gray-500 dark:text-gray-400 mb-4 uppercase tracking-wide font-semibold">
           Main Menu
         </p>
 
@@ -61,7 +61,7 @@ export default function Sidebar() {
                   "flex items-center gap-3 px-4 py-3 rounded-xl text-sm transition-all duration-200",
                   isActive
                     ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
-                    : "text-gray-700 hover:bg-white hover:shadow-md"
+                    : "text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-700 hover:shadow-md"
                 )}
               >
                 <Icon size={20} />
