@@ -6,7 +6,7 @@
 
 ---
 
-## 🏗️ System Architecture: The "Soft Reboot"
+## 🏗️ System Architecture
 
 To solve the "hallucination" and "privacy-performance paradox" found in baseline models, CenQuery employs a specialized production-ready pipeline:
 
@@ -21,27 +21,31 @@ To solve the "hallucination" and "privacy-performance paradox" found in baseline
 
 ## 📂 Project Structure
 
+The CenQuery repository is organized into distinct modules for data processing, model training, and application deployment.
+
 ```text
-CenQuery-main/
-├── Backend/                # FastAPI Server & Business Logic (Deployed on Render)
-│   ├── main.py             # API Routes (/api/query)
-│   └── database_schema.json# Verified Master Schema for Prompt Construction
-├── LLM-Engine/             # Inference logic (Deployed on DigitalOcean)
-│   ├── main.py             # vLLM/Transformers Inference Server
-│   └── dockerfile          # Containerization for GPU deployment
-├── Dataset/                # The "Census-650" & Evaluation Sets
-│   ├── training_data/      # train_final_(650).jsonl for LoRA training
-│   ├── data/               # 12 Normalized CSV Tables (Religion, Crop, etc.)
-│   └── eval_data/          # 350 Unseen questions for final validation
-├── Frontend/               # Next.js Application (Deployed on Vercel)
-│   ├── src/app/            # Query interface and result visualization
-│   └── tailwind.config.ts  # UI Styling
-├── Training/               # Fine-tuning & Evaluation Scripts
-│   ├── lora_train_test.ipynb # QLoRA training workflow
-│   └── run_evaluation.ipynb  # Metric calculation (Accuracy/Error Analysis)
-├── Old-Research/           # Baseline Comparative Study
-│   └── summary_metrics.csv # Historical results (GPT vs Llama baselines)
-└── README.md
+CenQuery-regorg/
+├── Applications/             # Core Service Implementations
+│   ├── Backend/              # FastAPI Server & SQL Engine logic
+│   ├── Frontend/             # Next.js Web Dashboard
+│   └── LLM-Engine/           # VLLM/Transformer Inference Scripts & Docker
+├── Dataset/                  # Census-650 & Evaluation Gold Sets
+│   ├── all dataset/          # Raw .sql and .txt source pairs
+│   ├── data/                 # 12 Normalized Census CSV tables
+│   ├── eval_data/            # Unseen test sets (.jsonl)
+│   └── training_data/        # Fine-tuning ready records
+├── Diagrams/                 # System, Sequence, and ER Diagrams 
+│   ├── System arch new.png   # Current production architecture
+│   └── ER Diagram.png        # Normalized Census Schema visual
+├── Training/                 # Model Adaptation & Metrics
+│   ├── lora_train_test.ipynb # LoRA/QLoRA training pipeline
+│   ├── run_evaluation.py     # Automated metric calculation script
+│   └── evaluation_results_adapter.csv # Final model performance logs
+├── Pre-Process/              # Data Cleaning & Normalization Pipeline
+│   ├── scripts/              # Individual table cleaning logic
+│   └── unified_outputs/      # Final processed CSVs for DB ingestion
+├── DB-Setup/                 # Database Ingestion & Security Scripts
+└── README.md                 # Project Overview & Documentation
 ```
 
 ---
@@ -65,6 +69,21 @@ The model is trained to navigate **12 normalized tables** covering the depth of 
 2. **Model Training:** Executed LoRA adaptation to bridge the 17% performance gap identified in the baseline research.
 3. **Deployment:** Established a decoupled architecture using DigitalOcean (Inference), Render (Backend), and Vercel (Frontend).
 4. **Evaluation:** Analyzing results from the 350-question unseen dataset to categorize remaining errors (Syntax, Join logic, or Aggregation).
+
+---
+
+## 👥 Contributors
+
+This project is a collaborative effort by the following team members at **SIES Graduate School of Technology**:
+
+| Contributor | Core Responsibilities |
+| :--- | :--- |
+| **Sourish Kanna** | System Architecture, QLoRA Fine-tuning, Backend Orchestration |
+| **G U Gopikha** | Healthcare & Social Dataset Curation, SQL Logic Verification |
+| **Nandini Shende** | Demographic & Economic Data Engineering, IEEE Documentation |
+| **Maharajan Konar** | Frontend Development (Next.js), UI/UX Design, Vercel Deployment |
+
+**Guided by:** Prof. Suvarna Chaure
 
 ---
 

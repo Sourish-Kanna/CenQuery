@@ -13,9 +13,12 @@ from typing import Set, Tuple, Any, Dict
 # --- Configuration ---
 load_dotenv()
 
-GENERATION_LOG_FILE = "generation_log.csv"
-LOG_FILE = "metrics_log.csv"
-DATA_DIR = os.getenv("DATA_DIR", "data")
+# Get the directory of the current script for relative paths
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+GENERATION_LOG_FILE = os.path.join(SCRIPT_DIR, "generation_log.csv")
+LOG_FILE = os.path.join(SCRIPT_DIR, "metrics_log.csv")
+DATA_DIR = os.getenv("DATA_DIR", os.path.join(SCRIPT_DIR, "data"))
 
 DATABASE_URL = os.getenv("DB_CONNECTION_STRING", "")
 LLM_ENGINE_URL = os.getenv("LLM_ENGINE_URL", "")
@@ -168,8 +171,9 @@ try:
     # 2. Build Schema Cache from FILE (Not Database Inspection)
     print("⏳ Building Schema Cache from 'database_schema.json'...")
     
-    # Ensure the path is correct relative to where you run the script
-    schema_path = "database_schema.json" 
+    # Ensure the path is correct relative to the script location
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    schema_path = os.path.join(script_dir, "database_schema.json")
     
     if not os.path.exists(schema_path):
         raise FileNotFoundError(f"Schema file not found at {schema_path}")
