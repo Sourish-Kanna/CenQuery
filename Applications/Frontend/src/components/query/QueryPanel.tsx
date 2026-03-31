@@ -2,15 +2,21 @@
 
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Copy, Loader2, Trash2, AlertCircle } from "lucide-react";
+import { Copy, Loader2, Trash2, AlertCircle, Download, TrendingUp, PieChart as PieChartIcon, BarChart3 } from "lucide-react";
 import {
   BarChart,
   Bar,
+  LineChart,
+  Line,
+  PieChart,
+  Pie,
+  Cell,
   XAxis,
   YAxis,
   Tooltip,
   ResponsiveContainer,
   CartesianGrid,
+  Legend,
 } from "recharts";
 
 // 1. Define your Backend URL
@@ -32,10 +38,13 @@ const exampleQuestions = [
 export default function QueryPanel() {
   const [question, setQuestion] = useState("");
   const [sql, setSql] = useState("");
-  const [results, setResults] = useState<any[]>([]); // Dynamic results from DB
+  const [results, setResults] = useState<any[]>([]);
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [chartType, setChartType] = useState<"bar" | "line" | "pie">("bar");
+  const [sortColumn, setSortColumn] = useState<string | null>(null);
+  const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
 
   const handleGenerate = async () => {
     if (!question) return;
@@ -93,16 +102,161 @@ export default function QueryPanel() {
     setResults([]);
     setShowResult(false);
     setError(null);
+    setChartType("bar");
+    setSortColumn(null);
+    setSortDirection("asc");
   };
 
   const handleCopy = () => {
     navigator.clipboard.writeText(sql);
   };
 
+  const handleExportCSV = () => {
+    if (results.length === 0) return;
+    
+    const keys = Object.keys(results[0]);
+    const csvContent = [
+      keys.join(","),
+      ...results.map(row => keys.map(key => JSON.stringify(row[key] ?? "")).join(","))
+    ].join("\n");
+    
+    const blob = new Blob([csvContent], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "query_results.csv";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const handleExportJSON = () => {
+    if (results.length === 0) return;
+    
+    const jsonContent = JSON.stringify(results, null, 2);
+    const blob = new Blob([jsonContent], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "query_results.json";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const handleSort = (column: string) => {
+    if (sortColumn === column) {
+      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+    } else {
+      setSortColumn(column);
+      setSortDirection("asc");
+    }
+  };
+
+  const getSortedResults = () => {
+    if (!sortColumn) return results;
+    
+    return [...results].sort((a, b) => {
+      const aVal = a[sortColumn];
+      const bVal = b[sortColumn];
+      
+      if (aVal === bVal) return 0;
+      if (aVal === null || aVal === undefined) return 1;
+      if (bVal === null || bVal === undefined) return -1;
+      
+      const comparison = aVal < bVal ? -1 : 1;
+      return sortDirection === "asc" ? comparison : -comparison;
+    });
+  };
+
   // Helper to get keys for table headers and chart axis
   const resultKeys = results.length > 0 ? Object.keys(results[0]) : [];
   const dataKeyX = resultKeys[0]; // Usually the name/district
   const dataKeyY = resultKeys[1]; // Usually the value/count
+
+  // Chart colors
+  const COLORS = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#ef4444', '#06b6d4', '#6366f1'];
+
+  // Render chart based on type
+  const renderChart = () => {
+    const sortedData = getSortedResults();
+    
+    switch (chartType) {
+      case "bar":
+        return (
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={sortedData}>
+              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
+              <XAxis 
+                dataKey={dataKeyX} 
+                fontSize={12} 
+                tickMargin={10}
+                stroke="#6b7280"
+              />
+              <YAxis fontSize={12} stroke="#6b7280" />
+              <Tooltip 
+                cursor={{fill: '#f3f4f6'}}
+                contentStyle={{borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)', background: 'white'}}
+              />
+              <Legend />
+              <Bar dataKey={dataKeyY} fill="#3b82f6" radius={[8, 8, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+        );
+      
+      case "line":
+        return (
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={sortedData}>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis 
+                dataKey={dataKeyX} 
+                fontSize={12} 
+                tickMargin={10}
+                stroke="#6b7280"
+              />
+              <YAxis fontSize={12} stroke="#6b7280" />
+              <Tooltip 
+                contentStyle={{borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)', background: 'white'}}
+              />
+              <Legend />
+              <Line 
+                type="monotone" 
+                dataKey={dataKeyY} 
+                stroke="#8b5cf6" 
+                strokeWidth={3}
+                dot={{ fill: '#8b5cf6', r: 5 }}
+                activeDot={{ r: 7 }}
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        );
+      
+      case "pie":
+        return (
+          <ResponsiveContainer width="100%" height="100%">
+            <PieChart>
+              <Pie
+                data={sortedData}
+                dataKey={dataKeyY}
+                nameKey={dataKeyX}
+                cx="50%"
+                cy="50%"
+                outerRadius={120}
+                label={(entry) => entry[dataKeyX]}
+                labelLine={true}
+              >
+                {sortedData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+              </Pie>
+              <Tooltip 
+                contentStyle={{borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)', background: 'white'}}
+              />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
+        );
+    }
+  };
 
   return (
     <div className="flex flex-col gap-6 max-w-4xl mx-auto p-4">
@@ -187,28 +341,55 @@ export default function QueryPanel() {
 
       {/* Results Section */}
       {showResult && results.length > 0 ? (
-        <div className="space-y-8 animate-in fade-in duration-500">
+        <div className="space-y-6 animate-in fade-in duration-500">
+          {/* Export Buttons */}
+          <div className="flex gap-3 flex-wrap">
+            <Button onClick={handleExportCSV} variant="outline" size="sm" className="flex gap-2">
+              <Download size={16} />
+              Export CSV
+            </Button>
+            <Button onClick={handleExportJSON} variant="outline" size="sm" className="flex gap-2">
+              <Download size={16} />
+              Export JSON
+            </Button>
+          </div>
+
           {/* Table */}
-          <div className="overflow-hidden border border-gray-200 rounded-lg shadow-sm">
-            <div className="bg-gray-50 px-4 py-2 border-b border-gray-200">
-              <span className="text-sm font-semibold text-gray-700">Data Table</span>
+          <div className="overflow-hidden border border-gray-200 rounded-xl shadow-lg bg-white">
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 px-6 py-4 border-b border-gray-200">
+              <div className="flex items-center gap-2">
+                <BarChart3 className="text-blue-600" size={20} />
+                <span className="text-base font-semibold text-gray-800">Query Results</span>
+                <span className="ml-auto text-sm text-gray-600">{results.length} rows</span>
+              </div>
             </div>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm text-left">
-                <thead className="bg-gray-100 text-gray-600 uppercase text-xs">
+            <div className="overflow-x-auto max-h-96">
+              <table className="w-full text-sm">
+                <thead className="bg-gray-50 sticky top-0 z-10">
                   <tr>
                     {resultKeys.map((key) => (
-                      <th key={key} className="px-4 py-3 font-medium border-b capitalize">
-                        {key.replace(/_/g, " ")}
+                      <th 
+                        key={key} 
+                        className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border-b cursor-pointer hover:bg-gray-100 transition-colors"
+                        onClick={() => handleSort(key)}
+                      >
+                        <div className="flex items-center gap-1">
+                          {key.replace(/_/g, " ")}
+                          {sortColumn === key && (
+                            <span className="text-blue-600">
+                              {sortDirection === "asc" ? "↑" : "↓"}
+                            </span>
+                          )}
+                        </div>
                       </th>
                     ))}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {results.map((row, i) => (
-                    <tr key={i} className="hover:bg-gray-50 transition-colors">
+                <tbody className="divide-y divide-gray-100">
+                  {getSortedResults().map((row, i) => (
+                    <tr key={i} className="hover:bg-blue-50/50 transition-colors">
                       {resultKeys.map((key) => (
-                        <td key={key} className="px-4 py-3 text-gray-700">
+                        <td key={key} className="px-6 py-4 text-gray-700 whitespace-nowrap">
                           {row[key]?.toLocaleString() ?? "-"}
                         </td>
                       ))}
@@ -219,37 +400,71 @@ export default function QueryPanel() {
             </div>
           </div>
 
-          {/* Chart */}
-          <div className="border rounded-lg p-6 shadow-sm bg-white">
-            <label className="block text-sm font-semibold text-gray-700 mb-4 capitalize">
-              Visualizing: {dataKeyY?.replace(/_/g, " ")} by {dataKeyX?.replace(/_/g, " ")}
-            </label>
-            <div className="w-full h-80">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={results}>
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                  <XAxis 
-                    dataKey={dataKeyX} 
-                    fontSize={12} 
-                    tickMargin={10}
-                  />
-                  <YAxis fontSize={12} />
-                  <Tooltip 
-                    cursor={{fill: '#f3f4f6'}}
-                    contentStyle={{borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'}}
-                  />
-                  <Bar dataKey={dataKeyY} fill="#3b82f6" radius={[4, 4, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
+          {/* Chart Section */}
+          <div className="border rounded-xl p-6 shadow-lg bg-white">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
+                  <TrendingUp className="text-blue-600" size={20} />
+                  Data Visualization
+                </h3>
+                <p className="text-sm text-gray-600 mt-1 capitalize">
+                  {dataKeyY?.replace(/_/g, " ")} by {dataKeyX?.replace(/_/g, " ")}
+                </p>
+              </div>
+              
+              {/* Chart Type Selector */}
+              <div className="flex gap-2 bg-gray-100 p-1 rounded-lg">
+                <button
+                  onClick={() => setChartType("bar")}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-all flex items-center gap-2 ${
+                    chartType === "bar"
+                      ? "bg-white text-blue-600 shadow-sm"
+                      : "text-gray-600 hover:text-gray-900"
+                  }`}
+                >
+                  <BarChart3 size={16} />
+                  Bar
+                </button>
+                <button
+                  onClick={() => setChartType("line")}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-all flex items-center gap-2 ${
+                    chartType === "line"
+                      ? "bg-white text-purple-600 shadow-sm"
+                      : "text-gray-600 hover:text-gray-900"
+                  }`}
+                >
+                  <TrendingUp size={16} />
+                  Line
+                </button>
+                <button
+                  onClick={() => setChartType("pie")}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-all flex items-center gap-2 ${
+                    chartType === "pie"
+                      ? "bg-white text-pink-600 shadow-sm"
+                      : "text-gray-600 hover:text-gray-900"
+                  }`}
+                >
+                  <PieChartIcon size={16} />
+                  Pie
+                </button>
+              </div>
+            </div>
+            
+            <div className="w-full h-96">
+              {renderChart()}
             </div>
           </div>
         </div>
       ) : showResult && results.length === 0 ? (
-        <div className="p-8 text-center border rounded-lg bg-gray-50 text-gray-500">
-          No data found for this query.
+        <div className="p-8 text-center border-2 border-dashed rounded-xl bg-gray-50 text-gray-500">
+          <AlertCircle className="mx-auto mb-3 text-gray-400" size={48} />
+          <p className="text-base font-medium">No data found for this query.</p>
         </div>
       ) : (
-        <div className="border border-dashed rounded-lg p-10 text-center text-gray-400 bg-gray-50">
+        <div className="border-2 border-dashed rounded-xl p-12 text-center text-gray-400 bg-gradient-to-br from-gray-50 to-blue-50">
+          <BarChart3 className="mx-auto mb-4 text-gray-300" size={64} />
+          <p className="text-base font-medium mb-2">Ready to Query</p>
           <p className="text-sm">Submit a question to visualize census data.</p>
         </div>
       )}
