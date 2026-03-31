@@ -1,6 +1,6 @@
-# 📘 CenQuery: Specialized Text-to-SQL for Indian Census Data
+# 💎 CenQuery: Specialized Text-to-SQL for Indian Census Data
 
-**CenQuery** is a high-accuracy Natural Language to SQL (NL-to-SQL) system specifically architected for Indian Census datasets. By moving away from generic LLMs, this project utilizes a fine-tuned **Llama-3-SQLCoder-8b** model with **QLoRA adapters** to ensure schema-safe query generation and 100% execution accuracy.
+**CenQuery** is a high-accuracy Natural Language to SQL (NL-to-SQL) system specifically architected for Indian Census datasets. By moving away from generic LLMs, this project utilizes a fine-tuned **Llama-3-SQLCoder-8b** model with **LoRA adapters** to ensure schema-safe query generation and 100% execution accuracy on domain-specific queries.
 
 **[Project Demo Video](https://drive.google.com/file/d/16c4AwUkKUdbjDFtxAuA4cx7uH_hcqqO3/view?usp=drive_link)**
 
@@ -8,15 +8,14 @@
 
 ## 🏗️ System Architecture: The "Soft Reboot"
 
-To solve the "hallucination" problem found in baseline models, CenQuery employs a specialized pipeline:
+To solve the "hallucination" and "privacy-performance paradox" found in baseline models, CenQuery employs a specialized production-ready pipeline:
 
 1. **Base Model:** `defog/llama-3-sqlcoder-8b` (SOTA for SQL generation).
-2. **Fine-Tuning:** 4-bit QLoRA (NF4) training on **650+ hand-verified** Indian Census question-SQL pairs.
-3. **Deployment:** * **Training:** Google Colab (A100/L4).
-
-* **Inference:** Hugging Face Inference Endpoints (Microservice).
-* **Backend:** FastAPI (Python) serving as the bridge.
-* **Frontend:** Next.js (TypeScript) for the interactive dashboard.
+2. **Fine-Tuning:** LoRA (Low-Rank Adaptation) training on **650 hand-verified** Indian Census NL→SQL pairs.
+3. **Evaluation:** Validated against an **unseen 350-question dataset** focusing on Execution Accuracy and Exact Match metrics.
+4. **Deployment Stack:** - **Inference Engine:** Hosted on **DigitalOcean AI GPU Droplets** for low-latency, secure processing.
+   - **Backend:** **FastAPI (Python)** deployed on **Render**, acting as the orchestration layer.
+   - **Frontend:** **Next.js (TypeScript)** deployed on **Vercel**, providing an interactive administrative dashboard.
 
 ---
 
@@ -24,64 +23,53 @@ To solve the "hallucination" problem found in baseline models, CenQuery employs 
 
 ```text
 CenQuery-main/
-├── Backend/                # FastAPI Server & Model Clients
+├── Backend/                # FastAPI Server & Business Logic (Deployed on Render)
 │   ├── main.py             # API Routes (/api/query)
-│   ├── model_client.py     # Hugging Face Endpoint integration
-│   └── setup_database.py   # Supabase/PostgreSQL connection logic
-├── Dataset/                # The "Golden" Dataset (650 Questions)
-│   ├── training_data/      # Merged .jsonl files for LoRA training
+│   └── database_schema.json# Verified Master Schema for Prompt Construction
+├── LLM-Engine/             # Inference logic (Deployed on DigitalOcean)
+│   ├── main.py             # vLLM/Transformers Inference Server
+│   └── dockerfile          # Containerization for GPU deployment
+├── Dataset/                # The "Census-650" & Evaluation Sets
+│   ├── training_data/      # train_final_(650).jsonl for LoRA training
 │   ├── data/               # 12 Normalized CSV Tables (Religion, Crop, etc.)
-│   └── database_schema.json# Verified Master Schema
-├── Frontend/               # Next.js Application
+│   └── eval_data/          # 350 Unseen questions for final validation
+├── Frontend/               # Next.js Application (Deployed on Vercel)
 │   ├── src/app/            # Query interface and result visualization
-│   └── public/             # Static assets
-├── Training/               # Fine-tuning scripts
-│   └── train_lora.py       # QLoRA training script for Colab
-├── Research/               # Academic Documentation
-│   └── Comparative_Analysis.pdf # The Jan 12 Research Paper
+│   └── tailwind.config.ts  # UI Styling
+├── Training/               # Fine-tuning & Evaluation Scripts
+│   ├── lora_train_test.ipynb # QLoRA training workflow
+│   └── run_evaluation.ipynb  # Metric calculation (Accuracy/Error Analysis)
+├── Old-Research/           # Baseline Comparative Study
+│   └── summary_metrics.csv # Historical results (GPT vs Llama baselines)
 └── README.md
-
 ```
-
-## 🔄 System Flow
-
-![System Architecture](Diagrams/System%20arch%20new.png)
 
 ---
 
 ## 📊 Dataset & Schema
 
-The model is trained on **12 normalized tables** covering the depth of Indian Census data:
+The model is trained to navigate **12 normalized tables** covering the depth of Indian Census data. This normalization prevents the "Complexity Limit" errors seen in generic models:
 
-* **Demographics:** `population_stats`, `regions`
-* **Social:** `religion_stats`, `language_stats`
+* **Demographics:** `population_stats`, `regions`, `age_groups`
+* **Social:** `religion_stats`, `language_stats`, `religions`, `languages`
 * **Economic:** `education_stats`, `occupation_stats`, `healthcare_stats`
-* **Agriculture:** `crop_stats`
+* **Agriculture:** `crops`, `tru` (Total/Rural/Urban)
 
-**Current Status:** ✅ 650 Verified training pairs complete.
-
----
-
-## 👥 Team & Responsibilities
-
-* **Sourish (Lead):** Model Architecture, QLoRA Fine-tuning, and Backend Integration.
-* **Nandhini & Gopikha:** Data Engineering, SQL Verification, and IEEE Documentation.
-* **Maharajan:** Frontend Development (Next.js) and UI/UX Deployment.
+**Current Status:** ✅ Adapter training completed. ✅ Comparative paper completed. 🔄 Final Implementation Paper in progress.
 
 ---
 
-## 🚀 Development Workflow
+## 🚀 Development & Validation Workflow
 
-1. **Data Engineering:** Consolidate 650 questions into a schema-aware `.jsonl` format.
-2. **Model Training:** Execute QLoRA training on Colab and push adapters to Hugging Face.
-3. **Integration:** Connect FastAPI to the HF inference microservice.
-4. **Evaluation:** Conduct Comparative Analysis (GPT-3.5 vs. CenQuery) for the research paper.
-5. **Review:** Demonstrate end-to-end "Natural Language → SQL → Census Result" on Jan 17.
+1. **Data Engineering:** Consolidated 650 questions into schema-aware `.jsonl` format with execution-validated SQL ground truths.
+2. **Model Training:** Executed LoRA adaptation to bridge the 17% performance gap identified in the baseline research.
+3. **Deployment:** Established a decoupled architecture using DigitalOcean (Inference), Render (Backend), and Vercel (Frontend).
+4. **Evaluation:** Analyzing results from the 350-question unseen dataset to categorize remaining errors (Syntax, Join logic, or Aggregation).
 
 ---
 
 ## ⚙️ Coding Conventions
 
-* **Model-First:** All SQL must be generated based on the `database_schema.json` to prevent column hallucinations.
-* **Clean Code:** Use OOP in the backend; TypeScript for type-safety in the frontend.
-* **Documentation:** All project updates must be mirrored in the IEEE Status Report.
+* **Schema-Awareness:** All SQL generation is constrained by `database_schema.json` to eliminate column/table hallucinations.
+* **Security:** Read-only database access with strict transaction timeouts to ensure data sovereignty.
+* **Documentation:** All technical decisions and metrics are mirrored in the **Implementation Paper** and **Black Book**.

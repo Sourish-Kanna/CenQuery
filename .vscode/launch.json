@@ -8,7 +8,7 @@
             "name": "Frontend Run",
             "type": "node-terminal",
             "request": "launch",
-            "cwd": "${workspaceFolder}/Frontend",
+            "cwd": "${workspaceFolder}/Applications/Frontend",
             "command": "npm run dev"
         },
         {
@@ -16,7 +16,7 @@
             "type": "chrome",
             "request": "launch",
             "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}/Frontend",
+            "webRoot": "${workspaceFolder}/Applications/Frontend",
             "sourceMapPathOverrides": {
                 "webpack://_N_E/*": "${webRoot}/*"
             },
@@ -29,7 +29,7 @@
             "type": "debugpy",
             "request": "launch",
             "module": "uvicorn",
-            "cwd": "${workspaceFolder}/Backend",
+            "cwd": "${workspaceFolder}/Applications/Backend",
             "args": [
                 "main:app",
                 "--reload",
@@ -40,7 +40,7 @@
             ],
             "jinja": true,
             "env": {
-                "PYTHONPATH": "${workspaceFolder}/Backend"
+                "PYTHONPATH": "${workspaceFolder}/Applications/Backend"
             }
         }
     ],
