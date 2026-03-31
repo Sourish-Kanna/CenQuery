@@ -262,11 +262,11 @@ export default function QueryPanel() {
     <div className="flex flex-col gap-6 max-w-4xl mx-auto p-4">
       {/* Example questions */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
           Example Questions
         </label>
         <select
-          className="border rounded p-2 w-full bg-white"
+          className="border rounded p-2 w-full bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100"
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
         >
@@ -281,14 +281,14 @@ export default function QueryPanel() {
 
       {/* Input */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
           Ask a question about Indian Census
         </label>
         <textarea
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
           placeholder="e.g., how many males and females are there in Tamil Nadu?"
-          className="w-full h-28 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+          className="w-full h-28 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm bg-white dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400"
         />
       </div>
 
@@ -313,7 +313,7 @@ export default function QueryPanel() {
 
       {/* Error Message */}
       {error && (
-        <div className="flex items-center gap-2 p-4 text-red-700 bg-red-50 border border-red-200 rounded-lg">
+        <div className="flex items-center gap-2 p-4 text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-lg">
           <AlertCircle size={18} />
           <p className="text-sm">{error}</p>
         </div>
@@ -322,19 +322,19 @@ export default function QueryPanel() {
       {/* SQL Output */}
       <div className="space-y-2">
         <div className="flex justify-between items-center">
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
             Generated SQL
           </label>
           {sql && (
             <button
               onClick={handleCopy}
-              className="flex items-center gap-1 text-sm text-blue-600 hover:underline"
+              className="flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 hover:underline"
             >
               <Copy size={14} /> Copy
             </button>
           )}
         </div>
-        <pre className="bg-slate-900 text-slate-100 p-4 rounded-lg text-xs font-mono overflow-x-auto min-h-[50px]">
+        <pre className="bg-slate-900 dark:bg-gray-950 text-slate-100 dark:text-gray-100 p-4 rounded-lg text-xs font-mono overflow-x-auto min-h-[50px] border border-slate-700 dark:border-gray-800">
           {sql || "-- SQL query will be generated here..."}
         </pre>
       </div>
@@ -355,28 +355,28 @@ export default function QueryPanel() {
           </div>
 
           {/* Table */}
-          <div className="overflow-hidden border border-gray-200 rounded-xl shadow-lg bg-white">
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 px-6 py-4 border-b border-gray-200">
+          <div className="overflow-hidden border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg bg-white dark:bg-gray-800">
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
               <div className="flex items-center gap-2">
-                <BarChart3 className="text-blue-600" size={20} />
-                <span className="text-base font-semibold text-gray-800">Query Results</span>
-                <span className="ml-auto text-sm text-gray-600">{results.length} rows</span>
+                <BarChart3 className="text-blue-600 dark:text-blue-400" size={20} />
+                <span className="text-base font-semibold text-gray-800 dark:text-gray-200">Query Results</span>
+                <span className="ml-auto text-sm text-gray-600 dark:text-gray-400">{results.length} rows</span>
               </div>
             </div>
             <div className="overflow-x-auto max-h-96">
               <table className="w-full text-sm">
-                <thead className="bg-gray-50 sticky top-0 z-10">
+                <thead className="bg-gray-50 dark:bg-gray-700 sticky top-0 z-10">
                   <tr>
                     {resultKeys.map((key) => (
                       <th 
                         key={key} 
-                        className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border-b cursor-pointer hover:bg-gray-100 transition-colors"
+                        className="px-6 py-3 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
                         onClick={() => handleSort(key)}
                       >
                         <div className="flex items-center gap-1">
                           {key.replace(/_/g, " ")}
                           {sortColumn === key && (
-                            <span className="text-blue-600">
+                            <span className="text-blue-600 dark:text-blue-400">
                               {sortDirection === "asc" ? "↑" : "↓"}
                             </span>
                           )}
@@ -385,11 +385,11 @@ export default function QueryPanel() {
                     ))}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-100">
+                <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
                   {getSortedResults().map((row, i) => (
-                    <tr key={i} className="hover:bg-blue-50/50 transition-colors">
+                    <tr key={i} className="hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors">
                       {resultKeys.map((key) => (
-                        <td key={key} className="px-6 py-4 text-gray-700 whitespace-nowrap">
+                        <td key={key} className="px-6 py-4 text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           {row[key]?.toLocaleString() ?? "-"}
                         </td>
                       ))}
@@ -401,26 +401,26 @@ export default function QueryPanel() {
           </div>
 
           {/* Chart Section */}
-          <div className="border rounded-xl p-6 shadow-lg bg-white">
+          <div className="border rounded-xl p-6 shadow-lg bg-white dark:bg-gray-800 dark:border-gray-700">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h3 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
-                  <TrendingUp className="text-blue-600" size={20} />
+                <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-2">
+                  <TrendingUp className="text-blue-600 dark:text-blue-400" size={20} />
                   Data Visualization
                 </h3>
-                <p className="text-sm text-gray-600 mt-1 capitalize">
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 capitalize">
                   {dataKeyY?.replace(/_/g, " ")} by {dataKeyX?.replace(/_/g, " ")}
                 </p>
               </div>
               
               {/* Chart Type Selector */}
-              <div className="flex gap-2 bg-gray-100 p-1 rounded-lg">
+              <div className="flex gap-2 bg-gray-100 dark:bg-gray-700 p-1 rounded-lg">
                 <button
                   onClick={() => setChartType("bar")}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-all flex items-center gap-2 ${
                     chartType === "bar"
-                      ? "bg-white text-blue-600 shadow-sm"
-                      : "text-gray-600 hover:text-gray-900"
+                      ? "bg-white dark:bg-gray-600 text-blue-600 dark:text-blue-400 shadow-sm"
+                      : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100"
                   }`}
                 >
                   <BarChart3 size={16} />
@@ -430,8 +430,8 @@ export default function QueryPanel() {
                   onClick={() => setChartType("line")}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-all flex items-center gap-2 ${
                     chartType === "line"
-                      ? "bg-white text-purple-600 shadow-sm"
-                      : "text-gray-600 hover:text-gray-900"
+                      ? "bg-white dark:bg-gray-600 text-purple-600 dark:text-purple-400 shadow-sm"
+                      : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100"
                   }`}
                 >
                   <TrendingUp size={16} />
@@ -441,8 +441,8 @@ export default function QueryPanel() {
                   onClick={() => setChartType("pie")}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-all flex items-center gap-2 ${
                     chartType === "pie"
-                      ? "bg-white text-pink-600 shadow-sm"
-                      : "text-gray-600 hover:text-gray-900"
+                      ? "bg-white dark:bg-gray-600 text-pink-600 dark:text-pink-400 shadow-sm"
+                      : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100"
                   }`}
                 >
                   <PieChartIcon size={16} />
@@ -457,13 +457,13 @@ export default function QueryPanel() {
           </div>
         </div>
       ) : showResult && results.length === 0 ? (
-        <div className="p-8 text-center border-2 border-dashed rounded-xl bg-gray-50 text-gray-500">
-          <AlertCircle className="mx-auto mb-3 text-gray-400" size={48} />
+        <div className="p-8 text-center border-2 border-dashed rounded-xl bg-gray-50 dark:bg-gray-800/50 text-gray-500 dark:text-gray-400 border-gray-300 dark:border-gray-700">
+          <AlertCircle className="mx-auto mb-3 text-gray-400 dark:text-gray-500" size={48} />
           <p className="text-base font-medium">No data found for this query.</p>
         </div>
       ) : (
-        <div className="border-2 border-dashed rounded-xl p-12 text-center text-gray-400 bg-gradient-to-br from-gray-50 to-blue-50">
-          <BarChart3 className="mx-auto mb-4 text-gray-300" size={64} />
+        <div className="border-2 border-dashed rounded-xl p-12 text-center text-gray-400 dark:text-gray-500 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-800/50 dark:to-blue-900/20 border-gray-300 dark:border-gray-700">
+          <BarChart3 className="mx-auto mb-4 text-gray-300 dark:text-gray-600" size={64} />
           <p className="text-base font-medium mb-2">Ready to Query</p>
           <p className="text-sm">Submit a question to visualize census data.</p>
         </div>

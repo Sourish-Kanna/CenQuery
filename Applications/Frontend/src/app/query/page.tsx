@@ -9,24 +9,24 @@ import AuthGuard from "@/components/auth/AuthGuard";
 export default function QueryPage() {
   return (
     <AuthGuard>
-      <div className="flex flex-col h-screen">
+      <div className="flex flex-col h-screen bg-white dark:bg-gray-900">
         <Navbar />
 
         <div className="flex flex-1 overflow-hidden">
           <Sidebar />
 
-          <main className="flex-1 p-6 bg-gradient-to-br from-gray-50 to-blue-50 overflow-y-auto">
+          <main className="flex-1 p-6 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 overflow-y-auto">
             <div className="max-w-7xl mx-auto">
               <div className="mb-6">
                 <h2 className="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   Query Census Data
                 </h2>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-gray-300">
                   Ask questions in natural language and get instant insights
                 </p>
               </div>
 
-              <div className="bg-white/80 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-gray-200">
+              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-8 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
                 <QueryPanel />
               </div>
             </div>
