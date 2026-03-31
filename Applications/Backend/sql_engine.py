@@ -77,6 +77,12 @@ except Exception as e:
 def detect_intents(question: str) -> Set[str]:
     q = question.lower()
     active = set()
+
+    # NEW: Specific Worker/Cultivator Mapping
+    worker_keywords = ["cultivator", "labourer", "worker", "household industry", "marginal", "main"]
+    if any(k in q for k in worker_keywords):
+        active.add("occupation")
+        
     # Strong
     for intent, groups in INTENTS.items():
         if any(t in q for t in groups["strong"]):
@@ -90,11 +96,22 @@ def detect_intents(question: str) -> Set[str]:
 
 def select_tables(question: str) -> Set[str]:
     intents = detect_intents(question)
-    if "agriculture" in intents:
-        print("🌾 Agriculture Intent Detected: Isolating crop_stats.")
-        return {"crop_stats"}
+    q = question.lower()
+
+    # FIX: Stop 'population' table hallucination for Agriculture
+    if "agriculture" in intents and "labourer" not in q:
+        return {"crop_stats", "regions"}
 
     tables = set(CORE_TABLES)
+
+    # FIX: Priority Routing
+    # If it's about workers, Force occupation_stats and DROP education_stats to avoid EM mismatch
+    if "occupation" in intents:
+        tables.add("occupation_stats")
+        if "literacy" not in q and "education" not in q:
+            # Remove education_stats if it's strictly a worker query
+            tables.discard("education_stats")
+
     for rule in RULES:
         if rule["intent"] not in intents: continue
         tables |= rule["adds"]
@@ -239,7 +256,9 @@ Generate a SQL query to answer the following question:
 ### Instructions
 - Output ONLY the SQL query.
 - Use ILIKE for text comparisons.
-- IMPORTANT: If a column name contains dots (e.g. col.1), you MUST enclose it in double quotes (e.g. "col.1").
+- NEVER use hardcoded IDs (e.g., state=10). Always JOIN with 'regions' and filter by 'area_name'.
+- Do NOT use SUM() or aggregates unless the question asks for "total", "sum", or "percentage".
+- If the column name contains dots (e.g. col.1), use double quotes (e.g. "col.1").
 
 ### SQL
 """
