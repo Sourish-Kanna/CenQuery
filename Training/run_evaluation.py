@@ -39,7 +39,7 @@ def evaluate():
     exact_matches = 0
     execution_matches = 0
     results_log = []
-    eval_data = eval_data[:1] # Set your desired limit
+    eval_data = eval_data[:10] # Set your desired limit
     
     # Clear logs
     open(DETAILED_JSONL_FILE, 'w').close()
