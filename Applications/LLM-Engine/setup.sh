@@ -27,3 +27,7 @@ docker run -d \
 
 echo -e "\n✅ CenQuery Engine deployment initiated on port 8001"
 echo "Check progress with: docker logs -f cenquery-engine"
+
+iptables -I DOCKER-USER -p tcp --dport 8000 -j DROP 
+
+iptables -I DOCKER-USER -p tcp -s <YOUR_IP> --dport 8000 -j ACCEPT
