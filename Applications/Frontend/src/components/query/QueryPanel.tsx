@@ -27,10 +27,10 @@ console.log("Using API Base URL:", API_BASE_URL);
 const exampleQuestions = [
   "What all states are there in India?",
   "How many people in Punjab are seeking work?",
-  "What all crops were sowed?",
+  // "What all crops were sowed?",
   "How many males and females are there in Tamil Nadu?",
   "Give me top 5 states by population in india?",
-  "What was the area sown for Rice in 2024-25?",
+  // "What was the area sown for Rice in 2024-25?",
   "How much Muslim population is there in Kerala?",
   "What is the total population of India?",
 ];
@@ -71,9 +71,9 @@ export default function QueryPanel() {
       const execResponse = await fetch(`${API_BASE_URL}/execute-sql`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           sql_query: generatedSql,
-          question: question 
+          question: question
         }),
       });
 
@@ -113,13 +113,13 @@ export default function QueryPanel() {
 
   const handleExportCSV = () => {
     if (results.length === 0) return;
-    
+
     const keys = Object.keys(results[0]);
     const csvContent = [
       keys.join(","),
       ...results.map(row => keys.map(key => JSON.stringify(row[key] ?? "")).join(","))
     ].join("\n");
-    
+
     const blob = new Blob([csvContent], { type: "text/csv" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -131,7 +131,7 @@ export default function QueryPanel() {
 
   const handleExportJSON = () => {
     if (results.length === 0) return;
-    
+
     const jsonContent = JSON.stringify(results, null, 2);
     const blob = new Blob([jsonContent], { type: "application/json" });
     const url = URL.createObjectURL(blob);
@@ -153,15 +153,15 @@ export default function QueryPanel() {
 
   const getSortedResults = () => {
     if (!sortColumn) return results;
-    
+
     return [...results].sort((a, b) => {
       const aVal = a[sortColumn];
       const bVal = b[sortColumn];
-      
+
       if (aVal === bVal) return 0;
       if (aVal === null || aVal === undefined) return 1;
       if (bVal === null || bVal === undefined) return -1;
-      
+
       const comparison = aVal < bVal ? -1 : 1;
       return sortDirection === "asc" ? comparison : -comparison;
     });
@@ -176,87 +176,87 @@ export default function QueryPanel() {
   const COLORS = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#ef4444', '#06b6d4', '#6366f1'];
 
   // Render chart based on type
-  const renderChart = () => {
-    const sortedData = getSortedResults();
-    
-    switch (chartType) {
-      case "bar":
-        return (
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={sortedData}>
-              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
-              <XAxis 
-                dataKey={dataKeyX} 
-                fontSize={12} 
-                tickMargin={10}
-                stroke="#6b7280"
-              />
-              <YAxis fontSize={12} stroke="#6b7280" />
-              <Tooltip 
-                cursor={{fill: '#f3f4f6'}}
-                contentStyle={{borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)', background: 'white'}}
-              />
-              <Legend />
-              <Bar dataKey={dataKeyY} fill="#3b82f6" radius={[8, 8, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-        );
-      
-      case "line":
-        return (
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={sortedData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-              <XAxis 
-                dataKey={dataKeyX} 
-                fontSize={12} 
-                tickMargin={10}
-                stroke="#6b7280"
-              />
-              <YAxis fontSize={12} stroke="#6b7280" />
-              <Tooltip 
-                contentStyle={{borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)', background: 'white'}}
-              />
-              <Legend />
-              <Line 
-                type="monotone" 
-                dataKey={dataKeyY} 
-                stroke="#8b5cf6" 
-                strokeWidth={3}
-                dot={{ fill: '#8b5cf6', r: 5 }}
-                activeDot={{ r: 7 }}
-              />
-            </LineChart>
-          </ResponsiveContainer>
-        );
-      
-      case "pie":
-        return (
-          <ResponsiveContainer width="100%" height="100%">
-            <PieChart>
-              <Pie
-                data={sortedData}
-                dataKey={dataKeyY}
-                nameKey={dataKeyX}
-                cx="50%"
-                cy="50%"
-                outerRadius={120}
-                label={(entry) => entry[dataKeyX]}
-                labelLine={true}
-              >
-                {sortedData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Pie>
-              <Tooltip 
-                contentStyle={{borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)', background: 'white'}}
-              />
-              <Legend />
-            </PieChart>
-          </ResponsiveContainer>
-        );
-    }
-  };
+  // const renderChart = () => {
+  //   const sortedData = getSortedResults();
+
+  //   switch (chartType) {
+  //     case "bar":
+  //       return (
+  //         <ResponsiveContainer width="100%" height="100%">
+  //           <BarChart data={sortedData}>
+  //             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
+  //             <XAxis 
+  //               dataKey={dataKeyX} 
+  //               fontSize={12} 
+  //               tickMargin={10}
+  //               stroke="#6b7280"
+  //             />
+  //             <YAxis fontSize={12} stroke="#6b7280" />
+  //             <Tooltip 
+  //               cursor={{fill: '#f3f4f6'}}
+  //               contentStyle={{borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)', background: 'white'}}
+  //             />
+  //             <Legend />
+  //             <Bar dataKey={dataKeyY} fill="#3b82f6" radius={[8, 8, 0, 0]} />
+  //           </BarChart>
+  //         </ResponsiveContainer>
+  //       );
+
+  //     case "line":
+  //       return (
+  //         <ResponsiveContainer width="100%" height="100%">
+  //           <LineChart data={sortedData}>
+  //             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+  //             <XAxis 
+  //               dataKey={dataKeyX} 
+  //               fontSize={12} 
+  //               tickMargin={10}
+  //               stroke="#6b7280"
+  //             />
+  //             <YAxis fontSize={12} stroke="#6b7280" />
+  //             <Tooltip 
+  //               contentStyle={{borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)', background: 'white'}}
+  //             />
+  //             <Legend />
+  //             <Line 
+  //               type="monotone" 
+  //               dataKey={dataKeyY} 
+  //               stroke="#8b5cf6" 
+  //               strokeWidth={3}
+  //               dot={{ fill: '#8b5cf6', r: 5 }}
+  //               activeDot={{ r: 7 }}
+  //             />
+  //           </LineChart>
+  //         </ResponsiveContainer>
+  //       );
+
+  //     case "pie":
+  //       return (
+  //         <ResponsiveContainer width="100%" height="100%">
+  //           <PieChart>
+  //             <Pie
+  //               data={sortedData}
+  //               dataKey={dataKeyY}
+  //               nameKey={dataKeyX}
+  //               cx="50%"
+  //               cy="50%"
+  //               outerRadius={120}
+  //               label={(entry) => entry[dataKeyX]}
+  //               labelLine={true}
+  //             >
+  //               {sortedData.map((entry, index) => (
+  //                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+  //               ))}
+  //             </Pie>
+  //             <Tooltip 
+  //               contentStyle={{borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)', background: 'white'}}
+  //             />
+  //             <Legend />
+  //           </PieChart>
+  //         </ResponsiveContainer>
+  //       );
+  //   }
+  // };
 
   return (
     <div className="flex flex-col gap-6 max-w-4xl mx-auto p-4">
@@ -368,8 +368,8 @@ export default function QueryPanel() {
                 <thead className="bg-gray-50 dark:bg-gray-700 sticky top-0 z-10">
                   <tr>
                     {resultKeys.map((key) => (
-                      <th 
-                        key={key} 
+                      <th
+                        key={key}
                         className="px-6 py-3 text-left text-xs font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-wider border-b dark:border-gray-600 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
                         onClick={() => handleSort(key)}
                       >
@@ -401,7 +401,7 @@ export default function QueryPanel() {
           </div>
 
           {/* Chart Section */}
-          <div className="border rounded-xl p-6 shadow-lg bg-white dark:bg-gray-800 dark:border-gray-700">
+          {/* <div className="border rounded-xl p-6 shadow-lg bg-white dark:bg-gray-800 dark:border-gray-700">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-2">
@@ -413,7 +413,7 @@ export default function QueryPanel() {
                 </p>
               </div>
               
-              {/* Chart Type Selector */}
+              
               <div className="flex gap-2 bg-gray-100 dark:bg-gray-700 p-1 rounded-lg">
                 <button
                   onClick={() => setChartType("bar")}
@@ -454,7 +454,7 @@ export default function QueryPanel() {
             <div className="w-full h-96">
               {renderChart()}
             </div>
-          </div>
+          </div> */}
         </div>
       ) : showResult && results.length === 0 ? (
         <div className="p-8 text-center border-2 border-dashed rounded-xl bg-gray-50 dark:bg-gray-800/50 text-gray-500 dark:text-gray-400 border-gray-300 dark:border-gray-700">

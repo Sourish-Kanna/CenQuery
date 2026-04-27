@@ -1,3 +1,4 @@
+from functools import lru_cache
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from constants import GenerateSQLRequest, GenerateSQLResponse, ExecuteSQLRequest, ExecuteSQLResponse
@@ -32,6 +33,22 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
+# ==========================================
+# 🧠 CACHE WRAPPERS
+# ==========================================
+# maxsize=500 means it will remember the last 500 unique queries.
+# Once it hits 501, it evicts the oldest (Least Recently Used) query.
+
+@lru_cache(maxsize=500)
+def cached_generate_sql(question: str, use_adapter: bool):
+    """Caches the heavy LLM inference step."""
+    return generate_sql(question, use_adapter=use_adapter)
+
+@lru_cache(maxsize=500)
+def cached_execute_and_heal(sql_query: str, question: str):
+    """Caches the database execution and healing loops."""
+    return execute_and_heal(sql_query, question)
+
 
 # ==========================================
 # ℹ️ SYSTEM ROUTE
@@ -41,7 +58,7 @@ async def root():
     return {"message": "CenQuery Service B (Dual-Mode Engine) is Online"}
 
 # ==========================================
-# 🚀 PRODUCTION ENDPOINTS
+# 🚀 PRODUCTION ENDPOINTS (Cached)
 # ==========================================
 
 @app.post("/generate-select-sql", response_model=GenerateSQLResponse, tags=["Production (Adapter & Healing)"])
@@ -52,7 +69,7 @@ async def generate_sql_adapter(request: GenerateSQLRequest):
     
     print(f"Received question: {request.question}")
     try:
-        response_data = generate_sql(request.question, use_adapter=True)
+        response_data = cached_generate_sql(request.question, use_adapter=True)
         return GenerateSQLResponse(**response_data)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -63,13 +80,13 @@ async def execute_sql_robust(request: ExecuteSQLRequest):
 
     print(f"Received question: {request.question}")
     try:
-        execution_data = execute_and_heal(request.sql_query, request.question)
+        execution_data = cached_execute_and_heal(request.sql_query, request.question)
         return ExecuteSQLResponse(**execution_data)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 # ==========================================
-# 📊 BENCHMARKING ENDPOINTS
+# 📊 BENCHMARKING ENDPOINTS (Uncached)
 # ==========================================
 
 @app.post("/generate/base", response_model=GenerateSQLResponse, tags=["Benchmarking"])
