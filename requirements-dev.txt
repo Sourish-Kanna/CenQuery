@@ -36,7 +36,7 @@ colorama==0.4.6
     #   -c Applications/Backend/requirements.txt
     #   click
     #   tqdm
-cryptography==47.0.0
+cryptography==48.0.0
     # via pdfminer-six
 et-xmlfile==2.0.0
     # via openpyxl
@@ -52,7 +52,7 @@ h11==0.16.0
     # via
     #   -c Applications/Backend/requirements.txt
     #   uvicorn
-idna==3.13
+idna==3.14
     # via
     #   -c Applications/Backend/requirements.txt
     #   anyio
@@ -63,7 +63,7 @@ numpy==2.4.4
     #   pandas
 openpyxl==3.1.5
     # via -r requirements-dev.in
-pandas==3.0.2
+pandas==3.0.3
     # via
     #   -c Applications/Backend/requirements.txt
     #   -r Applications/Backend/requirements.in
@@ -81,15 +81,15 @@ psycopg2-binary==2.9.12
     #   -r requirements-dev.in
 pycparser==3.0
     # via cffi
-pydantic==2.13.3
+pydantic==2.13.4
     # via
     #   -c Applications/Backend/requirements.txt
     #   fastapi
-pydantic-core==2.46.3
+pydantic-core==2.46.4
     # via
     #   -c Applications/Backend/requirements.txt
     #   pydantic
-pypdfium2==5.7.1
+pypdfium2==5.8.0
     # via pdfplumber
 python-dateutil==2.9.0.post0
     # via
@@ -100,7 +100,7 @@ python-dotenv==1.2.2
     #   -c Applications/Backend/requirements.txt
     #   -r Applications/Backend/requirements.in
     #   -r requirements-dev.in
-requests==2.33.1
+requests==2.34.0
     # via
     #   -c Applications/Backend/requirements.txt
     #   -r Applications/Backend/requirements.in
@@ -136,7 +136,7 @@ tzdata==2026.2
     # via
     #   -c Applications/Backend/requirements.txt
     #   pandas
-urllib3==2.6.3
+urllib3==2.7.0
     # via
     #   -c Applications/Backend/requirements.txt
     #   requests
