@@ -1,14 +1,5 @@
 #!/bin/bash
 
-# Configuration
-REPO_URL="https://github.com/Sourish-Kanna/CenQuery.git"
-BRANCH="stable" 
-
-# 1. Setup/Update Project
-echo "Cloning stable branch..."
-git clone -b $BRANCH $REPO_URL
-cd CenQuery/Applications/LLM-Engine
-
 # 2. Cleanup existing containers (Ensures VRAM is freed)
 docker stop vllm cenquery-engine 2>/dev/null || true
 docker rm vllm cenquery-engine 2>/dev/null || true
@@ -27,7 +18,3 @@ docker run -d \
 
 echo -e "\n✅ CenQuery Engine deployment initiated on port 8001"
 echo "Check progress with: docker logs -f cenquery-engine"
-
-iptables -I DOCKER-USER -p tcp --dport 8000 -j DROP 
-
-iptables -I DOCKER-USER -p tcp -s <YOUR_IP> --dport 8000 -j ACCEPT
