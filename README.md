@@ -1,94 +1,227 @@
-# 💎 CenQuery: Specialized Text-to-SQL for Indian Census Data
+# 💎 CenQuery: Text-to-SQL for Indian Census Data
 
-**CenQuery** is a high-accuracy Natural Language to SQL (NL-to-SQL) system specifically architected for Indian Census datasets. By moving away from generic LLMs, this project utilizes a fine-tuned **Llama-3-SQLCoder-8b** model with **LoRA adapters** to ensure schema-safe query generation and 100% execution accuracy on domain-specific queries.
+**CenQuery** is a domain-specific Natural Language to SQL (NL-to-SQL) system designed for Indian Census data. It uses a fine-tuned **Llama-3-SQLCoder-8B** model with **LoRA adapters** to generate SQL queries grounded in a structured census database.
 
-**[Project Demo Video](https://drive.google.com/file/d/16c4AwUkKUdbjDFtxAuA4cx7uH_hcqqO3/view?usp=drive_link)**
+The project covers the complete workflow, from dataset preparation and model fine-tuning to evaluation and a web-based application for querying census data using natural language.
+
+## 🔗 Project Links
+
+| Resource | Link |
+| --- | --- |
+| **GitHub Repository** | [Sourish-Kanna/CenQuery](https://github.com/Sourish-Kanna/CenQuery) |
+| **IEEE Research Paper** | [CenQuery: A Domain-Specific Text-to-SQL Dataset and Baseline Analysis for Indian Census Data](https://ieeexplore.ieee.org/document/11706071) |
+| **Hugging Face Model** | [Sourish-Kanna/CenQuery](https://huggingface.co/Sourish-Kanna/CenQuery) |
+| **Hugging Face Dataset** | [CenQuery Dataset](https://huggingface.co/datasets/Sourish-Kanna/CenQuery) |
+| **Project Demo** | [Watch the Demo Video](https://drive.google.com/file/d/16c4AwUkKUdbjDFtxAuA4cx7uH_hcqqO3/view?usp=drive_link) |
 
 ---
 
 ## 🏗️ System Architecture
 
-To solve the "hallucination" and "privacy-performance paradox" found in baseline models, CenQuery employs a specialized production-ready pipeline:
+CenQuery combines a domain-specific dataset, an adapted language model, a backend SQL execution layer, and a web frontend.
 
-1. **Base Model:** `defog/llama-3-sqlcoder-8b` (SOTA for SQL generation).
-2. **Fine-Tuning:** LoRA (Low-Rank Adaptation) training on **650 hand-verified** Indian Census NL→SQL pairs.
-3. **Evaluation:** Validated against an **unseen 350-question dataset** focusing on Execution Accuracy and Exact Match metrics.
-4. **Deployment Stack:** - **Inference Engine:** Hosted on **DigitalOcean AI GPU Droplets** for low-latency, secure processing.
-   - **Backend:** **FastAPI (Python)** deployed on **Render**, acting as the orchestration layer.
-   - **Frontend:** **Next.js (TypeScript)** deployed on **Vercel**, providing an interactive administrative dashboard.
+### Main Components
+
+1. **Base Model:** `defog/llama-3-sqlcoder-8b`, used as the foundation for SQL generation.
+2. **Fine-Tuning:** LoRA adaptation using 650 curated Indian Census natural-language-to-SQL training examples.
+3. **Evaluation:** An evaluation workflow using a separate set of 350 questions, with supporting scripts, results, and logs maintained in the repository.
+4. **LLM Engine:** Hosts the model inference functionality.
+5. **Backend:** A Python/FastAPI service that coordinates requests and SQL processing.
+6. **Frontend:** A Next.js and TypeScript web application for interacting with the system.
+
+### Application Documentation
+
+- [Applications Overview](Applications/README.md)
+- [Backend Documentation](Applications/Backend/README.md)
+- [Frontend Documentation](Applications/Frontend/README.md)
+- [LLM Engine Documentation](Applications/LLM-Engine/README.md)
 
 ---
 
-## 📂 Project Structure
+## 📂 Repository Structure
 
-The CenQuery repository is organized into distinct modules for data processing, model training, and application deployment.
+The following structure reflects the current `main` branch, with selected files and subdirectories shown for readability.
 
 ```text
-CenQuery-regorg/
-├── Applications/             # Core Service Implementations
-│   ├── Backend/              # FastAPI Server & SQL Engine logic
-│   ├── Frontend/             # Next.js Web Dashboard
-│   └── LLM-Engine/           # VLLM/Transformer Inference Scripts & Docker
-├── Dataset/                  # Census-650 & Evaluation Gold Sets
-│   ├── all dataset/          # Raw .sql and .txt source pairs
-│   ├── data/                 # 12 Normalized Census CSV tables
-│   ├── eval_data/            # Unseen test sets (.jsonl)
-│   └── training_data/        # Fine-tuning ready records
-├── Diagrams/                 # System, Sequence, and ER Diagrams 
-│   ├── System arch new.png   # Current production architecture
-│   └── ER Diagram.png        # Normalized Census Schema visual
-├── Training/                 # Model Adaptation & Metrics
-│   ├── lora_train_test.ipynb # LoRA/QLoRA training pipeline
-│   ├── run_evaluation.py     # Automated metric calculation script
-│   └── evaluation_results_adapter.csv # Final model performance logs
-├── Pre-Process/              # Data Cleaning & Normalization Pipeline
-│   ├── scripts/              # Individual table cleaning logic
-│   └── unified_outputs/      # Final processed CSVs for DB ingestion
-├── DB-Setup/                 # Database Ingestion & Security Scripts
-└── README.md                 # Project Overview & Documentation
+CenQuery/
+├── Applications/
+│   ├── Backend/
+│   │   ├── data/
+│   │   ├── database_schema.json
+│   │   ├── main.py
+│   │   ├── sql_engine.py
+│   │   ├── constants.py
+│   │   ├── requirements.in
+│   │   ├── requirements.txt
+│   │   └── README.md
+│   │
+│   ├── Frontend/
+│   │   ├── public/
+│   │   ├── src/
+│   │   │   ├── app/
+│   │   │   │   ├── about/
+│   │   │   │   ├── dashboard/
+│   │   │   │   ├── login/
+│   │   │   │   ├── query/
+│   │   │   │   └── schema/
+│   │   │   ├── components/
+│   │   │   │   ├── auth/
+│   │   │   │   ├── layout/
+│   │   │   │   ├── query/
+│   │   │   │   ├── theme/
+│   │   │   │   └── ui/
+│   │   │   └── lib/
+│   │   ├── package.json
+│   │   ├── env.example
+│   │   └── README.md
+│   │
+│   └── LLM-Engine/
+│       ├── main.py
+│       ├── dockerfile
+│       ├── requirements.txt
+│       └── README.md
+│
+├── DB-Setup/
+│   └── unified_outputs/
+│
+├── Dataset/
+│   ├── all dataset/
+│   ├── data/
+│   ├── eval_data/
+│   ├── logs/
+│   └── training_data/
+│
+├── Diagrams/
+│
+├── Old-Research/
+│   ├── datasets_normalized/
+│   └── results/
+│
+├── Paper/
+│
+├── Pre-Process/
+│   ├── input/
+│   ├── scripts/
+│   ├── unified_outputs/
+│   ├── upload_unified_data.py
+│   └── verify_data.py
+│
+├── Training/
+│   ├── eval/
+│   ├── lora_train_test.ipynb
+│   ├── run_evaluation.py
+│   ├── run_full_eval.py
+│   ├── run_analyse.py
+│   └── database_schema.json
+│
+├── Trial/
+│   ├── training_data/
+│   └── training_data_final/
+│
+├── env.example
+├── pyproject.toml
+├── requirements-dev.in
+├── requirements-dev.txt
+├── Refernce links.html
+├── drive link.html
+└── README.md
 ```
 
----
-
-## 📊 Dataset & Schema
-
-The model is trained to navigate **12 normalized tables** covering the depth of Indian Census data. This normalization prevents the "Complexity Limit" errors seen in generic models:
-
-* **Demographics:** `population_stats`, `regions`, `age_groups`
-* **Social:** `religion_stats`, `language_stats`, `religions`, `languages`
-* **Economic:** `education_stats`, `occupation_stats`, `healthcare_stats`
-* **Agriculture:** `crops`, `tru` (Total/Rural/Urban)
-
-**Current Status:** ✅ Adapter training completed. ✅ Comparative paper completed. 🔄 Final Implementation Paper in progress.
+*This is a selected overview rather than an exhaustive listing of every file. For the complete structure, see the [repository on GitHub](https://github.com/Sourish-Kanna/CenQuery).*
 
 ---
 
-## 🚀 Development & Validation Workflow
+## 📊 Dataset and Database Schema
 
-1. **Data Engineering:** Consolidated 650 questions into schema-aware `.jsonl` format with execution-validated SQL ground truths.
-2. **Model Training:** Executed LoRA adaptation to bridge the 17% performance gap identified in the baseline research.
-3. **Deployment:** Established a decoupled architecture using DigitalOcean (Inference), Render (Backend), and Vercel (Frontend).
-4. **Evaluation:** Analyzing results from the 350-question unseen dataset to categorize remaining errors (Syntax, Join logic, or Aggregation).
+CenQuery focuses on Indian Census data organized into normalized tables. The schema includes demographic, social, economic, and agricultural information.
+
+The principal tables documented for the project include:
+
+| Category | Tables |
+| --- | --- |
+| Demographics | `population_stats`, `regions`, `age_groups` |
+| Religion | `religion_stats`, `religions` |
+| Language | `language_stats`, `languages`, `language_stats` |
+| Education and Employment | `education_stats`, `occupation_stats` |
+| Healthcare | `healthcare_stats` |
+| Agriculture and Geography | `crops`, `tru` |
+
+The schema definition is available in [`Applications/Backend/database_schema.json`](Applications/Backend/database_schema.json), with related copies used by the training and frontend components.
+
+The repository also contains dataset preparation, normalized CSV outputs, training records, evaluation datasets, and experiment logs.
+
+---
+
+## 🔄 Development and Evaluation Workflow
+
+The project is organized into the following stages:
+
+1. **Dataset Preparation** — Collect and organize natural-language questions and their corresponding SQL queries.
+2. **Preprocessing** — Clean and normalize census data, with scripts and processed outputs maintained under `Pre-Process/`.
+3. **Database Setup** — Prepare the data and supporting files used by the database.
+4. **Model Fine-Tuning** — Adapt the base SQL-generation model using LoRA training.
+5. **Evaluation** — Run evaluation scripts and analyze generated SQL using the project's evaluation datasets and results.
+6. **Application Integration** — Connect the frontend, backend, and LLM engine to provide an interface for natural-language queries.
+7. **Research and Documentation** — Document the methodology and findings in the project's research publication.
+
+---
+
+## 🚀 Running the Application
+
+CenQuery has separate application components, each with its own documentation.
+
+Before running the project, review:
+
+- [Backend setup and usage](Applications/Backend/README.md)
+- [Frontend setup and usage](Applications/Frontend/README.md)
+- [LLM Engine setup and usage](Applications/LLM-Engine/README.md)
+
+Configuration examples are provided in the root `env.example` and `Applications/Frontend/env.example` files. Follow the relevant component documentation for required environment variables, dependencies, and service configuration.
+
+**Security note:** Use environment variables for credentials and other secrets. Do not commit real database passwords, API keys, or deployment credentials.
+
+---
+
+## 📄 Research Publication
+
+CenQuery's research focuses on a domain-specific Text-to-SQL dataset and baseline analysis for Indian Census data.
+
+**Published paper:** *CenQuery: A Domain-Specific Text-to-SQL Dataset and Baseline Analysis for Indian Census Data*
+
+**Authors:** Sourish Kanna, Maharajan Konar, Nandini Shende, G U Gopikha, and Suvarna Chaure.
+
+Read the paper on [IEEE Xplore](https://ieeexplore.ieee.org/document/11706071).
 
 ---
 
 ## 👥 Contributors
 
-This project is a collaborative effort by the following team members at **SIES Graduate School of Technology**:
+This project was developed collaboratively by students at **SIES Graduate School of Technology**.
 
-| Contributor | Core Responsibilities |
-| :--- | :--- |
-| **Sourish Kanna** | System Architecture, QLoRA Fine-tuning, Backend Orchestration |
-| **G U Gopikha** | Healthcare & Social Dataset Curation, SQL Logic Verification |
-| **Nandini Shende** | Demographic & Economic Data Engineering, IEEE Documentation |
-| **Maharajan Konar** | Frontend Development (Next.js), UI/UX Design, Vercel Deployment |
+| Contributor | Contributions |
+| --- | --- |
+| **Sourish Kanna** | System architecture, model fine-tuning, and backend orchestration |
+| **G U Gopikha** | Healthcare and social dataset curation, SQL logic verification |
+| **Nandini Shende** | Demographic and economic data engineering, research documentation |
+| **Maharajan Konar** | Frontend development and UI/UX design |
 
-**Guided by:** Prof. Suvarna Chaure
+**Project Guide:** Prof. Suvarna Chaure
 
 ---
 
-## ⚙️ Coding Conventions
+## ⚙️ Design Considerations
 
-* **Schema-Awareness:** All SQL generation is constrained by `database_schema.json` to eliminate column/table hallucinations.
-* **Security:** Read-only database access with strict transaction timeouts to ensure data sovereignty.
-* **Documentation:** All technical decisions and metrics are mirrored in the **Implementation Paper** and **Black Book**.
+- **Schema Awareness:** The database schema is maintained in a shared JSON definition for use by application components.
+- **Domain Specialization:** The model is adapted for Indian Census questions rather than relying exclusively on generic SQL-generation behavior.
+- **Component Separation:** The frontend, backend, and LLM engine are maintained as distinct application components.
+- **Evaluation Artifacts:** Training and evaluation scripts, results, and logs are retained in the repository to support research and analysis.
+
+---
+
+## 📚 Additional Resources
+
+- [GitHub Repository](https://github.com/Sourish-Kanna/CenQuery)
+- [IEEE Research Paper](https://ieeexplore.ieee.org/document/11706071)
+- [Hugging Face Model](https://huggingface.co/Sourish-Kanna/CenQuery)
+- [Hugging Face Dataset](https://huggingface.co/datasets/Sourish-Kanna/CenQuery)
+- [Project Demo Video](https://drive.google.com/file/d/16c4AwUkKUdbjDFtxAuA4cx7uH_hcqqO3/view?usp=drive_link)
